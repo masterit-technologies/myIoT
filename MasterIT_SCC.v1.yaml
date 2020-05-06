@@ -1,0 +1,497 @@
+openapi: 3.0.0
+info:
+  title: myIoT
+  version: '1.0'
+  description: ''
+  contact: {}
+  license:
+    name: MasterIT technologies a.s.
+servers:
+  - url: 'https://devproxy.masterit.cz'
+    description: develop
+paths:
+  /api/app/mob/myiot/license/request:
+    post:
+      summary: RequestLicense
+      operationId: post-api-app-mob-myiot-license-request
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Chybějící vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybějící vstupní parametry
+                    err_code: -2000
+                    data: null
+                Nevalidní email:
+                  value:
+                    status: error
+                    err_msg: Nevalidní email
+                    err_code: -22
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: JSON
+              properties:
+                email:
+                  type: string
+                  description: 'emailová adresa, kam má být licence zaslána'
+                licenseOwner:
+                  type: integer
+                  description: 'vlastník licencí, u kterého licence požadujeme (recID z DT_USERS)'
+                licenseCount:
+                  type: integer
+                  description: počet požadovaných licencí
+              required:
+                - email
+                - licenseOwner
+                - licenseCount
+            examples:
+              4 licence:
+                value:
+                  email: michal.smolka18@gmail.com
+                  licenseOwner: 103
+                  licenseCount: 4
+        description: ''
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+      description: ' Metoda zapíše žádost o licenci'
+    get:
+      summary: GetLicenseRequests
+      operationId: get-api-app-mob-myiot-license-request
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - {}
+                      - {}
+                      - {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      description: 'Metoda vrátí požadavky na licenci pro daný licenční subjekt (user), nebo pro všechny s oprávněním(admin, superuser)'
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+        - schema:
+            type: string
+          in: query
+          name: ownerID
+          description: ID vlastníka požadované licence
+        - schema:
+            type: boolean
+          in: query
+          name: includeArchived
+          description: zahrnout archivované požadavky na licence
+        - schema:
+            type: string
+          in: query
+          name: customerEmail
+          description: 'email zákazníka, který licenci požaduje'
+  /api/app/mob/myiot/license/send:
+    get:
+      summary: SendLicense
+      operationId: get-api-app-mob-myiot-license-send
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Licence neexistuje nebo vypršela:
+                  value:
+                    status: error
+                    err_msg: Platnost licence vypršela
+                    err_code: -21
+                    data: null
+                Nevalidní email:
+                  value:
+                    status: error
+                    err_msg: Zadaný e-mail není validní
+                    err_code: -22
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      description: Metoda vygeneruje (pokud není zadáno licenseGuid) a pošle licenci na zadaný email
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+        - schema:
+            type: string
+          in: query
+          name: email
+          required: true
+          description: 'email, kam se má licence zaslat'
+        - schema:
+            type: integer
+          in: query
+          name: licenseCount
+          required: true
+          description: počet zasílaných licencí
+        - schema:
+            type: string
+          in: query
+          name: requestGuid
+          description: GUID požadavku na licenci (požadavek bude automaticky archivován)
+        - schema:
+            type: string
+          in: query
+          name: licenseGuid
+          description: 'GUID existující licence, která se má zaslat'
+  /api/app/mob/myiot/license/user:
+    get:
+      summary: GetLicenseUsers
+      operationId: get-api-app-mob-myiot-license-user
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - {}
+                      - {}
+                      - {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      description: Vrací uživatel kteří mohou poskytnout licence na myIoT zařízení
+      security:
+        - Bearer token: []
+  /api/app/mob/myiot/license/list:
+    get:
+      summary: GetLicenseList
+      operationId: get-api-app-mob-myiot-license-list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - {}
+                      - {}
+                      - {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      description: 'Metoda vrátí licence daného uživatele nebo pokud je uživatel admin nebo superuser vrátí licence podle ownerID, umožňuje také vrátit všechny licence pro admina nebo superusara pomocí parametru returnAll'
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+        - schema:
+            type: string
+          in: query
+          name: status
+          description: stav licence confirmed/unconfirmed
+        - schema:
+            type: integer
+          in: query
+          name: ownerID
+          description: 'ID vlastníka licence, oprávnění(admin, superuser)'
+        - schema:
+            type: boolean
+          in: query
+          name: returnAll
+          description: 'Umožňuje vrátit všechny licence, oprávnění(admin, superuser)'
+  /api/app/mob/myiot/device:
+    post:
+      summary: PostMyIoTDevice
+      operationId: post-api-app-mob-myiot-device
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Chybějící vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybějící vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: JSON
+              properties:
+                licenseID:
+                  type: string
+                  description: |
+                    ID licence
+                device:
+                  type: object
+                  description: JSON
+                  required:
+                    - devEUI
+                    - name
+                    - vendor
+                    - model
+                    - class
+                  properties:
+                    devEUI:
+                      type: string
+                      description: EUI IoT zařízení
+                    name:
+                      type: string
+                      description: Název zařízení
+                    vendor:
+                      type: string
+                      description: Výrobce
+                    model:
+                      type: string
+                      description: Model
+                    class:
+                      type: string
+                      description: 'Třída-Typ (CO2, WaterMeter, PowerMeter, ...)'
+                    description:
+                      type: string
+                      description: popis
+              required:
+                - device
+            examples:
+              Vytváří licenční subjekt:
+                value:
+                  device:
+                    devEUI: xxx
+                    class: CO2
+                    vendor: MasterIT
+                    model: LRB.CO2
+                    name: CO2 čidlo xxx
+                    description: CO2 čidlo xxx
+                    position:
+                      lat: 49.68720574595394
+                      lng: 18.521500606431463
+              Vytváří zákazník:
+                value:
+                  licenseID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+                  device:
+                    devEUI: xxx
+                    class: CO2
+                    vendor: MasterIT
+                    model: LRB.CO2
+                    name: CO2 čidlo xxx
+                    description: CO2 čidlo xxx
+                    position:
+                      lat: 49.68720574595394
+                      lng: 18.521500606431463
+        description: ''
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+      description: 'Vytvoří myIoT zařízení. na vstupu se předpokládá zařízení a popř licence, není-li uživatel vlatníkem licencí.'
+components:
+  schemas:
+    APIResult:
+      title: APIResult
+      type: object
+      properties:
+        status:
+          type: string
+        err_msg:
+          type: string
+        err_code:
+          type: integer
+        data:
+          type:
+            - 'null'
+            - object
+      x-examples:
+        OK:
+          status: ok
+          err_msg: ''
+          err_code: 0
+          data: null
+        ERROR:
+          status: error
+          err_msg: Nedostatečné oprávnění
+          err_code: -4000
+          data: null
+  securitySchemes:
+    Bearer token:
+      type: http
+      scheme: bearer
