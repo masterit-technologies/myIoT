@@ -7,8 +7,8 @@ info:
   license:
     name: MasterIT technologies a.s.
 servers:
-  - url: 'https://devproxy.masterit.cz'
-    description: develop
+  - url: 'https://smartcity.masterit.cz'
+    description: production
 paths:
   /api/app/mob/myiot/license/request:
     post:
