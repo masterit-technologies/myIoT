@@ -12,7 +12,7 @@ servers:
 paths:
   /api/customer/email/exist:
     get:
-      summary: CheckLogin
+      summary: Account Check Request
       operationId: get-api-customer-email-exist
       responses:
         '200':
@@ -54,7 +54,7 @@ paths:
     parameters: []
   /api/login:
     post:
-      summary: PostLogin
+      summary: Login Request
       operationId: post-api-login
       responses:
         '200':
@@ -189,6 +189,167 @@ paths:
         description: ''
       tags:
         - authorization
+      parameters:
+        - schema:
+            type: string
+            default: application/json
+          in: header
+          name: Content-Type
+          required: true
+  api/customer/register:
+    post:
+      summary: Create Account Request
+      operationId: post-customer-register
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      note: tests
+                      type: scc
+                      email: test@test.test
+                      recID: 0
+                      sccID: 1
+                      config:
+                        rights:
+                          role: user
+                          appList: []
+                          groupID: _default
+                          cityList: []
+                          groupList: []
+                          deviceList: []
+                      mobile: ''
+                      userID: 0
+                      lastName: test
+                      appUserID: -1
+                      firstName: test
+                      userGroup: common
+                      userType: 0
+                      tokenID: ''
+                      userLogin: slTest
+                      userApp: default
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Email je již používán:
+                  value:
+                    status: error
+                    err_msg: Email je již používán
+                    err_code: -3004
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      description: |
+        Registrace customera
+      parameters:
+        - schema:
+            type: string
+            default: application/json
+          in: header
+          name: Content-type
+          description: typ obsahu
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              Vytvoření uživatele:
+                value:
+                  application: myIoT
+                  birth: '1982'
+                  email: xxxx.xxxx@xxxx.com
+                  gender: male
+                  login: testxxxx
+                  password: xxxx123
+                  type: email
+              Vytvoření na základě pozvánky:
+                value:
+                  application: myIoT
+                  birth: '1982'
+                  email: xxxx.xxxx@xxxx.com
+                  gender: male
+                  login: testxxxx
+                  password: xxxx123
+                  type: email
+                  requestID: ID pozvánky
+        description: ''
+      tags:
+        - customers
+    parameters: []
+  /api/recovery/password:
+    post:
+      summary: Password reset Request
+      operationId: post-api-recovery-password
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      mailExists: true
+      description: 'Kontroluje zda existuje uživatel s tímto emailem, pokud ano přepošle mu na email odkaz pro změnu hesla a vrací true'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'email, kam se má zaslat odkaz'
+                customer:
+                  type: boolean
+                  description: true pokud je užvatel customer
+                app:
+                  type: string
+                  description: aplikace u které chci měnit heslo k účtu
+              required:
+                - email
+                - customer
+                - app
+            examples:
+              SCC:
+                value:
+                  email: tst@test.cz
+                  customer: true
+                  app: myIoT
+        description: ''
+      tags:
+        - password-recovery
       parameters:
         - schema:
             type: string
