@@ -357,6 +357,278 @@ paths:
           in: header
           name: Content-Type
           required: true
+  api/customer/confirm/send:
+    get:
+      summary: Resend email verification Request
+      operationId: get-customer-confirm-send
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Požadována data neexistují:
+                  value:
+                    status: error
+                    err_msg: Požadována data neexistují
+                    err_code: -2006
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      description: Odešle potvrzovací email na zadanou emailovou adresu
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: email
+          description: 'email uživatele, který se musí potvrdit'
+        - schema:
+            type: string
+          in: query
+          name: app
+          description: aplikace ke které se email váže
+      tags:
+        - customers
+    parameters: []
+  /api/app/mob/myiot/channel/list:
+    get:
+      summary: 'Get Info channel list Request, Search Info channel Request'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK - all:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - data:
+                          url: 'https://www.dpo.cz'
+                        icon: null
+                        name: Dopravní podnik Ostrava a.s.
+                        type: adm
+                        cisID: 100
+                        color: '#000000'
+                        recID: 33918
+                        sccID: 1
+                        itemID: dpo
+                        public: true
+                        changed: '2018-12-05T14:07:38'
+                        created: '2018-12-04T15:28:50'
+                        groupID: _common
+                        iconUrl: null
+                        imageUrl: null
+                        changedBy: -1
+                        createdBy: -1
+                        description: Městská hromadná doprava v Ostravě.
+                      - data: {}
+                        icon: null
+                        name: Master IT
+                        type: adm
+                        cisID: 100
+                        color: '#000000'
+                        recID: 31344
+                        sccID: 1
+                        itemID: mitt
+                        public: false
+                        groupID: _default
+                        iconUrl: null
+                        imageUrl: null
+                        description: ''
+                        created: '2018-11-20T09:23:48'
+                        createdBy: -1
+                        changed: ''
+                        changedBy: null
+                      - data:
+                          url: 'https://www.ostrava.cz'
+                        icon: null
+                        name: Město Ostrava
+                        type: adm
+                        cisID: 100
+                        color: '#000000'
+                        recID: 33919
+                        sccID: 1
+                        itemID: ostrava
+                        public: true
+                        changed: '2019-01-16T13:26:40'
+                        created: '2018-12-04T15:28:50'
+                        groupID: _common
+                        iconUrl: null
+                        imageUrl: null
+                        changedBy: -1
+                        createdBy: -1
+                        description: 'Statutární, krajské a univerzitní město na severovýchodě České republiky v Moravskoslezském kraji'
+                OK - name == dop...:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - data:
+                          url: 'https://www.dpo.cz'
+                        icon: null
+                        name: Dopravní podnik Ostrava a.s.
+                        type: adm
+                        cisID: 100
+                        color: '#000000'
+                        recID: 33918
+                        sccID: 1
+                        itemID: dpo
+                        public: true
+                        changed: '2018-12-05T14:07:38'
+                        created: '2018-12-04T15:28:50'
+                        groupID: _common
+                        iconUrl: null
+                        imageUrl: null
+                        changedBy: -1
+                        createdBy: -1
+                        description: Městská hromadná doprava v Ostravě.
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: get-api-app-mob-myiot-channel-list
+      description: Metoda vrátí seznam info kanálů popř seznam jehož položky začínají na name
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: name
+          description: název kanálu (pro vyhledávání)
+          required: true
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: jazyková mutace
+        - schema:
+            type: integer
+            default: 0
+          in: query
+          name: page
+          description: stránka (počátek 0)
+        - schema:
+            type: integer
+            default: 10
+          in: query
+          name: limit
+          description: počet položek na stránku
+      security:
+        - Bearer token: []
+      tags:
+        - application-myIoT
+  api/customer/update:
+    post:
+      summary: UpdateCustomer Request (Set info-channel)
+      operationId: post-customer-update
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      recID: 103
+                      userID: 93
+                      birth: 1994
+                      gender: male
+                      profession: technician
+                      transportID: ''
+                      mobile: '123456789'
+                      email: xxxxx.xxxxx@xxxxx.com
+                      defaultLang: null
+                      sendInvoice: null
+                      deviceList: []
+                      infoChannels:
+                        - dpo
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      description: 'Metoda uloží parametry customera do databaze, je povoleno pouze uložit vlastní parametry, uživatel je identifikován tokenem'
+      security:
+        - Bearer token: []
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              Update customera:
+                value:
+                  birth: 1994
+                  email: xxxxx.xxxx@xxx.com
+                  gender: male
+                  mobile: '123456789'
+                  profession: technician
+                  recID: 0
+                  transportID: ''
+                  config:
+                    infoChannels:
+                      - dpo
+        description: ''
+      tags:
+        - customers
+    parameters: []
 components:
   schemas:
     APIResult:
