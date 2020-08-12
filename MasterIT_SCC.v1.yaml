@@ -8,7 +8,7 @@ info:
     name: MasterIT technologies a.s.
 servers:
   - url: 'https://develop.masterit.cz'
-    description: production
+    description: develop
 paths:
   /api/customer/email/exist:
     get:
@@ -33,7 +33,7 @@ paths:
                     status: ok
                     err_msg: ''
                     err_code: 0
-                    data: true
+                    data: false
       description: Metoda zkontroluje existenci emailu pro danou aplikaci
       tags:
         - authorization
