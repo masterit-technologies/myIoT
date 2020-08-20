@@ -280,6 +280,12 @@ paths:
           in: header
           name: Content-type
           description: typ obsahu
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: jazyková mutace
       requestBody:
         content:
           application/json:
