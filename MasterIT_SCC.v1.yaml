@@ -427,6 +427,12 @@ paths:
           in: query
           name: app
           description: aplikace ke které se email váže
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: jazyková mutace
       tags:
         - customers
     parameters: []
