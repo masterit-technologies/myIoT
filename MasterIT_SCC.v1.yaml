@@ -575,6 +575,326 @@ paths:
         - Bearer token: []
       tags:
         - application-myIoT
+  /api/app/mob/myiot/init:
+    get:
+      summary: Initialization Request
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      vendors:
+                        - itemID: Advantech
+                          name: Advantech
+                          models:
+                            - itemID: SR303
+                              name: SmartFlex SR303 GPS
+                            - itemID: SL304
+                              name: SmartStart SL304
+                        - itemID: CITIQ
+                          name: CITIQ
+                          models:
+                            - itemID: CTQ.PRK
+                              name: CTQ.PRK
+                            - itemID: CTQ.TRN
+                              name: CTQ.TRN
+                        - itemID: Herman
+                          name: Herman
+                          models:
+                            - itemID: UCU
+                              name: UCU
+                        - itemID: IoTVega
+                          name: IoT Vega
+                          models:
+                            - itemID: VGA.AS0101
+                              name: Smart-AS0101
+                            - itemID: VGA.HS0101
+                              name: Smart-HS0101
+                            - itemID: VGA.MC0101
+                              name: Smart-MC0101
+                            - itemID: VGA.MS0101
+                              name: Smart-MS0101
+                        - itemID: MasterIT
+                          name: Master IT Technologies
+                          models:
+                            - itemID: LGW.V1
+                              name: LGW.V1
+                            - itemID: LRB.BMP
+                              name: LRB.BMP
+                            - itemID: LRB.CAL.1
+                              name: LRB.CAL.1
+                            - itemID: LRB.CNT
+                              name: LRB.CNT
+                            - itemID: LRB.CO2
+                              name: LRB.CO2
+                            - itemID: LRB.CON
+                              name: LRB.CON
+                            - itemID: LRB.DHT
+                              name: LRB.DHT
+                            - itemID: LRB.GME
+                              name: LRB.GME
+                            - itemID: LRB.GPS
+                              name: LRB.GPS
+                            - itemID: LRB.MIO-ACC-3
+                              name: LRB.MIO-ACC-3
+                            - itemID: LRB.MIO-CNT-1
+                              name: LRB.MIO-CNT-1
+                            - itemID: LRB.MIO-CO2-B1
+                              name: LRB.MIO-CO2-B1
+                            - itemID: LRB.MIO-ENV-1
+                              name: LRB.MIO-ENV-1
+                            - itemID: LRB.MIO-MET-1
+                              name: LRB.MIO-MET-1
+                            - itemID: LRB.MIO-SND-1
+                              name: LRB.MIO-SND-1
+                            - itemID: LRB.MIO-THR-1
+                              name: LRB.MIO-THR-1
+                            - itemID: LRB.MIO-USN-1
+                              name: LRB.MIO-USN-1
+                            - itemID: LRB.MPM
+                              name: LRB.MPM
+                            - itemID: LRB.PME
+                              name: LRB.PME
+                            - itemID: LRB.PRK
+                              name: LRB.PRK
+                            - itemID: LRB.SND
+                              name: LRB.SND
+                            - itemID: LRB.UNI
+                              name: LRB.UNI
+                            - itemID: LRB.USN
+                              name: LRB.USN
+                            - itemID: LRB.WME
+                              name: LRB.WME
+                            - itemID: PRK.PAN
+                              name: PRK.PAN
+                        - itemID: Other
+                          name: Other
+                          models:
+                            - itemID: OTHER
+                              name: OTHER
+                        - itemID: RCESystems
+                          name: RCE Systems
+                          models:
+                            - itemID: RCE.CAM
+                              name: RCE.CAM
+                            - itemID: RCE.PRK
+                              name: RCE.PRK
+                        - itemID: SolidusTech
+                          name: SolidusTech
+                          models:
+                            - itemID: SOL.CO2
+                              name: CO2
+                      infoChannels:
+                        - itemID: dpo
+                          name: Dopravní podnik Ostrava a.s.
+                          imageUrl: ''
+                          description: Městská hromadná doprava v Ostravě.
+                        - itemID: mitt
+                          name: Master IT
+                          imageUrl: ''
+                          description: ''
+                        - itemID: ostrava
+                          name: Město Ostrava
+                          imageUrl: ''
+                          description: 'Statutární, krajské a univerzitní město na severovýchodě České republiky v Moravskoslezském kraji'
+                        - itemID: obecRopice
+                          name: Obec Ropice
+                          imageUrl: ''
+                          description: Kanál obce Ropice
+                      icons:
+                        - itemID: Content/images/ico-barrier-24.png
+                          name: ico-barrier
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-bell-24.png
+                          name: ico-bell
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-bin-24.png
+                          name: ico-bin
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-bus-24.png
+                          name: ico-bus
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-bus-stop-24.png
+                          name: ico-bus-stop
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-car-24.png
+                          name: ico-car
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-cctv-24.png
+                          name: ico-cctv
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-church-24.png
+                          name: ico-church
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-city-24.png
+                          name: ico-city
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-co2-24.png
+                          name: ico-co2
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-crystal-24.png
+                          name: ico-crystal
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-cyclist-24.png
+                          name: ico-cyclist
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-digital-24.png
+                          name: ico-digital
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-disabled-24.png
+                          name: ico-disabled
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-drop-24.png
+                          name: ico-drop
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-empty-24.png
+                          name: ico-empty
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-flash-24.png
+                          name: ico-flash
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-gps-24.png
+                          name: ico-gps
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-graduation-24.png
+                          name: ico-graduation
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-heart-24.png
+                          name: ico-heart
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-hospital-24.png
+                          name: ico-hospital
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-info-24.png
+                          name: ico-info
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-level-24.png
+                          name: ico-level
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-locomotive-24.png
+                          name: ico-locomotive
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-parking-24.png
+                          name: ico-parking
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-parking-meter-24.png
+                          name: ico-parking-meter
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-pharmacy-24.png
+                          name: ico-pharmacy
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-poi-24.png
+                          name: ico-poi
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-server-24.png
+                          name: ico-server
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-sign-24.png
+                          name: ico-sign
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-signal-24.png
+                          name: ico-signal
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-sine-waves-24.png
+                          name: ico-sine-waves
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-smart-build-24.png
+                          name: ico-smart-build
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-speaker-24.png
+                          name: ico-speaker
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-speakers-24.png
+                          name: ico-speakers
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-speaker-up-24.png
+                          name: ico-speaker-up
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-speedometer-24.png
+                          name: ico-speedometer
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-sun-24.png
+                          name: ico-sun
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-switch-24.png
+                          name: ico-switch
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-temp-24.png
+                          name: ico-temp
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-tower-24.png
+                          name: ico-tower
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-train-24.png
+                          name: ico-train
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-train-station-24.png
+                          name: ico-train-station
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-tram-24.png
+                          name: ico-tram
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-troll-24.png
+                          name: ico-troll
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-truck-24.png
+                          name: ico-truck
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-wagon-24.png
+                          name: ico-wagon
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-wave-24.png
+                          name: ico-wave
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+                        - itemID: Content/images/ico-wifi-24.png
+                          name: ico-wifi
+                          url: 'https://devproxy.masterit.cz/Content/images/-24.png'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: get-api-app-mob-myiot-init
+      description: |-
+        API vrátí inicializační data pro aplikaci myIoT
+
+        [API returns initialization data for myIoT application]
+
+        Sections:
+
+        vendors - devices vendors contains id of vendor (itemID), name of vendor (name) and list of models which also contains id and name
+
+        infoChannels - list of info channels which contains id, name and some properties for future processing like image (imageUrl) or channel description (description)
+
+        icons - list of icons used in application, each icon object contain id, name and url (object structure will be probably changed, i think it will contain class of device which should use this icon)
+      parameters:
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: jazyková mutace
+      security:
+        - Bearer token: []
+      tags:
+        - application-myIoT
   api/customer/update:
     post:
       summary: UpdateCustomer Request (Set info-channel)
