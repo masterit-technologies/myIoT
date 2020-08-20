@@ -163,7 +163,7 @@ paths:
                 login:
                   type: string
                   description: login uživatele (v případě google a fb se zde posílá token)
-                app:
+                application:
                   type: string
                   description: aplikace ze které se přihlašuji
                   example: myIoT
@@ -171,7 +171,7 @@ paths:
                 - type
                 - password
                 - login
-                - app
+                - application
             examples:
               SCC:
                 value:
@@ -183,7 +183,7 @@ paths:
                   type: email
                   login: email@gmail.com
                   password: xxxxxxxxxxx
-                  app: myIoT
+                  application: myIoT
               Google:
                 value:
                   login: longGoogle token
