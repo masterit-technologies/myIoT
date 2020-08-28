@@ -256,18 +256,17 @@ paths:
                     err_msg: Email je již používán
                     err_code: -3004
                     data: null
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/APIResult'
-              examples:
-                Nedostatečné oprávnění:
+                Email není validní:
                   value:
                     status: error
-                    err_msg: Nedostatečné oprávnění
-                    err_code: -4000
+                    err_msg: Email není validní
+                    err_code: -22
+                    data: null
+                Heslo je příliš krátké:
+                  value:
+                    status: error
+                    err_msg: Heslo je příliš krátké
+                    err_code: -2002
                     data: null
       description: |-
         Registrace customera
