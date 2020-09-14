@@ -915,7 +915,85 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APIResult'
+                type: object
+                properties:
+                  status:
+                    type: string
+                  err_msg:
+                    type: string
+                  err_code:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      devices:
+                        type: object
+                        properties:
+                          shared:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/IoTDevice'
+                          share:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/IoTDevice'
+                          own:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/IoTDevice'
+                      infoChannel:
+                        type: object
+                        properties:
+                          primary:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                recID:
+                                  type: string
+                                channel:
+                                  type: string
+                                title:
+                                  type: string
+                                description:
+                                  type: string
+                                htmlContent:
+                                  type: string
+                                image:
+                                  type: string
+                                attachmentImages:
+                                  type: array
+                                  items:
+                                    type: string
+                                attachmentFiles:
+                                  type: array
+                                  items:
+                                    type: string
+                          secondary:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                recID:
+                                  type: string
+                                channel:
+                                  type: string
+                                title:
+                                  type: string
+                                description:
+                                  type: string
+                                htmlContent:
+                                  type: string
+                                image:
+                                  type: string
+                                attachmentImages:
+                                  type: array
+                                  items:
+                                    type: string
+                                attachmentFiles:
+                                  type: array
+                                  items:
+                                    type: string
               examples:
                 OK:
                   value:
@@ -4147,7 +4225,7 @@ paths:
                     err_code: -4000
                     data: null
       operationId: get-api-app-mob-myiot-data
-      description: "API vrátí data pro aplikaci myIoT\n\n[API returns data for myIoT application]\n\nSections:\n\ndevices - contains 3 sections\n\n            shared - contains a list of devices shared by another user\n            share - contains a list of devices that the user shares\n            own - contains a list of own devices\n\ninfoChannel - contains 2 sections\n            \n            primary - contains news of primary channel\n            secondary - contains news of other channels\n"
+      description: "API vrátí data pro aplikaci myIoT\n\n[API returns data for myIoT application]\n\nSections:\n\ndevices - contains 3 sections (model IoTDevice)\n\n            shared - contains a list of devices shared by another user\n            share - contains a list of devices that the user shares\n            own - contains a list of own devices\n\ninfoChannel - contains 2 sections\n            \n            primary - contains news of primary channel\n            secondary - contains news of other channels\n"
       parameters:
         - schema:
             type: string
@@ -4268,6 +4346,240 @@ components:
           err_msg: Nedostatečné oprávnění
           err_code: -4000
           data: null
+    IoTDevice:
+      title: IoTDevice
+      type: object
+      description: 'Odlehčený model zařízení, určený především pro komunikaci s mobilními aplikacemi'
+      properties:
+        RecID:
+          type: string
+          description: RecordID zařízení (Guid)
+        DevID:
+          type: string
+          description: ID zařízení
+        Name:
+          type: string
+          description: Název zařízení
+        Class:
+          type: string
+          description: 'Třída zařízení (CO2, PowerMeter, ...)'
+        Vendor:
+          type: string
+          description: Výrobce zařízení
+        Model:
+          type: string
+          description: Model zařízení
+        Description:
+          type: string
+          description: Popis zařízení
+        Group:
+          $ref: '#/components/schemas/Group'
+        Data:
+          type: object
+          description: Data zařízení JSON objekt
+        Position:
+          $ref: '#/components/schemas/Position'
+        Values:
+          type: array
+          description: Seznam systémových hodnot zařízení
+          items:
+            $ref: '#/components/schemas/SystemValue'
+        Parameters:
+          type: array
+          description: Parametry zařízení
+          items:
+            $ref: '#/components/schemas/DeviceParameter'
+        Notifications:
+          type: array
+          description: Seznam notifikací zařízení
+          items:
+            $ref: '#/components/schemas/Notification'
+        Application:
+          type: string
+          description: 'Aplikace, do které zařízení náleží (security, consumption, ...), je readonly a nastavuje se na základě Class'
+        Status:
+          $ref: '#/components/schemas/DeviceStatus'
+      required:
+        - DevID
+    Position:
+      title: Position
+      type: object
+      properties:
+        Latitude:
+          type: number
+          description: GPS latitude
+        Longitude:
+          type: number
+          description: GPS longitude
+      required:
+        - Latitude
+        - Longitude
+      description: GPS pozice
+    SystemValue:
+      title: SystemValue
+      type: object
+      description: Systemová hodnota zařízení
+      properties:
+        SysName:
+          type: string
+          description: Identifikátor systémové hodnoty z číselníku
+        Name:
+          type: string
+          description: Regionálně závislý název hodnoty
+        Unit:
+          type: string
+          description: Jednotka hodnoty
+        Order:
+          type: integer
+          description: Pořadí hodnoty
+        IsMain:
+          type: boolean
+          description: Je tato hodnota hlavní pro zařízení.
+        Description:
+          type: string
+          description: Popis hodnoty
+        ParameterMin:
+          type: string
+          description: Reference na minimální alarmní hodnotu v parametrech
+        ParameterMax:
+          type: string
+          description: Reference na maximální alarmní hodnotu v parametrech
+        Min:
+          type: number
+          description: 'Minimální hodnota, které může veličina nabývat'
+        Max:
+          type: number
+          description: 'Maximální hodnota, které může veličina nabývat'
+      required:
+        - SysName
+    DeviceParameter:
+      title: DeviceParameter
+      type: object
+      description: Parametr zařízení
+      properties:
+        ID:
+          type: string
+          description: ID parametru
+        Name:
+          type: string
+          description: Regionálně závislý název parametru
+        Unit:
+          type: string
+          description: Jednotka parametru
+        Pattern:
+          type: string
+          description: Pattern pro validaci hodnoty parametru
+        DataType:
+          description: Název primitivního datového typu obsaženého v hodnotě parametru
+          type: string
+        Value:
+          type: object
+          description: Hodnota parametru
+        Type:
+          type: string
+          description: 'Typ parametru (system, node,...)'
+        Mode:
+          type: string
+          description: 'Mód parametru (r, w, rw)'
+        Required:
+          type: boolean
+          description: Povinnost parametru
+        Changed:
+          type: object
+          description: DateTime? parametr změny hodnoty
+        Min:
+          type: number
+          description: Minimální hodnota (pokud je numerická)
+        Max:
+          type: number
+          description: Maximální hodnota (pokud je numerická)
+        Values:
+          type: array
+          description: Výčet povolených hodnot
+          items:
+            $ref: '#/components/schemas/ParameterValue'
+        Description:
+          type: string
+          description: Popis parametru
+      required:
+        - ID
+    Notification:
+      title: Notification
+      type: object
+      description: Notifikace pro zařízení
+      properties:
+        RecID:
+          type: string
+          description: Record ID notifikace
+        SendEmail:
+          type: boolean
+          description: Notifikace posílá email
+        SendPush:
+          type: boolean
+          description: Notifikace posílá push
+        SysValue:
+          type: string
+          description: Hodnota na kterou se váže notifikace (podle zprávy)
+        Min:
+          type: number
+          description: Minimální hodnota SysValue pro notifikaci
+        Max:
+          type: number
+          description: Maximální hodnota SysValue pro notifikaci
+        SendSMS:
+          description: 'Umožňuje zaslat SMS '
+          type: boolean
+        Range:
+          $ref: '#/components/schemas/Range'
+    Group:
+      title: Group
+      type: object
+      properties:
+        ID:
+          type: string
+          description: ID skupiny (u IoT je to místnost)
+        Name:
+          type: string
+          description: Název skupiny
+    ParameterValue:
+      title: ParameterValue
+      type: object
+      properties:
+        Value:
+          type: string
+          description: Hodnota parametru
+        Name:
+          type: string
+          description: Název parametru
+      required:
+        - Value
+        - Name
+      description: Obecný parametr ve formátu name-value
+    Range:
+      title: Range
+      type: object
+      properties:
+        Gte:
+          type: number
+          description: Dolní mez
+        Lte:
+          type: number
+          description: Horní mez
+      description: Rozsah hodnot
+    DeviceStatus:
+      title: DeviceStatus
+      type: object
+      properties:
+        Status:
+          type: string
+          description: Status zařízení
+        Timestamp:
+          type: object
+          description: Čas vzniku statusu (DateTime)
+      required:
+        - Status
+        - Timestamp
+      description: Status zařízení
   securitySchemes:
     Bearer token:
       type: http
