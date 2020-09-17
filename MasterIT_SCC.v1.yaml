@@ -4225,7 +4225,7 @@ paths:
                     err_code: -4000
                     data: null
       operationId: get-api-app-mob-myiot-data
-      description: "API vrátí data pro aplikaci myIoT\n\n[API returns data for myIoT application]\n\nSections:\n\ndevices - contains 3 sections (model IoTDevice)\n\n            shared - contains a list of devices shared by another user\n            share - contains a list of devices that the user shares\n            own - contains a list of own devices\n\ninfoChannel - contains 2 sections\n            \n            primary - contains news of primary channel\n            secondary - contains news of other channels\n"
+      description: "API vrátí data pro aplikaci myIoT\n\n[API returns data for myIoT application]\n\nSections:\n\ndevices - contains 3 sections (model IoTDevice)\n\n            shared - contains a list of devices shared by another user\n            share - contains a list of devices that the user shares\n            own - contains a list of own devices\n\ninfoChannel - contains 2 sections\n            \n            primary - contains news of primary channel\n            secondary - contains news of other channels\n."
       parameters:
         - schema:
             type: string
