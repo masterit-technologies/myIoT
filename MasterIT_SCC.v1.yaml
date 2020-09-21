@@ -178,6 +178,7 @@ paths:
                   type: scc
                   login: loginTest
                   password: xxxxxxxxx
+                  application: myIoT
               Email:
                 value:
                   type: email
@@ -188,10 +189,14 @@ paths:
                 value:
                   login: longGoogle token
                   type: google
+                  password: not required
+                  application: myIoT
               facebook:
                 value:
                   login: longFB token
+                  password: not required
                   type: facebook
+                  application: myIoT
         description: ''
       tags:
         - authorization
@@ -969,6 +974,12 @@ paths:
                                   type: array
                                   items:
                                     type: string
+                                dateTime:
+                                  type: string
+                                plainTextContent:
+                                  type: string
+                                dateTimeEp:
+                                  type: number
                           secondary:
                             type: array
                             items:
@@ -4216,7 +4227,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '../Base/Base.v1.yaml#/components/schemas/APIResult'
+                $ref: '#/components/schemas/APIResult'
               examples:
                 Nedostatečné oprávnění:
                   value:
@@ -4225,7 +4236,23 @@ paths:
                     err_code: -4000
                     data: null
       operationId: get-api-app-mob-myiot-data
-      description: "API vrátí data pro aplikaci myIoT\n\n[API returns data for myIoT application]\n\nSections:\n\ndevices - contains 3 sections (model IoTDevice)\n\n            shared - contains a list of devices shared by another user\n            share - contains a list of devices that the user shares\n            own - contains a list of own devices\n\ninfoChannel - contains 2 sections\n            \n            primary - contains news of primary channel\n            secondary - contains news of other channels\n."
+      description: |
+        API vrátí data pro aplikaci myIoT
+
+        [API returns data for myIoT application]
+
+        Sections:
+
+        devices - contains 3 sections (model IoTDevice)
+
+                    shared - contains a list of devices shared by another user
+                    share - contains a list of devices that the user shares
+                    own - contains a list of own devices
+
+        infoChannel - contains 2 sections
+                    
+                    primary - contains news of primary channel
+                    secondary - contains news of other channels
       parameters:
         - schema:
             type: string
