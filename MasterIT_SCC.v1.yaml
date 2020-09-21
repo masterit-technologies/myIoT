@@ -1029,18 +1029,18 @@ paths:
                                   Latitude: 49.7174473949403
                                   Longitude: 18.6166709661484
                                 Data:
-                                  loraSF: 12
-                                  loraSNR: -18.2
-                                  mainPower: 3.642
+                                  loraSF: 11
+                                  loraSNR: -17
+                                  mainPower: 3.661
                                   alarmState: 0
                                   loraGWName: PL_CIESZYN_Moniuszki14
-                                  loraGWRssi: -116
-                                  airHumidity: 65
+                                  loraGWRssi: -115
+                                  airHumidity: 50
                                   secureState: secured
                                   timeToLeave: 60
-                                  alarmDateTime: '2020-09-14T12:57:31'
+                                  alarmDateTime: '2020-09-21T08:25:07'
                                   secureStateBy: 1482
-                                  airTemperature: 23.5
+                                  airTemperature: 21.1
                                   secureStateByName: sopach@seznam.cz
                                   secureStateDateTime: '2020-07-29T17:49:27'
                                 Parameters:
@@ -1208,7 +1208,7 @@ paths:
                                   Name: Doma
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T14:23:17'
+                                  Timestamp: '2020-09-21T09:48:41'
                                 Application: security
                                 Values:
                                   - SysName: mainPower
@@ -1264,17 +1264,17 @@ paths:
                                   Longitude: 18.61664012009543
                                 Data:
                                   loraSF: 12
-                                  loraSNR: -17
-                                  mainPower: 3.557
-                                  alarmState: 1
+                                  loraSNR: -16.8
+                                  mainPower: 3.647
+                                  alarmState: 0
                                   loraGWName: PL_CIESZYN_Moniuszki14
                                   loraGWRssi: -115
-                                  airHumidity: 57
+                                  airHumidity: 58
                                   secureState: secured
                                   timeToLeave: 60
-                                  alarmDateTime: '2020-09-14T14:00:27'
+                                  alarmDateTime: '2020-09-21T07:47:20'
                                   secureStateBy: 1482
-                                  airTemperature: 25.9
+                                  airTemperature: 23.1
                                   secureStateByName: sopach@seznam.cz
                                   secureStateDateTime: '2020-09-10T15:28:36'
                                 Parameters:
@@ -1467,7 +1467,7 @@ paths:
                                   Name: Doma
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T14:24:41'
+                                  Timestamp: '2020-09-21T09:18:17'
                                 Application: security
                                 Values:
                                   - SysName: mainPower
@@ -1528,16 +1528,16 @@ paths:
                                   Longitude: 18.626818479338507
                                 Data:
                                   loraSF: 12
-                                  loraSNR: -18
+                                  loraSNR: -18.5
                                   alarmState: 1
                                   loraGWName: CZ_CTESIN_Cihelni15
-                                  loraGWRssi: -122
+                                  loraGWRssi: -123
                                   secureState: secured
                                   timeToLeave: 60
-                                  mainCapacity: 79
-                                  alarmDateTime: '2020-09-14T14:29:37'
+                                  mainCapacity: 77
+                                  alarmDateTime: '2020-09-21T10:01:07'
                                   secureStateBy: 1501
-                                  airTemperature: 29
+                                  airTemperature: 19
                                   secureStateByName: ondrej.smolka18@seznam.cz
                                   secureStateDateTime: '2020-08-12T20:55:03'
                                 Parameters:
@@ -1563,7 +1563,7 @@ paths:
                                   Name: Kancelář
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T14:28:37'
+                                  Timestamp: '2020-09-21T10:00:11'
                                 Application: security
                                 Values:
                                   - SysName: mainCapacity
@@ -1623,18 +1623,18 @@ paths:
                                   Longitude: 18.5215006064315
                                 Data:
                                   loraSF: 12
-                                  loraSNR: 5.5
+                                  loraSNR: 6.8
                                   mainPower: 11.265
                                   alarmState: 0
                                   loraGWName: ''
-                                  loraGWRssi: -112
+                                  loraGWRssi: -114
                                   secureState: unsecured
                                   timeToLeave: 1
-                                  mainCapacity: 88
+                                  mainCapacity: 86
                                   alarmDateTime: '2020-06-24T17:43:53'
                                   secureStateBy: 1487
-                                  verticalAngle: 89
-                                  airTemperature: 27
+                                  verticalAngle: 86
+                                  airTemperature: 26
                                   secureStateByName: michal.smolka@masterit.cz
                                   secureStateDateTime: '2020-07-02T09:12:24'
                                 Parameters:
@@ -1660,7 +1660,7 @@ paths:
                                   Name: Kancelář
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T13:52:25'
+                                  Timestamp: '2020-09-21T10:06:39'
                                 Application: security
                                 Values:
                                   - SysName: mainCapacity
@@ -1760,16 +1760,16 @@ paths:
                                   Longitude: 18.626818479338507
                                 Data:
                                   loraSF: 12
-                                  loraSNR: -18
+                                  loraSNR: -18.5
                                   alarmState: 1
                                   loraGWName: CZ_CTESIN_Cihelni15
-                                  loraGWRssi: -122
+                                  loraGWRssi: -123
                                   secureState: secured
                                   timeToLeave: 60
-                                  mainCapacity: 79
-                                  alarmDateTime: '2020-09-14T14:29:37'
+                                  mainCapacity: 77
+                                  alarmDateTime: '2020-09-21T10:01:07'
                                   secureStateBy: 1501
-                                  airTemperature: 29
+                                  airTemperature: 19
                                   secureStateByName: ondrej.smolka18@seznam.cz
                                   secureStateDateTime: '2020-08-12T20:55:03'
                                 Parameters:
@@ -1795,7 +1795,7 @@ paths:
                                   Name: Kancelář
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T14:28:37'
+                                  Timestamp: '2020-09-21T10:00:11'
                                 Application: security
                                 Values:
                                   - SysName: mainCapacity
@@ -1839,10 +1839,10 @@ paths:
                                 Position: null
                                 Data:
                                   loraSF: 12
-                                  loraSNR: 7.8
+                                  loraSNR: 8
                                   alarmState: 0
                                   loraGWName: ''
-                                  loraGWRssi: -92
+                                  loraGWRssi: -98
                                   secureState: unsecured
                                   timeToLeave: 60
                                   mainCapacity: 84
@@ -1875,7 +1875,7 @@ paths:
                                   Name: Kuchyň
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-13T17:48:35'
+                                  Timestamp: '2020-09-20T17:48:12'
                                 Application: security
                                 Values:
                                   - SysName: mainCapacity
@@ -1921,15 +1921,15 @@ paths:
                                   Longitude: 0
                                 Data:
                                   loraSF: 12
-                                  loraSNR: 5.2
+                                  loraSNR: 7.8
                                   alarmState: 0
                                   loraGWName: ''
-                                  loraGWRssi: -116
+                                  loraGWRssi: -105
                                   secureState: unsecured
                                   timeToLeave: 60
-                                  mainCapacity: 87
-                                  verticalAngle: 89
-                                  airTemperature: 25
+                                  mainCapacity: 86
+                                  verticalAngle: 88
+                                  airTemperature: 23
                                 Parameters:
                                   - ID: timeToLeaveAS0101
                                     Name: Čas k odchodu
@@ -2009,7 +2009,7 @@ paths:
                                   Name: Pracovna
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T13:08:55'
+                                  Timestamp: '2020-09-21T08:52:01'
                                 Application: security
                                 Values:
                                   - SysName: mainCapacity
@@ -2183,20 +2183,20 @@ paths:
                                 Position: null
                                 Data:
                                   loraSF: 12
-                                  loraSNR: 5.8
+                                  loraSNR: 8.2
                                   alarmState: 0
                                   loraGWName: ''
-                                  loraGWRssi: -109
-                                  airHumidity: 53
+                                  loraGWRssi: -108
+                                  airHumidity: 52
                                   secureState: unsecured
                                   timeToLeave: 60
-                                  mainCapacity: 90
+                                  mainCapacity: 88
                                   sensorState1: 1
                                   sensorState2: 1
-                                  verticalAngle: 89
-                                  airTemperature: 25.1
-                                  interruptTrigger: airTemperature
-                                  accelerometerState: 0
+                                  verticalAngle: 82
+                                  airTemperature: 22.6
+                                  interruptTrigger: accelerometer
+                                  accelerometerState: 1
                                 Parameters:
                                   - ID: timeToLeaveHS0101
                                     Name: Čas k odchodu
@@ -2375,7 +2375,7 @@ paths:
                                   Name: Kancelář
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T12:12:04'
+                                  Timestamp: '2020-09-21T08:24:26'
                                 Application: security
                                 Values:
                                   - SysName: mainCapacity
@@ -2429,16 +2429,16 @@ paths:
                                 Position: null
                                 Data:
                                   loraSF: 12
-                                  loraSNR: 7
+                                  loraSNR: 4.8
                                   alarmState: 0
                                   loraGWName: ''
-                                  loraGWRssi: -106
+                                  loraGWRssi: -114
                                   secureState: unsecured
                                   timeToLeave: 60
-                                  mainCapacity: 80
+                                  mainCapacity: 79
                                   sensorState1: 1
                                   sensorState2: 1
-                                  airTemperature: 24
+                                  airTemperature: 25
                                   interruptTrigger: sensor2
                                 Parameters:
                                   - ID: timeToLeaveMC0101
@@ -2496,7 +2496,7 @@ paths:
                                   Name: Kancelář
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T12:50:05'
+                                  Timestamp: '2020-09-21T10:00:23'
                                 Application: security
                                 Values:
                                   - SysName: mainCapacity
@@ -2540,14 +2540,14 @@ paths:
                                 Position: null
                                 Data:
                                   loraSF: 12
-                                  loraSNR: 8.2
+                                  loraSNR: 11
                                   alarmState: 0
                                   loraGWName: ''
-                                  loraGWRssi: -98
+                                  loraGWRssi: -96
                                   secureState: unsecured
                                   timeToLeave: 60
                                   mainCapacity: 75
-                                  airTemperature: 24
+                                  airTemperature: 23
                                 Parameters:
                                   - ID: timeToLeaveMS0101
                                     Name: Čas k odchodu
@@ -2604,7 +2604,7 @@ paths:
                                   Name: Kancelář
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T00:16:29'
+                                  Timestamp: '2020-09-21T00:16:05'
                                 Application: security
                                 Values:
                                   - SysName: mainCapacity
@@ -2650,20 +2650,20 @@ paths:
                                   Longitude: 0
                                 Data:
                                   loraSF: 12
-                                  loraSNR: -16.5
+                                  loraSNR: -11.2
                                   alarmState: 1
                                   loraGWName: CZ_CTESIN_Cihelni15
-                                  loraGWRssi: -123
+                                  loraGWRssi: -121
                                   airHumidity: 72
                                   secureState: secured
                                   timeToLeave: 30
-                                  mainCapacity: 87
+                                  mainCapacity: 86
                                   sensorState1: 1
                                   sensorState2: 1
-                                  alarmDateTime: '2020-09-14T07:45:58'
+                                  alarmDateTime: '2020-09-21T07:56:07'
                                   secureStateBy: 360
-                                  verticalAngle: 88
-                                  airTemperature: 22.9
+                                  verticalAngle: 89
+                                  airTemperature: 22.3
                                   interruptTrigger: sensor1
                                   secureStateByName: michal.smolka18@gmail.com
                                   accelerometerState: 0
@@ -2846,7 +2846,7 @@ paths:
                                   Name: Pokoj
                                 Status:
                                   Status: OK
-                                  Timestamp: '2020-09-14T07:45:28'
+                                  Timestamp: '2020-09-21T07:55:54'
                                 Application: security
                                 Values:
                                   - SysName: mainCapacity
@@ -2903,18 +2903,18 @@ paths:
                               Longitude: 18.5215006064315
                             Data:
                               loraSF: 12
-                              loraSNR: 5.5
+                              loraSNR: 6.8
                               mainPower: 11.265
                               alarmState: 0
                               loraGWName: ''
-                              loraGWRssi: -112
+                              loraGWRssi: -114
                               secureState: unsecured
                               timeToLeave: 1
-                              mainCapacity: 88
+                              mainCapacity: 86
                               alarmDateTime: '2020-06-24T17:43:53'
                               secureStateBy: 1487
-                              verticalAngle: 89
-                              airTemperature: 27
+                              verticalAngle: 86
+                              airTemperature: 26
                               secureStateByName: michal.smolka@masterit.cz
                               secureStateDateTime: '2020-07-02T09:12:24'
                             Parameters:
@@ -2940,7 +2940,7 @@ paths:
                               Name: Kancelář
                             Status:
                               Status: OK
-                              Timestamp: '2020-09-14T13:52:25'
+                              Timestamp: '2020-09-21T10:06:39'
                             Application: security
                             Values:
                               - SysName: mainCapacity
@@ -3060,16 +3060,16 @@ paths:
                               Longitude: 18.626818479338507
                             Data:
                               loraSF: 12
-                              loraSNR: -18
+                              loraSNR: -18.5
                               alarmState: 1
                               loraGWName: CZ_CTESIN_Cihelni15
-                              loraGWRssi: -122
+                              loraGWRssi: -123
                               secureState: secured
                               timeToLeave: 60
-                              mainCapacity: 79
-                              alarmDateTime: '2020-09-14T14:29:37'
+                              mainCapacity: 77
+                              alarmDateTime: '2020-09-21T10:01:07'
                               secureStateBy: 1501
-                              airTemperature: 29
+                              airTemperature: 19
                               secureStateByName: ondrej.smolka18@seznam.cz
                               secureStateDateTime: '2020-08-12T20:55:03'
                             Parameters:
@@ -3095,7 +3095,7 @@ paths:
                               Name: Kancelář
                             Status:
                               Status: OK
-                              Timestamp: '2020-09-14T14:28:37'
+                              Timestamp: '2020-09-21T10:00:11'
                             Application: security
                             Values:
                               - SysName: mainCapacity
@@ -3139,10 +3139,10 @@ paths:
                             Position: null
                             Data:
                               loraSF: 12
-                              loraSNR: 7.8
+                              loraSNR: 8
                               alarmState: 0
                               loraGWName: ''
-                              loraGWRssi: -92
+                              loraGWRssi: -98
                               secureState: unsecured
                               timeToLeave: 60
                               mainCapacity: 84
@@ -3175,7 +3175,7 @@ paths:
                               Name: Kuchyň
                             Status:
                               Status: OK
-                              Timestamp: '2020-09-13T17:48:35'
+                              Timestamp: '2020-09-20T17:48:12'
                             Application: security
                             Values:
                               - SysName: mainCapacity
@@ -3221,15 +3221,15 @@ paths:
                               Longitude: 0
                             Data:
                               loraSF: 12
-                              loraSNR: 5.2
+                              loraSNR: 7.8
                               alarmState: 0
                               loraGWName: ''
-                              loraGWRssi: -116
+                              loraGWRssi: -105
                               secureState: unsecured
                               timeToLeave: 60
-                              mainCapacity: 87
-                              verticalAngle: 89
-                              airTemperature: 25
+                              mainCapacity: 86
+                              verticalAngle: 88
+                              airTemperature: 23
                             Parameters:
                               - ID: timeToLeaveAS0101
                                 Name: Čas k odchodu
@@ -3309,7 +3309,7 @@ paths:
                               Name: Pracovna
                             Status:
                               Status: OK
-                              Timestamp: '2020-09-14T13:08:55'
+                              Timestamp: '2020-09-21T08:52:01'
                             Application: security
                             Values:
                               - SysName: mainCapacity
@@ -3483,20 +3483,20 @@ paths:
                             Position: null
                             Data:
                               loraSF: 12
-                              loraSNR: 5.8
+                              loraSNR: 8.2
                               alarmState: 0
                               loraGWName: ''
-                              loraGWRssi: -109
-                              airHumidity: 53
+                              loraGWRssi: -108
+                              airHumidity: 52
                               secureState: unsecured
                               timeToLeave: 60
-                              mainCapacity: 90
+                              mainCapacity: 88
                               sensorState1: 1
                               sensorState2: 1
-                              verticalAngle: 89
-                              airTemperature: 25.1
-                              interruptTrigger: airTemperature
-                              accelerometerState: 0
+                              verticalAngle: 82
+                              airTemperature: 22.6
+                              interruptTrigger: accelerometer
+                              accelerometerState: 1
                             Parameters:
                               - ID: timeToLeaveHS0101
                                 Name: Čas k odchodu
@@ -3675,7 +3675,7 @@ paths:
                               Name: Kancelář
                             Status:
                               Status: OK
-                              Timestamp: '2020-09-14T12:12:04'
+                              Timestamp: '2020-09-21T08:24:26'
                             Application: security
                             Values:
                               - SysName: mainCapacity
@@ -3729,16 +3729,16 @@ paths:
                             Position: null
                             Data:
                               loraSF: 12
-                              loraSNR: 7
+                              loraSNR: 4.8
                               alarmState: 0
                               loraGWName: ''
-                              loraGWRssi: -106
+                              loraGWRssi: -114
                               secureState: unsecured
                               timeToLeave: 60
-                              mainCapacity: 80
+                              mainCapacity: 79
                               sensorState1: 1
                               sensorState2: 1
-                              airTemperature: 24
+                              airTemperature: 25
                               interruptTrigger: sensor2
                             Parameters:
                               - ID: timeToLeaveMC0101
@@ -3796,7 +3796,7 @@ paths:
                               Name: Kancelář
                             Status:
                               Status: OK
-                              Timestamp: '2020-09-14T12:50:05'
+                              Timestamp: '2020-09-21T10:00:23'
                             Application: security
                             Values:
                               - SysName: mainCapacity
@@ -3840,14 +3840,14 @@ paths:
                             Position: null
                             Data:
                               loraSF: 12
-                              loraSNR: 8.2
+                              loraSNR: 11
                               alarmState: 0
                               loraGWName: ''
-                              loraGWRssi: -98
+                              loraGWRssi: -96
                               secureState: unsecured
                               timeToLeave: 60
                               mainCapacity: 75
-                              airTemperature: 24
+                              airTemperature: 23
                             Parameters:
                               - ID: timeToLeaveMS0101
                                 Name: Čas k odchodu
@@ -3904,7 +3904,7 @@ paths:
                               Name: Kancelář
                             Status:
                               Status: OK
-                              Timestamp: '2020-09-14T00:16:29'
+                              Timestamp: '2020-09-21T00:16:05'
                             Application: security
                             Values:
                               - SysName: mainCapacity
@@ -3950,20 +3950,20 @@ paths:
                               Longitude: 0
                             Data:
                               loraSF: 12
-                              loraSNR: -16.5
+                              loraSNR: -11.2
                               alarmState: 1
                               loraGWName: CZ_CTESIN_Cihelni15
-                              loraGWRssi: -123
+                              loraGWRssi: -121
                               airHumidity: 72
                               secureState: secured
                               timeToLeave: 30
-                              mainCapacity: 87
+                              mainCapacity: 86
                               sensorState1: 1
                               sensorState2: 1
-                              alarmDateTime: '2020-09-14T07:45:58'
+                              alarmDateTime: '2020-09-21T07:56:07'
                               secureStateBy: 360
-                              verticalAngle: 88
-                              airTemperature: 22.9
+                              verticalAngle: 89
+                              airTemperature: 22.3
                               interruptTrigger: sensor1
                               secureStateByName: michal.smolka18@gmail.com
                               accelerometerState: 0
@@ -4146,7 +4146,7 @@ paths:
                               Name: Pokoj
                             Status:
                               Status: OK
-                              Timestamp: '2020-09-14T07:45:28'
+                              Timestamp: '2020-09-21T07:55:54'
                             Application: security
                             Values:
                               - SysName: mainCapacity
@@ -4202,26 +4202,87 @@ paths:
                                   Lte: null
                       infoChannel:
                         primary:
+                          - recID: efb0642a-8e86-4151-8fff-01af10035c0d
+                            channel: mitt
+                            title: Tramvaj Stadler nOVA dnes vyjíždí do zkušebního provozu bez cestujících
+                            description: 'Drážní úřad dnes vydal Průkaz způsobilosti určeného technického zařízení pro tramvaj Stadler nOVA, čímž byly splněny poslední podmínky pro zahájení zkušebního provozu nové tramvaje.'
+                            htmlContent: '<link rel="stylesheet" type="text/css" href="https://cdn2.asymbo.com/assets/css/dpo.css"><p><span rgb(51,="51,=&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;" "="" 51);="" "arial="" unicode="" ms",="" helvetica,="" arial,="" sans-serif;="" 13.2px;="">Ostravané již mohli tramvaj Stadler nOVA krátce spatřit v&nbsp;ulicích města během provádění testovacích jízd, které byly nezbytné pro zahájení zkušebního provozu. S&nbsp;ohledem na rozsah řádného zkušebního provozu bude nová tramvaj ode dneška k vidění na ostravských tramvajových tratích pravidelně a velmi často. Předpokládáme, že v&nbsp;průběhu prázdnin se zkušební provoz dostane i&nbsp;do fáze jízd s cestujícími.</span></p>'
+                            plainTextContent: "Ostravané již mohli tramvaj Stadler nOVA krátce spatřit v\_ulicích města během provádění testovacích jízd, které byly nezbytné pro zahájení zkušebního provozu. S\_ohledem na rozsah řádného zkušebního provozu bude nová tramvaj ode dneška k vidění na ostravských tramvajových tratích pravidelně a velmi často. Předpokládáme, že v\_průběhu prázdnin se zkušební provoz dostane i\_do fáze jízd s cestujícími."
+                            image: ''
+                            attachmentImages: []
+                            attachmentFiles: []
+                            dateTime: '2020-09-18T16:05:00'
+                            dateTimeEp: 1600445100
                           - recID: 15b4136e-b863-4c31-8646-0d2bd8609bc2
-                            channel: obecRopice
+                            channel: mitt
                             title: Den obce Ropice a 110 let HZS
                             description: Zrušení plánované akce
-                            htmlContent: '<link rel="stylesheet" type="text/css" href="https://cdn2.asymbo.com/assets/css/dpo.css"><p>Na základě mimořádných opatření, která vydala Krajská hygienická stanice a zhoršení epidemiologické situace na karvinsku a frýdecko-místecku, jsme rozhodli o zrušení plánované akce – Den obce Ropice a 110 let HZS, která se měla konat dne 12.9.2020.</p><p><span>Doufáme, že dojde ke zlepšení situace a naše pravidelná akce se bude moci uskutečnit v příštím roce.</span></p><p><span>Obec Ropice</span></p>'
-                            image: 'https://localhost:63178/Content/Files/abdc7231-4155-44cf-881e-e9bb60a8037c.jpg'
+                            htmlContent: '<link rel="stylesheet" type="text/css" href="https://cdn2.asymbo.com/assets/css/dpo.css"><p>Na základě mimořádných opatření, která vydala Krajská hygienická stanice a zhoršení epidemiologické situace na karvinsku a frýdecko-místecku, jsme rozhodli o zrušení plánované akce – Den obce Ropice a 110 let HZS, která se měla konat dne 12.9.2020.</p><p></p><p><span>Doufáme, že dojde ke zlepšení situace a naše pravidelná akce se bude moci uskutečnit v příštím roce.</span></p><p><span>Obec Ropice</span></p>'
+                            plainTextContent: 'Na základě mimořádných opatření, která vydala Krajská hygienická stanice a zhoršení epidemiologické situace na karvinsku a frýdecko-místecku, jsme rozhodli o zrušení plánované akce – Den obce Ropice a 110 let HZS, která se měla konat dne 12.9.2020.Doufáme, že dojde ke zlepšení situace a naše pravidelná akce se bude moci uskutečnit v příštím roce.Obec Ropice'
+                            image: 'http://localhost:63178/Content/Files/abdc7231-4155-44cf-881e-e9bb60a8037c.jpg'
                             attachmentImages:
-                              - 'https://localhost:63178/Content/Files/844d7f0c-0d8d-4bab-8e14-f9df88c927eb.jpg'
-                              - 'https://localhost:63178/Content/Files/640138fd-52fb-4908-ba99-06e33a5af62f.jpg'
-                              - 'https://localhost:63178/Content/Files/854d9906-5646-4263-9505-d6d3a6ea750c.jpg'
+                              - 'http://localhost:63178/Content/Files/844d7f0c-0d8d-4bab-8e14-f9df88c927eb.jpg'
+                              - 'http://localhost:63178/Content/Files/640138fd-52fb-4908-ba99-06e33a5af62f.jpg'
+                              - 'http://localhost:63178/Content/Files/854d9906-5646-4263-9505-d6d3a6ea750c.jpg'
                             attachmentFiles: []
+                            dateTime: '2020-09-18T16:05:00'
+                            dateTimeEp: 1600445100
+                          - recID: 99fdc586-725b-4f2a-96e2-e6d084db4187
+                            channel: mitt
+                            title: CMS MITT TEST
+                            description: Toto je testovací CMS
+                            htmlContent: '<link rel="stylesheet" type="text/css" href="https://cdn2.asymbo.com/assets/css/dpo.css"><p>Tady potom nějaký smzsluplný text např&nbsp;</p><p style="margin-right:&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;" 0px;="" margin-bottom:="" 8px;="" margin-left:="" text-indent:="" 20px;="" font-family:="" &quot;trebuchet="" ms&quot;,="" &quot;geneva="" ce&quot;,="" lucida,="" sans-serif;="" font-size:="" 13px;="" text-align:="" justify;="" background-color:="" rgb(252,="" 249,="" 232);"="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam quis quam. Aliquam erat volutpat. Nunc auctor. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Aliquam ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Phasellus rhoncus. Mauris elementum mauris vitae tortor.</p><p style="margin-right: 0px; margin-bottom: 8px; margin-left: 0px; text-indent: 20px; font-family: &quot;Trebuchet MS&quot;, &quot;Geneva CE&quot;, lucida, sans-serif; font-size: 13px; text-align: justify;"><span style="background-color: rgb(255, 255, 0);">Maecenas libero. Duis risus. Integer malesuada. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce tellus. Nunc tincidunt ante vitae massa. Etiam quis quam. Proin mattis lacinia justo. Aliquam erat volutpat. Integer tempor. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Etiam quis quam. Nulla quis diam. Nulla non arcu lacinia neque faucibus fringilla. In enim a arcu imperdiet malesuada. Aenean placerat. Aliquam ornare wisi eu metus. Etiam commodo dui eget wisi.</span></p><p style="margin-right: 0px; margin-bottom: 8px; margin-left: 0px; text-indent: 20px; font-family: &quot;Trebuchet MS&quot;, &quot;Geneva CE&quot;, lucida, sans-serif; font-size: 13px; text-align: justify;"><span style="background-color: rgb(255, 255, 0);">Nulla non lectus sed nisl molestie malesuada. Aliquam erat volutpat. Sed convallis magna eu sem. In dapibus augue non sapien. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Pellentesque sapien. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Maecenas libero. Donec quis nibh at felis congue commodo. Quisque porta. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Aenean fermentum risus id tortor. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Ut tempus purus at lorem. Aliquam erat volutpat. Pellentesque pretium lectus id turpis. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo.</span></p><p style="margin-right: 0px; margin-bottom: 8px; margin-left: 0px; text-indent: 20px; font-family: &quot;Trebuchet MS&quot;, &quot;Geneva CE&quot;, lucida, sans-serif; font-size: 13px; text-align: justify;"><span style="background-color: rgb(255, 255, 0);">Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nam quis nulla. Duis pulvinar. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Donec iaculis gravida nulla. Integer vulputate sem a nibh rutrum consequat. Nulla non lectus sed nisl molestie malesuada. Fusce nibh. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Et harum quidem rerum facilis est et expedita distinctio.</span></p><p style="margin-right: 0px; margin-bottom: 8px; margin-left: 0px; text-indent: 20px; font-family: &quot;Trebuchet MS&quot;, &quot;Geneva CE&quot;, lucida, sans-serif; font-size: 13px; text-align: justify;"><span style="background-color: rgb(255, 255, 0);">Etiam posuere lacus quis dolor. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Aliquam in lorem sit amet leo accumsan lacinia. Mauris tincidunt sem sed arcu. Phasellus faucibus molestie nisl. Etiam commodo dui eget wisi. Curabitur vitae diam non enim vestibulum interdum. Praesent id justo in neque elementum ultrices. Nunc dapibus tortor vel mi dapibus sollicitudin.</span></p>'
+                            plainTextContent: "Tady potom nějaký smzsluplný text např\_Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam quis quam. Aliquam erat volutpat. Nunc auctor. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Aliquam ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Phasellus rhoncus. Mauris elementum mauris vitae tortor.Maecenas libero. Duis risus. Integer malesuada. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Fusce tellus. Nunc tincidunt ante vitae massa. Etiam quis quam. Proin mattis lacinia justo. Aliquam erat volutpat. Integer tempor. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Etiam quis quam. Nulla quis diam. Nulla non arcu lacinia neque faucibus fringilla. In enim a arcu imperdiet malesuada. Aenean placerat. Aliquam ornare wisi eu metus. Etiam commodo dui eget wisi.Nulla non lectus sed nisl molestie malesuada. Aliquam erat volutpat. Sed convallis magna eu sem. In dapibus augue non sapien. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Pellentesque sapien. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Maecenas libero. Donec quis nibh at felis congue commodo. Quisque porta. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Aenean fermentum risus id tortor. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Ut tempus purus at lorem. Aliquam erat volutpat. Pellentesque pretium lectus id turpis. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo.Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nam quis nulla. Duis pulvinar. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Donec iaculis gravida nulla. Integer vulputate sem a nibh rutrum consequat. Nulla non lectus sed nisl molestie malesuada. Fusce nibh. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Et harum quidem rerum facilis est et expedita distinctio.Etiam posuere lacus quis dolor. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Curabitur sagittis hendrerit ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Aliquam in lorem sit amet leo accumsan lacinia. Mauris tincidunt sem sed arcu. Phasellus faucibus molestie nisl. Etiam commodo dui eget wisi. Curabitur vitae diam non enim vestibulum interdum. Praesent id justo in neque elementum ultrices. Nunc dapibus tortor vel mi dapibus sollicitudin."
+                            image: 'http://localhost:63178/Content/Files/4e2b69e3-4836-4949-84ad-f9fe6b4d77fb.png'
+                            attachmentImages: []
+                            attachmentFiles: []
+                            dateTime: '2020-09-18T16:04:00'
+                            dateTimeEp: 1600445040
                         secondary:
+                          - recID: eb0facac-2b0b-48ba-b29b-fe226b4f08b8
+                            channel: dpo
+                            title: V sobotu vyvěsí magistrát pietně černý prapor
+                            description: Černý prapor vyvěsí město na znamení piety a vyjádření hluboké soustrasti rodině tragicky zemřelého místostarosty obce Dražůvky pana Rudolfa Štose.
+                            htmlContent: '<link rel="stylesheet" type="text/css" href="https://cdn2.asymbo.com/assets/css/dpo.css"><p ==" sans-serif;=" "="" arial,="" 0px="" none;="" currentcolor;="" 0px;="" helvetica,="" ms",="" unicode="" "arial="" 51);="" 51,="" rgb(51,="" 13.2px;="" 10px;="">Havířov se tak připojí k pietě,&nbsp; ke které vyzval Svaz měst a obcí České repiubliky a Sdružení místních samospráv České republiky. Černé prapory, které zavlají nad obecními a městskými úřady v den pohřbu pana Štose, budou symbolizovat společné hluboké politování této tragické události i sounáležitost s truchlící rodinou.<br></p>'
+                            plainTextContent: "Havířov se tak připojí k pietě,\_ ke které vyzval Svaz měst a obcí České repiubliky a Sdružení místních samospráv České republiky. Černé prapory, které zavlají nad obecními a městskými úřady v den pohřbu pana Štose, budou symbolizovat společné hluboké politování této tragické události i sounáležitost s truchlící rodinou.\r\n"
+                            image: 'http://localhost:63178/Content/Files/12b4dff3-a4c9-4505-9c38-079682b3b38f.jpg'
+                            attachmentImages: []
+                            attachmentFiles: []
+                            dateTime: '2020-09-18T16:06:00'
+                            dateTimeEp: 1600445160
+                          - recID: 694c63c4-7a1c-4575-9b11-d9fbf853e925
+                            channel: dpo
+                            title: Slavnostní otevření Rákosníčkova hřiště v Havířově se posouvá na 15. červen
+                            description: 'Rozmary počasí zbrzdily výstavbu nového dětského hřiště, které vzniká v Havířově na Balzacově ulici, a proto se slavnostní otevření Rákosníčkova hřiště posune z 2. června na sobotu 15. června 2019 od 12 hodin.'
+                            htmlContent: '<link rel="stylesheet" type="text/css" href="https://cdn2.asymbo.com/assets/css/dpo.css">O slavnostní zahájení provozu a bohatý dětský program nepřijdete, protože v sobotu 15. června bude pro děti připraven odpolední program. Například ve 14 hodin vystoupí Michal Nesvadba z Kouzelné školky a dále se můžete těšit na divadelní přestavení, malování na obličej, spoustu her a soutěží. Nebude chybět ani bohaté občerstvení. Předpokládané ukončení akce je naplánováno na 17 hodin.<div><br></div>Za vzniklé potíže se omlouváme, počasí zajistit neumíme, ale přesto věříme, že se dostavíte v hojném počtu a s dobrou náladou, vzkazují investoři.<br>'
+                            plainTextContent: "O slavnostní zahájení provozu a bohatý dětský program nepřijdete, protože v sobotu 15. června bude pro děti připraven odpolední program. Například ve 14 hodin vystoupí Michal Nesvadba z Kouzelné školky a dále se můžete těšit na divadelní přestavení, malování na obličej, spoustu her a soutěží. Nebude chybět ani bohaté občerstvení. Předpokládané ukončení akce je naplánováno na 17 hodin.\r\nZa vzniklé potíže se omlouváme, počasí zajistit neumíme, ale přesto věříme, že se dostavíte v hojném počtu a s dobrou náladou, vzkazují investoři.\r\n"
+                            image: 'http://localhost:63178/Content/Files/d2fe00ca-08b7-4333-8b11-b108f7864df0.jpg'
+                            attachmentImages: []
+                            attachmentFiles: []
+                            dateTime: '2020-09-18T16:05:00'
+                            dateTimeEp: 1600445100
+                          - recID: 5ed1cd1d-d768-47dd-9e45-323548f6ad07
+                            channel: dpo
+                            title: Město nabízí bezúročnou půjčku až 200 tisíc korun na pořízení dotovaného nového kotle
+                            description: Uspěli jste se žádostí o kotlíkové dotace v rámci třetí výzvy? Máte jedinečnou a poslední šanci požádat město o poskytnutí bezúročné zápůjčky na pořízení nového kotle.
+                            htmlContent: '<link rel="stylesheet" type="text/css" href="https://cdn2.asymbo.com/assets/css/dpo.css"><p style="margin-right:&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;" 0px;="" margin-bottom:="" 1.25rem;="" margin-left:="" padding:="" font-family:="" &quot;roboto="" slab&quot;,="" serif;="" font-size:="" 0.875rem;="" line-height:="" 1.6;="" text-rendering:="" optimizelegibility;"="">Prosím kontaktujte kancelář B-414, 4. patro, po předchozí dohodě&nbsp;na tel.: 606 840 937 nebo emailu:&nbsp;<a href="mailto:kotliky@havirov-city.cz" style="color: rgb(0, 102, 204); text-decoration-line: underline; line-height: inherit;">kotliky@havirov-city.cz</a>.</p><p style="margin-right:&quot;" 0px;="" margin-bottom:="" 1.25rem;="" margin-left:="" padding:="" font-family:="" &quot;roboto="" slab&quot;,="" serif;="" font-size:="" 0.875rem;="" line-height:="" 1.6;="" text-rendering:="" optimizelegibility;"="">Tento projekt je spolufinancován Státním fondem životního prostředí České republiky na základě rozhodnutí ministra životního prostředí.</p><p style="margin-right:&quot;" 0px;="" margin-bottom:="" 1.25rem;="" margin-left:="" padding:="" font-family:="" &quot;roboto="" slab&quot;,="" serif;="" font-size:="" 0.875rem;="" line-height:="" 1.6;="" text-rendering:="" optimizelegibility;"=""><a href="http://www.sfzp.cz/">http://www.sfzp.cz/</a></p>'
+                            plainTextContent: "Prosím kontaktujte kancelář B-414, 4. patro, po předchozí dohodě\_na tel.: 606 840 937 nebo emailu:\_kotliky@havirov-city.czTento projekt je spolufinancován Státním fondem životního prostředí České republiky na základě rozhodnutí ministra životního prostředí.http://www.sfzp.cz/"
+                            image: 'http://localhost:63178/Content/Files/c068cd9e-ea0d-43c1-b6e5-28be859826bf.jpg'
+                            attachmentImages: []
+                            attachmentFiles: []
+                            dateTime: '2020-09-18T16:05:00'
+                            dateTimeEp: 1600445100
                           - recID: ecc1b652-fac9-4fe9-b3a1-8520a6a58f6e
                             channel: dpo
                             title: Roušky opět povinné ve veřejné dopravě – opatření od 17. 7. 2020
                             description: 'V návaznosti na mimořádné opatření č. 15 Krajské hygienické stanice Moravskoslezského kraje se sídlem v Ostravě, je od 17. 7. 2020 mimo jiné obnovena povinnost mít zakrytý nos a ústa v prostředcích veřejné hromadné dopravy.'
                             htmlContent: '<link rel="stylesheet" type="text/css" href="https://cdn2.asymbo.com/assets/css/dpo.css"><p class="MsoNormal&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;">Vážení cestující,</p><p class="MsoNormal">v&nbsp;návaznosti na mimořádné opatření č. 15&nbsp;Krajskéhygienické stanice Moravskoslezského kraje se sídlem v&nbsp;Ostravě, je od17.&nbsp;7.&nbsp;2020 mimo jiné obnovena povinnost mít zakrytý nos a ústav&nbsp;prostředcích veřejné hromadné dopravy.&nbsp;<o:p></o:p></p><p class="MsoNormal">Povinnost se vztahuje také na uzavřené prostory budov, např.prostory čekáren či dopravních infocenter.&nbsp;<o:p></o:p></p><p class="MsoNormal"><span style="font-weight: bolder;">Opatření se týká celého území Moravskoslezské­ho&nbsp;kraje.</span><o:p></o:p></p><p class="MsoNormal&quot;&quot;"></p><p class="MsoNormal"><a href="http://www.khsova.cz/docs/01_uredni_deska/mimoradne_opatreni_2020_15.pdf">Víceinformací na stránkách Krajské hygienické stanice Moravskoslezské­ho&nbsp;kraje.</a><o:p></o:p></p><p class="MsoNormal&quot;&quot;"><o:p></o:p></p><p style="text-align: justify;"><span style="text-align: left; font-size: 1rem;">Prosíme Vás, abyste respektovali uvedená opatření. Respektováním příslušných opatření&nbsp;</span><span style="font-weight: bolder; text-align: left; font-size: 1rem;">napomůžete snížení rizika šíření nemoci COVID-19&nbsp;způsobené novým typem koronaviru</span><span style="text-align: left; font-size: 1rem;">.</span><br></p><p class="MsoNormal"><o:p></o:p></p><p class="MsoNormal">Mnohokrát děkujeme.<o:p></o:p></p><ol start="1" type="1" style="margin-top: 0cm;"><li class="MsoNormal"><span style="font-weight: bolder;">V&nbsp;uvedené oblasti při vstupu do vozidel a v&nbsp;průběhu jízdy v&nbsp;nich</span>&nbsp;až do vystoupení z&nbsp;tohoto vozidla&nbsp;<span style="font-weight: bolder;">mějte zakrytá ústa a nos k&nbsp;tomu určenými vhodnými ochrannými prostředky</span>. Může se jednat o&nbsp;roušku, šálu či šátek,&nbsp;apod.<o:p></o:p></li><li class="MsoNormal"><span style="font-weight: bolder;">V&nbsp;ostatních oblastech</span>&nbsp;toto opatření není povinné, avšak doporučujeme při větším počtu cestujících roušky používat.<o:p></o:p></li><li class="MsoNormal"><span style="font-weight: bolder;">Pro výstup z&nbsp;vozidel využívejte střední či zadní dveře</span>.<o:p></o:p></li><li class="MsoNormal"><span style="font-weight: bolder;">Buďte ohleduplní a upřednosňujte platbu ODISkou nebo bankovní kartou.</span>&nbsp;Pokud musíte platit hotově, snažte se platit přesnou částkou.&nbsp;<o:p></o:p></li></ol><p class="MsoNormal"><a href="http://mzcr.cz/dokumenty/od-cervence-budou-platit-prisna-protiepidemicka-opatreni-uz-jen-v-nekterych-cast_19477_1.html">Tisková zpráva Ministerstva zdravotnictví České republiky.</a><o:p></o:p></p><p rgb(60,="" 60,="" 59);="" font-family:="" &quot;open="" sans&quot;,="" serif;="" font-size:="" 15px;="" text-align:="" justify;"=""></p><p class="MsoNormal">Vážení cestující, všichni dopravci provádí veškerá preventivní opatření k&nbsp;zamezení šíření nemoci.</p>'
-                            image: 'https://localhost:63178/Content/Files/4310e10f-300d-4bf1-ad92-379667c7f021.png'
+                            plainTextContent: "Vážení cestující,v\_návaznosti na mimořádné opatření č. 15\_Krajskéhygienické stanice Moravskoslezského kraje se sídlem v\_Ostravě, je od17.\_7.\_2020 mimo jiné obnovena povinnost mít zakrytý nos a ústav\_prostředcích veřejné hromadné dopravy.\_Povinnost se vztahuje také na uzavřené prostory budov, např.prostory čekáren či dopravních infocenter.\_Opatření se týká celého území Moravskoslezské­ho\_kraje.Víceinformací na stránkách Krajské hygienické stanice Moravskoslezské­ho\_kraje.Prosíme Vás, abyste respektovali uvedená opatření. Respektováním příslušných opatření\_napomůžete snížení rizika šíření nemoci COVID-19\_způsobené novým typem koronaviru\r\nMnohokrát děkujeme.V\_uvedené oblasti při vstupu do vozidel a v\_průběhu jízdy v\_nich\_až do vystoupení z\_tohoto vozidla\_mějte zakrytá ústa a nos k\_tomu určenými vhodnými ochrannými prostředky. Může se jednat o\_roušku, šálu či šátek,\_apod.V\_ostatních oblastech\_toto opatření není povinné, avšak doporučujeme při větším počtu cestujících roušky používat.Pro výstup z\_vozidel využívejte střední či zadní dveřeBuďte ohleduplní a upřednosňujte platbu ODISkou nebo bankovní kartou.\_Pokud musíte platit hotově, snažte se platit přesnou částkou.\_Tisková zpráva Ministerstva zdravotnictví České republiky.Vážení cestující, všichni dopravci provádí veškerá preventivní opatření k\_zamezení šíření nemoci."
+                            image: 'http://localhost:63178/Content/Files/4310e10f-300d-4bf1-ad92-379667c7f021.png'
                             attachmentImages: []
                             attachmentFiles: []
+                            dateTime: '2020-07-21T16:16:00'
+                            dateTimeEp: 1595348160
         '401':
           description: Unauthorized
           content:
