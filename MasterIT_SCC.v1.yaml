@@ -962,24 +962,10 @@ paths:
                                   type: string
                                 description:
                                   type: string
-                                htmlContent:
-                                  type: string
-                                image:
-                                  type: string
-                                attachmentImages:
-                                  type: array
-                                  items:
-                                    type: string
-                                attachmentFiles:
-                                  type: array
-                                  items:
-                                    type: string
-                                dateTime:
-                                  type: string
-                                plainTextContent:
-                                  type: string
                                 dateTimeEp:
                                   type: number
+                                url:
+                                  type: string
                           secondary:
                             type: array
                             items:
