@@ -400,8 +400,6 @@ paths:
         API uzamkne/odemkne zabezpečnovací čidlo
 
         [API secure/unsecure security sensor]
-      tags:
-        - password-recovery
       parameters:
         - schema:
             type: string
@@ -419,6 +417,8 @@ paths:
           in: query
           name: devID
           description: ID zařízení k zebezpečení
+      tags:
+        - application-myIoT
   api/customer/confirm/send:
     get:
       summary: Resend email verification Request
@@ -5649,3 +5649,5 @@ components:
     Bearer token:
       type: http
       scheme: bearer
+tags:
+  - name: application-myIoT
