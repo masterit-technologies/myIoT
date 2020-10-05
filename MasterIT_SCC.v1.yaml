@@ -378,6 +378,47 @@ paths:
           in: header
           name: Content-Type
           required: true
+  /api/app/mob/myiot/security:
+    post:
+      summary: SetDeviceSecureState
+      operationId: post-api-app-mob-myiot-security
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+      description: |-
+        API uzamkne/odemkne zabezpečnovací čidlo
+
+        [API secure/unsecure security sensor]
+      tags:
+        - password-recovery
+      parameters:
+        - schema:
+            type: string
+            default: application/json
+          in: header
+          name: Content-Type
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: secured
+          description: 'nastavení stavu zabezpečení (secured - true, unsecured-false)'
+        - schema:
+            type: string
+          in: query
+          name: devID
+          description: ID zařízení k zebezpečení
   api/customer/confirm/send:
     get:
       summary: Resend email verification Request
@@ -909,6 +950,956 @@ paths:
           description: jazyková mutace
       security:
         - Bearer token: []
+      tags:
+        - application-myIoT
+  /api/app/mob/myiot/group:
+    get:
+      summary: GetMyIoTGroup
+      tags:
+        - application-myIoT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      data:
+                        userID: 619
+                      name: Herna
+                      type: usr
+                      cisID: 300
+                      recID: 68931
+                      itemID: 619-Herna-ikYcwIEL
+                      public: false
+                      groupID: _default
+                      description:
+                        cs: ''
+                        de: ''
+                        en: ''
+                        pl: ''
+                      created: '2020-05-12T12:54:12'
+                      createdBy: 619
+                      changed: ''
+                      changedBy: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Místnost neexistuje:
+                  value:
+                    status: error
+                    err_msg: Místnost neexistuje
+                    err_code: -24
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: get-api-app-mob-myiot-group
+      description: |-
+        Metoda vrátí skupinu přihlášeného uživatele pro aplikaci myIoT
+
+        [API returns device group with itemID from url params]
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: itemID
+          required: true
+          description: ID místnosti
+    delete:
+      summary: DeleteMyIoTGroup
+      tags:
+        - application-myIoT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Místnost nelze smazat:
+                  value:
+                    status: error
+                    err_msg: Místnost nelze smazat. Je používaná něterými zařízeními.
+                    err_code: -23
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: delete-api-app-mob-myiot-group
+      description: |-
+        Metoda smaže skupinu aplikace myIoT
+
+        [API deletes group of devices]
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: itemID
+          required: true
+          description: ID místnosti
+    post:
+      summary: PostMyIoTGroup
+      tags:
+        - application-myIoT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      data:
+                        userID: 619
+                      name: Herna
+                      type: usr
+                      cisID: 300
+                      recID: 68931
+                      itemID: 619-Herna-ikYcwIEL
+                      public: false
+                      groupID: _default
+                      description:
+                        cs: ''
+                        de: ''
+                        en: ''
+                        pl: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Chybné vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybné vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: post-api-app-mob-myiot-group
+      description: |-
+        Metoda vytvoří nebo aktualizuje číselník skupin přihlášeného uživatele aplikace myIoT
+
+        [API creates or update a group of devices (if itemID is null API creates new group)]
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: itemID
+          description: ID místnosti
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: name
+          description: název místnosti
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: description
+          description: popis místnosti
+        - schema:
+            type: string
+          in: query
+          name: iconUrl
+          description: url ikony
+        - schema:
+            type: string
+            default: application/json
+          in: header
+          name: Content-Type
+          required: true
+  /api/app/mob/myiot/group/list:
+    get:
+      summary: GetMyIoTGroupList
+      tags:
+        - application-myIoT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - data:
+                          userID: 619
+                        name: Herna
+                        type: usr
+                        cisID: 300
+                        recID: 68931
+                        itemID: 619-Herna-ikYcwIEL
+                        public: false
+                        groupID: _default
+                        description:
+                          cs: ''
+                          de: ''
+                          en: ''
+                          pl: ''
+                        created: '2020-05-12T12:54:12'
+                        createdBy: 619
+                        changed: ''
+                        changedBy: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: get-api-app-mob-myiot-group-list
+      description: Metoda vrátí seznam skupin přihlášeného uživatele pro aplikaci myIoT
+      security:
+        - Bearer token: []
+  /api/app/mob/myiot/share:
+    post:
+      summary: PostMyIoTDeviceShare
+      operationId: post-api-app-mob-cg-myiot-share
+      responses:
+        '200':
+          description: |-
+            OK 
+
+            relationGroupID - ID pozvánky
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      relationGroupID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Chybné vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybné vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      requestBody:
+        description: ''
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: devices
+          description: 'Seznam zařízení ke sdílení, oddělených čárkou nebo znak "*" informující, že sdílí všechna'
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: email
+          description: Email uživatele se kterým chci sdílet zařízení
+          required: true
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: Jazyková lokalizace některých parametrů
+      description: Metoda odešle pozvánku ke sdílení zařízení s jiným uživatelem nebo aktualizuje stávající sdílení
+      tags:
+        - application-myIoT
+    parameters: []
+    delete:
+      summary: DeleteMyIoTDeviceShare
+      operationId: delete-api-app-mob-cg-myiot-share
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Chybné vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybné vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      requestBody:
+        description: ''
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: email
+          description: Email uživatele se kterým chci zrušit sdílení
+          required: true
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: Jazyková lokalizace některých parametrů
+        - schema:
+            type: string
+            default: both
+          in: query
+          name: deleteRelations
+          description: 'Typ relace (master, slave, both)'
+      description: ' Metoda smaže sdílení zařízení s uživatelem.'
+      tags:
+        - application-myIoT
+  /api/app/mob/myiot/device:
+    post:
+      summary: PostMyIoTDevice
+      operationId: post-api-app-mob-cg-myiot-device
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      RecID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+                      DevID: SCC.IOT.ROPOWN-0600000000000020
+                      Name: dlaší test
+                      Class: CO2
+                      Vendor: MasterIT
+                      Model: LRB.CO2
+                      Description: null
+                      Position: null
+                      Data: {}
+                      Parameters: null
+                      Group:
+                        ID: myIoT-622-test-xxxxxxx
+                        Name: Venku
+                      Status: UNKNOWN
+                      Application: measurement
+                      Values:
+                        - SysName: mainPower
+                          Name: Napětí baterie
+                          Unit: V
+                          Order: 0
+                          IsMain: false
+                        - SysName: co2
+                          Name: CO2
+                          Unit: ppm
+                          Order: 0
+                          IsMain: true
+                      Notifications: []
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Chybějící vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybějící vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: JSON
+              properties:
+                licenseID:
+                  type: string
+                  description: |
+                    ID licence
+                device:
+                  type: object
+                  description: JSON
+                  required:
+                    - ID
+                    - name
+                    - vendor
+                    - model
+                    - class
+                    - myiotGroup
+                  properties:
+                    ID:
+                      type: string
+                      description: Identifikátori IoT zařízení
+                    name:
+                      type: string
+                      description: Název zařízení
+                    vendor:
+                      type: string
+                      description: Výrobce
+                    model:
+                      type: string
+                      description: Model
+                    class:
+                      type: string
+                      description: 'Třída-Typ (CO2, WaterMeter, PowerMeter, ...)'
+                    description:
+                      type: string
+                      description: popis
+                    myiotGroup:
+                      type: string
+                      description: 'ID místnosti pro zařazení zařízení, není-li na vstupu existující ID, pracuje se s tímto parametrem jako s názvem skupiny, která se automaticky vytvoří.'
+              required:
+                - device
+            examples:
+              Vytváří licenční subjekt:
+                value:
+                  device:
+                    ID: xxx
+                    class: CO2
+                    vendor: MasterIT
+                    model: LRB.CO2
+                    name: CO2 čidlo xxx
+                    description: CO2 čidlo xxx
+                    position:
+                      lat: 49.68720574595394
+                      lng: 18.521500606431463
+                    myiotGroup: Obývací pokoj
+              Vytváří zákazník:
+                value:
+                  licenseID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+                  device:
+                    ID: xxx
+                    class: CO2
+                    vendor: MasterIT
+                    model: LRB.CO2
+                    name: CO2 čidlo xxx
+                    description: CO2 čidlo xxx
+                    position:
+                      lat: 49.68720574595394
+                      lng: 18.521500606431463
+                    myiotGroup: 363-Obyvacipokoj-6F8SAD8A
+        description: ''
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+      description: |-
+        Vytvoří myIoT zařízení. Na vstupu se předpokládá zařízení a popř licence, není-li uživatel vlatníkem licencí.
+
+        [Creates a device. The input is assumed to be the device and possibly the license, if the user is not the owner of the licenses.]
+      tags:
+        - application-myIoT
+    parameters: []
+    put:
+      summary: UpdateMyIoTDevice
+      operationId: put-api-app-mob-cg-myiot-device
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      RecID: 2ba04731-f1e4-4772-acb1-2a02614fa0a1
+                      DevID: SCC.IOT.ROPOWN-0600000000000020
+                      Name: dlaší test
+                      Class: CO2
+                      Vendor: MasterIT
+                      Model: LRB.CO2
+                      Description: null
+                      Position: null
+                      Data: {}
+                      Parameters: null
+                      Group:
+                        ID: myIoT-622-test-htbCpPKC
+                        Name: Venku
+                      Status: UNKNOWN
+                      Application: measurement
+                      Values:
+                        - SysName: mainPower
+                          Name: Napětí baterie
+                          Unit: V
+                          Order: 0
+                          IsMain: false
+                        - SysName: co2
+                          Name: CO2
+                          Unit: ppm
+                          Order: 0
+                          IsMain: true
+                      Notifications: []
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Chybějící vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybějící vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../Base/Base.v1.yaml#/components/schemas/IoTDevice
+            examples:
+              Příklad device:
+                value:
+                  RecID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+                  DevID: SCC.IOT.ROP0600000000000010
+                  Name: CO2 čidlo pracovna
+                  Description: null
+                  Position:
+                    Latitude: 49.6872057459539
+                    Longitude: 18.5215006064315
+                  Status: UNKNOWN
+                  Parameters: null
+                  Group:
+                    ID: myIoT-622-test-htbCpPKC
+                    Name: Venku
+                  Values:
+                    - SysName: mainPower
+                      Name: Napětí baterie
+                      Unit: V
+                      Order: 0
+                      IsMain: false
+                    - SysName: co2
+                      Name: CO2
+                      Unit: ppm
+                      Order: 0
+                      IsMain: true
+                  Notifications:
+                    - RecID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+                      SendPush: true
+                      SendEmail: false
+              Pouze update pozice:
+                value:
+                  DevID: SCC.IOT.ROP0600000000000010
+                  Position:
+                    Latitude: 49.6872057459539
+                    Longitude: 18.5215006064315
+        description: ''
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+      description: |-
+        Upraví myIoT zařízení. Umožňuje aktualizaci pouze některých parametrů. (Není možné aktualizovat class, vendor, model a další)
+
+        [Updates device. It allow update just some parameters (It is not possible update params like class, vendor, model etc.)]
+      tags:
+        - application-myIoT
+    delete:
+      summary: DeleteMyIoTDevice
+      operationId: delete-api-app-mob-cg-myiot-device
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Chybějící vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybějící vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: devID
+          required: true
+          description: ID zařízení
+      description: |-
+        Smaže myIoT zařízení
+        [Delete device]
+      tags:
+        - application-myIoT
+    get:
+      summary: GetMyIoTDevice
+      operationId: get-api-app-mob-cg-myiot-device
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - RecID: 8b3b3f70-6cb7-4158-b230-f77761e76b76
+                        DevID: SCC.IOT.ROP3031383365386408
+                        Name: Zabezpečení předsíň
+                        Class: SecuritySensor
+                        Vendor: IoTVega
+                        Model: VGA.AS0101
+                        Description: null
+                        Position:
+                          Latitude: 49.6872057459539
+                          Longitude: 18.5215006064315
+                        Data:
+                          loraSF: 12
+                          loraSNR: 97
+                          mainPower: 11.265
+                          loraGWName: ''
+                          loraGWRssi: -104
+                          secureState: unsecured
+                          timeToLeave: 1
+                          mainCapacity: 97
+                          alarmDateTime: '2020-06-02T15:41:45'
+                          secureStateBy: 1468
+                          verticalAngle: 2
+                          airTemperature: 26
+                          secureStateByName: michal.smolka@masterit.cz
+                          secureStateDateTime: '2020-06-02T03:41:37'
+                        Parameters: null
+                        Group:
+                          ID: myIoT-272-Pracovna-rSOB7A2S
+                          Name: Pracovna
+                        Status: OK
+                        Application: security
+                        Values:
+                          - SysName: mainPower
+                            Name: Hlavní napájení
+                            Unit: V
+                            Order: 0
+                            IsMain: true
+                        Notifications:
+                          - RecID: 65df6260-7681-43ee-906b-759f7a15d5a3
+                            SendEmail: true
+                            SendPush: true
+                            Type: SecurityAlarmMessage
+                      - RecID: 23c4254b-b89f-4f62-9ce6-7e71db930bb7
+                        DevID: SCC.IOT.ROPCUST-0600000000000011
+                        Name: CO2 čidlo
+                        Class: CO2
+                        Vendor: MasterIT
+                        Model: LRB.CO2
+                        Description: null
+                        Position: null
+                        Data: {}
+                        Parameters: null
+                        Group:
+                          ID: myIoT-272-Kuchyn-0KTahXkU
+                          Name: Kuchyň
+                        Status: TIMEOUT
+                        Application: measurement
+                        Values:
+                          - SysName: mainPower
+                            Name: Hlavní napájení
+                            Unit: V
+                            Order: 0
+                            IsMain: false
+                          - SysName: co2
+                            Name: Úroveň CO2
+                            Unit: ppm
+                            Order: 0
+                            IsMain: true
+                        Notifications: []
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Chybějící vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybějící vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: recUserID
+          description: ID uživatele
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: Jazyková mutace výsledku
+      description: |-
+        Vrátí zařízení uživatele podle recUserID na které má uživatel právo na základě sdílení. Pokud je recUserID prázdné vracejí se zažízení uživatele.
+
+        [Returns the user's device according to the recUserID to which the user has the share-based right. If recUserID is empty, the user's device is returned.]
       tags:
         - application-myIoT
   /api/app/mob/myiot/data:
