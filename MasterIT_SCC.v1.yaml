@@ -811,7 +811,7 @@ paths:
                     data:
                       model: LRB.MIO-CNT-1
                       vendor: MasterIT
-                      deviceClass: ''
+                      deviceClass: PowerMeter
         '401':
           description: Unauthorized
           content:
