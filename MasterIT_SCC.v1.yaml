@@ -794,7 +794,7 @@ paths:
         - application-myIoT
   /api/app/mob/myiot/device/identification:
     get:
-      summary: Initialization Request
+      summary: GetDeviceIdentification
       responses:
         '200':
           description: OK
