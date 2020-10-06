@@ -792,6 +792,61 @@ paths:
         - Bearer token: []
       tags:
         - application-myIoT
+  /api/app/mob/myiot/device/identification:
+    get:
+      summary: Initialization Request
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      model: LRB.MIO-CNT-1
+                      vendor: MasterIT
+                      deviceClass: ''
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: get-api-app-mob-myiot-device-identification
+      description: |-
+        API vrací model, výrobce a třídu zařízení podle zadaného id
+
+        [API returns model, vendor and class of device based on id]
+      parameters:
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: jazyková mutace
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+          description: id zařízení
+      security:
+        - Bearer token: []
+      tags:
+        - application-myIoT
   /api/app/mob/myiot/group:
     get:
       summary: GetMyIoTGroup
