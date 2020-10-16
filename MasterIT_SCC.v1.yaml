@@ -792,6 +792,1638 @@ paths:
         - Bearer token: []
       tags:
         - application-myIoT
+  /api/app/mob/myiot/device/detail:
+    get:
+      summary: Device Detail Request
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK - Security device:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      RecID: 47315cf0-add6-4487-a50c-4152721fe6e0
+                      DevID: SCC.IOT.ROPCUST-3939353459385D02
+                      Description: ''
+                      Name: 4v1 čidlo Michal pokoj
+                      Class: SecuritySensor
+                      Vendor: IoT Vega
+                      Model: VGA.HS0101
+                      Status:
+                        Status: OK
+                        Timestamp: 1602764344
+                        TimestampStr: '15.10.2020 12:19'
+                      Group:
+                        ID: myIoT-272-Kancelar-FgrBdafa
+                        Name: Kancelář
+                        Description: Kancelář v robotě
+                      Application: security
+                      Position:
+                        Latitude: 49.7052958944831
+                        Longitude: 18.627212047576908
+                      Values:
+                        - ID: mainCapacity
+                          Name: Kapacita hlavní baterie
+                          Description: Kapacita hlavní baterie
+                          Unit: '%'
+                          Color: '#ff9900'
+                          Range:
+                            Min: 0
+                            Max: 100
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 82
+                          ValueStr: 82 %
+                          Notification: null
+                          ChartData:
+                            - x: 1602686289
+                              'y': 82
+                            - x: 1602686315
+                              'y': 82
+                            - x: 1602690214
+                              'y': 82
+                            - x: 1602690312
+                              'y': 82
+                            - x: 1602699954
+                              'y': 82
+                            - x: 1602699981
+                              'y': 82
+                            - x: 1602700249
+                              'y': 82
+                            - x: 1602703730
+                              'y': 82
+                            - x: 1602708014
+                              'y': 82
+                            - x: 1602715791
+                              'y': 82
+                            - x: 1602744162
+                              'y': 82
+                            - x: 1602744166
+                              'y': 82
+                            - x: 1602744195
+                              'y': 82
+                            - x: 1602745499
+                              'y': 82
+                            - x: 1602752480
+                              'y': 82
+                            - x: 1602757144
+                              'y': 82
+                        - ID: airTemperature
+                          Name: Teplota vzduchu
+                          Description: Teplota vzduchu
+                          Unit: °C
+                          Color: '#ffb700'
+                          Range:
+                            Min: null
+                            Max: null
+                          ParameterMin: minTemperatureHS0101
+                          ParameterMax: maxTemperatureHS0101
+                          Value: 23.4
+                          ValueStr: 23.4 °C
+                          Notification: null
+                          ChartData:
+                            - x: 1602686289
+                              'y': 21.5
+                            - x: 1602686315
+                              'y': 22.1
+                            - x: 1602690214
+                              'y': 21.6
+                            - x: 1602690312
+                              'y': 21.7
+                            - x: 1602699954
+                              'y': 22.1
+                            - x: 1602699981
+                              'y': 22.2
+                            - x: 1602700249
+                              'y': 22.3
+                            - x: 1602703730
+                              'y': 22.5
+                            - x: 1602708014
+                              'y': 23
+                            - x: 1602715791
+                              'y': 23.2
+                            - x: 1602744162
+                              'y': 23.3
+                            - x: 1602744166
+                              'y': 23.7
+                            - x: 1602744195
+                              'y': 23.5
+                            - x: 1602745499
+                              'y': 23.4
+                            - x: 1602752480
+                              'y': 23.6
+                            - x: 1602757144
+                              'y': 23.4
+                        - ID: airHumidity
+                          Name: Vlhkost vzduchu
+                          Description: Vlhkost vzduchu
+                          Unit: '%'
+                          Color: '#0076ff'
+                          Range:
+                            Min: 0
+                            Max: 100
+                          ParameterMin: minHumidityHS0101
+                          ParameterMax: maxHumidityHS0101
+                          Value: 64
+                          ValueStr: 64 %
+                          Notification:
+                            ID: d5b88b01-1a47-4b77-bc3a-2a377f3d9395
+                            Min: 20
+                            Max: 80
+                            SendSMS: false
+                            SendEmail: true
+                            SendPush: false
+                            SetFromParam: true
+                          ChartData:
+                            - x: 1602686289
+                              'y': 62
+                            - x: 1602686315
+                              'y': 55
+                            - x: 1602690214
+                              'y': 52
+                            - x: 1602690312
+                              'y': 54
+                            - x: 1602699954
+                              'y': 55
+                            - x: 1602699981
+                              'y': 56
+                            - x: 1602700249
+                              'y': 61
+                            - x: 1602703730
+                              'y': 64
+                            - x: 1602708014
+                              'y': 69
+                            - x: 1602715791
+                              'y': 75
+                            - x: 1602744162
+                              'y': 73
+                            - x: 1602744166
+                              'y': 64
+                            - x: 1602744195
+                              'y': 65
+                            - x: 1602745499
+                              'y': 66
+                            - x: 1602752480
+                              'y': 63
+                            - x: 1602757144
+                              'y': 64
+                      ChartRange: day
+                      Parameters:
+                        - ID: timeToLeaveHS0101
+                          Name: Čas k odchodu
+                          Value: 30
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1598455753
+                            TimestampStr: '26.08.2020 15:29'
+                          Changed: 1598455753
+                          ChangedStr: '26.08.2020 15:29'
+                          Unit: s
+                          Pattern: ''
+                          Values:
+                            - Value: '30'
+                              Name: 30 vteřin
+                            - Value: '60'
+                              Name: 1 minuta
+                            - Value: '120'
+                              Name: 2 minuty
+                            - Value: '600'
+                              Name: 5 minut
+                          Min: null
+                          Max: null
+                          Required: false
+                          DataType: int
+                          Show: true
+                        - ID: alarmSensitivityHS0101
+                          Name: Citlivost
+                          Value: 4
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1602320883
+                            TimestampStr: '10.10.2020 09:08'
+                          Changed: 1602320816
+                          ChangedStr: '10.10.2020 09:06'
+                          Unit: ''
+                          Pattern: ''
+                          Values:
+                            - Value: '4'
+                              Name: Žádná
+                            - Value: '1'
+                              Name: Nízká
+                            - Value: '2'
+                              Name: Střední
+                            - Value: '3'
+                              Name: Vysoká
+                          Min: null
+                          Max: null
+                          Required: false
+                          DataType: int
+                          Show: true
+                        - ID: checkPeriodHS0101
+                          Name: Perioda měření
+                          Value: 2
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1598565414
+                            TimestampStr: '27.08.2020 21:56'
+                          Changed: 1598455753
+                          ChangedStr: '26.08.2020 15:29'
+                          Unit: min
+                          Pattern: ''
+                          Values:
+                            - Value: '6'
+                              Name: 15 minut
+                            - Value: '7'
+                              Name: 30 minut
+                            - Value: '1'
+                              Name: 1 hodina
+                            - Value: '2'
+                              Name: 6 hodin
+                          Min: null
+                          Max: null
+                          Required: false
+                          DataType: uint
+                          Show: true
+                        - ID: sendPeriodHS0101
+                          Name: Perioda odesílání
+                          Value: 4
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1598565414
+                            TimestampStr: '27.08.2020 21:56'
+                          Changed: 1598455753
+                          ChangedStr: '26.08.2020 15:29'
+                          Unit: min
+                          Pattern: ''
+                          Values:
+                            - Value: '6'
+                              Name: 15 minut
+                            - Value: '7'
+                              Name: 30 minut
+                            - Value: '1'
+                              Name: 1 hodina
+                            - Value: '2'
+                              Name: 6 hodin
+                            - Value: '3'
+                              Name: 12 hodin
+                            - Value: '4'
+                              Name: 24 hodin
+                          Min: null
+                          Max: null
+                          Required: false
+                          DataType: uint
+                          Show: true
+                        - ID: minTemperatureHS0101
+                          Name: Alarm minimální teploty
+                          Value: 10
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1602270628
+                            TimestampStr: '09.10.2020 19:10'
+                          Changed: 1602270435
+                          ChangedStr: '09.10.2020 19:07'
+                          Unit: °C
+                          Pattern: ''
+                          Values: null
+                          Min: -40
+                          Max: 84
+                          Required: false
+                          DataType: int
+                          Show: false
+                        - ID: maxTemperatureHS0101
+                          Name: Alarm maximální teploty
+                          Value: 25
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1602270628
+                            TimestampStr: '09.10.2020 19:10'
+                          Changed: 1602270435
+                          ChangedStr: '09.10.2020 19:07'
+                          Unit: °C
+                          Pattern: ''
+                          Values: null
+                          Min: -39
+                          Max: 85
+                          Required: false
+                          DataType: int
+                          Show: false
+                        - ID: minHumidityHS0101
+                          Name: Alarm minimální vlhkosti
+                          Value: 20
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1602681413
+                            TimestampStr: '14.10.2020 13:16'
+                          Changed: 1602676640
+                          ChangedStr: '14.10.2020 11:57'
+                          Unit: '%'
+                          Pattern: ''
+                          Values: null
+                          Min: 0
+                          Max: 100
+                          Required: false
+                          DataType: int
+                          Show: false
+                        - ID: maxHumidityHS0101
+                          Name: Alarm maximální vlhkosti
+                          Value: 80
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1602681413
+                            TimestampStr: '14.10.2020 13:16'
+                          Changed: 1602676640
+                          ChangedStr: '14.10.2020 11:57'
+                          Unit: '%'
+                          Pattern: ''
+                          Values: null
+                          Min: 0
+                          Max: 100
+                          Required: false
+                          DataType: int
+                          Show: false
+                      Security:
+                        Secured: true
+                        LastSecuredBy: michal.smolka18@gmail.com
+                        SecuredDateTime: 1602419087
+                        SecuredDateTimeStr: '11.10.2020 12:24'
+                        AlarmDateTime: 1602764374
+                        AlarmDateTimeStr: '15.10.2020 12:19'
+                OK - basice device:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      RecID: 2957e1c5-ef9d-4133-b1b5-9fc6ad141e25
+                      DevID: SCC.IOT.ROPCUST-0600000000000002
+                      Description: ''
+                      Name: CO2 čidlo kancelář
+                      Class: CO2
+                      Vendor: Master IT Technologies
+                      Model: LRB.CO2
+                      Status:
+                        Status: OK
+                        Timestamp: 1602851436
+                        TimestampStr: '16.10.2020 12:30'
+                      Group:
+                        ID: myIoT-272-Kancelar-FgrBdafa
+                        Name: Kancelář
+                        Description: Kancelář v robotě
+                      Application: measurement
+                      Position:
+                        Latitude: 49.68723003989764
+                        Longitude: 18.52107703685761
+                      Values:
+                        - ID: co2
+                          Name: Úroveň CO2
+                          Description: Úroveň CO2
+                          Unit: ppm
+                          Color: '#00dc50'
+                          Range:
+                            Min: null
+                            Max: null
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 826
+                          ValueStr: 826 ppm
+                          Notification:
+                            ID: 194c90c9-6516-4d15-b744-715b5647c9b0
+                            Min: 0
+                            Max: 1000
+                            SendSMS: false
+                            SendEmail: true
+                            SendPush: false
+                            SetFromParam: false
+                          ChartData:
+                            - x: 1602758326
+                              'y': 506
+                            - x: 1602758876
+                              'y': 458
+                            - x: 1602759403
+                              'y': 428
+                            - x: 1602759978
+                              'y': 427
+                            - x: 1602760528
+                              'y': 406
+                            - x: 1602761053
+                              'y': 392
+                            - x: 1602761604
+                              'y': 395
+                            - x: 1602762155
+                              'y': 393
+                            - x: 1602762705
+                              'y': 393
+                            - x: 1602763255
+                              'y': 404
+                            - x: 1602763804
+                              'y': 413
+                            - x: 1602764380
+                              'y': 534
+                            - x: 1602764930
+                              'y': 617
+                            - x: 1602765481
+                              'y': 702
+                            - x: 1602766032
+                              'y': 751
+                            - x: 1602766557
+                              'y': 773
+                            - x: 1602767132
+                              'y': 788
+                            - x: 1602767658
+                              'y': 812
+                            - x: 1602768210
+                              'y': 837
+                            - x: 1602768787
+                              'y': 834
+                            - x: 1602769863
+                              'y': 804
+                            - x: 1602770413
+                              'y': 811
+                            - x: 1602770965
+                              'y': 869
+                            - x: 1602771516
+                              'y': 899
+                            - x: 1602772068
+                              'y': 785
+                            - x: 1602772619
+                              'y': 709
+                            - x: 1602773197
+                              'y': 674
+                            - x: 1602773748
+                              'y': 664
+                            - x: 1602774299
+                              'y': 658
+                            - x: 1602774850
+                              'y': 653
+                            - x: 1602775402
+                              'y': 642
+                            - x: 1602775928
+                              'y': 640
+                            - x: 1602776480
+                              'y': 630
+                            - x: 1602777030
+                              'y': 624
+                            - x: 1602777581
+                              'y': 621
+                            - x: 1602778159
+                              'y': 614
+                            - x: 1602778711
+                              'y': 602
+                            - x: 1602779236
+                              'y': 596
+                            - x: 1602779814
+                              'y': 583
+                            - x: 1602780338
+                              'y': 581
+                            - x: 1602780889
+                              'y': 578
+                            - x: 1602781467
+                              'y': 578
+                            - x: 1602782018
+                              'y': 565
+                            - x: 1602782541
+                              'y': 555
+                            - x: 1602783092
+                              'y': 556
+                            - x: 1602783670
+                              'y': 550
+                            - x: 1602784195
+                              'y': 559
+                            - x: 1602784773
+                              'y': 555
+                            - x: 1602785298
+                              'y': 548
+                            - x: 1602785849
+                              'y': 546
+                            - x: 1602786425
+                              'y': 546
+                            - x: 1602786975
+                              'y': 537
+                            - x: 1602787527
+                              'y': 537
+                            - x: 1602788079
+                              'y': 534
+                            - x: 1602788603
+                              'y': 539
+                            - x: 1602789181
+                              'y': 535
+                            - x: 1602789730
+                              'y': 525
+                            - x: 1602790282
+                              'y': 521
+                            - x: 1602790833
+                              'y': 519
+                            - x: 1602791384
+                              'y': 519
+                            - x: 1602791934
+                              'y': 513
+                            - x: 1602792484
+                              'y': 515
+                            - x: 1602793009
+                              'y': 508
+                            - x: 1602793560
+                              'y': 504
+                            - x: 1602794138
+                              'y': 500
+                            - x: 1602794689
+                              'y': 495
+                            - x: 1602795239
+                              'y': 502
+                            - x: 1602795764
+                              'y': 498
+                            - x: 1602796341
+                              'y': 495
+                            - x: 1602796892
+                              'y': 487
+                            - x: 1602797443
+                              'y': 490
+                            - x: 1602797995
+                              'y': 481
+                            - x: 1602798545
+                              'y': 478
+                            - x: 1602799068
+                              'y': 474
+                            - x: 1602799618
+                              'y': 472
+                            - x: 1602800168
+                              'y': 467
+                            - x: 1602800746
+                              'y': 468
+                            - x: 1602801270
+                              'y': 465
+                            - x: 1602801848
+                              'y': 465
+                            - x: 1602802399
+                              'y': 463
+                            - x: 1602802949
+                              'y': 461
+                            - x: 1602803499
+                              'y': 464
+                            - x: 1602804051
+                              'y': 459
+                            - x: 1602804575
+                              'y': 453
+                            - x: 1602805153
+                              'y': 450
+                            - x: 1602805677
+                              'y': 450
+                            - x: 1602806255
+                              'y': 441
+                            - x: 1602806779
+                              'y': 445
+                            - x: 1602807357
+                              'y': 447
+                            - x: 1602807907
+                              'y': 446
+                            - x: 1602808430
+                              'y': 443
+                            - x: 1602809007
+                              'y': 441
+                            - x: 1602809557
+                              'y': 441
+                            - x: 1602810107
+                              'y': 438
+                            - x: 1602810658
+                              'y': 441
+                            - x: 1602811210
+                              'y': 429
+                            - x: 1602811760
+                              'y': 430
+                            - x: 1602812312
+                              'y': 431
+                            - x: 1602812862
+                              'y': 427
+                            - x: 1602813385
+                              'y': 429
+                            - x: 1602813936
+                              'y': 429
+                            - x: 1602814487
+                              'y': 424
+                            - x: 1602815038
+                              'y': 415
+                            - x: 1602815616
+                              'y': 416
+                            - x: 1602816140
+                              'y': 417
+                            - x: 1602816690
+                              'y': 412
+                            - x: 1602817269
+                              'y': 408
+                            - x: 1602817791
+                              'y': 408
+                            - x: 1602818371
+                              'y': 413
+                            - x: 1602818922
+                              'y': 407
+                            - x: 1602819473
+                              'y': 400
+                            - x: 1602819996
+                              'y': 404
+                            - x: 1602820575
+                              'y': 407
+                            - x: 1602821127
+                              'y': 401
+                            - x: 1602821649
+                              'y': 403
+                            - x: 1602822228
+                              'y': 397
+                            - x: 1602822751
+                              'y': 406
+                            - x: 1602823329
+                              'y': 407
+                            - x: 1602823852
+                              'y': 400
+                            - x: 1602824432
+                              'y': 397
+                            - x: 1602824954
+                              'y': 398
+                            - x: 1602825533
+                              'y': 396
+                            - x: 1602826084
+                              'y': 396
+                            - x: 1602826606
+                              'y': 395
+                            - x: 1602827156
+                              'y': 404
+                            - x: 1602827708
+                              'y': 406
+                            - x: 1602828807
+                              'y': 414
+                            - x: 1602829387
+                              'y': 418
+                            - x: 1602829938
+                              'y': 452
+                            - x: 1602830488
+                              'y': 571
+                            - x: 1602831010
+                              'y': 651
+                            - x: 1602831561
+                              'y': 674
+                            - x: 1602832140
+                              'y': 690
+                            - x: 1602832692
+                              'y': 727
+                            - x: 1602833214
+                              'y': 701
+                            - x: 1602833794
+                              'y': 654
+                            - x: 1602834316
+                              'y': 682
+                            - x: 1602834895
+                              'y': 707
+                            - x: 1602835446
+                              'y': 726
+                            - x: 1602835968
+                              'y': 736
+                            - x: 1602836548
+                              'y': 750
+                            - x: 1602837070
+                              'y': 765
+                            - x: 1602837650
+                              'y': 769
+                            - x: 1602838172
+                              'y': 771
+                            - x: 1602838723
+                              'y': 778
+                            - x: 1602839275
+                              'y': 769
+                            - x: 1602839855
+                              'y': 780
+                            - x: 1602840377
+                              'y': 789
+                            - x: 1602840958
+                              'y': 801
+                            - x: 1602841480
+                              'y': 819
+                            - x: 1602842063
+                              'y': 834
+                            - x: 1602842588
+                              'y': 831
+                            - x: 1602843133
+                              'y': 837
+                            - x: 1602843684
+                              'y': 849
+                        - ID: airTemperature
+                          Name: Teplota vzduchu
+                          Description: Teplota vzduchu
+                          Unit: °C
+                          Color: '#ff4600'
+                          Range:
+                            Min: null
+                            Max: null
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 26.6
+                          ValueStr: 26.6 °C
+                          Notification: null
+                          ChartData:
+                            - x: 1602758326
+                              'y': 25.5
+                            - x: 1602758876
+                              'y': 25.3
+                            - x: 1602759403
+                              'y': 24.3
+                            - x: 1602759978
+                              'y': 23.6
+                            - x: 1602760528
+                              'y': 23.1
+                            - x: 1602761053
+                              'y': 22.6
+                            - x: 1602761604
+                              'y': 22.4
+                            - x: 1602762155
+                              'y': 22.4
+                            - x: 1602762705
+                              'y': 22.3
+                            - x: 1602763255
+                              'y': 22.5
+                            - x: 1602763804
+                              'y': 22.5
+                            - x: 1602764380
+                              'y': 23.4
+                            - x: 1602764930
+                              'y': 24.1
+                            - x: 1602765481
+                              'y': 24.8
+                            - x: 1602766032
+                              'y': 25.2
+                            - x: 1602766557
+                              'y': 25.6
+                            - x: 1602767132
+                              'y': 25.9
+                            - x: 1602767658
+                              'y': 26.2
+                            - x: 1602768210
+                              'y': 26.6
+                            - x: 1602768787
+                              'y': 26.8
+                            - x: 1602769863
+                              'y': 27
+                            - x: 1602770413
+                              'y': 27
+                            - x: 1602770965
+                              'y': 27.1
+                            - x: 1602771516
+                              'y': 27.9
+                            - x: 1602772068
+                              'y': 28.4
+                            - x: 1602772619
+                              'y': 29
+                            - x: 1602773197
+                              'y': 28.6
+                            - x: 1602773748
+                              'y': 28.4
+                            - x: 1602774299
+                              'y': 28.3
+                            - x: 1602774850
+                              'y': 28.1
+                            - x: 1602775402
+                              'y': 27.8
+                            - x: 1602775928
+                              'y': 27.7
+                            - x: 1602776480
+                              'y': 27.5
+                            - x: 1602777030
+                              'y': 27.4
+                            - x: 1602777581
+                              'y': 27.3
+                            - x: 1602778159
+                              'y': 27.2
+                            - x: 1602778711
+                              'y': 27.1
+                            - x: 1602779236
+                              'y': 27
+                            - x: 1602779814
+                              'y': 27
+                            - x: 1602780338
+                              'y': 26.9
+                            - x: 1602780889
+                              'y': 26.8
+                            - x: 1602781467
+                              'y': 26.7
+                            - x: 1602782018
+                              'y': 26.6
+                            - x: 1602782541
+                              'y': 26.6
+                            - x: 1602783092
+                              'y': 26.5
+                            - x: 1602783670
+                              'y': 26.4
+                            - x: 1602784195
+                              'y': 26.4
+                            - x: 1602784773
+                              'y': 26.4
+                            - x: 1602785298
+                              'y': 26.3
+                            - x: 1602785849
+                              'y': 26.2
+                            - x: 1602786425
+                              'y': 26.2
+                            - x: 1602786975
+                              'y': 26.1
+                            - x: 1602787527
+                              'y': 26.1
+                            - x: 1602788079
+                              'y': 26.1
+                            - x: 1602788603
+                              'y': 26
+                            - x: 1602789181
+                              'y': 26
+                            - x: 1602789730
+                              'y': 25.9
+                            - x: 1602790282
+                              'y': 25.9
+                            - x: 1602790833
+                              'y': 25.9
+                            - x: 1602791384
+                              'y': 25.9
+                            - x: 1602791934
+                              'y': 25.8
+                            - x: 1602792484
+                              'y': 25.8
+                            - x: 1602793009
+                              'y': 25.7
+                            - x: 1602793560
+                              'y': 25.7
+                            - x: 1602794138
+                              'y': 25.6
+                            - x: 1602794689
+                              'y': 25.6
+                            - x: 1602795239
+                              'y': 25.6
+                            - x: 1602795764
+                              'y': 25.6
+                            - x: 1602796341
+                              'y': 25.5
+                            - x: 1602796892
+                              'y': 25.5
+                            - x: 1602797443
+                              'y': 25.5
+                            - x: 1602797995
+                              'y': 25.5
+                            - x: 1602798545
+                              'y': 25.4
+                            - x: 1602799068
+                              'y': 25.4
+                            - x: 1602799618
+                              'y': 25.4
+                            - x: 1602800168
+                              'y': 25.4
+                            - x: 1602800746
+                              'y': 25.4
+                            - x: 1602801270
+                              'y': 25.3
+                            - x: 1602801848
+                              'y': 25.3
+                            - x: 1602802399
+                              'y': 25.3
+                            - x: 1602802949
+                              'y': 25.3
+                            - x: 1602803499
+                              'y': 25.3
+                            - x: 1602804051
+                              'y': 25.3
+                            - x: 1602804575
+                              'y': 25.3
+                            - x: 1602805153
+                              'y': 25.3
+                            - x: 1602805677
+                              'y': 25.3
+                            - x: 1602806255
+                              'y': 25.3
+                            - x: 1602806779
+                              'y': 25.3
+                            - x: 1602807357
+                              'y': 25.3
+                            - x: 1602807907
+                              'y': 25.3
+                            - x: 1602808430
+                              'y': 25.3
+                            - x: 1602809007
+                              'y': 25.3
+                            - x: 1602809557
+                              'y': 25.3
+                            - x: 1602810107
+                              'y': 25.3
+                            - x: 1602810658
+                              'y': 25.3
+                            - x: 1602811210
+                              'y': 25.4
+                            - x: 1602811760
+                              'y': 25.3
+                            - x: 1602812312
+                              'y': 25.3
+                            - x: 1602812862
+                              'y': 25.4
+                            - x: 1602813385
+                              'y': 25.4
+                            - x: 1602813936
+                              'y': 25.4
+                            - x: 1602814487
+                              'y': 25.4
+                            - x: 1602815038
+                              'y': 25.4
+                            - x: 1602815616
+                              'y': 25.4
+                            - x: 1602816140
+                              'y': 25.4
+                            - x: 1602816690
+                              'y': 25.4
+                            - x: 1602817269
+                              'y': 25.4
+                            - x: 1602817791
+                              'y': 25.4
+                            - x: 1602818371
+                              'y': 25.4
+                            - x: 1602818922
+                              'y': 25.4
+                            - x: 1602819473
+                              'y': 25.4
+                            - x: 1602819996
+                              'y': 25.4
+                            - x: 1602820575
+                              'y': 25.4
+                            - x: 1602821127
+                              'y': 25.5
+                            - x: 1602821649
+                              'y': 25.4
+                            - x: 1602822228
+                              'y': 25.4
+                            - x: 1602822751
+                              'y': 25.4
+                            - x: 1602823329
+                              'y': 25.5
+                            - x: 1602823852
+                              'y': 25.4
+                            - x: 1602824432
+                              'y': 25.5
+                            - x: 1602824954
+                              'y': 25.5
+                            - x: 1602825533
+                              'y': 25.5
+                            - x: 1602826084
+                              'y': 25.5
+                            - x: 1602826606
+                              'y': 25.4
+                            - x: 1602827156
+                              'y': 25.5
+                            - x: 1602827708
+                              'y': 25.5
+                            - x: 1602828807
+                              'y': 25.5
+                            - x: 1602829387
+                              'y': 25.5
+                            - x: 1602829938
+                              'y': 25.6
+                            - x: 1602830488
+                              'y': 25.6
+                            - x: 1602831010
+                              'y': 25.7
+                            - x: 1602831561
+                              'y': 25.8
+                            - x: 1602832140
+                              'y': 25.9
+                            - x: 1602832692
+                              'y': 26
+                            - x: 1602833214
+                              'y': 26
+                            - x: 1602833794
+                              'y': 26
+                            - x: 1602834316
+                              'y': 26.1
+                            - x: 1602834895
+                              'y': 26.2
+                            - x: 1602835446
+                              'y': 26.2
+                            - x: 1602835968
+                              'y': 26.3
+                            - x: 1602836548
+                              'y': 26.3
+                            - x: 1602837070
+                              'y': 26.4
+                            - x: 1602837650
+                              'y': 26.4
+                            - x: 1602838172
+                              'y': 26.5
+                            - x: 1602838723
+                              'y': 26.5
+                            - x: 1602839275
+                              'y': 26.5
+                            - x: 1602839855
+                              'y': 26.6
+                            - x: 1602840377
+                              'y': 26.6
+                            - x: 1602840958
+                              'y': 26.6
+                            - x: 1602841480
+                              'y': 26.6
+                            - x: 1602842063
+                              'y': 26.6
+                            - x: 1602842588
+                              'y': 26.6
+                            - x: 1602843133
+                              'y': 26.6
+                            - x: 1602843684
+                              'y': 26.6
+                        - ID: airHumidity
+                          Name: Vlhkost vzduchu
+                          Description: Vlhkost vzduchu
+                          Unit: '%'
+                          Color: '#3385ff'
+                          Range:
+                            Min: 0
+                            Max: 100
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 40.8
+                          ValueStr: 40.8 %
+                          Notification: null
+                          ChartData:
+                            - x: 1602758326
+                              'y': 36.8
+                            - x: 1602758876
+                              'y': 35.6
+                            - x: 1602759403
+                              'y': 36
+                            - x: 1602759978
+                              'y': 36.2
+                            - x: 1602760528
+                              'y': 37
+                            - x: 1602761053
+                              'y': 37.2
+                            - x: 1602761604
+                              'y': 38
+                            - x: 1602762155
+                              'y': 38.1
+                            - x: 1602762705
+                              'y': 38.6
+                            - x: 1602763255
+                              'y': 38.7
+                            - x: 1602763804
+                              'y': 39.2
+                            - x: 1602764380
+                              'y': 39.5
+                            - x: 1602764930
+                              'y': 39.4
+                            - x: 1602765481
+                              'y': 39.2
+                            - x: 1602766032
+                              'y': 39
+                            - x: 1602766557
+                              'y': 38.8
+                            - x: 1602767132
+                              'y': 38.8
+                            - x: 1602767658
+                              'y': 38.7
+                            - x: 1602768210
+                              'y': 38.5
+                            - x: 1602768787
+                              'y': 38.3
+                            - x: 1602769863
+                              'y': 38.2
+                            - x: 1602770413
+                              'y': 38.2
+                            - x: 1602770965
+                              'y': 38.5
+                            - x: 1602771516
+                              'y': 37.7
+                            - x: 1602772068
+                              'y': 36.8
+                            - x: 1602772619
+                              'y': 35.4
+                            - x: 1602773197
+                              'y': 35.8
+                            - x: 1602773748
+                              'y': 35.9
+                            - x: 1602774299
+                              'y': 35.9
+                            - x: 1602774850
+                              'y': 36.1
+                            - x: 1602775402
+                              'y': 36.4
+                            - x: 1602775928
+                              'y': 36.6
+                            - x: 1602776480
+                              'y': 36.8
+                            - x: 1602777030
+                              'y': 36.9
+                            - x: 1602777581
+                              'y': 37
+                            - x: 1602778159
+                              'y': 37.1
+                            - x: 1602778711
+                              'y': 37.2
+                            - x: 1602779236
+                              'y': 37.3
+                            - x: 1602779814
+                              'y': 37.3
+                            - x: 1602780338
+                              'y': 37.4
+                            - x: 1602780889
+                              'y': 37.5
+                            - x: 1602781467
+                              'y': 37.6
+                            - x: 1602782018
+                              'y': 37.6
+                            - x: 1602782541
+                              'y': 37.7
+                            - x: 1602783092
+                              'y': 37.7
+                            - x: 1602783670
+                              'y': 37.7
+                            - x: 1602784195
+                              'y': 38.5
+                            - x: 1602784773
+                              'y': 38.4
+                            - x: 1602785298
+                              'y': 38.4
+                            - x: 1602785849
+                              'y': 38.4
+                            - x: 1602786425
+                              'y': 38.4
+                            - x: 1602786975
+                              'y': 38.5
+                            - x: 1602787527
+                              'y': 38.5
+                            - x: 1602788079
+                              'y': 38.5
+                            - x: 1602788603
+                              'y': 38.5
+                            - x: 1602789181
+                              'y': 38.5
+                            - x: 1602789730
+                              'y': 38.5
+                            - x: 1602790282
+                              'y': 38.5
+                            - x: 1602790833
+                              'y': 38.6
+                            - x: 1602791384
+                              'y': 38.6
+                            - x: 1602791934
+                              'y': 38.6
+                            - x: 1602792484
+                              'y': 38.6
+                            - x: 1602793009
+                              'y': 38.7
+                            - x: 1602793560
+                              'y': 38.7
+                            - x: 1602794138
+                              'y': 38.7
+                            - x: 1602794689
+                              'y': 38.7
+                            - x: 1602795239
+                              'y': 38.7
+                            - x: 1602795764
+                              'y': 38.7
+                            - x: 1602796341
+                              'y': 38.8
+                            - x: 1602796892
+                              'y': 38.8
+                            - x: 1602797443
+                              'y': 38.8
+                            - x: 1602797995
+                              'y': 38.8
+                            - x: 1602798545
+                              'y': 38.8
+                            - x: 1602799068
+                              'y': 38.8
+                            - x: 1602799618
+                              'y': 38.9
+                            - x: 1602800168
+                              'y': 38.9
+                            - x: 1602800746
+                              'y': 38.9
+                            - x: 1602801270
+                              'y': 38.9
+                            - x: 1602801848
+                              'y': 39
+                            - x: 1602802399
+                              'y': 38.9
+                            - x: 1602802949
+                              'y': 39
+                            - x: 1602803499
+                              'y': 39
+                            - x: 1602804051
+                              'y': 39
+                            - x: 1602804575
+                              'y': 39
+                            - x: 1602805153
+                              'y': 39
+                            - x: 1602805677
+                              'y': 39.1
+                            - x: 1602806255
+                              'y': 39
+                            - x: 1602806779
+                              'y': 39
+                            - x: 1602807357
+                              'y': 39
+                            - x: 1602807907
+                              'y': 39
+                            - x: 1602808430
+                              'y': 39.1
+                            - x: 1602809007
+                              'y': 39.1
+                            - x: 1602809557
+                              'y': 39.1
+                            - x: 1602810107
+                              'y': 39
+                            - x: 1602810658
+                              'y': 39
+                            - x: 1602811210
+                              'y': 39.1
+                            - x: 1602811760
+                              'y': 39.1
+                            - x: 1602812312
+                              'y': 39
+                            - x: 1602812862
+                              'y': 39
+                            - x: 1602813385
+                              'y': 39.1
+                            - x: 1602813936
+                              'y': 39.1
+                            - x: 1602814487
+                              'y': 39.1
+                            - x: 1602815038
+                              'y': 39.1
+                            - x: 1602815616
+                              'y': 39.1
+                            - x: 1602816140
+                              'y': 39.1
+                            - x: 1602816690
+                              'y': 39.2
+                            - x: 1602817269
+                              'y': 39.1
+                            - x: 1602817791
+                              'y': 39.2
+                            - x: 1602818371
+                              'y': 39.1
+                            - x: 1602818922
+                              'y': 39.1
+                            - x: 1602819473
+                              'y': 39.2
+                            - x: 1602819996
+                              'y': 39.1
+                            - x: 1602820575
+                              'y': 39.1
+                            - x: 1602821127
+                              'y': 39.2
+                            - x: 1602821649
+                              'y': 39.1
+                            - x: 1602822228
+                              'y': 39.2
+                            - x: 1602822751
+                              'y': 39.1
+                            - x: 1602823329
+                              'y': 39.2
+                            - x: 1602823852
+                              'y': 39.2
+                            - x: 1602824432
+                              'y': 39.2
+                            - x: 1602824954
+                              'y': 39.2
+                            - x: 1602825533
+                              'y': 39.1
+                            - x: 1602826084
+                              'y': 39.2
+                            - x: 1602826606
+                              'y': 39.2
+                            - x: 1602827156
+                              'y': 39.3
+                            - x: 1602827708
+                              'y': 39.3
+                            - x: 1602828807
+                              'y': 39.4
+                            - x: 1602829387
+                              'y': 39.5
+                            - x: 1602829938
+                              'y': 39.9
+                            - x: 1602830488
+                              'y': 40.6
+                            - x: 1602831010
+                              'y': 40.9
+                            - x: 1602831561
+                              'y': 41
+                            - x: 1602832140
+                              'y': 41.1
+                            - x: 1602832692
+                              'y': 41
+                            - x: 1602833214
+                              'y': 40.8
+                            - x: 1602833794
+                              'y': 40.7
+                            - x: 1602834316
+                              'y': 41
+                            - x: 1602834895
+                              'y': 41.2
+                            - x: 1602835446
+                              'y': 41.2
+                            - x: 1602835968
+                              'y': 41.3
+                            - x: 1602836548
+                              'y': 41.2
+                            - x: 1602837070
+                              'y': 41.2
+                            - x: 1602837650
+                              'y': 41.2
+                            - x: 1602838172
+                              'y': 41.2
+                            - x: 1602838723
+                              'y': 41.2
+                            - x: 1602839275
+                              'y': 41
+                            - x: 1602839855
+                              'y': 40.9
+                            - x: 1602840377
+                              'y': 41
+                            - x: 1602840958
+                              'y': 41.1
+                            - x: 1602841480
+                              'y': 41.1
+                            - x: 1602842063
+                              'y': 41
+                            - x: 1602842588
+                              'y': 40.9
+                            - x: 1602843133
+                              'y': 41
+                            - x: 1602843684
+                              'y': 41
+                      ChartRange: day
+                      Parameters: []
+                OK - consumption:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      RecID: d599053c-0559-42c1-9060-5c00ff32d5d3
+                      DevID: SCC.IOT.ROPCUST-03000000100000F9
+                      Description: ''
+                      Name: STACHO MY-IOT CNT-1 ELEKTRO
+                      Class: PowerMeter
+                      Vendor: Master IT Technologies
+                      Model: LRB.MIO-CNT-1-E
+                      Status:
+                        Status: OK
+                        Timestamp: 1602848766
+                        TimestampStr: '16.10.2020 11:46'
+                      Group:
+                        ID: myIoT-639-Doma-9xWiQeTF
+                        Name: Doma
+                        Description: ''
+                      Application: consumption
+                      Position:
+                        Latitude: 49.71749693202723
+                        Longitude: 18.61654892482661
+                      Values:
+                        - ID: consumption
+                          Name: Spotřeba
+                          Description: Spotřeba
+                          Unit: kW/h
+                          Color: ''
+                          Range:
+                            Min: 0
+                            Max: null
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 0.155
+                          ValueStr: 0.155 kW/h
+                          Notification: null
+                        - ID: mainPower
+                          Name: Napětí baterie
+                          Description: Hlavní napájení
+                          Unit: V
+                          Color: ''
+                          Range:
+                            Min: 0
+                            Max: 5
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 3.68
+                          ValueStr: 3.68 V
+                          Notification: null
+                      ChartRange: day
+                      Parameters:
+                        - ID: sendPeriodLRBCNT1
+                          Name: Perioda odesílání
+                          Value: 4
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1601648184
+                            TimestampStr: '02.10.2020 14:16'
+                          Changed: 1601648572
+                          ChangedStr: '02.10.2020 14:22'
+                          Unit: min
+                          Pattern: ''
+                          Values:
+                            - Value: '4'
+                              Name: 1 hodina
+                            - Value: '6'
+                              Name: 6 hodin
+                          Min: null
+                          Max: null
+                          Required: false
+                          DataType: uint
+                          Show: true
+                        - ID: pulseValueLRBCNT1
+                          Name: Hodnota impulzu
+                          Value: 1.25
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1601652658
+                            TimestampStr: '02.10.2020 15:30'
+                          Changed: 1601652658
+                          ChangedStr: '02.10.2020 15:30'
+                          Unit: W
+                          Pattern: ''
+                          Values: null
+                          Min: 0
+                          Max: null
+                          Required: false
+                          DataType: decimal
+                          Show: true
+                        - ID: initValueLRBCNT1
+                          Name: Počáteční hodnota
+                          Value: null
+                          Description: ''
+                          Status:
+                            Status: valid
+                            Timestamp: 1601648184
+                            TimestampStr: '02.10.2020 14:16'
+                          Changed: 1601648572
+                          ChangedStr: '02.10.2020 14:22'
+                          Unit: kWh
+                          Pattern: ''
+                          Values: null
+                          Min: 0
+                          Max: null
+                          Required: false
+                          DataType: decimal
+                          Show: true
+                      ActualConsumption: 8.7
+                      PreviousConsumption: 28.6
+                      ConsumptionDifference: 19.9
+                      PreviousConsumptionInThisTime: 16.3
+                      ActualConsumptionStr: 8.7 kW/h
+                      PreviousConsumptionStr: 28.6 kW/h
+                      ConsumptionDifferenceStr: 19.9 kW/h
+                      PreviousConsumptionInThisTimeStr: 16.3 kW/h
+                      ChartDataPreviousPeriod:
+                        - x: 1602720000
+                          'y': 673.75
+                        - x: 1602723600
+                          'y': 951.25
+                        - x: 1602727200
+                          'y': 1826.25
+                        - x: 1602730800
+                          'y': 658.75
+                        - x: 1602734400
+                          'y': 1742.5
+                        - x: 1602738000
+                          'y': 1307.5
+                        - x: 1602741600
+                          'y': 537.5
+                        - x: 1602745200
+                          'y': 2856.25
+                        - x: 1602748800
+                          'y': 1083.75
+                        - x: 1602752400
+                          'y': 1157.5
+                        - x: 1602756000
+                          'y': 801.25
+                        - x: 1602759600
+                          'y': 997.5
+                        - x: 1602763200
+                          'y': 1747.5
+                        - x: 1602766800
+                          'y': 995
+                        - x: 1602770400
+                          'y': 1285
+                        - x: 1602774000
+                          'y': 1067.5
+                        - x: 1602777600
+                          'y': 1031.25
+                        - x: 1602781200
+                          'y': 758.75
+                        - x: 1602784800
+                          'y': 1351.25
+                        - x: 1602788400
+                          'y': 1132.5
+                        - x: 1602792000
+                          'y': 1575
+                        - x: 1602795600
+                          'y': 1640
+                        - x: 1602799200
+                          'y': 733.75
+                        - x: 1602802800
+                          'y': 680
+                      ChartDataActualPeriod:
+                        - x: 1602806400
+                          'y': 733.75
+                        - x: 1602810000
+                          'y': 847.5
+                        - x: 1602813600
+                          'y': 516.25
+                        - x: 1602817200
+                          'y': 457.5
+                        - x: 1602820800
+                          'y': 621.25
+                        - x: 1602824400
+                          'y': 668.75
+                        - x: 1602828000
+                          'y': 582.5
+                        - x: 1602831600
+                          'y': 770
+                        - x: 1602835200
+                          'y': 910
+                        - x: 1602838800
+                          'y': 807.5
+                        - x: 1602842400
+                          'y': 992.5
+                        - x: 1602846000
+                          'y': 772.5
+                        - x: 1602849600
+                          'y': 0
+                        - x: 1602853200
+                          'y': 0
+                        - x: 1602856800
+                          'y': 0
+                        - x: 1602860400
+                          'y': 0
+                        - x: 1602864000
+                          'y': 0
+                        - x: 1602867600
+                          'y': 0
+                        - x: 1602871200
+                          'y': 0
+                        - x: 1602874800
+                          'y': 0
+                        - x: 1602878400
+                          'y': 0
+                        - x: 1602882000
+                          'y': 0
+                        - x: 1602885600
+                          'y': 0
+                        - x: 1602889200
+                          'y': 0
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: get-api-app-mob-myiot-device-detail
+      description: |-
+        API vrátí detail zařízení
+
+        [API returns device detail data for myIoT application]
+      parameters:
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: jazyková mutace
+        - schema:
+            type: string
+          in: query
+          name: devID
+          required: true
+          description: ID zařízení
+        - schema:
+            type: string
+            default: day
+          in: query
+          name: chartRange
+          description: 'Rozsah dat (day, week, month)'
+          required: true
+      security:
+        - Bearer token: []
+      tags:
+        - application-myIoT
   /api/app/mob/myiot/device/identification:
     get:
       summary: GetDeviceIdentification
