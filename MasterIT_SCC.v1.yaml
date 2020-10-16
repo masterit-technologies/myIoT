@@ -2396,10 +2396,17 @@ paths:
                     err_code: -4000
                     data: null
       operationId: get-api-app-mob-myiot-device-detail
-      description: |-
+      description: |
         API vrátí detail zařízení
 
         [API returns device detail data for myIoT application]
+
+
+        Example for Parameter value and Notification value association
+
+        In example OK - Security device is Value named airHumidity which has parameter ParameterMin and ParameterMax, in this sections are Ids of parameters from Parameters section.
+
+        So Notification min and max values from Value which contains ParameterMin and ParameterMax are associated with Parameters (from Parameters section) which has that IDs.
       parameters:
         - schema:
             type: string
