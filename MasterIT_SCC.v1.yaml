@@ -378,6 +378,130 @@ paths:
           in: header
           name: Content-Type
           required: true
+  api/customer/pushtoken:
+    post:
+      summary: Write push token
+      operationId: post-customer-pushtoken
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      description: |-
+        Metoda zapíše push token pro zařízení customera
+
+        [ API writes push token to the users db ]
+      security:
+        - Bearer token: []
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: 'typ OS (android, ios)'
+                token:
+                  type: string
+                  description: pushtoken aplikace
+              required:
+                - type
+                - token
+            examples:
+              Přidání push tokenu:
+                value:
+                  type: android
+                  token: pushtoken
+        description: ''
+      tags:
+        - customers
+    parameters: []
+  /api/user/changePassword:
+    post:
+      summary: Authorized Password reset Request
+      operationId: post-api-user-changePassword
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                short password:
+                  value:
+                    status: error
+                    err_msg: Heslo je příliš krátké
+                    err_code: -2002
+                    data: null
+      description: API for password change for authorized user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                newPassword:
+                  type: string
+                  description: new password
+                oldPassword:
+                  description: old password
+                  type: string
+              required:
+                - newPassword
+                - oldPassword
+            examples:
+              password change:
+                value:
+                  oldPassword: '123456789'
+                  newPassword: asd8as56d1as571
+        description: ''
+      tags:
+        - password-recovery
+      parameters:
+        - schema:
+            type: string
+            default: application/json
+          in: header
+          name: Content-Type
+          required: true
   /api/app/mob/myiot/security:
     post:
       summary: SetDeviceSecureState
@@ -417,6 +541,182 @@ paths:
           in: query
           name: devID
           description: ID zařízení k zebezpečení
+      tags:
+        - application-myIoT
+  /api/app/mob/myiot/share/confirm:
+    get:
+      summary: GetMyIoTDeviceSharingConfirmation
+      operationId: get-api-app-mob-cg-myiot-share-confirm
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      recID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+                      relationGroupID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Chybné vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybné vstupní parametry
+                    err_code: -2000
+                    data: null
+                Přetížené API:
+                  value:
+                    status: error
+                    err_msg: Příliš mnoho HTTP požadavků na API
+                    err_code: -200
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      requestBody:
+        description: ''
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: relationGroupID
+          description: 'ID pozvánky, kterou chceme potvrdit (invitation ID)'
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: guid
+          description: guid požadavku na pozvánku (request ID for authorization)
+          required: true
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: Jazyková lokalizace některých parametrů
+      description: |-
+        Metoda potvrdí pozvánku na sdílení zařízení.
+
+        [API confirm users sharing]
+      tags:
+        - application-myIoT
+  /api/app/mob/myiot/share/refuse:
+    get:
+      summary: GetMyIoTDeviceSharingRefuse
+      operationId: get-api-app-mob-cg-myiot-share-refuse
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      recID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+                      relationGroupID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Chybné vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybné vstupní parametry
+                    err_code: -2000
+                    data: null
+                Přetížené API:
+                  value:
+                    status: error
+                    err_msg: Příliš mnoho HTTP požadavků na API
+                    err_code: -200
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      requestBody:
+        description: ''
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: relationGroupID
+          description: 'ID pozvánky, kterou chceme zamítnout (invitation ID)'
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: guid
+          description: guid požadavku na pozvánku (request ID for authorization)
+          required: true
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: Jazyková lokalizace některých parametrů
+      description: |-
+        Metoda yam9tne pozvánku na sdílení zařízení.
+
+        [API refuse users sharing]
       tags:
         - application-myIoT
   api/customer/confirm/send:
@@ -649,6 +949,77 @@ paths:
                     err_msg: ''
                     err_code: 0
                     data:
+                      types:
+                        - itemID: AccessPoint
+                          name: Access point
+                        - itemID: PointOfInterest
+                          name: Bod zájmu
+                        - itemID: TrashBinDetector
+                          name: Detektor zaplnění koše
+                        - itemID: BikeDock
+                          name: Dok pro kola
+                        - itemID: Gateway
+                          name: Gateway
+                        - itemID: GPSTracker
+                          name: GPS jednotka
+                        - itemID: PublicCamera
+                          name: Kamera
+                        - itemID: ContactSensor
+                          name: Kontaktní senzor
+                        - itemID: CO2
+                          name: Měření CO2
+                        - itemID: SoundMeter
+                          name: Měření hluku
+                        - itemID: MeteoStation
+                          name: Meteostanice
+                        - itemID: GeneralDevice
+                          name: Obecné zařízení
+                        - itemID: ParkingAutomat
+                          name: Parkovací automat
+                        - itemID: ParkingDetector
+                          name: Parkovací detektor
+                        - itemID: ParkingCamera
+                          name: Parkovací kamera
+                        - itemID: ParkingLocation
+                          name: Parkovací lokalita
+                        - itemID: ParkingPlace
+                          name: Parkovací místo
+                        - itemID: ParkingArea
+                          name: Parkovací oblast
+                        - itemID: ParkingPanel
+                          name: Parkovací panel
+                        - itemID: ParkingSensor
+                          name: Parkovací senzor
+                        - itemID: ParkingBarrier
+                          name: Parkovací závora
+                        - itemID: ParkingZone
+                          name: Parkovací zóna
+                        - itemID: PassCounter
+                          name: Počítadlo osob
+                        - itemID: Router
+                          name: Router
+                        - itemID: SecuritySensor
+                          name: Senzor zabezpečení
+                        - itemID: Server
+                          name: Server
+                        - itemID: GroupingDevice
+                          name: Skupina zařízení
+                        - itemID: PowerMeter
+                          name: Spotřeba elektřiny
+                        - itemID: GasMeter
+                          name: Spotřeba plynu
+                        - itemID: WaterMeter
+                          name: Spotřeba vody
+                        - itemID: UniSensor
+                          name: Univerzální senzor
+                        - itemID: PublicRadio
+                          name: Veřejný rozhlas
+                        - itemID: Vehicle
+                          name: Vozidlo
+                        - itemID: WaterLevel
+                          name: Výška hladiny
+                        - itemID: TransportStop
+                          name: Zastávka
                       vendors:
                         - itemID: IoTVega
                           name: IoT Vega
@@ -666,10 +1037,18 @@ paths:
                           models:
                             - itemID: LRB.MIO-ACC-3
                               name: LRB.MIO-ACC-3
-                            - itemID: LRB.MIO-CNT-1
-                              name: LRB.MIO-CNT-1
-                            - itemID: LRB.MIO-CNT-2
-                              name: LRB.MIO-CNT-2
+                            - itemID: LRB.MIO-CNT-1-E
+                              name: LRB.MIO-CNT-1-E
+                            - itemID: LRB.MIO-CNT-1-G
+                              name: LRB.MIO-CNT-1-G
+                            - itemID: LRB.MIO-CNT-1-W
+                              name: LRB.MIO-CNT-1-W
+                            - itemID: LRB.MIO-CNT-2-E
+                              name: LRB.MIO-CNT-2-E
+                            - itemID: LRB.MIO-CNT-2-G
+                              name: LRB.MIO-CNT-2-G
+                            - itemID: LRB.MIO-CNT-2-W
+                              name: LRB.MIO-CNT-2-W
                             - itemID: LRB.MIO-CO2-B1
                               name: LRB.MIO-CO2-B1
                             - itemID: LRB.MIO-CO2-P1
@@ -704,6 +1083,14 @@ paths:
                           name: Město Ostrava
                           imageUrl: ''
                           description: 'Statutární, krajské a univerzitní město na severovýchodě České republiky v Moravskoslezském kraji'
+                        - itemID: obecChotebuz
+                          name: Obec Chotěbuz
+                          imageUrl: 'http://localhost:63178/Content/Files/87e920c1-9c39-454a-8951-d407d7b50c6c.png'
+                          description: Kanál obce Chotěbuz
+                        - itemID: obecRopice
+                          name: Obec Ropice
+                          imageUrl: 'http://localhost:63178/Content/Files/9a2079b6-0250-4109-bd0a-f90b5fe3e6d9.jpeg'
+                          description: Kanál obce Ropice
                       icons:
                         - itemID: Content/images/device.svg
                           name: device
@@ -753,7 +1140,11 @@ paths:
                           name: water
                           url: 'http://localhost:63178/Content/images/water.svg'
                           deviceClass: WaterMeter
-                      unconfirmedInvitations: []
+                      unconfirmedInvitations:
+                        - devices: '*'
+                          user: michal.smolka18@gmail.com
+                          relationGroupID: 5df9c055-688e-4aa3-8a8b-bd73b21ceed4
+                          requestID: 992934fd-1a6b-4ffd-8693-5810b82bd6b3
                       myInvitations: []
         '401':
           description: Unauthorized
@@ -788,6 +1179,142 @@ paths:
           in: query
           name: locale
           description: jazyková mutace
+      security:
+        - Bearer token: []
+      tags:
+        - application-myIoT
+  /api/app/mob/myiot/share/public:
+    get:
+      summary: Public share Request
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      recID: 037271f7-8dd1-4100-a385-7013947c6676
+                      relationGroupID: 9b7ea0b1-11ad-497d-8f31-d76c82730076
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: get-api-app-mob-myiot-share-public
+      description: |-
+        API confirm sharing for public device
+
+        Just send devID of public qr to this api...api write relation with this public device
+      parameters:
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: jazyková mutace
+        - schema:
+            type: string
+          in: query
+          name: devID
+          description: ID zařízení
+      security:
+        - Bearer token: []
+      tags:
+        - application-myIoT
+  /api/ruian/address:
+    get:
+      summary: Address Request
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK - name=Ropice:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - idadr: 12525464
+                        lat: '49.70361343307064'
+                        lng: '18.611180895406154'
+                        name: Ropice 1
+                      - idadr: 12525553
+                        lat: '49.70567987257586'
+                        lng: '18.615846867887722'
+                        name: Ropice 10
+                      - idadr: 12526444
+                        lat: '49.71121161134691'
+                        lng: '18.60444948869076'
+                        name: Ropice 100
+                      - idadr: 42229901
+                        lat: '49.714684626462216'
+                        lng: '18.6275855154142'
+                        name: Ropice 1001
+                      - idadr: 42377081
+                        lat: '49.710748267759364'
+                        lng: '18.603757683552995'
+                        name: Ropice 1002
+                      - idadr: 12526452
+                        lat: '49.709881030232296'
+                        lng: '18.605143148547175'
+                        name: Ropice 101
+                      - idadr: 12526461
+                        lat: '49.71135510173571'
+                        lng: '18.616798619328566'
+                        name: Ropice 102
+                      - idadr: 12526479
+                        lat: '49.69310507850791'
+                        lng: '18.61401242936025'
+                        name: Ropice 103
+                      - idadr: 12526487
+                        lat: '49.68903791739419'
+                        lng: '18.61243184168718'
+                        name: Ropice 104
+                      - idadr: 12526495
+                        lat: '49.691183536444086'
+                        lng: '18.594167752339732'
+                        name: Ropice 105
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      operationId: get-api-ruian-address
+      description: |
+        API returns adress by name
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: name
+          required: true
       security:
         - Bearer token: []
       tags:
@@ -2782,7 +3309,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+                $ref: '#/components/schemas/APIResult'
               examples:
                 OK:
                   value:
@@ -2801,7 +3328,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+                $ref: '#/components/schemas/APIResult'
               examples:
                 Chybné vstupní parametry:
                   value:
@@ -2814,7 +3341,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+                $ref: '#/components/schemas/APIResult'
               examples:
                 Nedostatečné oprávnění:
                   value:
@@ -2839,7 +3366,7 @@ paths:
             type: string
           in: query
           name: devices
-          description: 'Seznam zařízení ke sdílení, oddělených čárkou nebo znak "*" informující, že sdílí všechna'
+          description: 'Seznam zařízení ke sdílení, oddělených čárkou nebo znak "*" informující, že sdílí všechna (list of devices divided by commas, * means all devices)'
           required: true
         - schema:
             type: string
@@ -2853,7 +3380,12 @@ paths:
           in: query
           name: locale
           description: Jazyková lokalizace některých parametrů
-      description: Metoda odešle pozvánku ke sdílení zařízení s jiným uživatelem nebo aktualizuje stávající sdílení
+      description: |-
+        Metoda odešle pozvánku ke sdílení zařízení s jiným uživatelem nebo aktualizuje stávající sdílení
+
+        [API sends invitation for sharing or updates existing share settings]
+
+        You can also share whole group of device...just add groupID to devices param
       tags:
         - application-myIoT
     parameters: []
@@ -2866,7 +3398,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+                $ref: '#/components/schemas/APIResult'
               examples:
                 OK:
                   value:
@@ -2880,7 +3412,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+                $ref: '#/components/schemas/APIResult'
               examples:
                 Chybné vstupní parametry:
                   value:
@@ -2893,7 +3425,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+                $ref: '#/components/schemas/APIResult'
               examples:
                 Nedostatečné oprávnění:
                   value:
@@ -2932,7 +3464,3233 @@ paths:
           in: query
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
-      description: ' Metoda smaže sdílení zařízení s uživatelem.'
+      description: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         Metoda smaže sdílení zařízení s uživatelem.
+         
+         [API deletes sharing with user]
+         
+         deleteRelations - parameter which says what kind of relation you want to remove.
+         
+         master - delete relation where actual user is master of this relation (device owner) - he share devices
+         
+         slave- delete relation where actual user is slave of this relation (he has shared devices from master)
+         
+         both- delete both, master and slave relation with user
+      tags:
+        - application-myIoT
+  /api/app/mob/myiot/users/device:
+    get:
+      summary: GetMyIoTShareUsers
+      operationId: get-api-app-mob-myiot-users-device
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      shared:
+                        - recID: 1482
+                          name: sopach@seznam.cz
+                          email: sopach@seznam.cz
+                          devices:
+                            - RecID: 33f7d953-4fba-48d2-93bf-12aa27d47b3c
+                              DevID: SCC.IOT.ROPCUST-03000000100000F0
+                              Name: STACHO MY-IOT ACC-3 DOORS
+                              Class: SecuritySensor
+                              Vendor: MasterIT
+                              Model: LRB.MIO-ACC-3
+                              Description: null
+                              Position:
+                                Latitude: 49.7174473949403
+                                Longitude: 18.6166709661484
+                              Data:
+                                loraSF: 11
+                                loraSNR: -11.75
+                                mainPower: 3.666
+                                alarmState: 0
+                                loraGWName: MITT_MKT_TEST-GW1
+                                loraGWRssi: -117
+                                airHumidity: 50
+                                secureState: secured
+                                timeToLeave: 60
+                                alarmDateTime: '2020-10-19T13:15:14'
+                                secureStateBy: 1482
+                                airTemperature: 19.1
+                                secureStateByName: sopach@seznam.cz
+                                secureStateDateTime: '2020-10-11T18:56:04'
+                              Parameters:
+                                - ID: alarmSensitivityLRBACC
+                                  Name: Citlivost
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 3
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-07-29T14:46:08'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '0'
+                                      Name: Žádná
+                                    - Value: '1'
+                                      Name: Nízká
+                                    - Value: '2'
+                                      Name: Střední
+                                    - Value: '3'
+                                      Name: Vysoká
+                                    - Value: '4'
+                                      Name: Velmi vysoká
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-07-29T15:11:46'
+                                - ID: sendPeriodLRBACC
+                                  Name: Perioda odesílání
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 3
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-04T18:24:05'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: 5 minut
+                                    - Value: '2'
+                                      Name: 15 minut
+                                    - Value: '3'
+                                      Name: 30 minut
+                                    - Value: '4'
+                                      Name: 1 hodina
+                                    - Value: '5'
+                                      Name: 4 hodiny
+                                    - Value: '5'
+                                      Name: 4 hodiny
+                                    - Value: '6'
+                                      Name: 6 hodin
+                                    - Value: '7'
+                                      Name: 12 hodin
+                                    - Value: '8'
+                                      Name: 24 hodin
+                                  Status:
+                                    Status: pending
+                                    Timestamp: '2020-10-19T14:16:33'
+                                - ID: checkPeriodLRBACC
+                                  Name: Perioda měření
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 2
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-04T18:24:05'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: 1 minuta
+                                    - Value: '2'
+                                      Name: 5 minut
+                                    - Value: '3'
+                                      Name: 10 minut
+                                    - Value: '4'
+                                      Name: 15 minut
+                                    - Value: '5'
+                                      Name: 30 minut
+                                    - Value: '6'
+                                      Name: 1 hodina
+                                  Status:
+                                    Status: pending
+                                    Timestamp: '2020-10-19T14:16:33'
+                                - ID: minTemperatureLRBACC
+                                  Name: Alarm minimální teploty
+                                  Unit: °C
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 17
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-06T18:02:42'
+                                  Min: -63
+                                  Max: 63
+                                  Values: null
+                                  Status:
+                                    Status: pending
+                                    Timestamp: '2020-10-19T14:16:33'
+                                - ID: maxTemperatureLRBACC
+                                  Name: Alarm maximální teploty
+                                  Unit: °C
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 24
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-06T18:02:42'
+                                  Min: -63
+                                  Max: 63
+                                  Values: null
+                                  Status:
+                                    Status: pending
+                                    Timestamp: '2020-10-19T14:16:33'
+                                - ID: minHumidityLRBACC
+                                  Name: Alarm minimální vlhkosti
+                                  Unit: '%'
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 58
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-04T18:24:05'
+                                  Min: 0
+                                  Max: 100
+                                  Values: null
+                                  Status:
+                                    Status: pending
+                                    Timestamp: '2020-10-19T14:16:33'
+                                - ID: maxHumidityLRBACC
+                                  Name: Alarm maximální vlhkosti
+                                  Unit: '%'
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 64
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-04T18:24:05'
+                                  Min: 0
+                                  Max: 100
+                                  Values: null
+                                  Status:
+                                    Status: pending
+                                    Timestamp: '2020-10-19T14:16:33'
+                              Group:
+                                ID: myIoT-639-Doma-9xWiQeTF
+                                Name: Doma
+                                Description: ''
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:16:33'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 1
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: '#ff0000'
+                                - SysName: airTemperature
+                                  Name: Teplota
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 2
+                                  IsMain: false
+                                  ParameterMin: minTemperatureLRBACC
+                                  ParameterMax: maxTemperatureLRBACC
+                                  Min: null
+                                  Max: null
+                                  Color: '#ffb700'
+                                - SysName: airHumidity
+                                  Name: Vlhkost
+                                  Description: Vlhkost vzduchu
+                                  Unit: '%'
+                                  Order: 3
+                                  IsMain: false
+                                  ParameterMin: minHumidityLRBACC
+                                  ParameterMax: maxHumidityLRBACC
+                                  Min: 0
+                                  Max: 100
+                                  Color: '#0076ff'
+                                - SysName: mainPower
+                                  Name: Napětí baterie
+                                  Description: Hlavní napájení
+                                  Unit: V
+                                  Order: 4
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 5
+                                  Color: '#ff9900'
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: 63b06769-583a-4252-b9d8-78837a822a90
+                              DevID: SCC.IOT.ROPCUST-03000000100000F7
+                              Name: STACHO MY-IOT ACC-3 GARAGE
+                              Class: SecuritySensor
+                              Vendor: MasterIT
+                              Model: LRB.MIO-ACC-3
+                              Description: null
+                              Position:
+                                Latitude: 49.71750560302947
+                                Longitude: 18.61664012009543
+                              Data:
+                                loraSF: 9
+                                loraSNR: -11.2
+                                mainPower: 3.671
+                                alarmState: 0
+                                loraGWName: PL_CIESZYN_Moniuszki14
+                                loraGWRssi: -113
+                                airHumidity: 68
+                                secureState: secured
+                                timeToLeave: 60
+                                alarmDateTime: '2020-10-19T11:37:44'
+                                secureStateBy: 1482
+                                airTemperature: 14.2
+                                secureStateByName: sopach@seznam.cz
+                                secureStateDateTime: '2020-10-12T09:06:45'
+                              Parameters:
+                                - ID: alarmSensitivityLRBACC
+                                  Name: Citlivost
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 2
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-13T10:37:46'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '0'
+                                      Name: Žádná
+                                    - Value: '1'
+                                      Name: Nízká
+                                    - Value: '2'
+                                      Name: Střední
+                                    - Value: '3'
+                                      Name: Vysoká
+                                    - Value: '4'
+                                      Name: Velmi vysoká
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-18T16:33:05'
+                                - ID: sendPeriodLRBACC
+                                  Name: Perioda odesílání
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 3
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-09-10T15:15:24'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: 5 minut
+                                    - Value: '2'
+                                      Name: 15 minut
+                                    - Value: '3'
+                                      Name: 30 minut
+                                    - Value: '4'
+                                      Name: 1 hodina
+                                    - Value: '5'
+                                      Name: 4 hodiny
+                                    - Value: '5'
+                                      Name: 4 hodiny
+                                    - Value: '6'
+                                      Name: 6 hodin
+                                    - Value: '7'
+                                      Name: 12 hodin
+                                    - Value: '8'
+                                      Name: 24 hodin
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-18T16:33:05'
+                                - ID: checkPeriodLRBACC
+                                  Name: Perioda měření
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 2
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-09-10T15:15:24'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: 1 minuta
+                                    - Value: '2'
+                                      Name: 5 minut
+                                    - Value: '3'
+                                      Name: 10 minut
+                                    - Value: '4'
+                                      Name: 15 minut
+                                    - Value: '5'
+                                      Name: 30 minut
+                                    - Value: '6'
+                                      Name: 1 hodina
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-18T16:33:05'
+                                - ID: minTemperatureLRBACC
+                                  Name: Alarm minimální teploty
+                                  Unit: °C
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 10
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-09-10T15:15:24'
+                                  Min: -63
+                                  Max: 63
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-18T16:33:05'
+                                - ID: maxTemperatureLRBACC
+                                  Name: Alarm maximální teploty
+                                  Unit: °C
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 21
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-09-10T15:15:24'
+                                  Min: -63
+                                  Max: 63
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-18T16:33:05'
+                                - ID: minHumidityLRBACC
+                                  Name: Alarm minimální vlhkosti
+                                  Unit: '%'
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 0
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-09-10T15:14:50'
+                                  Min: 0
+                                  Max: 100
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-05T11:03:38'
+                                - ID: maxHumidityLRBACC
+                                  Name: Alarm maximální vlhkosti
+                                  Unit: '%'
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 100
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-09-10T15:14:50'
+                                  Min: 0
+                                  Max: 100
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-05T11:03:38'
+                                - ID: timeToLeaveLRBACC
+                                  Name: Čas k odchodu
+                                  Unit: s
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 60
+                                  Type: system
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-09-10T15:14:50'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '30'
+                                      Name: 30 vteřin
+                                    - Value: '60'
+                                      Name: 1 minuta
+                                    - Value: '120'
+                                      Name: 2 minuty
+                                    - Value: '600'
+                                      Name: 5 minut
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-05T11:03:38'
+                              Group:
+                                ID: myIoT-639-Doma-9xWiQeTF
+                                Name: Doma
+                                Description: ''
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T13:59:49'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 1
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: '#ff0000'
+                                - SysName: airTemperature
+                                  Name: Teplota
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 2
+                                  IsMain: false
+                                  ParameterMin: minTemperatureLRBACC
+                                  ParameterMax: maxTemperatureLRBACC
+                                  Min: 0
+                                  Max: null
+                                  Color: '#ffb700'
+                                - SysName: airHumidity
+                                  Name: Vlhkost
+                                  Description: Vlhkost vzduchu
+                                  Unit: '%'
+                                  Order: 3
+                                  IsMain: false
+                                  ParameterMin: minHumidityLRBACC
+                                  ParameterMax: maxHumidityLRBACC
+                                  Min: 0
+                                  Max: 100
+                                  Color: '#0076ff'
+                                - SysName: mainPower
+                                  Name: Napětí baterie
+                                  Description: Hlavní napájení
+                                  Unit: V
+                                  Order: 4
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 5
+                                  Color: '#ff9900'
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: d9428b37-f3aa-4191-84cf-0ae4de57510a
+                              DevID: SCC.IOT.ROPCUST-03000000100000F8
+                              Name: STACHO MY-IOT THR PRACOVNA
+                              Class: MeteoStation
+                              Vendor: MasterIT
+                              Model: LRB.MIO-THR-1
+                              Description: null
+                              Position:
+                                Latitude: 49.71739374698177
+                                Longitude: 18.61659988668854
+                              Data:
+                                loraSF: 7
+                                loraSNR: 6.2
+                                mainPower: 3.608
+                                loraGWName: CZ_MSK_ROPICE1
+                                loraGWRssi: -104
+                                airHumidity: 47
+                                airPressure: 1036.41
+                                airTemperature: 22.4
+                              Parameters:
+                                - ID: sendPeriodLRBTHR
+                                  Name: Perioda odesílání
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 2
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-12T18:26:06'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '2'
+                                      Name: 15 minut
+                                    - Value: '3'
+                                      Name: 30 minut
+                                    - Value: '4'
+                                      Name: 1 hodina
+                                    - Value: '9'
+                                      Name: 2 hodiny
+                                    - Value: '5'
+                                      Name: 4 hodiny
+                                    - Value: '6'
+                                      Name: 6 hodin
+                                    - Value: '7'
+                                      Name: 12 hodin
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-12T18:52:07'
+                              Group:
+                                ID: myIoT-639-Doma-9xWiQeTF
+                                Name: Doma
+                                Description: ''
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:05:21'
+                              Application: measurement
+                              Values:
+                                - SysName: airTemperature
+                                  Name: Teplota
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 1
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: null
+                                  Color: '#e94f37'
+                                - SysName: airPressure
+                                  Name: Tlak
+                                  Description: Tlak vzduchu
+                                  Unit: hPa
+                                  Order: 1
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 950
+                                  Max: 1050
+                                  Color: '#32a287'
+                                - SysName: airHumidity
+                                  Name: Vlhkost
+                                  Description: Vlhkost vzduchu
+                                  Unit: '%'
+                                  Order: 3
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: null
+                                  Color: '#00a1ff'
+                                - SysName: mainPower
+                                  Name: Napětí baterie
+                                  Description: Hlavní napájení
+                                  Unit: V
+                                  Order: 4
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 5
+                                  Color: '#ffb700'
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: d599053c-0559-42c1-9060-5c00ff32d5d3
+                              DevID: SCC.IOT.ROPCUST-03000000100000F9
+                              Name: STACHO MY-IOT CNT-1 ELEKTRO
+                              Class: PowerMeter
+                              Vendor: MasterIT
+                              Model: LRB.MIO-CNT-1-E
+                              Description: null
+                              Position:
+                                Latitude: 49.71749693202723
+                                Longitude: 18.61654892482661
+                              Data:
+                                loraSF: 8
+                                loraSNR: -10.5
+                                summary: 28954.370862999996
+                                initDate: '2020-10-02T14:30:00'
+                                initValue: 28393.34
+                                mainPower: 3.68
+                                timeStamp: '2020-10-19T14:10:27'
+                                loraGWName: CZ_MSK_ROPICE1
+                                loraGWRssi: -113
+                                pulseCount: 123
+                                pulseValue: 1.25
+                                consumption: 0.099
+                              Parameters:
+                                - ID: sendPeriodLRBCNT1
+                                  Name: Perioda odesílání
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 4
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-02T14:22:52'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '4'
+                                      Name: 1 hodina
+                                    - Value: '6'
+                                      Name: 6 hodin
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-02T14:16:24'
+                                - ID: pulseValueLRBCNT1
+                                  Name: Hodnota impulzu
+                                  Unit: W
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: decimal
+                                  Value: 1.25
+                                  Type: system
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-02T15:30:58'
+                                  Min: 0
+                                  Max: null
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-02T15:30:58'
+                                - ID: initValueLRBCNT1
+                                  Name: Počáteční hodnota
+                                  Unit: kWh
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: decimal
+                                  Value: null
+                                  Type: system
+                                  Mode: w
+                                  Required: false
+                                  Changed: '2020-10-02T14:22:52'
+                                  Min: 0
+                                  Max: null
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-02T14:16:24'
+                              Group:
+                                ID: myIoT-639-Doma-9xWiQeTF
+                                Name: Doma
+                                Description: ''
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:10:27'
+                              Application: consumption
+                              Values:
+                                - SysName: consumption
+                                  Name: Spotřeba
+                                  Description: Spotřeba
+                                  Unit: kW/h
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: null
+                                  Color: ''
+                                - SysName: mainPower
+                                  Name: Napětí baterie
+                                  Description: Hlavní napájení
+                                  Unit: V
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 5
+                                  Color: ''
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: 8bca121d-9f86-42c6-8747-97014f33b287
+                              DevID: SCC.IOT.ROPCUST-6D6F414333000000
+                              Name: STACHO MY-IOT ACC-3 TEST
+                              Class: SecuritySensor
+                              Vendor: MasterIT
+                              Model: LRB.MIO-ACC-3
+                              Description: test
+                              Position:
+                                Latitude: 49.71773278273634
+                                Longitude: 18.61657574281672
+                              Data:
+                                loraSF: 8
+                                loraSNR: -3.2
+                                mainPower: 2.145
+                                alarmState: 1
+                                loraGWName: CZ_MSK_ROPICE1
+                                loraGWRssi: -112
+                                airHumidity: 44
+                                secureState: secured
+                                timeToLeave: 60
+                                alarmDateTime: '2020-10-19T14:15:19'
+                                secureStateBy: 1482
+                                airTemperature: 23.1
+                                secureStateByName: sopach@seznam.cz
+                                secureStateDateTime: '2020-10-18T22:18:56'
+                              Parameters:
+                                - ID: sendPeriodLRBACC
+                                  Name: Perioda odesílání
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 3
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-18T15:44:56'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: 5 minut
+                                    - Value: '2'
+                                      Name: 15 minut
+                                    - Value: '3'
+                                      Name: 30 minut
+                                    - Value: '4'
+                                      Name: 1 hodina
+                                    - Value: '5'
+                                      Name: 4 hodiny
+                                    - Value: '5'
+                                      Name: 4 hodiny
+                                    - Value: '6'
+                                      Name: 6 hodin
+                                    - Value: '7'
+                                      Name: 12 hodin
+                                    - Value: '8'
+                                      Name: 24 hodin
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-19T13:44:05'
+                                - ID: checkPeriodLRBACC
+                                  Name: Perioda měření
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 3
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-18T10:38:21'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: 1 minuta
+                                    - Value: '2'
+                                      Name: 5 minut
+                                    - Value: '3'
+                                      Name: 10 minut
+                                    - Value: '4'
+                                      Name: 15 minut
+                                    - Value: '5'
+                                      Name: 30 minut
+                                    - Value: '6'
+                                      Name: 1 hodina
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-12T09:11:57'
+                                - ID: alarmSensitivityLRBACC
+                                  Name: Citlivost
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 3
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-18T10:38:21'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '0'
+                                      Name: Žádná
+                                    - Value: '1'
+                                      Name: Nízká
+                                    - Value: '2'
+                                      Name: Střední
+                                    - Value: '3'
+                                      Name: Vysoká
+                                    - Value: '4'
+                                      Name: Velmi vysoká
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-12T09:11:57'
+                                - ID: timeToLeaveLRBACC
+                                  Name: Čas k odchodu
+                                  Unit: s
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 60
+                                  Type: system
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-18T10:38:21'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '30'
+                                      Name: 30 vteřin
+                                    - Value: '60'
+                                      Name: 1 minuta
+                                    - Value: '120'
+                                      Name: 2 minuty
+                                    - Value: '600'
+                                      Name: 5 minut
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-12T09:11:57'
+                                - ID: alarmRepeatDelayLRBACC
+                                  Name: Zpoždění opakování alarmu
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 3
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-18T10:38:21'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '3'
+                                      Name: 30 vteřin
+                                    - Value: '4'
+                                      Name: 60 vteřin
+                                    - Value: '5'
+                                      Name: 2 minuty
+                                    - Value: '6'
+                                      Name: 5 minut
+                                    - Value: '7'
+                                      Name: 10 minut
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-12T09:11:57'
+                                - ID: minTemperatureLRBACC
+                                  Name: Alarm minimální teploty
+                                  Unit: °C
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: -63
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-18T10:38:21'
+                                  Min: -63
+                                  Max: 63
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-12T09:11:57'
+                                - ID: maxTemperatureLRBACC
+                                  Name: Alarm maximální teploty
+                                  Unit: °C
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 63
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-18T10:38:21'
+                                  Min: -63
+                                  Max: 63
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-12T09:11:57'
+                                - ID: minHumidityLRBACC
+                                  Name: Alarm minimální vlhkosti
+                                  Unit: '%'
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 0
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-18T10:38:21'
+                                  Min: 0
+                                  Max: 100
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-12T09:11:57'
+                                - ID: minHumidityLRBACC
+                                  Name: Alarm minimální vlhkosti
+                                  Unit: '%'
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 0
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-18T15:44:56'
+                                  Min: 0
+                                  Max: 100
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-18T15:45:23'
+                              Group:
+                                ID: myIoT-639-Doma-EObW8Tzi
+                                Name: Doma
+                                Description: ''
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:14:32'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 1
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: '#ff0000'
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 2
+                                  IsMain: false
+                                  ParameterMin: maxTemperatureLRBACC
+                                  ParameterMax: maxTemperatureLRBACC
+                                  Min: null
+                                  Max: null
+                                  Color: '#ffb700'
+                                - SysName: airHumidity
+                                  Name: Vlhkost vzduchu
+                                  Description: Vlhkost vzduchu
+                                  Unit: '%'
+                                  Order: 3
+                                  IsMain: false
+                                  ParameterMin: minHumidityLRBACC
+                                  ParameterMax: maxHumidityLRBACC
+                                  Min: 0
+                                  Max: 100
+                                  Color: '#0076ff'
+                                - SysName: mainPower
+                                  Name: Napětí baterie
+                                  Description: Hlavní napájení
+                                  Unit: V
+                                  Order: 4
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 5
+                                  Color: '#ff9900'
+                              Notifications: []
+                              DebugInfo: null
+                      share:
+                        - recID: 1482
+                          name: sopach@seznam.cz
+                          email: sopach@seznam.cz
+                          devices:
+                            - RecID: 2957e1c5-ef9d-4133-b1b5-9fc6ad141e25
+                              DevID: SCC.IOT.ROPCUST-0600000000000002
+                              Name: CO2 čidlo kancelář
+                              Class: CO2
+                              Vendor: MasterIT
+                              Model: LRB.CO2
+                              Description: null
+                              Position:
+                                Latitude: 49.68723003989764
+                                Longitude: 18.52107703685761
+                              Data:
+                                co2: 810
+                                loraSF: 12
+                                loraSNR: 8.5
+                                mainPower: 1.767
+                                loraGWName: ''
+                                loraGWRssi: -96
+                                airHumidity: 37.8
+                                airTemperature: 26.7
+                              Parameters: []
+                              Group:
+                                ID: myIoT-272-Kancelar-FgrBdafa
+                                Name: Kancelář
+                                Description: Kancelář v robotě
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:15:38'
+                              Application: measurement
+                              Values:
+                                - SysName: co2
+                                  Name: Úroveň CO2
+                                  Description: Úroveň CO2
+                                  Unit: ppm
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: '#00dc50'
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: '#ff4600'
+                                - SysName: airHumidity
+                                  Name: Vlhkost vzduchu
+                                  Description: Vlhkost vzduchu
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: '#3385ff'
+                              Notifications: []
+                              DebugInfo: null
+                        - recID: 1501
+                          name: ondrej.smolka18@seznam.cz
+                          email: ondrej.smolka18@seznam.cz
+                          devices:
+                            - RecID: a7ed74bf-36d6-4218-8b56-858314a2c77b
+                              DevID: SCC.IOT.ROPCUST-3632333356377219
+                              Name: Pohybové čidlo Ondra chalupa
+                              Class: SecuritySensor
+                              Vendor: IoTVega
+                              Model: VGA.MS0101
+                              Description: null
+                              Position:
+                                Latitude: 49.705595823013304
+                                Longitude: 18.626818479338507
+                              Data:
+                                loraSF: 12
+                                loraSNR: -5.5
+                                alarmState: 1
+                                loraGWName: MITT_MKT_TEST-GW1
+                                loraGWRssi: -101
+                                secureState: secured
+                                timeToLeave: 60
+                                mainCapacity: 73
+                                alarmDateTime: '2020-10-19T14:11:10'
+                                secureStateBy: 1501
+                                airTemperature: 14
+                                secureStateByName: ondrej.smolka18@seznam.cz
+                                secureStateDateTime: '2020-08-12T20:55:03'
+                              Parameters:
+                                - ID: sendPeriod
+                                  Name: ''
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: string
+                                  Value: ''
+                                  Type: ''
+                                  Mode: ''
+                                  Required: false
+                                  Changed: '2020-07-03T09:07:10'
+                                  Min: null
+                                  Max: null
+                                  Values: null
+                                  Status:
+                                    Status: UNKNOWN
+                                    Timestamp: '0001-01-01T00:00:00'
+                              Group:
+                                ID: myIoT-272-Pokoj-IWyEObmM
+                                Name: Pokoj
+                                Description: můj pokoj
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:10:10'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: ''
+                                - SysName: mainCapacity
+                                  Name: Kapacita hlavní baterie
+                                  Description: Kapacita hlavní baterie
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: ''
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: ''
+                              Notifications:
+                                - RecID: cfab516a-5918-4bd6-bd73-ff903910e6ab
+                                  SendEmail: false
+                                  SendPush: false
+                                  SendSMS: true
+                                  SysValue: alarmState
+                                  Min: null
+                                  Max: null
+                                  Range:
+                                    Gte: null
+                                    Lte: null
+                              DebugInfo: null
+                        - recID: 1531
+                          name: petr.bojko@masterit.cz
+                          email: petr.bojko@masterit.cz
+                          devices:
+                            - RecID: 8b3b3f70-6cb7-4158-b230-f77761e76b76
+                              DevID: SCC.IOT.ROP3031383365386408
+                              Name: Zabezpečení hlavní vchod
+                              Class: SecuritySensor
+                              Vendor: IoTVega
+                              Model: VGA.AS0101
+                              Description: null
+                              Position:
+                                Latitude: 49.6872057459539
+                                Longitude: 18.5215006064315
+                              Data:
+                                loraSF: 12
+                                loraSNR: 7.8
+                                mainPower: 11.265
+                                alarmState: 0
+                                loraGWName: ''
+                                loraGWRssi: -106
+                                secureState: unsecured
+                                timeToLeave: 1
+                                mainCapacity: 94
+                                alarmDateTime: '2020-06-24T17:43:53'
+                                secureStateBy: 360
+                                verticalAngle: 3
+                                airTemperature: 26
+                                secureStateByName: michal.smolka18@gmail.com
+                                secureStateDateTime: '2020-10-09T10:27:34'
+                              Parameters:
+                                - ID: sendPeriod
+                                  Name: ''
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: string
+                                  Value: ''
+                                  Type: ''
+                                  Mode: ''
+                                  Required: false
+                                  Changed: '2020-07-02T15:03:49'
+                                  Min: null
+                                  Max: null
+                                  Values: null
+                                  Status:
+                                    Status: UNKNOWN
+                                    Timestamp: '0001-01-01T00:00:00'
+                              Group:
+                                ID: myIoT-272-Pokoj-IWyEObmM
+                                Name: Pokoj
+                                Description: můj pokoj
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:15:54'
+                              Application: security
+                              Values:
+                                - SysName: mainCapacity
+                                  Name: Kapacita hlavní baterie
+                                  Description: Kapacita hlavní baterie
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: ''
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: ''
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: a7ed74bf-36d6-4218-8b56-858314a2c77b
+                              DevID: SCC.IOT.ROPCUST-3632333356377219
+                              Name: Pohybové čidlo Ondra chalupa
+                              Class: SecuritySensor
+                              Vendor: IoTVega
+                              Model: VGA.MS0101
+                              Description: null
+                              Position:
+                                Latitude: 49.705595823013304
+                                Longitude: 18.626818479338507
+                              Data:
+                                loraSF: 12
+                                loraSNR: -5.5
+                                alarmState: 1
+                                loraGWName: MITT_MKT_TEST-GW1
+                                loraGWRssi: -101
+                                secureState: secured
+                                timeToLeave: 60
+                                mainCapacity: 73
+                                alarmDateTime: '2020-10-19T14:11:10'
+                                secureStateBy: 1501
+                                airTemperature: 14
+                                secureStateByName: ondrej.smolka18@seznam.cz
+                                secureStateDateTime: '2020-08-12T20:55:03'
+                              Parameters:
+                                - ID: sendPeriod
+                                  Name: ''
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: string
+                                  Value: ''
+                                  Type: ''
+                                  Mode: ''
+                                  Required: false
+                                  Changed: '2020-07-03T09:07:10'
+                                  Min: null
+                                  Max: null
+                                  Values: null
+                                  Status:
+                                    Status: UNKNOWN
+                                    Timestamp: '0001-01-01T00:00:00'
+                              Group:
+                                ID: myIoT-272-Pokoj-IWyEObmM
+                                Name: Pokoj
+                                Description: můj pokoj
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:10:10'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: ''
+                                - SysName: mainCapacity
+                                  Name: Kapacita hlavní baterie
+                                  Description: Kapacita hlavní baterie
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: ''
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: ''
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: 5e207346-5d84-4769-a751-5cbb00d735dd
+                              DevID: SCC.IOT.ROPCUST-3031383363388419
+                              Name: Otřesové čidlo 2
+                              Class: SecuritySensor
+                              Vendor: IoTVega
+                              Model: VGA.AS0101
+                              Description: null
+                              Position:
+                                Latitude: 49.68710857005761
+                                Longitude: 18.521382808685306
+                              Data:
+                                loraSF: 12
+                                loraSNR: -11.8
+                                alarmState: 0
+                                loraGWName: CZ_MSK_ROPICE1
+                                loraGWRssi: -115
+                                secureState: unsecured
+                                timeToLeave: 60
+                                mainCapacity: 83
+                                alarmDateTime: '2020-07-03T15:02:27'
+                                secureStateBy: 360
+                                verticalAngle: 0
+                                airTemperature: 23
+                                secureStateByName: michal.smolka18@gmail.com
+                                secureStateDateTime: '2020-07-03T15:15:37'
+                              Parameters:
+                                - ID: sendPeriod
+                                  Name: ''
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: string
+                                  Value: ''
+                                  Type: ''
+                                  Mode: ''
+                                  Required: false
+                                  Changed: '2020-07-16T08:56:29'
+                                  Min: null
+                                  Max: null
+                                  Values: null
+                                  Status:
+                                    Status: UNKNOWN
+                                    Timestamp: '0001-01-01T00:00:00'
+                              Group:
+                                ID: myIoT-272-Kancelar-FgrBdafa
+                                Name: Kancelář
+                                Description: Kancelář v robotě
+                              Status:
+                                Status: TIMEOUT
+                                Timestamp: '2020-10-12T19:48:00'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: ''
+                                - SysName: mainCapacity
+                                  Name: Kapacita hlavní baterie
+                                  Description: Kapacita hlavní baterie
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: ''
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: ''
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: 66cda559-c9c9-4b3c-be0d-90a3026ebe84
+                              DevID: SCC.IOT.ROPCUST-3031383366387419
+                              Name: Otřesové čidlo na stole
+                              Class: SecuritySensor
+                              Vendor: IoTVega
+                              Model: VGA.AS0101
+                              Description: null
+                              Position:
+                                Latitude: 49.687217621789536
+                                Longitude: 18.521098494529728
+                              Data:
+                                loraSF: 12
+                                loraSNR: 4.5
+                                alarmState: 0
+                                loraGWName: ''
+                                loraGWRssi: -120
+                                secureState: unsecured
+                                timeToLeave: 60
+                                mainCapacity: 83
+                                alarmDateTime: '2020-10-09T19:29:49'
+                                secureStateBy: 360
+                                verticalAngle: 2
+                                airTemperature: 23
+                                secureStateByName: michal.smolka18@gmail.com
+                                secureStateDateTime: '2020-10-10T11:49:10'
+                              Parameters:
+                                - ID: timeToLeaveAS0101
+                                  Name: Čas k odchodu
+                                  Unit: s
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 60
+                                  Type: system
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T11:14:03'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '30'
+                                      Name: 30 vteřin
+                                    - Value: '60'
+                                      Name: 1 minuta
+                                    - Value: '120'
+                                      Name: 2 minuty
+                                    - Value: '600'
+                                      Name: 5 minut
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-26T10:12:06'
+                                - ID: alarmSensitivityAS0101
+                                  Name: Citlivost
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 2
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T11:14:03'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: Nízká
+                                    - Value: '2'
+                                      Name: Střední
+                                    - Value: '3'
+                                      Name: Vysoká
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-26T10:12:06'
+                                - ID: sendPeriodAS0101
+                                  Name: Perioda odesílání
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 4
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T11:14:03'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: 1 hodina
+                                    - Value: '2'
+                                      Name: 6 hodin
+                                    - Value: '3'
+                                      Name: 12 hodin
+                                    - Value: '4'
+                                      Name: 24 hodin
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-26T10:12:06'
+                              Group:
+                                ID: myIoT-272-Kancelar-FgrBdafa
+                                Name: Kancelář
+                                Description: Kancelář v robotě
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-18T16:18:39'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: ''
+                                - SysName: mainCapacity
+                                  Name: Kapacita hlavní baterie
+                                  Description: Kapacita hlavní baterie
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: ''
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: ''
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: 7e7c5972-779a-46ea-acaf-f1d237396690
+                              DevID: SCC.IOT.ROPCUST-3632333360375E17
+                              Name: Kontaktní čidlo na WC
+                              Class: SecuritySensor
+                              Vendor: IoTVega
+                              Model: VGA.MC0101
+                              Description: null
+                              Position:
+                                Latitude: 49.68726127495032
+                                Longitude: 18.52107059949049
+                              Data:
+                                loraSF: 12
+                                loraSNR: 6.5
+                                alarmState: 0
+                                loraGWName: ''
+                                loraGWRssi: -108
+                                secureState: unsecured
+                                timeToLeave: 60
+                                mainCapacity: 72
+                                sensorState1: 1
+                                sensorState2: 1
+                                alarmDateTime: '2020-10-09T10:20:05'
+                                secureStateBy: 360
+                                airTemperature: 27
+                                interruptTrigger: sensor2
+                                secureStateByName: michal.smolka18@gmail.com
+                                secureStateDateTime: '2020-10-09T09:21:59'
+                              Parameters:
+                                - ID: timeToLeaveMC0101
+                                  Name: Čas k odchodu
+                                  Unit: s
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 60
+                                  Type: system
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T11:41:50'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '30'
+                                      Name: 30 vteřin
+                                    - Value: '60'
+                                      Name: 1 minuta
+                                    - Value: '120'
+                                      Name: 2 minuty
+                                    - Value: '600'
+                                      Name: 5 minut
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-26T11:39:57'
+                                - ID: sendPeriodMC0101
+                                  Name: Perioda odesílání
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 4
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T11:41:50'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: 1 hodina
+                                    - Value: '2'
+                                      Name: 6 hodin
+                                    - Value: '3'
+                                      Name: 12 hodin
+                                    - Value: '4'
+                                      Name: 24 hodin
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-26T11:39:57'
+                              Group:
+                                ID: myIoT-272-Kancelar-FgrBdafa
+                                Name: Kancelář
+                                Description: Kancelář v robotě
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:05:52'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: ''
+                                - SysName: mainCapacity
+                                  Name: Kapacita hlavní baterie
+                                  Description: Kapacita hlavní baterie
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: ''
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: ''
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: e1ddbf9d-065a-495b-a6ca-1f763ad5479a
+                              DevID: SCC.IOT.ROPCUST-3632333357376B19
+                              Name: Pohybové čidlo na stole
+                              Class: SecuritySensor
+                              Vendor: IoTVega
+                              Model: VGA.MS0101
+                              Description: null
+                              Position:
+                                Latitude: 49.68723663394483
+                                Longitude: 18.521116733518284
+                              Data:
+                                loraSF: 12
+                                loraSNR: 6.8
+                                alarmState: 0
+                                loraGWName: ''
+                                loraGWRssi: -102
+                                secureState: unsecured
+                                timeToLeave: 60
+                                mainCapacity: 75
+                                secureStateBy: 360
+                                airTemperature: 22
+                                secureStateByName: michal.smolka18@gmail.com
+                                secureStateDateTime: '2020-10-09T13:08:34'
+                              Parameters:
+                                - ID: timeToLeaveMS0101
+                                  Name: Čas k odchodu
+                                  Unit: s
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 60
+                                  Type: system
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T11:53:22'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '30'
+                                      Name: 30 vteřin
+                                    - Value: '60'
+                                      Name: 1 minuta
+                                    - Value: '120'
+                                      Name: 2 minuty
+                                    - Value: '600'
+                                      Name: 5 minut
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-26T11:50:10'
+                                - ID: sendPeriodMS0101
+                                  Name: Perioda odesílání
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 4
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T11:53:22'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '1'
+                                      Name: 1 hodina
+                                    - Value: '2'
+                                      Name: 6 hodin
+                                    - Value: '3'
+                                      Name: 12 hodin
+                                    - Value: '4'
+                                      Name: 24 hodin
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-26T11:50:10'
+                              Group:
+                                ID: myIoT-272-Kancelar-FgrBdafa
+                                Name: Kancelář
+                                Description: Kancelář v robotě
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T13:19:32'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: ''
+                                - SysName: mainCapacity
+                                  Name: Kapacita hlavní baterie
+                                  Description: Kapacita hlavní baterie
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: ''
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: ''
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: 47315cf0-add6-4487-a50c-4152721fe6e0
+                              DevID: SCC.IOT.ROPCUST-3939353459385D02
+                              Name: 4v1 čidlo Michal pokoj
+                              Class: SecuritySensor
+                              Vendor: IoTVega
+                              Model: VGA.HS0101
+                              Description: null
+                              Position:
+                                Latitude: 49.7052958944831
+                                Longitude: 18.627212047576908
+                              Data:
+                                loraSF: 12
+                                loraSNR: -14
+                                alarmState: 1
+                                loraGWName: CZ_MSK_ROPICE1
+                                loraGWRssi: -117
+                                airHumidity: 60
+                                secureState: secured
+                                timeToLeave: 30
+                                mainCapacity: 81
+                                sensorState1: 1
+                                sensorState2: 1
+                                alarmDateTime: '2020-10-19T11:45:03'
+                                secureStateBy: 360
+                                verticalAngle: 88
+                                airTemperature: 22.4
+                                interruptTrigger: sensor1
+                                secureStateByName: michal.smolka18@gmail.com
+                                accelerometerState: 0
+                                secureStateDateTime: '2020-10-11T12:24:47'
+                              Parameters:
+                                - ID: timeToLeaveHS0101
+                                  Name: Čas k odchodu
+                                  Unit: s
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 30
+                                  Type: system
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T15:29:13'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '30'
+                                      Name: 30 vteřin
+                                    - Value: '60'
+                                      Name: 1 minuta
+                                    - Value: '120'
+                                      Name: 2 minuty
+                                    - Value: '600'
+                                      Name: 5 minut
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-26T15:29:13'
+                                - ID: alarmSensitivityHS0101
+                                  Name: Citlivost
+                                  Unit: ''
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 4
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-10T09:06:56'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '4'
+                                      Name: Žádná
+                                    - Value: '1'
+                                      Name: Nízká
+                                    - Value: '2'
+                                      Name: Střední
+                                    - Value: '3'
+                                      Name: Vysoká
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-10T09:08:03'
+                                - ID: checkPeriodHS0101
+                                  Name: Perioda měření
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 2
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T15:29:13'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '6'
+                                      Name: 15 minut
+                                    - Value: '7'
+                                      Name: 30 minut
+                                    - Value: '1'
+                                      Name: 1 hodina
+                                    - Value: '2'
+                                      Name: 6 hodin
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-27T21:56:54'
+                                - ID: sendPeriodHS0101
+                                  Name: Perioda odesílání
+                                  Unit: min
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: uint
+                                  Value: 4
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-08-26T15:29:13'
+                                  Min: null
+                                  Max: null
+                                  Values:
+                                    - Value: '6'
+                                      Name: 15 minut
+                                    - Value: '7'
+                                      Name: 30 minut
+                                    - Value: '1'
+                                      Name: 1 hodina
+                                    - Value: '2'
+                                      Name: 6 hodin
+                                    - Value: '3'
+                                      Name: 12 hodin
+                                    - Value: '4'
+                                      Name: 24 hodin
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-08-27T21:56:54'
+                                - ID: minTemperatureHS0101
+                                  Name: Alarm minimální teploty
+                                  Unit: °C
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 10
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-09T19:07:15'
+                                  Min: -40
+                                  Max: 84
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-09T19:10:28'
+                                - ID: maxTemperatureHS0101
+                                  Name: Alarm maximální teploty
+                                  Unit: °C
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 25
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-09T19:07:15'
+                                  Min: -39
+                                  Max: 85
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-09T19:10:28'
+                                - ID: minHumidityHS0101
+                                  Name: Alarm minimální vlhkosti
+                                  Unit: '%'
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 20
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-14T11:57:20'
+                                  Min: 0
+                                  Max: 100
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-14T13:16:53'
+                                - ID: maxHumidityHS0101
+                                  Name: Alarm maximální vlhkosti
+                                  Unit: '%'
+                                  Description: ''
+                                  Pattern: ''
+                                  DataType: int
+                                  Value: 80
+                                  Type: node
+                                  Mode: rw
+                                  Required: false
+                                  Changed: '2020-10-14T11:57:20'
+                                  Min: 0
+                                  Max: 100
+                                  Values: null
+                                  Status:
+                                    Status: valid
+                                    Timestamp: '2020-10-14T13:16:53'
+                              Group:
+                                ID: myIoT-272-Kancelar-FgrBdafa
+                                Name: Kancelář
+                                Description: Kancelář v robotě
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T11:44:33'
+                              Application: security
+                              Values:
+                                - SysName: alarmState
+                                  Name: Stav alarmu
+                                  Description: Stav alarmu
+                                  Unit: ''
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 1
+                                  Color: '#ff0000'
+                                - SysName: mainCapacity
+                                  Name: Kapacita hlavní baterie
+                                  Description: Kapacita hlavní baterie
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: '#ff9900'
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: minTemperatureHS0101
+                                  ParameterMax: maxTemperatureHS0101
+                                  Min: null
+                                  Max: null
+                                  Color: '#ffb700'
+                                - SysName: airHumidity
+                                  Name: Vlhkost vzduchu
+                                  Description: Vlhkost vzduchu
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: minHumidityHS0101
+                                  ParameterMax: maxHumidityHS0101
+                                  Min: 0
+                                  Max: 100
+                                  Color: '#0076ff'
+                              Notifications: []
+                              DebugInfo: null
+                            - RecID: 2957e1c5-ef9d-4133-b1b5-9fc6ad141e25
+                              DevID: SCC.IOT.ROPCUST-0600000000000002
+                              Name: CO2 čidlo kancelář
+                              Class: CO2
+                              Vendor: MasterIT
+                              Model: LRB.CO2
+                              Description: null
+                              Position:
+                                Latitude: 49.68723003989764
+                                Longitude: 18.52107703685761
+                              Data:
+                                co2: 810
+                                loraSF: 12
+                                loraSNR: 8.5
+                                mainPower: 1.767
+                                loraGWName: ''
+                                loraGWRssi: -96
+                                airHumidity: 37.8
+                                airTemperature: 26.7
+                              Parameters: []
+                              Group:
+                                ID: myIoT-272-Kancelar-FgrBdafa
+                                Name: Kancelář
+                                Description: Kancelář v robotě
+                              Status:
+                                Status: OK
+                                Timestamp: '2020-10-19T14:15:38'
+                              Application: measurement
+                              Values:
+                                - SysName: co2
+                                  Name: Úroveň CO2
+                                  Description: Úroveň CO2
+                                  Unit: ppm
+                                  Order: 0
+                                  IsMain: true
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: '#00dc50'
+                                - SysName: airTemperature
+                                  Name: Teplota vzduchu
+                                  Description: Teplota vzduchu
+                                  Unit: °C
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: null
+                                  Max: null
+                                  Color: '#ff4600'
+                                - SysName: airHumidity
+                                  Name: Vlhkost vzduchu
+                                  Description: Vlhkost vzduchu
+                                  Unit: '%'
+                                  Order: 0
+                                  IsMain: false
+                                  ParameterMin: ''
+                                  ParameterMax: ''
+                                  Min: 0
+                                  Max: 100
+                                  Color: '#3385ff'
+                              Notifications: []
+                              DebugInfo: null
+                      own:
+                        - RecID: 8b3b3f70-6cb7-4158-b230-f77761e76b76
+                          DevID: SCC.IOT.ROP3031383365386408
+                          Name: Zabezpečení hlavní vchod
+                          Class: SecuritySensor
+                          Vendor: IoTVega
+                          Model: VGA.AS0101
+                          Description: null
+                          Position:
+                            Latitude: 49.6872057459539
+                            Longitude: 18.5215006064315
+                          Data:
+                            loraSF: 12
+                            loraSNR: 7.8
+                            mainPower: 11.265
+                            alarmState: 0
+                            loraGWName: ''
+                            loraGWRssi: -106
+                            secureState: unsecured
+                            timeToLeave: 1
+                            mainCapacity: 94
+                            alarmDateTime: '2020-06-24T17:43:53'
+                            secureStateBy: 360
+                            verticalAngle: 3
+                            airTemperature: 26
+                            secureStateByName: michal.smolka18@gmail.com
+                            secureStateDateTime: '2020-10-09T10:27:34'
+                          Parameters:
+                            - ID: sendPeriod
+                              Name: ''
+                              Unit: ''
+                              Description: ''
+                              Pattern: ''
+                              DataType: string
+                              Value: ''
+                              Type: ''
+                              Mode: ''
+                              Required: false
+                              Changed: '2020-07-02T15:03:49'
+                              Min: null
+                              Max: null
+                              Values: null
+                              Status:
+                                Status: UNKNOWN
+                                Timestamp: '0001-01-01T00:00:00'
+                          Group:
+                            ID: myIoT-272-Pokoj-IWyEObmM
+                            Name: Pokoj
+                            Description: můj pokoj
+                          Status:
+                            Status: OK
+                            Timestamp: '2020-10-19T14:15:54'
+                          Application: security
+                          Values:
+                            - SysName: mainCapacity
+                              Name: Kapacita hlavní baterie
+                              Description: Kapacita hlavní baterie
+                              Unit: '%'
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 100
+                              Color: ''
+                            - SysName: alarmState
+                              Name: Stav alarmu
+                              Description: Stav alarmu
+                              Unit: ''
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 1
+                              Color: ''
+                          Notifications:
+                            - RecID: c6a1cd19-abb5-4be3-9529-afe87220efbe
+                              SendEmail: true
+                              SendPush: false
+                              SendSMS: false
+                              SysValue: alarmState
+                              Min: null
+                              Max: null
+                              Range:
+                                Gte: null
+                                Lte: null
+                          DebugInfo: null
+                        - RecID: a7ed74bf-36d6-4218-8b56-858314a2c77b
+                          DevID: SCC.IOT.ROPCUST-3632333356377219
+                          Name: Pohybové čidlo Ondra chalupa
+                          Class: SecuritySensor
+                          Vendor: IoTVega
+                          Model: VGA.MS0101
+                          Description: null
+                          Position:
+                            Latitude: 49.705595823013304
+                            Longitude: 18.626818479338507
+                          Data:
+                            loraSF: 12
+                            loraSNR: -5.5
+                            alarmState: 1
+                            loraGWName: MITT_MKT_TEST-GW1
+                            loraGWRssi: -101
+                            secureState: secured
+                            timeToLeave: 60
+                            mainCapacity: 73
+                            alarmDateTime: '2020-10-19T14:11:10'
+                            secureStateBy: 1501
+                            airTemperature: 14
+                            secureStateByName: ondrej.smolka18@seznam.cz
+                            secureStateDateTime: '2020-08-12T20:55:03'
+                          Parameters:
+                            - ID: sendPeriod
+                              Name: ''
+                              Unit: ''
+                              Description: ''
+                              Pattern: ''
+                              DataType: string
+                              Value: ''
+                              Type: ''
+                              Mode: ''
+                              Required: false
+                              Changed: '2020-07-03T09:07:10'
+                              Min: null
+                              Max: null
+                              Values: null
+                              Status:
+                                Status: UNKNOWN
+                                Timestamp: '0001-01-01T00:00:00'
+                          Group:
+                            ID: myIoT-272-Pokoj-IWyEObmM
+                            Name: Pokoj
+                            Description: můj pokoj
+                          Status:
+                            Status: OK
+                            Timestamp: '2020-10-19T14:10:10'
+                          Application: security
+                          Values:
+                            - SysName: alarmState
+                              Name: Stav alarmu
+                              Description: Stav alarmu
+                              Unit: ''
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 1
+                              Color: ''
+                            - SysName: mainCapacity
+                              Name: Kapacita hlavní baterie
+                              Description: Kapacita hlavní baterie
+                              Unit: '%'
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 100
+                              Color: ''
+                            - SysName: airTemperature
+                              Name: Teplota vzduchu
+                              Description: Teplota vzduchu
+                              Unit: °C
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: ''
+                          Notifications: []
+                          DebugInfo: null
+                        - RecID: 5e207346-5d84-4769-a751-5cbb00d735dd
+                          DevID: SCC.IOT.ROPCUST-3031383363388419
+                          Name: Otřesové čidlo 2
+                          Class: SecuritySensor
+                          Vendor: IoTVega
+                          Model: VGA.AS0101
+                          Description: null
+                          Position:
+                            Latitude: 49.68710857005761
+                            Longitude: 18.521382808685306
+                          Data:
+                            loraSF: 12
+                            loraSNR: -11.8
+                            alarmState: 0
+                            loraGWName: CZ_MSK_ROPICE1
+                            loraGWRssi: -115
+                            secureState: unsecured
+                            timeToLeave: 60
+                            mainCapacity: 83
+                            alarmDateTime: '2020-07-03T15:02:27'
+                            secureStateBy: 360
+                            verticalAngle: 0
+                            airTemperature: 23
+                            secureStateByName: michal.smolka18@gmail.com
+                            secureStateDateTime: '2020-07-03T15:15:37'
+                          Parameters:
+                            - ID: sendPeriod
+                              Name: ''
+                              Unit: ''
+                              Description: ''
+                              Pattern: ''
+                              DataType: string
+                              Value: ''
+                              Type: ''
+                              Mode: ''
+                              Required: false
+                              Changed: '2020-07-16T08:56:29'
+                              Min: null
+                              Max: null
+                              Values: null
+                              Status:
+                                Status: UNKNOWN
+                                Timestamp: '0001-01-01T00:00:00'
+                          Group:
+                            ID: myIoT-272-Kancelar-FgrBdafa
+                            Name: Kancelář
+                            Description: Kancelář v robotě
+                          Status:
+                            Status: TIMEOUT
+                            Timestamp: '2020-10-12T19:48:00'
+                          Application: security
+                          Values:
+                            - SysName: alarmState
+                              Name: Stav alarmu
+                              Description: Stav alarmu
+                              Unit: ''
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 1
+                              Color: ''
+                            - SysName: mainCapacity
+                              Name: Kapacita hlavní baterie
+                              Description: Kapacita hlavní baterie
+                              Unit: '%'
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 100
+                              Color: ''
+                            - SysName: airTemperature
+                              Name: Teplota vzduchu
+                              Description: Teplota vzduchu
+                              Unit: °C
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: ''
+                          Notifications: []
+                          DebugInfo: null
+                        - RecID: 66cda559-c9c9-4b3c-be0d-90a3026ebe84
+                          DevID: SCC.IOT.ROPCUST-3031383366387419
+                          Name: Otřesové čidlo na stole
+                          Class: SecuritySensor
+                          Vendor: IoTVega
+                          Model: VGA.AS0101
+                          Description: null
+                          Position:
+                            Latitude: 49.687217621789536
+                            Longitude: 18.521098494529728
+                          Data:
+                            loraSF: 12
+                            loraSNR: 4.5
+                            alarmState: 0
+                            loraGWName: ''
+                            loraGWRssi: -120
+                            secureState: unsecured
+                            timeToLeave: 60
+                            mainCapacity: 83
+                            alarmDateTime: '2020-10-09T19:29:49'
+                            secureStateBy: 360
+                            verticalAngle: 2
+                            airTemperature: 23
+                            secureStateByName: michal.smolka18@gmail.com
+                            secureStateDateTime: '2020-10-10T11:49:10'
+                          Parameters:
+                            - ID: timeToLeaveAS0101
+                              Name: Čas k odchodu
+                              Unit: s
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 60
+                              Type: system
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T11:14:03'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '30'
+                                  Name: 30 vteřin
+                                - Value: '60'
+                                  Name: 1 minuta
+                                - Value: '120'
+                                  Name: 2 minuty
+                                - Value: '600'
+                                  Name: 5 minut
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-26T10:12:06'
+                            - ID: alarmSensitivityAS0101
+                              Name: Citlivost
+                              Unit: ''
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 2
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T11:14:03'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '1'
+                                  Name: Nízká
+                                - Value: '2'
+                                  Name: Střední
+                                - Value: '3'
+                                  Name: Vysoká
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-26T10:12:06'
+                            - ID: sendPeriodAS0101
+                              Name: Perioda odesílání
+                              Unit: min
+                              Description: ''
+                              Pattern: ''
+                              DataType: uint
+                              Value: 4
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T11:14:03'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '1'
+                                  Name: 1 hodina
+                                - Value: '2'
+                                  Name: 6 hodin
+                                - Value: '3'
+                                  Name: 12 hodin
+                                - Value: '4'
+                                  Name: 24 hodin
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-26T10:12:06'
+                          Group:
+                            ID: myIoT-272-Kancelar-FgrBdafa
+                            Name: Kancelář
+                            Description: Kancelář v robotě
+                          Status:
+                            Status: OK
+                            Timestamp: '2020-10-18T16:18:39'
+                          Application: security
+                          Values:
+                            - SysName: alarmState
+                              Name: Stav alarmu
+                              Description: Stav alarmu
+                              Unit: ''
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 1
+                              Color: ''
+                            - SysName: mainCapacity
+                              Name: Kapacita hlavní baterie
+                              Description: Kapacita hlavní baterie
+                              Unit: '%'
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 100
+                              Color: ''
+                            - SysName: airTemperature
+                              Name: Teplota vzduchu
+                              Description: Teplota vzduchu
+                              Unit: °C
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: ''
+                          Notifications: []
+                          DebugInfo: null
+                        - RecID: 7e7c5972-779a-46ea-acaf-f1d237396690
+                          DevID: SCC.IOT.ROPCUST-3632333360375E17
+                          Name: Kontaktní čidlo na WC
+                          Class: SecuritySensor
+                          Vendor: IoTVega
+                          Model: VGA.MC0101
+                          Description: null
+                          Position:
+                            Latitude: 49.68726127495032
+                            Longitude: 18.52107059949049
+                          Data:
+                            loraSF: 12
+                            loraSNR: 6.5
+                            alarmState: 0
+                            loraGWName: ''
+                            loraGWRssi: -108
+                            secureState: unsecured
+                            timeToLeave: 60
+                            mainCapacity: 72
+                            sensorState1: 1
+                            sensorState2: 1
+                            alarmDateTime: '2020-10-09T10:20:05'
+                            secureStateBy: 360
+                            airTemperature: 27
+                            interruptTrigger: sensor2
+                            secureStateByName: michal.smolka18@gmail.com
+                            secureStateDateTime: '2020-10-09T09:21:59'
+                          Parameters:
+                            - ID: timeToLeaveMC0101
+                              Name: Čas k odchodu
+                              Unit: s
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 60
+                              Type: system
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T11:41:50'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '30'
+                                  Name: 30 vteřin
+                                - Value: '60'
+                                  Name: 1 minuta
+                                - Value: '120'
+                                  Name: 2 minuty
+                                - Value: '600'
+                                  Name: 5 minut
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-26T11:39:57'
+                            - ID: sendPeriodMC0101
+                              Name: Perioda odesílání
+                              Unit: min
+                              Description: ''
+                              Pattern: ''
+                              DataType: uint
+                              Value: 4
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T11:41:50'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '1'
+                                  Name: 1 hodina
+                                - Value: '2'
+                                  Name: 6 hodin
+                                - Value: '3'
+                                  Name: 12 hodin
+                                - Value: '4'
+                                  Name: 24 hodin
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-26T11:39:57'
+                          Group:
+                            ID: myIoT-272-Kancelar-FgrBdafa
+                            Name: Kancelář
+                            Description: Kancelář v robotě
+                          Status:
+                            Status: OK
+                            Timestamp: '2020-10-19T14:05:52'
+                          Application: security
+                          Values:
+                            - SysName: alarmState
+                              Name: Stav alarmu
+                              Description: Stav alarmu
+                              Unit: ''
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 1
+                              Color: ''
+                            - SysName: mainCapacity
+                              Name: Kapacita hlavní baterie
+                              Description: Kapacita hlavní baterie
+                              Unit: '%'
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 100
+                              Color: ''
+                            - SysName: airTemperature
+                              Name: Teplota vzduchu
+                              Description: Teplota vzduchu
+                              Unit: °C
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: ''
+                          Notifications: []
+                          DebugInfo: null
+                        - RecID: e1ddbf9d-065a-495b-a6ca-1f763ad5479a
+                          DevID: SCC.IOT.ROPCUST-3632333357376B19
+                          Name: Pohybové čidlo na stole
+                          Class: SecuritySensor
+                          Vendor: IoTVega
+                          Model: VGA.MS0101
+                          Description: null
+                          Position:
+                            Latitude: 49.68723663394483
+                            Longitude: 18.521116733518284
+                          Data:
+                            loraSF: 12
+                            loraSNR: 6.8
+                            alarmState: 0
+                            loraGWName: ''
+                            loraGWRssi: -102
+                            secureState: unsecured
+                            timeToLeave: 60
+                            mainCapacity: 75
+                            secureStateBy: 360
+                            airTemperature: 22
+                            secureStateByName: michal.smolka18@gmail.com
+                            secureStateDateTime: '2020-10-09T13:08:34'
+                          Parameters:
+                            - ID: timeToLeaveMS0101
+                              Name: Čas k odchodu
+                              Unit: s
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 60
+                              Type: system
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T11:53:22'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '30'
+                                  Name: 30 vteřin
+                                - Value: '60'
+                                  Name: 1 minuta
+                                - Value: '120'
+                                  Name: 2 minuty
+                                - Value: '600'
+                                  Name: 5 minut
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-26T11:50:10'
+                            - ID: sendPeriodMS0101
+                              Name: Perioda odesílání
+                              Unit: min
+                              Description: ''
+                              Pattern: ''
+                              DataType: uint
+                              Value: 4
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T11:53:22'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '1'
+                                  Name: 1 hodina
+                                - Value: '2'
+                                  Name: 6 hodin
+                                - Value: '3'
+                                  Name: 12 hodin
+                                - Value: '4'
+                                  Name: 24 hodin
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-26T11:50:10'
+                          Group:
+                            ID: myIoT-272-Kancelar-FgrBdafa
+                            Name: Kancelář
+                            Description: Kancelář v robotě
+                          Status:
+                            Status: OK
+                            Timestamp: '2020-10-19T13:19:32'
+                          Application: security
+                          Values:
+                            - SysName: alarmState
+                              Name: Stav alarmu
+                              Description: Stav alarmu
+                              Unit: ''
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 1
+                              Color: ''
+                            - SysName: mainCapacity
+                              Name: Kapacita hlavní baterie
+                              Description: Kapacita hlavní baterie
+                              Unit: '%'
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 100
+                              Color: ''
+                            - SysName: airTemperature
+                              Name: Teplota vzduchu
+                              Description: Teplota vzduchu
+                              Unit: °C
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: ''
+                          Notifications: []
+                          DebugInfo: null
+                        - RecID: 47315cf0-add6-4487-a50c-4152721fe6e0
+                          DevID: SCC.IOT.ROPCUST-3939353459385D02
+                          Name: 4v1 čidlo Michal pokoj
+                          Class: SecuritySensor
+                          Vendor: IoTVega
+                          Model: VGA.HS0101
+                          Description: null
+                          Position:
+                            Latitude: 49.7052958944831
+                            Longitude: 18.627212047576908
+                          Data:
+                            loraSF: 12
+                            loraSNR: -14
+                            alarmState: 1
+                            loraGWName: CZ_MSK_ROPICE1
+                            loraGWRssi: -117
+                            airHumidity: 60
+                            secureState: secured
+                            timeToLeave: 30
+                            mainCapacity: 81
+                            sensorState1: 1
+                            sensorState2: 1
+                            alarmDateTime: '2020-10-19T11:45:03'
+                            secureStateBy: 360
+                            verticalAngle: 88
+                            airTemperature: 22.4
+                            interruptTrigger: sensor1
+                            secureStateByName: michal.smolka18@gmail.com
+                            accelerometerState: 0
+                            secureStateDateTime: '2020-10-11T12:24:47'
+                          Parameters:
+                            - ID: timeToLeaveHS0101
+                              Name: Čas k odchodu
+                              Unit: s
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 30
+                              Type: system
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T15:29:13'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '30'
+                                  Name: 30 vteřin
+                                - Value: '60'
+                                  Name: 1 minuta
+                                - Value: '120'
+                                  Name: 2 minuty
+                                - Value: '600'
+                                  Name: 5 minut
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-26T15:29:13'
+                            - ID: alarmSensitivityHS0101
+                              Name: Citlivost
+                              Unit: ''
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 4
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-10-10T09:06:56'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '4'
+                                  Name: Žádná
+                                - Value: '1'
+                                  Name: Nízká
+                                - Value: '2'
+                                  Name: Střední
+                                - Value: '3'
+                                  Name: Vysoká
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-10-10T09:08:03'
+                            - ID: checkPeriodHS0101
+                              Name: Perioda měření
+                              Unit: min
+                              Description: ''
+                              Pattern: ''
+                              DataType: uint
+                              Value: 2
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T15:29:13'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '6'
+                                  Name: 15 minut
+                                - Value: '7'
+                                  Name: 30 minut
+                                - Value: '1'
+                                  Name: 1 hodina
+                                - Value: '2'
+                                  Name: 6 hodin
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-27T21:56:54'
+                            - ID: sendPeriodHS0101
+                              Name: Perioda odesílání
+                              Unit: min
+                              Description: ''
+                              Pattern: ''
+                              DataType: uint
+                              Value: 4
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-08-26T15:29:13'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '6'
+                                  Name: 15 minut
+                                - Value: '7'
+                                  Name: 30 minut
+                                - Value: '1'
+                                  Name: 1 hodina
+                                - Value: '2'
+                                  Name: 6 hodin
+                                - Value: '3'
+                                  Name: 12 hodin
+                                - Value: '4'
+                                  Name: 24 hodin
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-08-27T21:56:54'
+                            - ID: minTemperatureHS0101
+                              Name: Alarm minimální teploty
+                              Unit: °C
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 10
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-10-09T19:07:15'
+                              Min: -40
+                              Max: 84
+                              Values: null
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-10-09T19:10:28'
+                            - ID: maxTemperatureHS0101
+                              Name: Alarm maximální teploty
+                              Unit: °C
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 25
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-10-09T19:07:15'
+                              Min: -39
+                              Max: 85
+                              Values: null
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-10-09T19:10:28'
+                            - ID: minHumidityHS0101
+                              Name: Alarm minimální vlhkosti
+                              Unit: '%'
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 20
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-10-14T11:57:20'
+                              Min: 0
+                              Max: 100
+                              Values: null
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-10-14T13:16:53'
+                            - ID: maxHumidityHS0101
+                              Name: Alarm maximální vlhkosti
+                              Unit: '%'
+                              Description: ''
+                              Pattern: ''
+                              DataType: int
+                              Value: 80
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2020-10-14T11:57:20'
+                              Min: 0
+                              Max: 100
+                              Values: null
+                              Status:
+                                Status: valid
+                                Timestamp: '2020-10-14T13:16:53'
+                          Group:
+                            ID: myIoT-272-Kancelar-FgrBdafa
+                            Name: Kancelář
+                            Description: Kancelář v robotě
+                          Status:
+                            Status: OK
+                            Timestamp: '2020-10-19T11:44:33'
+                          Application: security
+                          Values:
+                            - SysName: alarmState
+                              Name: Stav alarmu
+                              Description: Stav alarmu
+                              Unit: ''
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 1
+                              Color: '#ff0000'
+                            - SysName: mainCapacity
+                              Name: Kapacita hlavní baterie
+                              Description: Kapacita hlavní baterie
+                              Unit: '%'
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 100
+                              Color: '#ff9900'
+                            - SysName: airTemperature
+                              Name: Teplota vzduchu
+                              Description: Teplota vzduchu
+                              Unit: °C
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: minTemperatureHS0101
+                              ParameterMax: maxTemperatureHS0101
+                              Min: null
+                              Max: null
+                              Color: '#ffb700'
+                            - SysName: airHumidity
+                              Name: Vlhkost vzduchu
+                              Description: Vlhkost vzduchu
+                              Unit: '%'
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: minHumidityHS0101
+                              ParameterMax: maxHumidityHS0101
+                              Min: 0
+                              Max: 100
+                              Color: '#0076ff'
+                          Notifications:
+                            - RecID: d5b88b01-1a47-4b77-bc3a-2a377f3d9395
+                              SendEmail: true
+                              SendPush: false
+                              SendSMS: false
+                              SysValue: airHumidity
+                              Min: 20
+                              Max: 80
+                              Range:
+                                Gte: null
+                                Lte: null
+                          DebugInfo: null
+                        - RecID: 2957e1c5-ef9d-4133-b1b5-9fc6ad141e25
+                          DevID: SCC.IOT.ROPCUST-0600000000000002
+                          Name: CO2 čidlo kancelář
+                          Class: CO2
+                          Vendor: MasterIT
+                          Model: LRB.CO2
+                          Description: null
+                          Position:
+                            Latitude: 49.68723003989764
+                            Longitude: 18.52107703685761
+                          Data:
+                            co2: 810
+                            loraSF: 12
+                            loraSNR: 8.5
+                            mainPower: 1.767
+                            loraGWName: ''
+                            loraGWRssi: -96
+                            airHumidity: 37.8
+                            airTemperature: 26.7
+                          Parameters: []
+                          Group:
+                            ID: myIoT-272-Kancelar-FgrBdafa
+                            Name: Kancelář
+                            Description: Kancelář v robotě
+                          Status:
+                            Status: OK
+                            Timestamp: '2020-10-19T14:15:38'
+                          Application: measurement
+                          Values:
+                            - SysName: co2
+                              Name: Úroveň CO2
+                              Description: Úroveň CO2
+                              Unit: ppm
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: '#00dc50'
+                            - SysName: airTemperature
+                              Name: Teplota vzduchu
+                              Description: Teplota vzduchu
+                              Unit: °C
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: '#ff4600'
+                            - SysName: airHumidity
+                              Name: Vlhkost vzduchu
+                              Description: Vlhkost vzduchu
+                              Unit: '%'
+                              Order: 0
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 100
+                              Color: '#3385ff'
+                          Notifications:
+                            - RecID: 194c90c9-6516-4d15-b744-715b5647c9b0
+                              SendEmail: true
+                              SendPush: false
+                              SendSMS: false
+                              SysValue: co2
+                              Min: 0
+                              Max: 1000
+                              Range:
+                                Gte: null
+                                Lte: null
+                          DebugInfo: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: Jazyková mutace výsledku
+      description: |-
+        Vrátí seznam uživatelů včetně sdílených zařízení rozdělených na sdílím, mám nasdíleno a vlastním
+
+        [API returns users list with devices which are shared or which you share and own devices]
       tags:
         - application-myIoT
   /api/app/mob/myiot/device:
@@ -3213,6 +6971,31 @@ paths:
                   Position:
                     Latitude: 49.6872057459539
                     Longitude: 18.5215006064315
+              Pouze pridani notifikaci (add notification):
+                value:
+                  DevID: SCC.IOT.ROP0600000000000010
+                  Notifications:
+                    - SendPush: true
+                      SendEmail: false
+                      SendSMS: false
+                      Min: 50
+                      Max: null
+                      SysValue: airHumidity
+              delete all notifications:
+                value:
+                  DevID: SCC.IOT.ROP0600000000000010
+                  Notifications: []
+              change notification:
+                value:
+                  DevID: SCC.IOT.ROP0600000000000010
+                  Notifications:
+                    - RecID: rec id of notification for change
+                      SendPush: true
+                      SendEmail: false
+                      SendSMS: false
+                      Min: 50
+                      Max: null
+                      SysValue: airHumidity
         description: ''
       parameters:
         - schema:
@@ -3227,6 +7010,11 @@ paths:
         Upraví myIoT zařízení. Umožňuje aktualizaci pouze některých parametrů. (Není možné aktualizovat class, vendor, model a další)
 
         [Updates device. It allow update just some parameters (It is not possible update params like class, vendor, model etc.)]
+
+
+        It can be used for notification and parameters saving
+        If notifications or parameters are null nothing changes.
+        if you want to change notifications you must send all notifications, if you want write new notification just add new notification to notification list without RecID, if you want to delete notification dont send it (send just notifs which you want)
       tags:
         - application-myIoT
     delete:
@@ -3434,6 +7222,202 @@ paths:
         Vrátí zařízení uživatele podle recUserID na které má uživatel právo na základě sdílení. Pokud je recUserID prázdné vracejí se zažízení uživatele.
 
         [Returns the user's device according to the recUserID to which the user has the share-based right. If recUserID is empty, the user's device is returned.]
+      tags:
+        - application-myIoT
+  /api/app/mob/myiot/notification:
+    post:
+      summary: PostMyIoTNotification
+      operationId: post-api-app-mob-cg-myiot-notification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      RecID: bd36aa88-1ac6-4ce9-b794-c9a1899427c0
+                      SendEmail: false
+                      SendPush: false
+                      SendSMS: true
+                      SysValue: co2
+                      Min: 800
+                      Max: null
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Chybějící vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybějící vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: recID
+          description: ID notifikace (nutné pro aktualizaci)
+        - schema:
+            type: string
+          in: query
+          name: devID
+          required: true
+          description: devID zařízení se kterým má být notifikace svázaná
+        - schema:
+            type: boolean
+          in: query
+          name: sendPush
+          description: Umožňuje posílat push notifikaci
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: sendEmail
+          required: true
+          description: umožňuje poílat email
+        - schema:
+            type: string
+          in: query
+          name: sysValue
+          description: Hodnota na kterou se váže notifikace (není-li vyplněna notifikuje se každá změna příchozích dat)
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+          description: jazyk pro překlad notifikační šablony
+        - schema:
+            type: number
+          in: query
+          name: min
+          description: 'Minimální hodnota, je-li překročena nebo rovna odesílá se notifikace (není-li vyplněna notifikuje se na každou změnu)'
+        - schema:
+            type: number
+          in: query
+          name: max
+          description: 'Maximální hodnota, je-li nižší nebo rovna odesílá se notifikace (není-li vyplněna notifikuje se na každou změnu)'
+        - schema:
+            type: boolean
+          in: query
+          name: sendSMS
+          description: umožňuje posílat SMS
+        - schema:
+            type: string
+          in: query
+          name: lte
+          description: Hodnota je nižší nebo rovna x
+        - schema:
+            type: string
+          in: query
+          name: gte
+          description: Hodnota je vyšší nebo rovna x
+      description: |-
+        Metoda vytvoří nebo aktualizuje notifikaci pro aplikaci myIoT.
+
+        [API creates or updates notification by RecID]
+      tags:
+        - application-myIoT
+    parameters: []
+    delete:
+      summary: DeleteMyIoTNotification
+      operationId: delete-api-app-mob-cg-myiot-notification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+        '400':
+          description: BadParams
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Chybějící vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybějící vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ../Base/Base.v1.yaml#/components/schemas/APIResult
+              examples:
+                Nedostatečné oprávnění:
+                  value:
+                    status: error
+                    err_msg: Nedostatečné oprávnění
+                    err_code: -4000
+                    data: null
+      security:
+        - Bearer token: []
+      parameters:
+        - schema:
+            type: string
+            example: ''
+            default: application/json
+          in: header
+          name: Content-Type
+          description: ''
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: recID
+          description: ID notifikace
+          required: true
+      description: |-
+        Metoda smaže notifikaci pro aplikaci myIoT
+
+        [API deletes notification by RecID]
       tags:
         - application-myIoT
   /api/app/mob/myiot/data:
@@ -6869,12 +10853,16 @@ paths:
                       profession: technician
                       transportID: ''
                       mobile: '123456789'
+                      mobilePrefix: '420'
                       email: xxxxx.xxxxx@xxxxx.com
-                      defaultLang: null
+                      defaultLang: cs
                       sendInvoice: null
                       deviceList: []
                       infoChannels:
-                        - dpo
+                        primary: obecRopice
+                        secondary:
+                          - dpo
+                          - mitt
         '401':
           description: Unauthorized
           content:
@@ -6908,12 +10896,17 @@ paths:
                   email: xxxxx.xxxx@xxx.com
                   gender: male
                   mobile: '123456789'
+                  mobilePrefix: '420'
                   profession: technician
                   recID: 0
                   transportID: ''
                   config:
                     infoChannels:
-                      - dpo
+                      primary: obecRopice
+                      secondary:
+                        - dpo
+                        - mitt
+                  defaultLang: cs
         description: ''
       tags:
         - customers
