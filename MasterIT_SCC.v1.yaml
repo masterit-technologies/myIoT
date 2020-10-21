@@ -949,6 +949,22 @@ paths:
                     err_msg: ''
                     err_code: 0
                     data:
+                      status:
+                        - itemID: TIMEOUT
+                          name: Bez odpovědi
+                          color: '#8f8f8f'
+                        - itemID: ERROR
+                          name: Chyba
+                          color: '#ec2512'
+                        - itemID: UNKNOWN
+                          name: Neznámý
+                          color: '#8f8f8f'
+                        - itemID: WARNING
+                          name: Upozornění
+                          color: '#ded700'
+                        - itemID: OK
+                          name: V pořádku
+                          color: '#45bb42'
                       types:
                         - itemID: AccessPoint
                           name: Access point
@@ -1085,66 +1101,66 @@ paths:
                           description: 'Statutární, krajské a univerzitní město na severovýchodě České republiky v Moravskoslezském kraji'
                         - itemID: obecChotebuz
                           name: Obec Chotěbuz
-                          imageUrl: 'http://localhost:63178/Content/Files/87e920c1-9c39-454a-8951-d407d7b50c6c.png'
+                          imageUrl: 'https://devproxy.masterit.cz/Content/Files/87e920c1-9c39-454a-8951-d407d7b50c6c.png'
                           description: Kanál obce Chotěbuz
                         - itemID: obecRopice
                           name: Obec Ropice
-                          imageUrl: 'http://localhost:63178/Content/Files/9a2079b6-0250-4109-bd0a-f90b5fe3e6d9.jpeg'
+                          imageUrl: 'https://devproxy.masterit.cz/Content/Files/9a2079b6-0250-4109-bd0a-f90b5fe3e6d9.jpeg'
                           description: Kanál obce Ropice
                       icons:
                         - itemID: Content/images/device.svg
                           name: device
-                          url: 'http://localhost:63178/Content/images/device.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/device.svg'
                           deviceClass: '*'
                         - itemID: Content/images/fire.svg
                           name: fire
-                          url: 'http://localhost:63178/Content/images/fire.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/fire.svg'
                           deviceClass: GasMeter
                         - itemID: Content/images/flood.svg
                           name: flood
-                          url: 'http://localhost:63178/Content/images/flood.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/flood.svg'
                           deviceClass: WaterLevel
                         - itemID: Content/images/leaf.svg
                           name: leaf
-                          url: 'http://localhost:63178/Content/images/leaf.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/leaf.svg'
                           deviceClass: CO2
                         - itemID: Content/images/location.svg
                           name: location
-                          url: 'http://localhost:63178/Content/images/location.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/location.svg'
                           deviceClass: GPSTracker
                         - itemID: Content/images/meteo.svg
                           name: meteo
-                          url: 'http://localhost:63178/Content/images/meteo.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/meteo.svg'
                           deviceClass: MeteoStation
                         - itemID: Content/images/noise.svg
                           name: noise
-                          url: 'http://localhost:63178/Content/images/noise.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/noise.svg'
                           deviceClass: SoundMeter
                         - itemID: Content/images/power.svg
                           name: power
-                          url: 'http://localhost:63178/Content/images/power.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/power.svg'
                           deviceClass: PowerMeter
                         - itemID: Content/images/security.svg
                           name: security
-                          url: 'http://localhost:63178/Content/images/security.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/security.svg'
                           deviceClass: SecuritySensor
                         - itemID: Content/images/security.svg
                           name: security
-                          url: 'http://localhost:63178/Content/images/security.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/security.svg'
                           deviceClass: ContactSensor
                         - itemID: Content/images/uni.svg
                           name: uni
-                          url: 'http://localhost:63178/Content/images/uni.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/uni.svg'
                           deviceClass: UniSensor
                         - itemID: Content/images/water.svg
                           name: water
-                          url: 'http://localhost:63178/Content/images/water.svg'
+                          url: 'https://devproxy.masterit.cz/Content/images/water.svg'
                           deviceClass: WaterMeter
                       unconfirmedInvitations:
                         - devices: '*'
                           user: michal.smolka18@gmail.com
                           relationGroupID: 5df9c055-688e-4aa3-8a8b-bd73b21ceed4
-                          requestID: 992934fd-1a6b-4ffd-8693-5810b82bd6b3
+                          requestID: null
                       myInvitations: []
         '401':
           description: Unauthorized
@@ -1172,6 +1188,8 @@ paths:
         infoChannels - list of info channels which contains id, name and some properties for future processing like image (imageUrl) or channel description (description)
 
         icons - list of icons used in application, each icon object contain id, name, deviceClass(it determines class for which should be used, if its * it is default icon for other classes) and url
+
+        status - contains informations about device status like display name of status or color
       parameters:
         - schema:
             type: string
@@ -3465,6 +3483,8 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
 
 
 
