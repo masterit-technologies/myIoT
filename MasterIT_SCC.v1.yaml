@@ -147,6 +147,8 @@ paths:
         Provede přihlášení do SCC a získání tokenu
 
         [API provides signing in to SCC and token obtaining]
+
+        if you want to login as scc user (in aplication as admin), you must set type parameter to "scc" and application must be "default"
       requestBody:
         content:
           application/json:
@@ -3529,6 +3531,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
