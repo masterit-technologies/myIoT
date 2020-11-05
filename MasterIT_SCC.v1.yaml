@@ -3020,6 +3020,12 @@ paths:
           name: chartRange
           description: 'Rozsah dat (day, week, month)'
           required: true
+        - schema:
+            type: string
+            default: '20'
+          in: query
+          name: minimalHistoryDistance
+          description: 'minimal distance for position history for GPS tracker [meters]'
       security:
         - Bearer token: []
       tags:
@@ -3531,6 +3537,14 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
 
 
 
