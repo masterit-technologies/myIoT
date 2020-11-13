@@ -1200,6 +1200,8 @@ paths:
         icons - list of icons used in application, each icon object contain id, name, deviceClass(it determines class for which should be used, if its * it is default icon for other classes) and url
 
         status - contains informations about device status like display name of status or color
+
+        gui - object which contains images or texts for gui, like loadingIconUrl or loadingText
       parameters:
         - schema:
             type: string
@@ -3548,6 +3550,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
