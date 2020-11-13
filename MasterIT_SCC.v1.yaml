@@ -956,6 +956,9 @@ paths:
                     err_msg: ''
                     err_code: 0
                     data:
+                      gui:
+                        loadingIconUrl: 'https://devproxy.masterit.cz/Content/Files/24a53858-067f-4088-aed9-c8128d91fd83.png'
+                        loadingText: Obec Chotěbuz
                       status:
                         - itemID: TIMEOUT
                           name: Bez odpovědi
@@ -3545,6 +3548,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
