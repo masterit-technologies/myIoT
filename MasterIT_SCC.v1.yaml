@@ -430,13 +430,18 @@ paths:
                 token:
                   type: string
                   description: pushtoken aplikace
+                deviceID:
+                  type: string
+                  description: ID of physical device
               required:
                 - type
                 - token
+                - deviceID
             examples:
               Přidání push tokenu:
                 value:
                   type: android
+                  deviceID: id_of_physical_device
                   token: pushtoken
         description: ''
       tags:
@@ -1250,7 +1255,7 @@ paths:
         - schema:
             type: string
           in: query
-          name: devID
+          name: id
           description: ID zařízení
       security:
         - Bearer token: []
@@ -3540,6 +3545,10 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
 
 
 
