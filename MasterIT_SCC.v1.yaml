@@ -2890,6 +2890,8 @@ paths:
                       PreviousConsumptionStr: 17.3 kW/h
                       ConsumptionDifferenceStr: 9.7 kW/h
                       PreviousConsumptionInThisTimeStr: 5 kW/h
+                      PreviousPeriodColor: '#0000ff'
+                      ActualPeriodColor: '#ff0000'
                       ChartDataPreviousPeriod:
                         - x: 1603843200
                           'y': 439
@@ -3550,6 +3552,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
