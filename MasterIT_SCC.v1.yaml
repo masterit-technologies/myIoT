@@ -7,7 +7,7 @@ info:
   license:
     name: MasterIT technologies a.s.
 servers:
-  - url: 'https://develop.masterit.cz'
+  - url: 'https://devproxy.masterit.cz'
     description: develop
 paths:
   /api/customer/email/exist:
@@ -3383,6 +3383,56 @@ paths:
       description: Metoda vrátí seznam skupin přihlášeného uživatele pro aplikaci myIoT
       security:
         - Bearer token: []
+  api/infoChannel/interestGroups/public:
+    get:
+      summary: GetInterestGroupsPublic
+      tags:
+        - application-myIoT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - data:
+                          userID: 188
+                          category: news
+                        name: Developers
+                        type: usr
+                        cisID: 103
+                        recID: 41916
+                        sccID: 1
+                        itemID: myIoT-myiot_masterit-developers-cf4d9
+                        public: true
+                        groupID: myiot_masterit
+                        description: Programátoři
+                        created: '2021-02-10T12:44:12'
+                        createdBy: 188
+                        changed: ''
+                        changedBy: null
+      operationId: get-api-infoChannel-interestGroups-public
+      description: |-
+        API vrátí seznam zájmových skupin pro daný infokanál
+        [Api returns public interest group list]
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: primaryChannel
+          description: id of primary channel
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
   /api/app/mob/myiot/share:
     post:
       summary: PostMyIoTDeviceShare
@@ -3552,6 +3602,17 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
+
+
+
 
 
 
