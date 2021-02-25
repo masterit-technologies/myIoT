@@ -956,22 +956,22 @@ paths:
                     err_msg: ''
                     err_code: 0
                     data:
-                      gui:
-                        loadingIconUrl: 'https://devproxy.masterit.cz/Content/Files/24a53858-067f-4088-aed9-c8128d91fd83.png'
-                        loadingText: Obec Chotěbuz
                       status:
-                        - itemID: TIMEOUT
-                          name: Bez odpovědi
-                          color: '#8f8f8f'
                         - itemID: ERROR
                           name: Chyba
                           color: '#ec2512'
+                        - itemID: GPSNOFIX
+                          name: Mimo GPS
+                          color: '#ffa500'
+                        - itemID: TIMEOUT
+                          name: Neodpovídá
+                          color: '#8f8f8f'
                         - itemID: UNKNOWN
                           name: Neznámý
                           color: '#8f8f8f'
                         - itemID: WARNING
                           name: Upozornění
-                          color: '#ded700'
+                          color: '#ffa500'
                         - itemID: OK
                           name: V pořádku
                           color: '#45bb42'
@@ -980,8 +980,6 @@ paths:
                           name: Access point
                         - itemID: PointOfInterest
                           name: Bod zájmu
-                        - itemID: TrashBinDetector
-                          name: Detektor zaplnění koše
                         - itemID: BikeDock
                           name: Dok pro kola
                         - itemID: Gateway
@@ -1000,6 +998,8 @@ paths:
                           name: Meteostanice
                         - itemID: GeneralDevice
                           name: Obecné zařízení
+                        - itemID: TankContents
+                          name: Obsah nádrže
                         - itemID: ParkingAutomat
                           name: Parkovací automat
                         - itemID: ParkingDetector
@@ -1026,6 +1026,8 @@ paths:
                           name: Router
                         - itemID: SecuritySensor
                           name: Senzor zabezpečení
+                        - itemID: WasteLevelDetector
+                          name: Senzor zaplnění kontejneru
                         - itemID: Server
                           name: Server
                         - itemID: GroupingDevice
@@ -1047,6 +1049,16 @@ paths:
                         - itemID: TransportStop
                           name: Zastávka
                       vendors:
+                        - itemID: Dragino
+                          name: Dragino
+                          models:
+                            - itemID: DRA.LDS01
+                              name: LDS01
+                        - itemID: Hikvision
+                          name: Hikvision
+                          models:
+                            - itemID: HIK.IPCAM
+                              name: General IP Camera
                         - itemID: IoTVega
                           name: IoT Vega
                           models:
@@ -1091,87 +1103,1276 @@ paths:
                               name: LRB.MIO-THR-1
                             - itemID: LRB.MIO-USN-1
                               name: LRB.MIO-USN-1
+                        - itemID: MOKOSmart
+                          name: MOKOSmart
+                          models:
+                            - itemID: MOK.LW004-PB
+                              name: LW004-PB
+                        - itemID: Sensoneo
+                          name: Sensoneo
+                          models:
+                            - itemID: SEN.SingleSensor30
+                              name: Single Sensor 3.0
                         - itemID: SolidusTech
                           name: SolidusTech
                           models:
                             - itemID: SOL.LRMU-SEN420-IND
                               name: SOL.LRMU-SEN420-IND
-                      infoChannels:
-                        - itemID: dpo
-                          name: Dopravní podnik Ostrava a.s.
-                          imageUrl: ''
-                          description: Městská hromadná doprava v Ostravě.
-                        - itemID: mitt
-                          name: Master IT
-                          imageUrl: ''
+                        - itemID: Winext
+                          name: Winext
+                          models:
+                            - itemID: WIN.AN-122-A03
+                              name: AN-122-A03
+                      sysValues:
+                        - itemID: analog1
+                          name: analog1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: analog2
+                          name: analog2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: analog3
+                          name: analog3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: analog4
+                          name: analog4
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: batteryVoltage
+                          name: Bateriové napájení
+                          data:
+                            unit: V
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: batteryCurrent
+                          name: Bateriový napájecí proud
+                          data:
+                            unit: A
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: isBarrierLess
+                          name: Bezbariérový vstup
+                          data:
+                            unit: ''
+                            values:
+                              - name: 'true'
+                                value: true
+                              - name: 'false'
+                                value: false
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: securityCamera
+                          name: Bezpečnostní kamera
+                          data:
+                            unit: ''
+                            values:
+                              - name: 'true'
+                                value: true
+                              - name: 'false'
+                                value: false
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: freezingPoint
+                          name: Bod mrazu
+                          data:
+                            unit: °C
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: totalOut
+                          name: Celkem odeslané data
+                          data:
+                            unit: MB
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: periodOut
+                          name: Celkem odeslané data za periodu
+                          data:
+                            unit: MB
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: totalIn
+                          name: Celkem přijaté data
+                          data:
+                            unit: MB
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: periodIn
+                          name: Celkem přijaté data za periodu
+                          data:
+                            unit: MB
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: vehicleSummaryC1
+                          name: Celkový počet vozidel kategorie C1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,TrafficDetector'
+                        - itemID: vehicleSummaryC2
+                          name: Celkový počet vozidel kategorie C2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,TrafficDetector'
+                        - itemID: vehicleSummaryC3
+                          name: Celkový počet vozidel kategorie C3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,TrafficDetector'
+                        - itemID: routeID
+                          name: Číslo linky
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: tripID
+                          name: Číslo spoje
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: vehicleNumber
+                          name: Číslo vozidla
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: serviceID
+                          name: Číslo výpravy
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: counter1
+                          name: counter1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: counter2
+                          name: counter2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: counter3
+                          name: counter3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: counter4
+                          name: counter4
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: timestamp
+                          name: Datum a čas
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: digital1
+                          name: digital1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: digital2
+                          name: digital2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: digital3
+                          name: digital3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: digital4
+                          name: digital4
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: freeA
+                          name: freeA
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: freeE
+                          name: freeE
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: free
+                          name: free
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: freeR
+                          name: freeR
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: freeT
+                          name: freeT
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: loraGWName
+                          name: Gateway
+                          data:
+                            unit: ''
+                            deviceType: LoRaWanDevice
+                            deviceClass: ''
+                        - itemID: gpsHDOP
+                          name: GPS HDOP
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: GPSTracker
+                        - itemID: mainCurrent
+                          name: Hlavní napájecí proud
+                          data:
+                            unit: A
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: mainPower
+                          name: Hlavní napájení
+                          data:
+                            unit: V
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: soundLevel
+                          name: Hlučnost
+                          data:
+                            unit: dB
+                            deviceType: ''
+                            deviceClass: SoundMeter
+                        - itemID: horizontalAngle
+                          name: Horizontální úhel
+                          data:
+                            unit: °
+                            deviceType: ''
+                            deviceClass: 'UniSensor,SecuritySensor'
+                        - itemID: agencyID
+                          name: ID dopravce
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: lastStopID
+                          name: ID poslední zastávky
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: postID
+                          name: ID sloupku
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: BusStop
+                        - itemID: stopID
+                          name: ID zastávky
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: BusStop
+                        - itemID: rainIntensity
+                          name: Intenzita deště
+                          data:
+                            unit: mm/h
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: IP
+                          name: IP adresa
+                          data:
+                            unit: ''
+                            pattern: '^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$'
+                            deviceType: 'ActiveDevice,LoRaWanDevice'
+                            deviceClass: 'AccessPoint,Gateway,Router,Server'
+                        - itemID: mainCapacity
+                          name: Kapacita hlavní baterie
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: backupCapacity
+                          name: Kapacita záložní baterie
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: airCondition
+                          name: Klimatizace
+                          data:
+                            unit: ''
+                            values:
+                              - name: 'true'
+                                value: true
+                              - name: 'false'
+                                value: false
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: finalStopID
+                          name: Koncová zastávka
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: lat
+                          name: Latitude
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'GPSTracker,Vehicle'
+                        - itemID: dataLimit
+                          name: Limit přenesených dat
+                          data:
+                            unit: MB
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: lng
+                          name: Longitude
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'GPSTracker,Vehicle'
+                        - itemID: loraSNR
+                          name: LoRa SNR
+                          data:
+                            unit: dBm
+                            deviceType: LoRaWanDevice
+                            deviceClass: ''
+                        - itemID: loraSF
+                          name: LoRa Spreed Factor
+                          data:
+                            unit: ''
+                            deviceType: LoRaWanDevice
+                            deviceClass: ''
+                        - itemID: MAC
+                          name: MAC adresa
+                          data:
+                            unit: ''
+                            pattern: '^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$'
+                            deviceType: 'ActiveDevice,LoRaWanDevice'
+                            deviceClass: 'AccessPoint,Gateway,Router'
+                        - itemID: MACEui
+                          name: MACEui adresa
+                          data:
+                            unit: ''
+                            deviceType: 'ActiveDevice,LoRaWanDevice'
+                            deviceClass: 'AccessPoint,Gateway,Router'
+                        - itemID: maxSpeedOut
+                          name: Maximální rychlost odeslaných dat
+                          data:
+                            unit: kbps
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: maxSpeedIn
+                          name: Maximální rychlost přijatých dat
+                          data:
+                            unit: kbps
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: memUsage
+                          name: memUsage
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: Server
+                        - itemID: vehicleModel
+                          name: Model vozidla
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: altitude
+                          name: Nadmořská výška
+                          data:
+                            unit: m
+                            deviceType: ''
+                            deviceClass: 'GPSTracker,Vehicle,MeteoStation,CO2'
+                        - itemID: ice
+                          name: Náledí
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: agencyName
+                          name: Název dopravce
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: loraEUI
+                          name: Node EUI
+                          data:
+                            unit: ''
+                            deviceType: LoRaWanDevice
+                            deviceClass: ''
+                        - itemID: occupiedA
+                          name: occupiedA
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: occupiedE
+                          name: occupiedE
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: occupied
+                          name: occupied
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: occupiedR
+                          name: occupiedR
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: occupiedT
+                          name: occupiedT
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: bytesOut
+                          name: Odeslané data
+                          data:
+                            unit: MB
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: OS
+                          name: Operační systém
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Server
+                        - itemID: overtimeA
+                          name: overtimeA
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: overtimeE
+                          name: overtimeE
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: overtime
+                          name: overtime
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: overtimeR
+                          name: overtimeR
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: overtimeT
+                          name: overtimeT
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: startPostID
+                          name: Počáteční sloupek
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: startStopID
+                          name: Počáteční zastávka
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: alarmCount
+                          name: Počet alarmů
+                          data:
+                            unit: ''
+                            chartType: none
+                            deviceType: ''
+                            deviceClass: SecuritySensor
+                        - itemID: loraGWPacketsEmitted
+                          name: Počet odeslaných paketů
+                          data:
+                            unit: ''
+                            deviceType: LoRaWanDevice
+                            deviceClass: Gateway
+                        - itemID: loraGWPacketsReceived
+                          name: Počet přijatých paketů
+                          data:
+                            unit: ''
+                            deviceType: LoRaWanDevice
+                            deviceClass: Gateway
+                        - itemID: peoples
+                          name: Počet průchodů
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: PassCounter
+                        - itemID: peoplesD
+                          name: Počet průchodů za den
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: PassCounter
+                        - itemID: peoplesH
+                          name: Počet průchodů za hodinu
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: PassCounter
+                        - itemID: numSat
+                          name: Počet satelitů
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: GPSTracker
+                        - itemID: vehicleCountC1
+                          name: Počet vozidel kategorie C1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,TrafficDetector'
+                        - itemID: vehicleCountC2
+                          name: Počet vozidel kategorie C2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,TrafficDetector'
+                        - itemID: vehicleCountC3
+                          name: Počet vozidel kategorie C3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,TrafficDetector'
+                        - itemID: lastPostID
+                          name: Poslední sloupek
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: lastStopName
+                          name: Poslední zastávka
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: licencePlate
+                          name: Poznávací značka
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: dustPM10
+                          name: Prašnost PM10
+                          data:
+                            unit: ug/m3
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: dustPM1
+                          name: Prašnost PM1
+                          data:
+                            unit: ug/m3
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: dustPM25
+                          name: Prašnost PM2.5
+                          data:
+                            unit: ug/m3
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: bikeEnabled
+                          name: Převoz kol
+                          data:
+                            unit: ''
+                            values:
+                              - name: 'true'
+                                value: true
+                              - name: 'false'
+                                value: false
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: bytesIn
+                          name: Přijaté data
+                          data:
+                            unit: MB
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: avgSpeedOut
+                          name: Průměrná rychlost odeslaných dat
+                          data:
+                            unit: kbps
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: avgSpeedIn
+                          name: Průměrná rychlost přijatých dat
+                          data:
+                            unit: kbps
+                            deviceType: ''
+                            deviceClass: 'AccessPoint,Router'
+                        - itemID: flow
+                          name: Průtok
+                          data:
+                            unit: m3/h
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: reserved
+                          name: reserved
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: ParkingPlace
+                        - itemID: dewPoint
+                          name: Rosný bod
+                          data:
+                            unit: °C
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: speed
+                          name: Rychlost
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'GPSTracker,Vehicle'
+                        - itemID: windSpeed
+                          name: Rychlost větru
+                          data:
+                            unit: m/s
+                            deviceType: ''
+                            deviceClass: 'MeteoStation,SoundMeter'
+                        - itemID: headSign
+                          name: Směr
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: direction
+                          name: Směr pohybu
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'GPSTracker,Vehicle'
+                        - itemID: windDirection
+                          name: Směr větru
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: summary
+                          name: Součet
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: tripTo
+                          name: Spoj do
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: tripFrom
+                          name: Spoj z
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: consumption
+                          name: Spotřeba
+                          data:
+                            unit: ''
+                            chartType: bar
+                            deviceType: ''
+                            deviceClass: 'PowerMeter,GasMeter,WaterMeter,UniSensor'
+                        - itemID: heatConsumption
+                          name: Spotřeba tepla
+                          data:
+                            unit: GJ
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: precipitation
+                          name: Srážky
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: statusErrorTimeOut
+                          name: statusErrorTimeOut
+                          data:
+                            unit: dBm
+                            deviceType: LoRaWanDevice
+                            deviceClass: Gateway
+                        - itemID: statusWarningTimeOut
+                          name: statusWarningTimeOut
+                          data:
+                            unit: dBm
+                            deviceType: LoRaWanDevice
+                            deviceClass: Gateway
+                        - itemID: alarmState
+                          name: Stav alarmu
+                          data:
+                            unit: ''
+                            values:
+                              - name: ok
+                                value: 0
+                              - name: alarm
+                                value: 1
+                            chartType: none
+                            deviceType: ''
+                            deviceClass: SecuritySensor
+                        - itemID: state
+                          name: Stav
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: vehicleState
+                          name: Stav vozidla
+                          data:
+                            unit: ''
+                            values:
+                              - name: ride
+                                value: ride
+                              - name: stop
+                                value: stop
+                              - name: end
+                                value: end
+                              - name: wait
+                                value: wait
+                              - name: depot
+                                value: depot
+                              - name: none
+                                value: none
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: roadCondition
+                          name: Stav vozovky
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: delayState
+                          name: Stav zpoždění
+                          data:
+                            unit: ''
+                            values:
+                              - name: nodelay
+                                value: nodelay
+                              - name: delay
+                                value: delay
+                              - name: bigdelay
+                                value: bigdelay
+                              - name: advance
+                                value: advance
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: temperature1
+                          name: temperature1
+                          data:
+                            unit: °C
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: temperature2
+                          name: temperature2
+                          data:
+                            unit: °C
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: temperature3
+                          name: temperature3
+                          data:
+                            unit: °C
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: temperature4
+                          name: temperature4
+                          data:
+                            unit: °C
+                            deviceType: ''
+                            deviceClass: UniSensor
+                        - itemID: mainTemperature
+                          name: Teplota
+                          data:
+                            unit: °C
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: roadTemperature
+                          name: Teplota vozovky
+                          data:
+                            unit: °C
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: airTemperature
+                          name: Teplota vzduchu
+                          data:
+                            unit: °C
+                            deviceType: ''
+                            deviceClass: 'MeteoStation,UniSensor,CO2,SecuritySensor,WasteLevelDetector'
+                        - itemID: airPressure
+                          name: Tlak vzduchu
+                          data:
+                            unit: hPa
+                            deviceType: ''
+                            deviceClass: 'MeteoStation,UniSensor,CO2'
+                        - itemID: totalA
+                          name: totalA
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: totalE
+                          name: totalE
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: total
+                          name: total
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: totalR
+                          name: totalR
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: totalT
+                          name: totalT
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: alarmDuration
+                          name: Trvání alarmu
+                          data:
+                            unit: min
+                            chartType: none
+                            deviceType: ''
+                            deviceClass: SecuritySensor
+                        - itemID: engineType
+                          name: Typ motoru
+                          data:
+                            unit: ''
+                            values:
+                              - name: diesel
+                                value: diesel
+                              - name: benzine
+                                value: benzine
+                              - name: electric
+                                value: electric
+                              - name: lpg
+                                value: lpg
+                              - name: cng
+                                value: cng
+                              - name: hydrogen
+                                value: hydrogen
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: wasteType
+                          name: Typ odpadu
+                          data:
+                            unit: ''
+                            values:
+                              - icon: svg-waste-communal
+                                name: Komunální
+                                color: '#000000'
+                                value: communal
+                              - icon: svg-waste-plastic
+                                name: Plast
+                                color: '#FEC736'
+                                value: plastic
+                              - icon: svg-waste-paper
+                                name: Papír
+                                color: '#1D71B9'
+                                value: paper
+                              - icon: svg-waste-glass
+                                name: Sklo
+                                color: '#318A2C'
+                                value: glass
+                              - icon: svg-waste-white-glass
+                                name: Bílé sklo
+                                color: '#FEFEFE'
+                                value: white-glass
+                              - icon: svg-waste-bio
+                                name: Bioodpad
+                                color: '#7B6A58'
+                                value: bio
+                              - icon: svg-waste-dangerous
+                                name: Nebezpečný odpad
+                                color: '#E20612'
+                                value: dangerous
+                              - icon: svg-waste-metal
+                                name: Kov
+                                color: '#C2C3C5'
+                                value: metal
+                              - icon: svg-waste-tetra
+                                name: Tetra pak
+                                color: '#EE8A28'
+                                value: tetra
+                            deviceType: ''
+                            deviceClass: WasteLevelDetector
+                        - itemID: vehicleType
+                          name: Typ vozidla
+                          data:
+                            unit: ''
+                            values:
+                              - icon: ico-car
+                                name: car
+                                value: car
+                              - icon: ico-bus
+                                name: bus
+                                value: bus
+                              - icon: ico-train
+                                name: train
+                                value: train
+                              - icon: ico-tram
+                                name: tram
+                                value: tram
+                              - icon: ico-troll
+                                name: troll
+                                value: troll
+                              - icon: ico-truck
+                                name: truck
+                                value: truck
+                              - icon: ico-locomotive
+                                name: locomotive
+                                value: locomotive
+                              - icon: ico-wagon
+                                name: wagon
+                                value: wagon
+                            deviceType: ''
+                            deviceClass: Vehicle
+                        - itemID: unknownA
+                          name: unknownA
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: unknownE
+                          name: unknownE
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: unknown
+                          name: unknown
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: unknownR
+                          name: unknownR
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: unknownT
+                          name: unknownT
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: co2
+                          name: Úroveň CO2
+                          data:
+                            unit: ppm
+                            deviceType: ''
+                            deviceClass: CO2
+                        - itemID: loraGWRssi
+                          name: Úroveň Rssi na Gateway
+                          data:
+                            unit: ''
+                            deviceType: LoRaWanDevice
+                            deviceClass: ''
+                        - itemID: tvoc
+                          name: Úroveň TVOC
+                          data:
+                            unit: mg/m3
+                            deviceType: ''
+                            deviceClass: 'CO2,MeteoStation'
+                        - itemID: verticalAngle
+                          name: Vertikální úhel
+                          data:
+                            unit: °
+                            deviceType: ''
+                            deviceClass: 'UniSensor,SecuritySensor'
+                        - itemID: fog
+                          name: Viditelnost
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: visibility
+                          name: Viditelnost
+                          data:
+                            unit: m
+                            deviceType: ''
+                            deviceClass: MeteoStation
+                        - itemID: airHumidity
+                          name: Vlhkost vzduchu
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: 'MeteoStation,UniSensor,CO2,SecuritySensor'
+                        - itemID: waterHeight
+                          name: Výška hladiny
+                          data:
+                            unit: cm
+                            deviceType: ''
+                            deviceClass: 'MeteoStation,WaterLevel'
+                        - itemID: cpuUsage
+                          name: Využití CPU
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: Server
+                        - itemID: diskUsedSpace
+                          name: Využití diskového prostoru
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: Server
+                        - itemID: diskUsedSpaceMongoDB
+                          name: Využití diskového prostoru MongoDB
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: Server
+                        - itemID: iisUsage
+                          name: Využití paměti
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: Server
+                        - itemID: backupCurrent
+                          name: Záložní napájecí proud
+                          data:
+                            unit: A
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: backupPower
+                          name: Záložní napájení
+                          data:
+                            unit: V
+                            deviceType: ''
+                            deviceClass: ''
+                        - itemID: wasteLevel
+                          name: Zaplnění kontejneru
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: WasteLevelDetector
+                        - itemID: delay
+                          name: Zpoždění
+                          data:
+                            unit: sec
+                            deviceType: ''
+                            deviceClass: Vehicle
+                      groups:
+                        - data:
+                            userID: 189
+                          name: Garáž
+                          type: usr
+                          cisID: 300
+                          recID: 37013
+                          itemID: myIoT-189-Garaz-dhDMiDGH
+                          public: false
+                          groupID: _default
+                          description: null
+                          created: '2020-12-11T09:37:29'
+                          createdBy: 189
+                          changed: ''
+                          changedBy: null
+                        - data:
+                            userID: 189
+                          name: test
+                          type: usr
+                          cisID: 300
+                          recID: 37009
+                          itemID: myIoT-189-test-20j16qKs
+                          public: false
+                          groupID: _default
+                          description: null
+                          created: '2020-12-10T10:59:44'
+                          createdBy: 189
+                          changed: ''
+                          changedBy: null
+                        - data:
+                            userID: 189
+                          name: Doma
+                          type: usr
+                          cisID: 300
+                          recID: 37007
+                          itemID: myIoT-189-Doma-GntKLFTd
+                          public: false
+                          groupID: _default
                           description: ''
-                        - itemID: ostrava
-                          name: Město Ostrava
-                          imageUrl: ''
-                          description: 'Statutární, krajské a univerzitní město na severovýchodě České republiky v Moravskoslezském kraji'
+                          created: '2020-12-10T09:49:11'
+                          createdBy: 189
+                          changed: ''
+                          changedBy: null
+                      infoChannels:
+                        - itemID: masterit
+                          name: MasterIT Technologies
+                          imageUrl: 'http://localhost:63178/Content/Files/ccfeeccd-2f61-4758-8ae1-0298c766a4a6.jpg'
+                          iconUrl: 'http://localhost:63178/Content/Files/c2dfbfce-4441-472e-8d4f-a130149d665a.png'
+                          description: ''
+                          groupID: myiot_masterit
+                        - itemID: mestoFrydekMistek
+                          name: Město Frýdek-Místek
+                          imageUrl: 'http://localhost:63178/Content/Files/da997596-715b-429b-8f9e-0e2b6c0b4e37.jpeg'
+                          iconUrl: 'http://localhost:63178/Content/Files/4ba20775-5898-4ea0-ba5b-bcd586eba917.png'
+                          description: ''
+                          groupID: myiot_frydekmistek
                         - itemID: obecChotebuz
                           name: Obec Chotěbuz
-                          imageUrl: 'https://devproxy.masterit.cz/Content/Files/87e920c1-9c39-454a-8951-d407d7b50c6c.png'
-                          description: Kanál obce Chotěbuz
-                        - itemID: obecRopice
-                          name: Obec Ropice
-                          imageUrl: 'https://devproxy.masterit.cz/Content/Files/9a2079b6-0250-4109-bd0a-f90b5fe3e6d9.jpeg'
-                          description: Kanál obce Ropice
+                          imageUrl: 'http://localhost:63178/Content/Files/9c5627a4-598a-45c7-8dba-4866b8953471.png'
+                          iconUrl: 'http://localhost:63178/Content/Files/4e147c15-f674-40d3-82a4-fafd6540a87b.png'
+                          description: ''
+                          groupID: myiot_chotebuz
+                        - itemID: obecNavsi
+                          name: Obec Návsí
+                          imageUrl: 'http://localhost:63178/Content/Files/94752bce-a252-4c66-8320-d1f4724d280e.png'
+                          iconUrl: 'http://localhost:63178/Content/Files/13ccc4ae-3703-45e2-b881-87cfc0f27c73.png'
+                          description: ''
+                          groupID: myiot_navsi
+                        - itemID: obecPisek
+                          name: Obec Písek
+                          imageUrl: 'http://localhost:63178/Content/Files/0e2cf327-cdcd-46de-ab5a-a9f38dc35d35.png'
+                          iconUrl: 'http://localhost:63178/Content/Files/1930e36e-a582-47b6-8da1-da844a4d8aef.png'
+                          description: ''
+                          groupID: myiot_pisek
+                        - itemID: obecReka
+                          name: Obec Řeka
+                          imageUrl: 'http://localhost:63178/Content/Files/e5385aed-ce3e-4ed2-956b-3e80e2b51c71.png'
+                          iconUrl: 'http://localhost:63178/Content/Files/6021d3a5-6b68-4bcf-9ed4-0a8daa3e6b8b.png'
+                          description: ''
+                          groupID: myiot_reka
+                        - itemID: obecVelkaPolom
+                          name: Obec Velká Polom
+                          imageUrl: 'http://localhost:63178/Content/Files/8ed4f8cc-61d7-4724-aa2f-af36312300f8.png'
+                          iconUrl: 'http://localhost:63178/Content/Files/37dcdbd9-42be-4709-84df-f9332af7effb.png'
+                          description: ''
+                          groupID: myiot_velkapolom
+                      gui:
+                        loadingIconUrl: 'http://localhost:63178/Content/Files/6021d3a5-6b68-4bcf-9ed4-0a8daa3e6b8b.png'
+                        loadingText: Obec Řeka
+                      defaultPosition:
+                        lat: 49.641202
+                        lng: 18.571511
                       icons:
+                        - itemID: Content/images/public-camera.svg
+                          name: public-camera
+                          url: 'http://localhost:63178/Content/images/public-camera.svg'
+                          deviceClass: PublicCamera
+                        - itemID: Content/images/car.svg
+                          name: svg-car
+                          url: 'http://localhost:63178/Content/images/car.svg'
+                          deviceClass: Car
                         - itemID: Content/images/device.svg
-                          name: device
-                          url: 'https://devproxy.masterit.cz/Content/images/device.svg'
+                          name: svg-device
+                          url: 'http://localhost:63178/Content/images/device.svg'
                           deviceClass: '*'
                         - itemID: Content/images/fire.svg
-                          name: fire
-                          url: 'https://devproxy.masterit.cz/Content/images/fire.svg'
+                          name: svg-fire
+                          url: 'http://localhost:63178/Content/images/fire.svg'
                           deviceClass: GasMeter
                         - itemID: Content/images/flood.svg
-                          name: flood
-                          url: 'https://devproxy.masterit.cz/Content/images/flood.svg'
+                          name: svg-flood
+                          url: 'http://localhost:63178/Content/images/flood.svg'
                           deviceClass: WaterLevel
+                        - itemID: Content/images/lawn-mower.svg
+                          name: svg-lawn-mower
+                          url: 'http://localhost:63178/Content/images/lawn-mower.svg'
+                          deviceClass: LawnMower
                         - itemID: Content/images/leaf.svg
-                          name: leaf
-                          url: 'https://devproxy.masterit.cz/Content/images/leaf.svg'
+                          name: svg-leaf
+                          url: 'http://localhost:63178/Content/images/leaf.svg'
                           deviceClass: CO2
                         - itemID: Content/images/location.svg
-                          name: location
-                          url: 'https://devproxy.masterit.cz/Content/images/location.svg'
+                          name: svg-location
+                          url: 'http://localhost:63178/Content/images/location.svg'
                           deviceClass: GPSTracker
                         - itemID: Content/images/meteo.svg
-                          name: meteo
-                          url: 'https://devproxy.masterit.cz/Content/images/meteo.svg'
+                          name: svg-meteo
+                          url: 'http://localhost:63178/Content/images/meteo.svg'
                           deviceClass: MeteoStation
                         - itemID: Content/images/noise.svg
-                          name: noise
-                          url: 'https://devproxy.masterit.cz/Content/images/noise.svg'
+                          name: svg-noise
+                          url: 'http://localhost:63178/Content/images/noise.svg'
                           deviceClass: SoundMeter
                         - itemID: Content/images/power.svg
-                          name: power
-                          url: 'https://devproxy.masterit.cz/Content/images/power.svg'
+                          name: svg-power
+                          url: 'http://localhost:63178/Content/images/power.svg'
                           deviceClass: PowerMeter
                         - itemID: Content/images/security.svg
-                          name: security
-                          url: 'https://devproxy.masterit.cz/Content/images/security.svg'
+                          name: svg-security
+                          url: 'http://localhost:63178/Content/images/security.svg'
                           deviceClass: SecuritySensor
                         - itemID: Content/images/security.svg
-                          name: security
-                          url: 'https://devproxy.masterit.cz/Content/images/security.svg'
+                          name: svg-security
+                          url: 'http://localhost:63178/Content/images/security.svg'
                           deviceClass: ContactSensor
+                        - itemID: Content/images/tractor.svg
+                          name: svg-tractor
+                          url: 'http://localhost:63178/Content/images/tractor.svg'
+                          deviceClass: Tractor
+                        - itemID: Content/images/truck.svg
+                          name: svg-truck
+                          url: 'http://localhost:63178/Content/images/truck.svg'
+                          deviceClass: Truck
                         - itemID: Content/images/uni.svg
-                          name: uni
-                          url: 'https://devproxy.masterit.cz/Content/images/uni.svg'
+                          name: svg-uni
+                          url: 'http://localhost:63178/Content/images/uni.svg'
                           deviceClass: UniSensor
                         - itemID: Content/images/water.svg
-                          name: water
-                          url: 'https://devproxy.masterit.cz/Content/images/water.svg'
+                          name: svg-water
+                          url: 'http://localhost:63178/Content/images/water.svg'
                           deviceClass: WaterMeter
+                        - itemID: Content/images/trash-bin.svg
+                          name: trash-bin
+                          url: 'http://localhost:63178/Content/images/trash-bin.svg'
+                          deviceClass: WasteLevelDetector
                       unconfirmedInvitations:
                         - devices: '*'
-                          user: michal.smolka18@gmail.com
-                          relationGroupID: 5df9c055-688e-4aa3-8a8b-bd73b21ceed4
-                          requestID: null
-                      myInvitations: []
+                          user: sopach@seznam.cz
+                          relationGroupID: xxxx-xxxx-xxxx-xxxx....
+                          requestID: xxxx-xxxx-xxxx-.....
+                      myInvitations:
+                        - devices: '*'
+                          user: sopach@seznam.cz
         '401':
           description: Unauthorized
           content:
@@ -1195,7 +2396,7 @@ paths:
 
         vendors - devices vendors contains id of vendor (itemID), name of vendor (name) and list of models which also contains id and name
 
-        infoChannels - list of info channels which contains id, name and some properties for future processing like image (imageUrl) or channel description (description)
+        infoChannels - list of info channels which contains id, name, groupID and some properties for future processing like image (imageUrl) or channel description (description)
 
         icons - list of icons used in application, each icon object contain id, name, deviceClass(it determines class for which should be used, if its * it is default icon for other classes) and url
 
@@ -3602,6 +4803,12 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
 
 
 
