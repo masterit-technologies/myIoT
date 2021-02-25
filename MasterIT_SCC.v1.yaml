@@ -75,36 +75,73 @@ paths:
                     data:
                       access_token: token
                       token_type: bearer
-                      expires_in: 604800
+                      expires_in: 863999999
                       user:
                         note: ''
-                        type: scc
+                        type: email
                         birth: null
-                        email: email@gmail.com
-                        recID: 999
+                        email: michal.smolka@masterit.cz
+                        recID: 219
                         sccID: 1
                         config:
                           rights:
-                            role: user
-                            appList: []
-                            appRole: []
+                            role: customer
                             groupID: _default
-                            cityList: []
-                            groupList: []
-                            deviceList: []
+                            deviceList:
+                              - SCC.IOT.MASTERCUST-6D6F534E31FFAA01
+                              - SCC.IOT.MASTERCUST-3939353459385D02
+                              - SCC.IOT.MASTERCUST-03000000100000F6
+                              - SCC.IOT.MASTERCUST-IO20191016AAWR240695220
+                          authGuid: guid
+                          infoChannels:
+                            primary: masterit
+                            secondary:
+                              - obecChotebuz
+                              - obecNavsi
+                              - obecPisek
+                              - obecReka
+                              - obecVelkaPolom
+                            interestGroups:
+                              - myIoT-myiot_masterit-developers-cf4d9
                         gender: null
-                        mobile: ''
-                        userID: 93
-                        lastName: Test
+                        mobile: '775964575'
+                        userID: 186
+                        lastName: Michal Smolka
                         appUserID: -1
-                        firstName: Test
-                        userGroup: masterit
+                        firstName: null
                         profession: null
+                        pushTokens:
+                          - type: android
+                            token: pushtoken
+                            deviceID: a9e5e3f95b60b31f
+                            timestamp: '2021-02-25T10:40'
+                        defaultLang: cs
                         sendInvoice: null
                         transportID: null
-                        userType: 0
-                        tokenID: xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
-                        userLogin: loginTest
+                        mobilePrefix: '420'
+                        allowSystemNotifications: true
+                        userType: 1
+                        tokenID: tokenid
+                        userLogin: michal.smolka@masterit.cz
+                        userApp: myIoT
+                        extraPermissions:
+                          myiot_masterit:
+                            sms:
+                              permitted: false
+                              deviceList: []
+                            config:
+                              fullName: Michal Smolka Služební
+                            groupID: myiot_masterit
+                            infoChannel:
+                              interestGroups:
+                                - id: myIoT-myiot_masterit-developers-cf4d9
+                                  moderator: true
+                                  name: Developers
+                                  public: true
+                                - id: myIoT-myiot_masterit-technicians-52faa
+                                  moderator: true
+                                  name: Technicians
+                                  public: true
         '400':
           description: Bad Request
           content:
@@ -4634,6 +4671,100 @@ paths:
             default: cs
           in: query
           name: locale
+  api/user:
+    get:
+      summary: GetUser
+      tags:
+        - application-myIoT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      note: ''
+                      type: email
+                      birth: null
+                      email: michal.smolka@masterit.cz
+                      recID: 219
+                      sccID: 1
+                      config:
+                        rights:
+                          role: customer
+                          groupID: _default
+                          deviceList:
+                            - SCC.IOT.MASTERCUST-6D6F534E31FFAA01
+                            - SCC.IOT.MASTERCUST-3939353459385D02
+                            - SCC.IOT.MASTERCUST-03000000100000F6
+                            - SCC.IOT.MASTERCUST-IO20191016AAWR240695220
+                        authGuid: superguid
+                        infoChannels:
+                          primary: masterit
+                          secondary:
+                            - obecChotebuz
+                            - obecNavsi
+                            - obecPisek
+                            - obecReka
+                            - obecVelkaPolom
+                          interestGroups:
+                            - myIoT-myiot_masterit-developers-cf4d9
+                      gender: null
+                      mobile: '775964575'
+                      userID: 186
+                      lastName: Michal Smolka
+                      appUserID: -1
+                      firstName: null
+                      profession: null
+                      pushTokens:
+                        - type: android
+                          token: pushtoken
+                          deviceID: a9e5e3f95b60b31f
+                          timestamp: '2021-02-25T10:40'
+                      defaultLang: cs
+                      sendInvoice: null
+                      transportID: null
+                      mobilePrefix: '420'
+                      allowSystemNotifications: true
+                      userType: 1
+                      tokenID: tokeid
+                      userLogin: michal.smolka@masterit.cz
+                      userApp: myIoT
+                      extraPermissions:
+                        myiot_masterit:
+                          sms:
+                            permitted: false
+                            deviceList: []
+                          config:
+                            fullName: Michal Smolka Služební
+                          groupID: myiot_masterit
+                          infoChannel:
+                            interestGroups:
+                              - id: myIoT-myiot_masterit-developers-cf4d9
+                                moderator: true
+                                name: Developers
+                                public: true
+                              - id: myIoT-myiot_masterit-technicians-52faa
+                                moderator: true
+                                name: Technicians
+                                public: true
+      operationId: get-api-user
+      description: |-
+        API vrátí uživatele podle tokenu ve stejném formátu jako po loginu
+        [Api returns user object by auth token in exactly same format like after succesfull login]
+      parameters:
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
   /api/app/mob/myiot/share:
     post:
       summary: PostMyIoTDeviceShare
@@ -4803,6 +4934,10 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
 
 
 
