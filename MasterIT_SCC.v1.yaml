@@ -5024,6 +5024,7 @@ paths:
 
 
 
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -16024,6 +16025,24 @@ paths:
                         secondary:
                           - dpo
                           - mitt
+                      extraPermissions:
+                        myiot_masterit:
+                          sms:
+                            permitted: false
+                            deviceList: []
+                          config:
+                            fullName: Michal Smolka Služební
+                          groupID: myiot_masterit
+                          infoChannel:
+                            interestGroups:
+                              - id: myIoT-myiot_masterit-developers-cf4d9
+                                moderator: true
+                                name: Developers
+                                public: true
+                              - id: myIoT-myiot_masterit-technicians-52faa
+                                moderator: true
+                                name: Technicians
+                                public: true
         '401':
           description: Unauthorized
           content:
