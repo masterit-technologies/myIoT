@@ -4765,6 +4765,72 @@ paths:
             default: cs
           in: query
           name: locale
+  api/app/mob/myiot/infoChannel:
+    get:
+      summary: GetMyIoTInfoChannel
+      tags:
+        - application-myIoT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK - name = fryd:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - data: {}
+                        icon: null
+                        name: Město Frýdek-Místek
+                        type: adm
+                        cisID: 100
+                        color: null
+                        order: null
+                        recID: 37003
+                        sccID: 1
+                        itemID: mestoFrydekMistek
+                        public: true
+                        changed: '2021-01-21T15:02:18'
+                        created: '2020-12-09T14:30:37'
+                        groupID: myiot_frydekmistek
+                        iconUrl: null
+                        imageUrl: 'http://localhost:63178/Content/Files/da997596-715b-429b-8f9e-0e2b6c0b4e37.jpeg'
+                        bannerUrl: null
+                        changedBy: -1
+                        createdBy: 170
+                        description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Chybné vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybné vstupní parametry
+                    err_code: -2000
+                    data: null
+      operationId: get-api-app-mob-myiot-infochannel
+      description: |-
+        API vrátí uživatele info kanál podle zadaného name, API slouží jako našeptávač
+        [Api returns infochannel by name, it is used like whisperer]
+      parameters:
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+        - schema:
+            type: string
+          in: query
+          name: name
   /api/app/mob/myiot/share:
     post:
       summary: PostMyIoTDeviceShare
@@ -4934,6 +5000,24 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
