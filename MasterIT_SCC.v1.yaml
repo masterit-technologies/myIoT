@@ -2468,6 +2468,7 @@ paths:
                     err_msg: ''
                     err_code: 0
                     data:
+                      devID: device id
                       recID: 037271f7-8dd1-4100-a385-7013947c6676
                       relationGroupID: 9b7ea0b1-11ad-497d-8f31-d76c82730076
                 OK - already has that device:
@@ -2482,6 +2483,7 @@ paths:
                     err_msg: ''
                     err_code: 0
                     data:
+                      devID: device id
                       relationGroupID: 9b7ea0b1-11ad-497d-8f31-d76c82730076
         '401':
           description: Unauthorized
@@ -5013,6 +5015,8 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
 
 
 
