@@ -5134,6 +5134,10 @@ paths:
 
 
 
+
+
+
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -11975,76 +11979,6 @@ paths:
             application/json:
               schema:
                 type: object
-                properties:
-                  status:
-                    type: string
-                  err_msg:
-                    type: string
-                  err_code:
-                    type: string
-                  data:
-                    type: object
-                    properties:
-                      devices:
-                        type: object
-                        properties:
-                          shared:
-                            type: array
-                            items:
-                              $ref: '#/components/schemas/IoTDevice'
-                          share:
-                            type: array
-                            items:
-                              $ref: '#/components/schemas/IoTDevice'
-                          own:
-                            type: array
-                            items:
-                              $ref: '#/components/schemas/IoTDevice'
-                      infoChannel:
-                        type: object
-                        properties:
-                          primary:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                recID:
-                                  type: string
-                                channel:
-                                  type: string
-                                title:
-                                  type: string
-                                description:
-                                  type: string
-                                dateTimeEp:
-                                  type: number
-                                url:
-                                  type: string
-                          secondary:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                recID:
-                                  type: string
-                                channel:
-                                  type: string
-                                title:
-                                  type: string
-                                description:
-                                  type: string
-                                htmlContent:
-                                  type: string
-                                image:
-                                  type: string
-                                attachmentImages:
-                                  type: array
-                                  items:
-                                    type: string
-                                attachmentFiles:
-                                  type: array
-                                  items:
-                                    type: string
               examples:
                 OK:
                   value:
