@@ -277,6 +277,10 @@ paths:
                           cityList: []
                           groupList: []
                           deviceList: []
+                      confirmedDocuments:
+                        termsOfUsing:
+                          version: '5'
+                          filePath: Content/Files/Sencito/myiot_masterit/4_termsOfUsing_Sencito-podmínky pro obce_registrace_1.htm
                       mobile: ''
                       userID: 0
                       lastName: test
@@ -287,6 +291,7 @@ paths:
                       tokenID: ''
                       userLogin: slTest
                       userApp: default
+                      confirmed: false
         '400':
           description: Bad Request
           content:
@@ -345,16 +350,10 @@ paths:
                   login: testxxxx
                   password: xxxx123
                   type: email
-              Vytvoření na základě pozvánky:
-                value:
-                  application: myIoT
-                  birth: '1982'
-                  email: xxxx.xxxx@xxxx.com
-                  gender: male
-                  login: testxxxx
-                  password: xxxx123
-                  type: email
-                  requestID: ID pozvánky
+                  confirmedDocuments:
+                    termsOfUsing:
+                      version: '5'
+                      filePath: Content/Files/Sencito/myiot_masterit/4_termsOfUsing_Sencito-podmínky pro obce_registrace_1.htm
         description: ''
       tags:
         - customers
@@ -5015,6 +5014,13 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
 
 
 
