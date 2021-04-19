@@ -75,6 +75,7 @@ paths:
                     data:
                       access_token: token
                       token_type: bearer
+                      refresh_token: refresh_token
                       expires_in: 863999999
                       user:
                         note: ''
@@ -181,9 +182,9 @@ paths:
                     err_code: -3003
                     data: null
       description: |-
-        Provede přihlášení do SCC a získání tokenu
+        Provede přihlášení do SCC a získání tokenu a refresh tokenu.
 
-        [API provides signing in to SCC and token obtaining]
+        [API provides signing in to SCC and access and refresh tokens obtaining]
 
         if you want to login as scc user (in aplication as admin), you must set type parameter to "scc" and application must be "default"
       requestBody:
@@ -5014,6 +5015,15 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
+
 
 
 
@@ -16140,6 +16150,198 @@ paths:
       tags:
         - customers
     parameters: []
+  /api/refreshToken:
+    post:
+      summary: RefreshToken Request
+      operationId: post-api-refreshToken
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      access_token: token
+                      token_type: bearer
+                      refresh_token: refresh_token
+                      expires_in: 863999999
+                      user:
+                        note: ''
+                        type: email
+                        birth: null
+                        email: michal.smolka@masterit.cz
+                        recID: 219
+                        sccID: 1
+                        config:
+                          rights:
+                            role: customer
+                            groupID: _default
+                            deviceList:
+                              - SCC.IOT.MASTERCUST-6D6F534E31FFAA01
+                              - SCC.IOT.MASTERCUST-3939353459385D02
+                              - SCC.IOT.MASTERCUST-03000000100000F6
+                              - SCC.IOT.MASTERCUST-IO20191016AAWR240695220
+                          authGuid: guid
+                          infoChannels:
+                            primary: masterit
+                            secondary:
+                              - obecChotebuz
+                              - obecNavsi
+                              - obecPisek
+                              - obecReka
+                              - obecVelkaPolom
+                            interestGroups:
+                              - myIoT-myiot_masterit-developers-cf4d9
+                        gender: null
+                        mobile: '775964575'
+                        userID: 186
+                        lastName: Michal Smolka
+                        appUserID: -1
+                        firstName: null
+                        profession: null
+                        pushTokens:
+                          - type: android
+                            token: pushtoken
+                            deviceID: a9e5e3f95b60b31f
+                            timestamp: '2021-02-25T10:40'
+                        defaultLang: cs
+                        sendInvoice: null
+                        transportID: null
+                        mobilePrefix: '420'
+                        allowSystemNotifications: true
+                        userType: 1
+                        tokenID: tokenid
+                        userLogin: michal.smolka@masterit.cz
+                        userApp: myIoT
+                        extraPermissions:
+                          myiot_masterit:
+                            sms:
+                              permitted: false
+                              deviceList: []
+                            config:
+                              fullName: Michal Smolka Služební
+                            groupID: myiot_masterit
+                            infoChannel:
+                              interestGroups:
+                                - id: myIoT-myiot_masterit-developers-cf4d9
+                                  moderator: true
+                                  name: Developers
+                                  public: true
+                                - id: myIoT-myiot_masterit-technicians-52faa
+                                  moderator: true
+                                  name: Technicians
+                                  public: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Chybné vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybné vstupní parametry
+                    err_code: -2000
+                    data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Uživatel nenalezen:
+                  value:
+                    status: error
+                    err_msg: Uživatel nebyl nalezen
+                    err_code: -3001
+                    data: null
+                Nesprávné heslo:
+                  value:
+                    status: error
+                    err_msg: Uživatelské heslo není správné
+                    err_code: -3002
+                    data: null
+                Uživatelský účet není ověřený:
+                  value:
+                    status: error
+                    err_msg: Uživatelský účet není ověřený
+                    err_code: -3003
+                    data: null
+      description: |-
+        Provede přihlášení do SCC a získání tokenu a nového refresh tokenu.
+
+        [API provides signing in to SCC and access and refresh tokens obtaining]
+
+        if you want to login as scc user (in aplication as admin), you must set type parameter to "scc" and application must be "default"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: 'typ přihlášení (scc, email, google, facebook)'
+                  example: email
+                refreshToken:
+                  type: string
+                  description: refresh token u facebooku a google nevyžadováno
+                login:
+                  type: string
+                  description: login uživatele (v případě google a fb se zde posílá token)
+                application:
+                  type: string
+                  description: aplikace ze které se přihlašuji
+                  example: myIoT
+              required:
+                - type
+                - refreshToken
+                - login
+                - application
+            examples:
+              SCC:
+                value:
+                  type: scc
+                  login: loginTest
+                  password: xxxxxxxxx
+                  application: myIoT
+              Email:
+                value:
+                  type: email
+                  login: email@gmail.com
+                  password: xxxxxxxxxxx
+                  application: myIoT
+              Google:
+                value:
+                  login: longGoogle token
+                  type: google
+                  password: not required
+                  application: myIoT
+              facebook:
+                value:
+                  login: longFB token
+                  password: not required
+                  type: facebook
+                  application: myIoT
+        description: ''
+      tags:
+        - authorization
+      parameters:
+        - schema:
+            type: string
+            default: application/json
+          in: header
+          name: Content-Type
+          required: true
 components:
   schemas:
     APIResult:
