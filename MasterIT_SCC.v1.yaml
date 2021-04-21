@@ -4846,6 +4846,72 @@ paths:
             type: string
           in: query
           name: name
+  api/app/mob/myiot/documents:
+    get:
+      summary: GetMyIoTDocuments
+      tags:
+        - application-myIoT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      documents:
+                        termsOfUsing:
+                          version: '52'
+                          filePath: Content/Files/Sencito/myiot_group_ropice_test/52_termsOfUsing_Sencito-podmínky pro obce_registrace_1.htm
+                        licensingTerms:
+                          version: '42'
+                          filePath: Content/Files/Sencito/myiot_group_ropice_test/42_licensingTerms_Sencito-podmínky pro obce_licence IoT.htm
+                      confirmedDocuments:
+                        termsOfUsing:
+                          version: '52'
+                          filePath: Content/Files/Sencito/myiot_group_ropice_test/52_termsOfUsing_Sencito-podmínky pro obce_registrace_1.htm
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                Chybné vstupní parametry:
+                  value:
+                    status: error
+                    err_msg: Chybné vstupní parametry
+                    err_code: -2000
+                    data: null
+      operationId: get-api-app-mob-myiot-documents
+      description: |-
+        API vrací dokumenty pro dany info kanal
+        [Api returns documents for infoChannel]
+
+        Its necessary to enter one parameter, primaryChannel or groupID
+      parameters:
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+        - schema:
+            type: string
+          in: query
+          name: primaryChannel
+          description: primary channel id
+        - schema:
+            type: string
+          in: query
+          name: groupID
+          description: license subject group ID
+    parameters: []
   /api/app/mob/myiot/share:
     post:
       summary: PostMyIoTDeviceShare
@@ -5015,6 +5081,27 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -12002,6 +12089,17 @@ paths:
                     err_msg: ''
                     err_code: 0
                     data:
+                      actualDocuments:
+                        termsOfUsing:
+                          version: '52'
+                          filePath: Content/Files/Sencito/myiot_group_ropice_test/52_termsOfUsing_Sencito-podmínky pro obce_registrace_1.htm
+                        licensingTerms:
+                          version: '42'
+                          filePath: Content/Files/Sencito/myiot_group_ropice_test/42_licensingTerms_Sencito-podmínky pro obce_licence IoT.htm
+                      confirmedDocuments:
+                        termsOfUsing:
+                          version: '52'
+                          filePath: Content/Files/Sencito/myiot_group_ropice_test/52_termsOfUsing_Sencito-podmínky pro obce_registrace_1.htm
                       devices:
                         shared:
                           - recID: 1482
@@ -16084,6 +16182,10 @@ paths:
                         secondary:
                           - dpo
                           - mitt
+                      confirmedDocuments:
+                        termsOfUsing:
+                          version: '52'
+                          filePath: Content/Files/Sencito/myiot_group_ropice_test/52_termsOfUsing_Sencito-podmínky pro obce_registrace_1.htm
                       extraPermissions:
                         myiot_masterit:
                           sms:
@@ -16145,6 +16247,10 @@ paths:
                       secondary:
                         - dpo
                         - mitt
+                  confirmedDocuments:
+                    termsOfUsing:
+                      version: '52'
+                      filePath: Content/Files/Sencito/myiot_group_ropice_test/52_termsOfUsing_Sencito-podmínky pro obce_registrace_1.htm
                   defaultLang: cs
         description: ''
       tags:
@@ -16312,13 +16418,13 @@ paths:
                 value:
                   type: scc
                   login: loginTest
-                  password: xxxxxxxxx
+                  refreshToken: xxxxxxxxx
                   application: myIoT
               Email:
                 value:
                   type: email
                   login: email@gmail.com
-                  password: xxxxxxxxxxx
+                  refreshToken: xxxxxxxxx
                   application: myIoT
               Google:
                 value:
@@ -16329,7 +16435,7 @@ paths:
               facebook:
                 value:
                   login: longFB token
-                  password: not required
+                  refreshToken: not required
                   type: facebook
                   application: myIoT
         description: ''
