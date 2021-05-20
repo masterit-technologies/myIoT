@@ -5241,6 +5241,9 @@ paths:
 
 
 
+
+
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -16111,7 +16114,7 @@ paths:
                     err_code: -4000
                     data: null
       operationId: get-api-app-mob-myiot-data
-      description: |
+      description: |-
         API vrátí data pro aplikaci myIoT
 
         [API returns data for myIoT application]
@@ -16128,6 +16131,10 @@ paths:
                     
                     primary - contains news of primary channel
                     secondary - contains news of other channels
+
+        actualDocuments - contains all documents which should be confirmed
+
+        confirmedDocuments - contains all confirmed documents witch confirmed version. If version of confirmed documents is different from actual document then the application should force an acknowledgment of the actual document
       parameters:
         - schema:
             type: string
