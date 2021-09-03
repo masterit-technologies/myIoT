@@ -5259,6 +5259,11 @@ paths:
 
 
 
+
+
+
+
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -24014,6 +24019,10 @@ components:
         IsAllowedSMS:
           type: boolean
           description: Jsou pro zařízení povoleny SMS notifikace?
+        ExtraParameters:
+          type: object
+          description: |
+            JSON objekt pro dalsi parametry jednotlivych aplikaci...u konkretnich API bude vysvětleno
       required:
         - DevID
     Position:
