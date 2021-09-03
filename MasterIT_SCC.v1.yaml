@@ -5264,6 +5264,33 @@ paths:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -12613,6 +12640,22 @@ paths:
                     myiotGroup:
                       type: string
                       description: 'ID místnosti pro zařazení zařízení, není-li na vstupu existující ID, pracuje se s tímto parametrem jako s názvem skupiny, která se automaticky vytvoří.'
+                    groupedFor:
+                      type: string
+                      description: devID GroupingDevice pod ktere ma byt nove zarizeni zarazeno
+                    groupedDeviceData:
+                      type: object
+                      properties:
+                        class:
+                          type: string
+                          description: 'Třída zařízení, které mohou pod toto zařízení přidány'
+                        deviceIDs:
+                          type: array
+                          description: 'Seznam devID zařízení, které budou rovnou pod GroupingDevice zařazeny'
+                          items:
+                            type: string
+                      required:
+                        - class
               required:
                 - device
             examples:
@@ -12631,7 +12674,6 @@ paths:
                     myiotGroup: Obývací pokoj
               Vytváří zákazník:
                 value:
-                  licenseID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
                   device:
                     ID: xxx
                     class: CO2
@@ -12642,7 +12684,38 @@ paths:
                     position:
                       lat: 49.68720574595394
                       lng: 18.521500606431463
-                    myiotGroup: 363-Obyvacipokoj-6F8SAD8A
+                    myiotGroup: Obývací pokoj
+              Licenční subjekt vytváří zařízení které spadá pod GroupingDevice:
+                value:
+                  device:
+                    ID: xxx
+                    class: CO2
+                    vendor: MasterIT
+                    model: LRB.CO2
+                    name: CO2 čidlo xxx
+                    description: CO2 čidlo xxx
+                    position:
+                      lat: 49.68720574595394
+                      lng: 18.521500606431463
+                    myiotGroup: Obývací pokoj
+                    groupedFor: devID GroupingDevice zařízení
+              Lic. subjekt vytváří GroupingDevice:
+                value:
+                  device:
+                    ID: xxx
+                    class: CO2
+                    vendor: MasterIT
+                    model: LRB.CO2
+                    name: CO2 čidlo xxx
+                    description: CO2 čidlo xxx
+                    position:
+                      lat: 49.68720574595394
+                      lng: 18.521500606431463
+                    myiotGroup: Obývací pokoj
+                    groupedDeviceData:
+                      class: 'třída zařízení, které budou spadat pod toto device'
+                      deviceIDs:
+                        - pole devID které mají být zařazeny pod toto GroupingDevice
         description: ''
       parameters:
         - schema:
@@ -12653,7 +12726,7 @@ paths:
           name: Content-Type
           description: ''
           required: true
-      description: |-
+      description: |
         Vytvoří myIoT zařízení. Na vstupu se předpokládá zařízení a popř licence, není-li uživatel vlatníkem licencí.
 
         [Creates a device. The input is assumed to be the device and possibly the license, if the user is not the owner of the licenses.]
@@ -12788,17 +12861,15 @@ paths:
                 value:
                   DevID: SCC.IOT.ROP0600000000000010
                   Notifications: []
-              change notification:
+              Grouping Device:
                 value:
+                  RecID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
                   DevID: SCC.IOT.ROP0600000000000010
-                  Notifications:
-                    - RecID: rec id of notification for change
-                      SendPush: true
-                      SendEmail: false
-                      SendSMS: false
-                      Min: 50
-                      Max: null
-                      SysValue: airHumidity
+                  Name: CO2 čidlo pracovna
+                  Description: null
+                  Status: UNKNOWN
+                  Parameters: null
+                  ExtraParameters: {}
         description: ''
       parameters:
         - schema:
@@ -12809,7 +12880,7 @@ paths:
           name: Content-Type
           description: ''
           required: true
-      description: |-
+      description: |
         Upraví myIoT zařízení. Umožňuje aktualizaci pouze některých parametrů. (Není možné aktualizovat class, vendor, model a další)
 
         [Updates device. It allow update just some parameters (It is not possible update params like class, vendor, model etc.)]
