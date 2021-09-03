@@ -2619,480 +2619,417 @@ paths:
                     err_msg: ''
                     err_code: 0
                     data:
-                      RecID: 33f7d953-4fba-48d2-93bf-12aa27d47b3c
-                      DevID: SCC.IOT.ROPCUST-03000000100000F0
+                      RecID: 6550483b-2216-4455-a053-418b38d7c1e4
+                      DevID: SCC.IOT.REKAOWN-6D6F414333FFAA17
                       Description: ''
-                      Name: STACHO ACC-3 DOORS
+                      Name: Alarm Horní vodojem
                       Class: SecuritySensor
                       Vendor: Master IT Technologies
                       Model: LRB.MIO-ACC-3
                       IsAllowedSMS: true
                       Status:
                         Status: OK
-                        Timestamp: 1603964751
-                        TimestampStr: '29.10.2020 09:45'
+                        Timestamp: 1630686359
+                        TimestampStr: '03.09.2021 16:25'
                       Group:
-                        ID: myIoT-639-Doma-9xWiQeTF
-                        Name: Doma
+                        ID: myIoT-184-Centrum-viu2qjud
+                        Name: Centrum
                         Description: ''
+                      Icon: SecuritySensor
                       Application: security
                       Position:
-                        Latitude: 49.7174473949403
-                        Longitude: 18.6166709661484
+                        Latitude: 49.6147927032205
+                        Longitude: 18.5842752456665
                       Values:
                         - ID: alarmState
                           Name: Stav alarmu
-                          Description: Stav alarmu
+                          Description: Určuje zda je na senzoru aktivní otřesový alarm. Aktivní alarm je deaktivován při uzamčení nebo odemčení senzoru uživatelem.
                           Unit: ''
-                          Color: '#ff0000'
+                          Color: '#34255e'
+                          IsMain: true
                           Range:
                             Min: 0
                             Max: 1
                           ParameterMin: ''
                           ParameterMax: ''
-                          Value: 1
-                          ValueStr: '1 '
-                          Notification: null
+                          Value: 0
+                          ValueStr: '0 '
+                          Notification:
+                            ID: f3d42f6c-3a59-4ad4-8a2b-254ef7b5f93b
+                            Min: null
+                            Max: null
+                            SendSMS: false
+                            SendEmail: false
+                            SendPush: true
+                            SetFromParam: false
+                            NotificationGroup: ''
                           ChartType: none
+                          NotifEnabled: true
                           ChartData: []
                         - ID: airTemperature
-                          Name: Teplota
-                          Description: Teplota vzduchu
+                          Name: Teplota vzduchu
+                          Description: Teplota okolního vzduchu v místě umístění senzoru.
                           Unit: °C
-                          Color: '#ffb700'
+                          Color: '#e94f37'
+                          IsMain: false
                           Range:
                             Min: null
                             Max: null
                           ParameterMin: minTemperatureLRBACC
                           ParameterMax: maxTemperatureLRBACC
-                          Value: 19.3
-                          ValueStr: 19.3 °C
+                          Value: 14.6
+                          ValueStr: 14.6 °C
                           Notification: null
                           ChartType: line
+                          NotifEnabled: true
                           ChartData:
-                            - x: 1603875875
-                              'y': 20.8
-                            - x: 1603876366
-                              'y': 20.2
-                            - x: 1603876539
-                              'y': 20.1
-                            - x: 1603880590
-                              'y': 21
-                            - x: 1603899358
-                              'y': 20.7
-                            - x: 1603900091
-                              'y': 20.3
-                            - x: 1603901682
-                              'y': 20
-                            - x: 1603903259
-                              'y': 19.8
-                            - x: 1603904834
-                              'y': 19.8
-                            - x: 1603906755
-                              'y': 19.8
-                            - x: 1603908331
-                              'y': 19.7
-                            - x: 1603909905
-                              'y': 19.6
-                            - x: 1603911480
-                              'y': 19.5
-                            - x: 1603913515
-                              'y': 19.4
-                            - x: 1603915090
-                              'y': 19.3
-                            - x: 1603916656
-                              'y': 19.3
-                            - x: 1603918345
-                              'y': 19.2
-                            - x: 1603920266
-                              'y': 19.2
-                            - x: 1603921840
-                              'y': 19.2
-                            - x: 1603923416
-                              'y': 19.1
-                            - x: 1603924989
-                              'y': 19.2
-                            - x: 1603926564
-                              'y': 19.2
-                            - x: 1603928482
-                              'y': 19.3
-                            - x: 1603930057
-                              'y': 19.3
-                            - x: 1603931861
-                              'y': 19.4
-                            - x: 1603933435
-                              'y': 19.4
-                            - x: 1603935240
-                              'y': 19.4
-                            - x: 1603936814
-                              'y': 19.4
-                            - x: 1603938388
-                              'y': 19.5
-                            - x: 1603939963
-                              'y': 19.4
-                            - x: 1603941996
-                              'y': 19.4
-                            - x: 1603943570
-                              'y': 19.4
-                            - x: 1603945145
-                              'y': 19.4
-                            - x: 1603948756
-                              'y': 19.3
-                            - x: 1603950330
-                              'y': 19.3
-                            - x: 1603951905
-                              'y': 19.3
-                            - x: 1603952222
-                              'y': 19.3
-                            - x: 1603953910
-                              'y': 19.3
-                            - x: 1603955600
-                              'y': 19.4
-                            - x: 1603957174
-                              'y': 19.5
-                            - x: 1603958863
-                              'y': 19.3
-                            - x: 1603960668
-                              'y': 19.3
-                            - x: 1603961150
-                              'y': 19.3
+                            - x: 1630596159
+                              'y': 13.1
                         - ID: airHumidity
-                          Name: Vlhkost
-                          Description: Vlhkost vzduchu
+                          Name: Vlhkost vzduchu
+                          Description: Vlhkost okolního vzduchu v místě umístění senzoru.
                           Unit: '%'
                           Color: '#0076ff'
+                          IsMain: false
                           Range:
                             Min: 0
                             Max: 100
                           ParameterMin: minHumidityLRBACC
                           ParameterMax: maxHumidityLRBACC
-                          Value: 51
-                          ValueStr: 51 %
+                          Value: 63
+                          ValueStr: 63 %
                           Notification: null
                           ChartType: line
+                          NotifEnabled: true
                           ChartData:
-                            - x: 1603875875
-                              'y': 51
-                            - x: 1603876366
-                              'y': 51
-                            - x: 1603876539
-                              'y': 52
-                            - x: 1603880590
-                              'y': 51
-                            - x: 1603899358
-                              'y': 52
-                            - x: 1603900091
-                              'y': 52
-                            - x: 1603901682
-                              'y': 53
-                            - x: 1603903259
-                              'y': 53
-                            - x: 1603904834
-                              'y': 53
-                            - x: 1603906755
-                              'y': 53
-                            - x: 1603908331
-                              'y': 53
-                            - x: 1603909905
-                              'y': 53
-                            - x: 1603911480
-                              'y': 53
-                            - x: 1603913515
-                              'y': 52
-                            - x: 1603915090
-                              'y': 52
-                            - x: 1603916656
-                              'y': 52
-                            - x: 1603918345
-                              'y': 52
-                            - x: 1603920266
-                              'y': 52
-                            - x: 1603921840
-                              'y': 52
-                            - x: 1603923416
-                              'y': 52
-                            - x: 1603924989
-                              'y': 52
-                            - x: 1603926564
-                              'y': 52
-                            - x: 1603928482
-                              'y': 52
-                            - x: 1603930057
-                              'y': 51
-                            - x: 1603931861
-                              'y': 51
-                            - x: 1603933435
-                              'y': 51
-                            - x: 1603935240
-                              'y': 51
-                            - x: 1603936814
-                              'y': 50
-                            - x: 1603938388
-                              'y': 50
-                            - x: 1603939963
-                              'y': 50
-                            - x: 1603941996
-                              'y': 50
-                            - x: 1603943570
-                              'y': 50
-                            - x: 1603945145
-                              'y': 50
-                            - x: 1603948756
-                              'y': 50
-                            - x: 1603950330
-                              'y': 50
-                            - x: 1603951905
-                              'y': 50
-                            - x: 1603952222
-                              'y': 50
-                            - x: 1603953910
-                              'y': 50
-                            - x: 1603955600
-                              'y': 52
-                            - x: 1603957174
-                              'y': 51
-                            - x: 1603958863
-                              'y': 51
-                            - x: 1603960668
-                              'y': 51
-                            - x: 1603961150
-                              'y': 51
+                            - x: 1630596159
+                              'y': 63
                         - ID: mainPower
                           Name: Napětí baterie
-                          Description: Hlavní napájení
+                          Description: 'Napětí baterie. Baterie typu Li-SOCl2 neumožňují měřit aktuální kapacitu, slabou baterii může signalizovat pouze drobný pokles napětí pod hodnotu 3.4 V, avšak ani tato detekce nemusí být spolehlivá.'
                           Unit: V
                           Color: '#ff9900'
+                          IsMain: false
                           Range:
                             Min: 0
                             Max: 5
                           ParameterMin: ''
                           ParameterMax: ''
-                          Value: 3.586
-                          ValueStr: 3.586 V
+                          Value: 3.695
+                          ValueStr: 3.695 V
                           Notification: null
                           ChartType: line
+                          NotifEnabled: true
                           ChartData:
-                            - x: 1603875875
-                              'y': 3.609
-                            - x: 1603876366
-                              'y': 3.581
-                            - x: 1603876539
-                              'y': 3.567
-                            - x: 1603880590
-                              'y': 3.605
-                            - x: 1603899358
-                              'y': 3.614
-                            - x: 1603900091
-                              'y': 3.562
-                            - x: 1603901682
-                              'y': 3.671
-                            - x: 1603903259
-                              'y': 3.68
-                            - x: 1603904834
-                              'y': 3.676
-                            - x: 1603906755
-                              'y': 3.666
-                            - x: 1603908331
-                              'y': 3.68
-                            - x: 1603909905
-                              'y': 3.68
-                            - x: 1603911480
-                              'y': 3.68
-                            - x: 1603913515
-                              'y': 3.666
-                            - x: 1603915090
-                              'y': 3.68
-                            - x: 1603916656
-                              'y': 3.685
-                            - x: 1603918345
-                              'y': 3.676
-                            - x: 1603920266
-                              'y': 3.666
-                            - x: 1603921840
-                              'y': 3.68
-                            - x: 1603923416
-                              'y': 3.68
-                            - x: 1603924989
-                              'y': 3.685
-                            - x: 1603926564
-                              'y': 3.685
-                            - x: 1603928482
-                              'y': 3.671
-                            - x: 1603930057
-                              'y': 3.68
-                            - x: 1603931861
-                              'y': 3.676
-                            - x: 1603933435
-                              'y': 3.68
-                            - x: 1603935240
-                              'y': 3.671
-                            - x: 1603936814
-                              'y': 3.68
-                            - x: 1603938388
-                              'y': 3.68
-                            - x: 1603939963
-                              'y': 3.685
-                            - x: 1603941996
-                              'y': 3.671
-                            - x: 1603943570
-                              'y': 3.68
-                            - x: 1603945145
-                              'y': 3.68
-                            - x: 1603948756
-                              'y': 3.68
-                            - x: 1603950330
-                              'y': 3.68
-                            - x: 1603951905
-                              'y': 3.68
-                            - x: 1603952222
-                              'y': 3.586
-                            - x: 1603953910
-                              'y': 3.671
-                            - x: 1603955600
-                              'y': 3.671
-                            - x: 1603957174
-                              'y': 3.68
-                            - x: 1603958863
-                              'y': 3.676
-                            - x: 1603960668
-                              'y': 3.671
-                            - x: 1603961150
-                              'y': 3.586
+                            - x: 1630596159
+                              'y': 3.642
                       ChartRange: day
                       Parameters:
                         - ID: alarmSensitivityLRBACC
-                          Name: ''
-                          Value: '3'
-                          Description: ''
+                          Name: Citlivost
+                          Value: 2
+                          Description: 'Parametr definuje citlivost akcelerometru, který reaguje na otřesy senzoru. Při otřesu dojde k odeslání alarmu a dat ze senzoru. Hodnotu je nutné přizpůsobit konkrétnímu umístění senzoru.'
                           Status:
                             Status: valid
-                            Timestamp: 1596035506
-                            TimestampStr: '29.07.2020 15:11'
-                          Changed: 1596033968
-                          ChangedStr: '29.07.2020 14:46'
+                            Timestamp: 1623721927
+                            TimestampStr: '15.06.2021 01:52'
+                          Changed: 1616064510
+                          ChangedStr: '18.03.2021 10:48'
                           Unit: ''
                           Pattern: ''
-                          Values: null
+                          Values:
+                            - Value: '0'
+                              Name: Žádná
+                            - Value: '1'
+                              Name: Nízká
+                            - Value: '2'
+                              Name: Střední
+                            - Value: '3'
+                              Name: Vysoká
+                            - Value: '4'
+                              Name: Velmi vysoká
                           Min: null
                           Max: null
+                          Mode: rw
                           Required: false
-                          DataType: string
+                          DataType: int
                           Show: true
                         - ID: sendPeriodLRBACC
-                          Name: ''
-                          Value: '3'
-                          Description: ''
+                          Name: Perioda odesílání
+                          Value: 4
+                          Description: Parametr definuje periodu pravidelného odesílání dat ze senzoru. Častější odesílání dat způsobí rychlejší vybití baterie.
                           Status:
                             Status: valid
-                            Timestamp: 1603903691
-                            TimestampStr: '28.10.2020 16:48'
-                          Changed: 1596565445
-                          ChangedStr: '04.08.2020 18:24'
+                            Timestamp: 1623721927
+                            TimestampStr: '15.06.2021 01:52'
+                          Changed: 1614696333
+                          ChangedStr: '02.03.2021 14:45'
                           Unit: ''
                           Pattern: ''
-                          Values: null
+                          Values:
+                            - Value: '1'
+                              Name: 5 minut
+                            - Value: '2'
+                              Name: 15 minut
+                            - Value: '3'
+                              Name: 30 minut
+                            - Value: '4'
+                              Name: 1 hodina
+                            - Value: '5'
+                              Name: 4 hodiny
+                            - Value: '6'
+                              Name: 6 hodin
+                            - Value: '7'
+                              Name: 12 hodin
+                            - Value: '8'
+                              Name: 24 hodin
                           Min: null
                           Max: null
+                          Mode: rw
                           Required: false
-                          DataType: string
+                          DataType: uint
                           Show: true
                         - ID: checkPeriodLRBACC
-                          Name: ''
-                          Value: '2'
-                          Description: ''
+                          Name: Perioda měření
+                          Value: 3
+                          Description: Parametr definuje periodu pravidelného měření teploty a vlhkosti. Na základě naměřených hodnot může dojít k okamžitému odeslání dat v závislosti na konfiguraci oznámení.
                           Status:
                             Status: valid
-                            Timestamp: 1603903691
-                            TimestampStr: '28.10.2020 16:48'
-                          Changed: 1596565445
-                          ChangedStr: '04.08.2020 18:24'
+                            Timestamp: 1613410601
+                            TimestampStr: '15.02.2021 17:36'
+                          Changed: 1614695942
+                          ChangedStr: '02.03.2021 14:39'
                           Unit: ''
                           Pattern: ''
-                          Values: null
+                          Values:
+                            - Value: '1'
+                              Name: 1 minuta
+                            - Value: '2'
+                              Name: 5 minut
+                            - Value: '3'
+                              Name: 10 minut
+                            - Value: '4'
+                              Name: 15 minut
+                            - Value: '5'
+                              Name: 30 minut
+                            - Value: '6'
+                              Name: 1 hodina
                           Min: null
                           Max: null
+                          Mode: rw
                           Required: false
-                          DataType: string
+                          DataType: uint
+                          Show: true
+                        - ID: timeToLeaveLRBACC
+                          Name: Čas k odchodu
+                          Value: 60
+                          Description: Parametr definuje čas k opuštění prostoru po zabezpečení senzoru.
+                          Status:
+                            Status: valid
+                            Timestamp: 1613410601
+                            TimestampStr: '15.02.2021 17:36'
+                          Changed: 1614695942
+                          ChangedStr: '02.03.2021 14:39'
+                          Unit: s
+                          Pattern: ''
+                          Values:
+                            - Value: '0'
+                              Name: 0 vteřin
+                            - Value: '30'
+                              Name: 30 vteřin
+                            - Value: '60'
+                              Name: 1 minuta
+                            - Value: '120'
+                              Name: 2 minuty
+                            - Value: '600'
+                              Name: 5 minut
+                          Min: null
+                          Max: null
+                          Mode: rw
+                          Required: false
+                          DataType: int
                           Show: true
                         - ID: minTemperatureLRBACC
-                          Name: ''
-                          Value: '17'
-                          Description: ''
+                          Name: Alarm minimální teploty
+                          Value: -63
+                          Description: 'Parametr definuje hodnotu teploty, při jejímž poklesu pod tuto hodnotu dojde ke vzniku teplotního alarmu a odeslání dat ze senzoru. Četnost měření teploty definuje parametr `Perioda měření`.'
                           Status:
                             Status: valid
-                            Timestamp: 1603903691
-                            TimestampStr: '28.10.2020 16:48'
-                          Changed: 1596736962
-                          ChangedStr: '06.08.2020 18:02'
-                          Unit: ''
+                            Timestamp: 1613410601
+                            TimestampStr: '15.02.2021 17:36'
+                          Changed: 1614695942
+                          ChangedStr: '02.03.2021 14:39'
+                          Unit: °C
                           Pattern: ''
                           Values: null
-                          Min: null
-                          Max: null
+                          Min: -63
+                          Max: 63
+                          Mode: rw
                           Required: false
-                          DataType: string
+                          DataType: int
                           Show: false
                         - ID: maxTemperatureLRBACC
-                          Name: ''
-                          Value: '24'
-                          Description: ''
+                          Name: Alarm maximální teploty
+                          Value: 63
+                          Description: 'Parametr definuje hodnotu teploty, při jejímž překročení této hodnoty dojde ke vzniku teplotního alarmu a odeslání dat ze senzoru. Četnost měření teploty definuje parametr `Perioda měření`.'
                           Status:
                             Status: valid
-                            Timestamp: 1603903691
-                            TimestampStr: '28.10.2020 16:48'
-                          Changed: 1596736962
-                          ChangedStr: '06.08.2020 18:02'
-                          Unit: ''
+                            Timestamp: 1613410601
+                            TimestampStr: '15.02.2021 17:36'
+                          Changed: 1614695942
+                          ChangedStr: '02.03.2021 14:39'
+                          Unit: °C
                           Pattern: ''
                           Values: null
-                          Min: null
-                          Max: null
+                          Min: -63
+                          Max: 63
+                          Mode: rw
                           Required: false
-                          DataType: string
+                          DataType: int
                           Show: false
                         - ID: minHumidityLRBACC
-                          Name: ''
-                          Value: '56'
-                          Description: ''
+                          Name: Alarm minimální vlhkosti
+                          Value: 0
+                          Description: 'Parametr definuje hodnotu vlhkosti, při jejímž poklesu pod tuto hodnotu dojde ke vzniku vlhkostního alarmu a odeslání dat ze senzoru. Četnost měření vlhkosti definuje parametr `Perioda měření`.'
                           Status:
                             Status: valid
-                            Timestamp: 1603903691
-                            TimestampStr: '28.10.2020 16:48'
-                          Changed: 1603468475
-                          ChangedStr: '23.10.2020 15:54'
-                          Unit: ''
+                            Timestamp: 1613410601
+                            TimestampStr: '15.02.2021 17:36'
+                          Changed: 1614695942
+                          ChangedStr: '02.03.2021 14:39'
+                          Unit: '%'
                           Pattern: ''
                           Values: null
-                          Min: null
-                          Max: null
+                          Min: 0
+                          Max: 100
+                          Mode: rw
                           Required: false
-                          DataType: string
+                          DataType: int
                           Show: false
                         - ID: maxHumidityLRBACC
-                          Name: ''
-                          Value: '64'
-                          Description: ''
+                          Name: Alarm maximální vlhkosti
+                          Value: 100
+                          Description: 'Parametr definuje hodnotu vlhkosti, při jejímž překročení této hodnoty dojde ke vzniku vlhkostního alarmu a odeslání dat ze senzoru. Četnost měření vlhkosti definuje parametr `Perioda měření`.'
                           Status:
                             Status: valid
-                            Timestamp: 1603903691
-                            TimestampStr: '28.10.2020 16:48'
-                          Changed: 1596565445
-                          ChangedStr: '04.08.2020 18:24'
-                          Unit: ''
+                            Timestamp: 1613410601
+                            TimestampStr: '15.02.2021 17:36'
+                          Changed: 1614695942
+                          ChangedStr: '02.03.2021 14:39'
+                          Unit: '%'
                           Pattern: ''
                           Values: null
+                          Min: 0
+                          Max: 100
+                          Mode: rw
+                          Required: false
+                          DataType: int
+                          Show: false
+                        - ID: alarmRepeatDelayLRBACC
+                          Name: Zpoždění opakování alarmu
+                          Value: 5
+                          Description: 'Parametr definuje minimální čas mezi po sobě následujícími alarmy z akcelerometru. Zjednodušeně řečeno při vzniku otřesového alarmu, bude další alarm odeslán nejdříve za dobu definovanou tímto parametrem. Nižší hodnota může způsobovat častější odesílání dat a tím rychlejší vybití baterie. Doporučujeme hodnotu ponechat na 2min a více.'
+                          Status:
+                            Status: valid
+                            Timestamp: 1613410601
+                            TimestampStr: '15.02.2021 17:36'
+                          Changed: 1614695942
+                          ChangedStr: '02.03.2021 14:39'
+                          Unit: ''
+                          Pattern: ''
+                          Values:
+                            - Value: '3'
+                              Name: 30 vteřin
+                            - Value: '4'
+                              Name: 60 vteřin
+                            - Value: '5'
+                              Name: 2 minuty
+                            - Value: '6'
+                              Name: 5 minut
+                            - Value: '7'
+                              Name: 10 minut
                           Min: null
                           Max: null
+                          Mode: rw
                           Required: false
-                          DataType: string
-                          Show: false
+                          DataType: int
+                          Show: true
+                      QRCode: base64
+                      Data:
+                        loraSF: 7
+                        loraSNR: 8.5
+                        mainPower: 3.695
+                        alarmState: 0
+                        loraGWName: LoRa_CZ_MSK_REKA3
+                        loraGWRssi: -102
+                        airHumidity: 63
+                        secureState: secured
+                        timeToLeave: 60
+                        alarmDateTime: '2021-09-02T17:30:58'
+                        secureStateBy: 237
+                        airTemperature: 14.6
+                        interruptTrigger: accelerometer
+                        secureStateByName: tomeczek@seznam.cz
+                        secureStateDateTime: '2021-07-14T11:03:10'
+                      CommunicationQuality: 7
+                      ExtraParameters:
+                        Grouping:
+                          GroupingDeviceDevID: null
+                      Table:
+                        Name: Historie alarmů
+                        Rows:
+                          - dateTime:
+                              Value: '02.09.2021 17:30:58'
+                              Color: '#fff'
+                          - dateTime:
+                              Value: '02.09.2021 17:28:48'
+                              Color: '#fff'
+                          - dateTime:
+                              Value: '02.09.2021 17:23:39'
+                              Color: '#fff'
+                          - dateTime:
+                              Value: '23.08.2021 15:51:21'
+                              Color: '#fff'
+                          - dateTime:
+                              Value: '23.08.2021 15:42:52'
+                              Color: '#fff'
+                          - dateTime:
+                              Value: '13.08.2021 14:35:33'
+                              Color: '#fff'
+                          - dateTime:
+                              Value: '02.08.2021 10:08:39'
+                              Color: '#fff'
+                          - dateTime:
+                              Value: '02.08.2021 09:49:16'
+                              Color: '#fff'
+                          - dateTime:
+                              Value: '02.08.2021 09:44:12'
+                              Color: '#fff'
+                          - dateTime:
+                              Value: '31.07.2021 17:59:23'
+                              Color: '#fff'
+                        Columns:
+                          - ID: dateTime
+                            Name: Čas
+                            Color: '#fff'
+                            Unit: ''
+                            Icon: ''
+                            ViewType: common
+                            Align: left
+                        Position: top
                       Security:
                         Secured: true
-                        LastSecuredBy: sopach@seznam.cz
-                        SecuredDateTime: 1603234069
-                        SecuredDateTimeStr: '20.10.2020 22:47'
-                        AlarmDateTime: 1603964811
-                        AlarmDateTimeStr: '29.10.2020 09:46'
+                        LastSecuredBy: tomeczek@seznam.cz
+                        SecuredDateTime: 1626260590
+                        SecuredDateTimeStr: '14.07.2021 11:03'
+                        AlarmDateTime: 1630603858
+                        AlarmDateTimeStr: '02.09.2021 17:30'
+                      debugInfo:
+                        rightsElapsed: 33
+                        codelistsElapsed: 22
+                        groupsElapsed: 30
+                        historyElapsed: 170
+                        processingElapsed: 587
                 OK - basice device:
                   value:
                     status: ok
@@ -4243,6 +4180,587 @@ paths:
                           'y': 0
                         - x: 1604012400
                           'y': 0
+                OK - GroupingDevice:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      RecID: cb798a69-dad3-40a3-a0b2-5508f164d31b
+                      DevID: SCC.IOT.REKAOWN-GRPD213T1628181180
+                      Description: ''
+                      Name: Veřejný rozhlas
+                      Class: GroupingDevice
+                      Vendor: null
+                      Model: null
+                      IsAllowedSMS: false
+                      Status:
+                        Status: OK
+                        Timestamp: 1630667455
+                        TimestampStr: '03.09.2021 11:10'
+                      Group:
+                        ID: myIoT-184-Verejnyrozhlas-r7rEAdM2
+                        Name: Veřejný rozhlas
+                        Description: ''
+                      Icon: GroupingDevice
+                      Application: measurement
+                      Position:
+                        Latitude: 49.6421238180385
+                        Longitude: 18.5788601973077
+                      Values:
+                        - ID: statusOK
+                          Name: Status OK
+                          Description: ''
+                          Unit: ''
+                          Color: '#45bb42'
+                          IsMain: true
+                          Range:
+                            Min: null
+                            Max: null
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 0
+                          ValueStr: '0 '
+                          Notification: null
+                          ChartType: line
+                          NotifEnabled: true
+                          ChartData:
+                            - x: 1630579345
+                              'y': 0
+                        - ID: openBox
+                          Name: Otevřený kryt
+                          Description: ''
+                          Unit: ''
+                          Color: '#ec2512'
+                          IsMain: false
+                          Range:
+                            Min: null
+                            Max: null
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 0
+                          ValueStr: '0 '
+                          Notification: null
+                          ChartType: line
+                          NotifEnabled: true
+                          ChartData:
+                            - x: 1630579345
+                              'y': 2
+                        - ID: charging
+                          Name: Nabíjení hlásiče
+                          Description: ''
+                          Unit: ''
+                          Color: '#ea9310'
+                          IsMain: false
+                          Range:
+                            Min: null
+                            Max: null
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 0
+                          ValueStr: '0 '
+                          Notification: null
+                          ChartType: line
+                          NotifEnabled: true
+                          ChartData:
+                            - x: 1630579345
+                              'y': 0
+                        - ID: lowPower
+                          Name: Nízké napětí hlásiče
+                          Description: ''
+                          Unit: ''
+                          Color: '#7b54a5'
+                          IsMain: false
+                          Range:
+                            Min: null
+                            Max: null
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 26
+                          ValueStr: '26 '
+                          Notification: null
+                          ChartType: line
+                          NotifEnabled: true
+                          ChartData:
+                            - x: 1630579345
+                              'y': 0
+                        - ID: relationInProgress
+                          Name: Probíhající relace
+                          Description: ''
+                          Unit: ''
+                          Color: '#ded700'
+                          IsMain: false
+                          Range:
+                            Min: null
+                            Max: null
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 0
+                          ValueStr: '0 '
+                          Notification: null
+                          ChartType: line
+                          NotifEnabled: true
+                          ChartData:
+                            - x: 1630579345
+                              'y': 0
+                        - ID: statusTimeout
+                          Name: Status TIMEOUT
+                          Description: ''
+                          Unit: ''
+                          Color: '#8f8f8f'
+                          IsMain: false
+                          Range:
+                            Min: null
+                            Max: null
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 0
+                          ValueStr: '0 '
+                          Notification: null
+                          ChartType: line
+                          NotifEnabled: true
+                          ChartData:
+                            - x: 1630579345
+                              'y': 24
+                      ChartRange: day
+                      Parameters: []
+                      QRCode: base64 qr
+                      Data:
+                        openBox: 0
+                        charging: 0
+                        lowPower: 26
+                        statusOK: 0
+                        statusTimeout: 0
+                        relationInProgress: 0
+                      CommunicationQuality: -1
+                      ExtraParameters:
+                        Grouping:
+                          DeviceClass: PublicRadio
+                          DeviceDevIDs:
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB17
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB22
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB02
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB04
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB18
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB09
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB24
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB01
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB14
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB08
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB25
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB23
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB13
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB05
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB12
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB03
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB15
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB10
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB06
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB21
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB26
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB07
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB11
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB20
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB16
+                            - SCC.IOT.REKAOWN-6D6F4D5056AABB19
+                          AllowWrite: true
+                      Table:
+                        Name: Seznam zařízení
+                        Rows:
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_017
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB17
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_022
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB22
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_002
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB02
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_004
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB04
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_018
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB18
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_009
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB09
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_024
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB24
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_001
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB01
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_014
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB14
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_008
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB08
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_025
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB25
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_023
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB23
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_013
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB13
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_005
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB05
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_012
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB12
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_003
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB03
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_015
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB15
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_010
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB10
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_006
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB06
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_021
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB21
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_026
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB26
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_007
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB07
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_011
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB11
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_020
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB20
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_016
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB16
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                          - status:
+                              Value: OK
+                              Color: '#45bb42'
+                            name:
+                              Value: ŘEKA_019
+                              Color: '#fff'
+                              ID: SCC.IOT.REKAOWN-6D6F4D5056AABB19
+                            addStatus:
+                              Value: LOW_POWER
+                              Color: '#9800fe'
+                        Columns:
+                          - ID: status
+                            Name: Stav
+                            Color: '#fff'
+                            Unit: ''
+                            Icon: ''
+                            ViewType: circle
+                            Align: left
+                          - ID: name
+                            Name: Název zařízení
+                            Color: '#fff'
+                            Unit: ''
+                            Icon: ''
+                            ViewType: common
+                            Align: left
+                          - ID: addStatus
+                            Name: Stav hlásiče
+                            Color: '#fff'
+                            Unit: ''
+                            Icon: ''
+                            ViewType: circle
+                            Align: center
+                        Position: top
+                      debugInfo:
+                        rightsElapsed: 5
+                        codelistsElapsed: 18
+                        groupsElapsed: 18
+                        historyElapsed: 57
+                        processingElapsed: 270
+                OK - GroupedDevice:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      RecID: e3f8ea76-1177-460a-be4b-31097fc63700
+                      DevID: SCC.IOT.REKAOWN-6D6F4D5056AABB07
+                      Description: ''
+                      Name: ŘEKA_007
+                      Class: PublicRadio
+                      Vendor: Master IT Technologies
+                      Model: LRB.MIO-MPV-1
+                      IsAllowedSMS: true
+                      Status:
+                        Status: OK
+                        Timestamp: 1630663159
+                        TimestampStr: '03.09.2021 09:59'
+                      Group:
+                        ID: myIoT-184-Verejnyrozhlas-r7rEAdM2
+                        Name: Veřejný rozhlas
+                        Description: ''
+                      Icon: PublicRadio
+                      Application: measurement
+                      Position:
+                        Latitude: 49.63645167
+                        Longitude: 18.57177959
+                      Values:
+                        - ID: mainPower
+                          Name: Napětí baterie
+                          Description: ''
+                          Unit: V
+                          Color: ''
+                          IsMain: true
+                          Range:
+                            Min: 0
+                            Max: 15
+                          ParameterMin: ''
+                          ParameterMax: ''
+                          Value: 3.378
+                          ValueStr: 3.378 V
+                          Notification: null
+                          ChartType: line
+                          NotifEnabled: true
+                          ChartData:
+                            - x: 1630655959
+                              'y': 3.378
+                      ChartRange: day
+                      Parameters:
+                        - ID: sendPeriodLRBMPV1
+                          Name: Perioda odesílání
+                          Value: null
+                          Description: Parametr definuje periodu pravidelného odesílání dat ze senzoru. Častější odesílání dat způsobí rychlejší vybití baterie.
+                          Status:
+                            Status: pending
+                            Timestamp: 1630663026
+                            TimestampStr: '03.09.2021 09:57'
+                          Changed: 1628181165
+                          ChangedStr: '05.08.2021 16:32'
+                          Unit: ''
+                          Pattern: ''
+                          Values:
+                            - Value: '3'
+                              Name: 30 minut
+                            - Value: '4'
+                              Name: 1 hodina
+                            - Value: '5'
+                              Name: 4 hodiny
+                          Min: null
+                          Max: null
+                          Mode: rw
+                          Required: false
+                          DataType: uint
+                          Show: true
+                      QRCode: base64
+                      Data:
+                        loraSF: 12
+                        loraSNR: 9.5
+                        mainPower: 3.378
+                        loraGWName: LoRa_CZ_MSK_TRANOVICE1
+                        loraGWRssi: -86
+                        broadcastFlag: 0
+                      CommunicationQuality: -1
+                      ExtraParameters:
+                        Grouping:
+                          GroupingDeviceDevID: SCC.IOT.REKAOWN-GRPD213T1628181180
+                          AllowWrite: true
+                      Table:
+                        Name: Historie relací
+                        Rows: []
+                        Columns:
+                          - ID: dateTime
+                            Name: Čas
+                            Color: '#fff'
+                            Unit: ''
+                            Icon: ''
+                            ViewType: common
+                            Align: left
+                        Position: top
+                      debugInfo:
+                        rightsElapsed: 22
+                        codelistsElapsed: 36
+                        groupsElapsed: 38
+                        historyElapsed: 140
+                        processingElapsed: 21
         '401':
           description: Unauthorized
           content:
@@ -4257,7 +4775,7 @@ paths:
                     err_code: -4000
                     data: null
       operationId: get-api-app-mob-myiot-device-detail
-      description: |
+      description: |-
         API vrátí detail zařízení
 
         [API returns device detail data for myIoT application]
@@ -4268,6 +4786,93 @@ paths:
         In example OK - Security device is Value named airHumidity which has parameter ParameterMin and ParameterMax, in this sections are Ids of parameters from Parameters section.
 
         So Notification min and max values from Value which contains ParameterMin and ParameterMax are associated with Parameters (from Parameters section) which has that IDs.
+
+        Tabulka
+        Objekt Table obsahuje tabulku které bude zobrazena v detailu zařízení
+
+        "Table": {
+              "Name": "Seznam zařízení",  -- Název tabulky (bude v nadpisu)
+              "Rows": [      -- definice řádků
+                {
+                  "status": {  -- buňka pro sloupec s ID "status"
+                    "Value": "OK",      -- zobrazená hodnota
+                    "Color": "#45bb42"  -- barva používá se k zabarvení objektu podle Column
+                  },
+                  "name": {
+                    "Value": "ŘEKA_017",
+                    "Color": "#fff",
+                    "ID": "SCC.IOT.REKAOWN-6D6F4D5056AABB17"
+                  },
+                  "addStatus": {
+                    "Value": "LOW_POWER",
+                    "Color": "#9800fe"
+                  }
+                },
+                {
+                  "status": {
+                    "Value": "OK",
+                    "Color": "#45bb42"
+                  },
+                  "name": {
+                    "Value": "ŘEKA_022",
+                    "Color": "#fff",
+                    "ID": "SCC.IOT.REKAOWN-6D6F4D5056AABB22"
+                  },
+                  "addStatus": {
+                    "Value": "LOW_POWER",
+                    "Color": "#9800fe"
+                  }
+                }
+              ],
+              "Columns": [ -- definice sloupců tabulky
+                {
+                  "ID": "status", -- id sloupce, používá se k identifikaci buňky v řádku
+                  "Name": "Stav",  -- nazev sloupce
+                  "Color": "#fff", -- podbarveni hodnot sloupce
+                  "Unit": "",    -- jednotka
+                  "Icon": "",    -- ikona (pokud je definována ignoruje se ViewType a zobrazí se tato ikona pro každou hodnotu ve sloupci, zbarví se podle Color konkrétní buňky)
+                  "ViewType": "circle",  -- typ pohledu na hodnoty ve sloupci (specifikovano dole)
+                  "Align": "left"  -- zarovnani hodnot bunek sloupce
+                },
+                {
+                  "ID": "name",
+                  "Name": "Název zařízení",
+                  "Color": "#fff",
+                  "Unit": "",
+                  "Icon": "",
+                  "ViewType": "common",
+                  "Align": "left"
+                },
+                {
+                  "ID": "addStatus",
+                  "Name": "Stav hlásiče",
+                  "Color": "#fff",
+                  "Unit": "",
+                  "Icon": "",
+                  "ViewType": "circle",
+                  "Align": "center"
+                }
+              ],
+              "Position": "top" -- pozice tabulky v detailu ("top", "bottom", "default")
+            },
+        ViewTypes
+        - circle - v bunce se zobrazí kolečko v barvě která je zadaná pro konkrétní buňku
+        - common - v bunce se zobrazí hodnota obyčejně
+        - rectangle - v bunce se zobrazí čtvereček v barvě která je zadaná pro konkrétní buňku
+        - fill - celá buňka je podbarvená barvkou pro konkrétní buňku
+
+        GroupingDevice ExtraParameters
+
+         "ExtraParameters": {
+               "Grouping": {
+                  "DeviceClass": "PublicRadio", -- třída zařízení které groupuje
+                  "DeviceDevIDs": [  -- seznam devID spadající pod grouping device
+                     "SCC.IOT.REKAOWN-6D6F4D5056AABB17",
+                     "SCC.IOT.REKAOWN-6D6F4D5056AABB22"
+                  ],
+                  "AllowWrite": true -- povoleni k editaci zarizeni
+               }
+            }
       parameters:
         - schema:
             type: string
@@ -5081,6 +5686,35 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11514,858 +12148,6 @@ paths:
                               type: device
                               device: SCC.IOT.ROPOWN-FCD6BD0000197A61
                       own:
-                        - RecID: 67445c28-8afc-42e2-8b96-7dcd0b44010c
-                          DevID: SCC.IOT.ROPOWN-FCD6BD0000197A61
-                          Name: BOSCH Test
-                          Class: ParkingSensor
-                          Vendor: BOSCH
-                          Model: BCH.TPS110EU
-                          Description: null
-                          Icon: ParkingSensor
-                          IsPublic: false
-                          IsAllowedSMS: true
-                          Position:
-                            Latitude: 49.6872300398976
-                            Longitude: 18.5214364528656
-                          Data:
-                            state: 0
-                            loraSF: 10
-                            loraSNR: 10.8
-                            timestamp: '2021-06-16T11:18:54'
-                            alarmState: 0
-                            loraGWName: LoRa_CZ_MSK_TRANOVICE1
-                            loraGWRssi: -102
-                            secureState: secured
-                            timeToLeave: 900
-                            secureStateBy: 1482
-                            secureStateByName: sopach@seznam.cz
-                            secureStateDateTime: '2021-06-16T11:39:32'
-                          Parameters:
-                            - DataType: int
-                              ID: timeToLeaveBCHTPS110EU
-                              Name: Čas k opuštění místa
-                              Unit: s
-                              Description: 'Parametr definuje čas k opuštění parkovacího místa, kdy nedojde k odeslání alarmu.'
-                              Pattern: ''
-                              Value: 900
-                              Type: system
-                              Mode: rw
-                              Required: false
-                              Changed: null
-                              Min: null
-                              Max: null
-                              Values:
-                                - Value: '0'
-                                  Name: 0 vteřin
-                                - Value: '30'
-                                  Name: 30 vteřin
-                                - Value: '60'
-                                  Name: 1 minuta
-                                - Value: '120'
-                                  Name: 2 minuty
-                                - Value: '300'
-                                  Name: 5 minut
-                                - Value: '900'
-                                  Name: 15 minut
-                                - Value: '3600'
-                                  Name: 1 hodina
-                              Status:
-                                Status: valid
-                                Timestamp: '2021-06-08T09:44:05'
-                              Order: 4
-                          Group:
-                            ID: myIoT-622-Centrum-hRzUmavK
-                            Name: Centrum
-                            Description: ''
-                          Status:
-                            Status: OK
-                            Timestamp: '2021-06-16T11:18:57'
-                          Application: security
-                          Values:
-                            - SysName: alarmState
-                              Name: Stav alarmu
-                              Description: ''
-                              Unit: ''
-                              Order: 1
-                              IsMain: true
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: 1
-                              Color: '#34255e'
-                              ChartType: none
-                              NotifEnabled: true
-                          Notifications: []
-                          DebugInfo: null
-                        - RecID: 1655e6c1-6cf9-45d5-865e-61fac1b8b64f
-                          DevID: SCC.IOT.ROPOWN-DCABB4FFFFA80E4A
-                          Name: moko shit
-                          Class: SecuritySensor
-                          Vendor: MOKOSmart
-                          Model: MOK.LW004-PB
-                          Description: null
-                          Icon: SecuritySensor
-                          IsPublic: false
-                          IsAllowedSMS: true
-                          Position:
-                            Latitude: 49.6874880418167
-                            Longitude: 18.5209773207876
-                          Data:
-                            lat: 0
-                            lng: 0
-                            speed: null
-                            loraSF: 7
-                            loraSNR: 7.5
-                            alarmState: 0
-                            loraGWName: LoRa_CZ_MSK_TRANOVICE1
-                            loraGWRssi: -96
-                            secureState: secured
-                            mainCapacity: N/A
-                            alarmDateTime: '2021-02-19T14:27:26'
-                            verticalAngle: 173
-                          Parameters:
-                            - DataType: uint
-                              ID: sendPeriodLW004PB
-                              Name: Perioda odesílání
-                              Unit: ''
-                              Description: Parametr definuje periodu pravidelného odesílání dat ze senzoru. Častější odesílání dat způsobí rychlejší vybití baterie.
-                              Pattern: ''
-                              Value: 4
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2021-02-19T14:22:46'
-                              Min: null
-                              Max: null
-                              Values:
-                                - Value: '1'
-                                  Name: 1 hodina
-                                - Value: '2'
-                                  Name: 6 hodin
-                                - Value: '3'
-                                  Name: 12 hodin
-                                - Value: '4'
-                                  Name: 24 hodin
-                              Status:
-                                Status: valid
-                                Timestamp: '2021-02-19T14:17:34'
-                              Order: 1
-                            - DataType: uint
-                              ID: turnOffAlarmLW004PB
-                              Name: Vypnutí alarmu
-                              Unit: ''
-                              Description: Parametr umožňuje vypnutí spuštěného alarmu senzoru.
-                              Pattern: ''
-                              Value: 2
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2021-02-19T15:12:39'
-                              Min: null
-                              Max: null
-                              Values: null
-                              Status:
-                                Status: valid
-                                Timestamp: '2021-02-22T08:40:39'
-                              Order: 1
-                          Group:
-                            ID: myIoT-622-Centrum-hRzUmavK
-                            Name: Centrum
-                            Description: ''
-                          Status:
-                            Status: TIMEOUT
-                            Timestamp: '2021-05-22T07:40:00'
-                          Application: security
-                          Values:
-                            - SysName: alarmState
-                              Name: Stav alarmu
-                              Description: ''
-                              Unit: ''
-                              Order: 0
-                              IsMain: true
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: null
-                              Max: null
-                              Color: ''
-                              ChartType: none
-                              NotifEnabled: true
-                            - SysName: mainCapacity
-                              Name: Kapacita hlavní baterie
-                              Description: ''
-                              Unit: '%'
-                              Order: 0
-                              IsMain: false
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: null
-                              Max: null
-                              Color: ''
-                              ChartType: line
-                              NotifEnabled: false
-                          Notifications: []
-                          DebugInfo: null
-                        - RecID: db1d0002-13b5-4b73-a941-770ff57bd188
-                          DevID: SCC.IOT.ROPOWN-EC91D1FFFF4DCAC2
-                          Name: moko shit 2
-                          Class: SecuritySensor
-                          Vendor: MOKOSmart
-                          Model: MOK.LW004-PB
-                          Description: null
-                          Icon: SecuritySensor
-                          IsPublic: false
-                          IsAllowedSMS: false
-                          Position: null
-                          Data:
-                            lat: 0
-                            lng:
-                              lat: 0
-                              lng: 0
-                              speed: null
-                              loraSF: 7
-                              loraSNR: 9.5
-                              isIndoor: false
-                              alarmState: 1
-                              loraGWName: ''
-                              loraGWRssi: -104
-                              secureState: secured
-                              mainCapacity: 100
-                              alarmDateTime: '2021-01-29T08:20:54'
-                              secureStateBy: 1465
-                              verticalAngle: 92
-                              secureStateByName: ropice.test@masterit.cz
-                              secureStateDateTime: '2021-01-11T12:03:07'
-                            speed: null
-                            loraSF: 7
-                            loraSNR: 6.8
-                            isIndoor: false
-                            alarmState: 0
-                            loraGWName: ''
-                            loraGWRssi: -100
-                            secureState: secured
-                            mainCapacity: N/A
-                            alarmDateTime: '2021-01-29T08:20:54'
-                            secureStateBy: 1482
-                            verticalAngle: 92
-                            secureStateByName: sopach@seznam.cz
-                            secureStateDateTime: '2021-04-19T10:27:30'
-                          Parameters: []
-                          Group:
-                            ID: myIoT-622-Centrum-hRzUmavK
-                            Name: Centrum
-                            Description: ''
-                          Status:
-                            Status: TIMEOUT
-                            Timestamp: '2021-01-30T20:22:00'
-                          Application: security
-                          Values:
-                            - SysName: alarmState
-                              Name: Stav alarmu
-                              Description: ''
-                              Unit: ''
-                              Order: 0
-                              IsMain: true
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: null
-                              Max: null
-                              Color: ''
-                              ChartType: none
-                              NotifEnabled: true
-                            - SysName: mainCapacity
-                              Name: Kapacita hlavní baterie
-                              Description: ''
-                              Unit: '%'
-                              Order: 0
-                              IsMain: false
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: null
-                              Max: null
-                              Color: ''
-                              ChartType: line
-                              NotifEnabled: true
-                          Notifications: []
-                          DebugInfo: null
-                        - RecID: d0f0bebe-2e31-4d9f-a887-a81ecd663d64
-                          DevID: SCC.IOT.ROPOWN-6D6F414333FF0000
-                          Name: Zabezpečení úřad
-                          Class: SecuritySensor
-                          Vendor: MasterIT
-                          Model: LRB.MIO-ACC-3
-                          Description: null
-                          Icon: SecuritySensor
-                          IsPublic: false
-                          IsAllowedSMS: true
-                          Position:
-                            Latitude: 49.7089320003637
-                            Longitude: 18.6123332972056
-                          Data:
-                            loraSF: 7
-                            loraSNR: 7.2
-                            isIndoor: false
-                            mainPower: 3.633
-                            alarmState: 0
-                            loraGWName: LoRa_CZ_MSK_ZUKOV1
-                            loraGWRssi: -81
-                            airHumidity: 38
-                            secureState: unsecured
-                            timeToLeave: 60
-                            alarmDateTime: '2021-06-01T20:10:40'
-                            secureStateBy: 1482
-                            airTemperature: 27.6
-                            interruptTrigger: accelerometer
-                            secureStateByName: sopach@seznam.cz
-                            secureStateDateTime: '2021-06-01T21:32:42'
-                          Parameters:
-                            - DataType: int
-                              ID: alarmSensitivityLRBACC
-                              Name: Citlivost
-                              Unit: ''
-                              Description: 'Parametr definuje citlivost akcelerometru, který reaguje na otřesy senzoru. Při otřesu dojde k odeslání alarmu a dat ze senzoru. Hodnotu je nutné přizpůsobit konkrétnímu umístění senzoru.'
-                              Pattern: ''
-                              Value: 3
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-05T15:35:04'
-                              Min: null
-                              Max: null
-                              Values:
-                                - Value: '0'
-                                  Name: Žádná
-                                - Value: '1'
-                                  Name: Nízká
-                                - Value: '2'
-                                  Name: Střední
-                                - Value: '3'
-                                  Name: Vysoká
-                                - Value: '4'
-                                  Name: Velmi vysoká
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-11-04T16:11:12'
-                              Order: 1
-                            - DataType: uint
-                              ID: sendPeriodLRBACC
-                              Name: Perioda odesílání
-                              Unit: ''
-                              Description: Parametr definuje periodu pravidelného odesílání dat ze senzoru. Častější odesílání dat způsobí rychlejší vybití baterie.
-                              Pattern: ''
-                              Value: 7
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-05T15:35:04'
-                              Min: null
-                              Max: null
-                              Values:
-                                - Value: '1'
-                                  Name: 5 minut
-                                - Value: '2'
-                                  Name: 15 minut
-                                - Value: '3'
-                                  Name: 30 minut
-                                - Value: '4'
-                                  Name: 1 hodina
-                                - Value: '5'
-                                  Name: 4 hodiny
-                                - Value: '6'
-                                  Name: 6 hodin
-                                - Value: '7'
-                                  Name: 12 hodin
-                                - Value: '8'
-                                  Name: 24 hodin
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-11-04T16:11:12'
-                              Order: 2
-                            - DataType: uint
-                              ID: checkPeriodLRBACC
-                              Name: Perioda měření
-                              Unit: ''
-                              Description: Parametr definuje periodu pravidelného měření teploty a vlhkosti. Na základě naměřených hodnot může dojít k okamžitému odeslání dat v závislosti na konfiguraci oznámení.
-                              Pattern: ''
-                              Value: 3
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-05T15:35:04'
-                              Min: null
-                              Max: null
-                              Values:
-                                - Value: '1'
-                                  Name: 1 minuta
-                                - Value: '2'
-                                  Name: 5 minut
-                                - Value: '3'
-                                  Name: 10 minut
-                                - Value: '4'
-                                  Name: 15 minut
-                                - Value: '5'
-                                  Name: 30 minut
-                                - Value: '6'
-                                  Name: 1 hodina
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-11-04T16:11:12'
-                              Order: 3
-                            - DataType: int
-                              ID: timeToLeaveLRBACC
-                              Name: Čas k odchodu
-                              Unit: s
-                              Description: Parametr definuje čas k opuštění prostoru po zabezpečení senzoru.
-                              Pattern: ''
-                              Value: 60
-                              Type: system
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-05T15:35:04'
-                              Min: null
-                              Max: null
-                              Values:
-                                - Value: '0'
-                                  Name: 0 vteřin
-                                - Value: '30'
-                                  Name: 30 vteřin
-                                - Value: '60'
-                                  Name: 1 minuta
-                                - Value: '120'
-                                  Name: 2 minuty
-                                - Value: '600'
-                                  Name: 5 minut
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-11-04T16:11:12'
-                              Order: 4
-                            - DataType: int
-                              ID: minTemperatureLRBACC
-                              Name: Alarm minimální teploty
-                              Unit: °C
-                              Description: 'Parametr definuje hodnotu teploty, při jejímž poklesu pod tuto hodnotu dojde ke vzniku teplotního alarmu a odeslání dat ze senzoru. Četnost měření teploty definuje parametr `Perioda měření`.'
-                              Pattern: ''
-                              Value: -63
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-05T15:35:04'
-                              Min: -63
-                              Max: 63
-                              Values: null
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-11-04T16:11:12'
-                              Order: 5
-                            - DataType: int
-                              ID: maxTemperatureLRBACC
-                              Name: Alarm maximální teploty
-                              Unit: °C
-                              Description: 'Parametr definuje hodnotu teploty, při jejímž překročení této hodnoty dojde ke vzniku teplotního alarmu a odeslání dat ze senzoru. Četnost měření teploty definuje parametr `Perioda měření`.'
-                              Pattern: ''
-                              Value: 63
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-05T15:35:04'
-                              Min: -63
-                              Max: 63
-                              Values: null
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-11-04T16:11:12'
-                              Order: 6
-                            - DataType: int
-                              ID: minHumidityLRBACC
-                              Name: Alarm minimální vlhkosti
-                              Unit: '%'
-                              Description: 'Parametr definuje hodnotu vlhkosti, při jejímž poklesu pod tuto hodnotu dojde ke vzniku vlhkostního alarmu a odeslání dat ze senzoru. Četnost měření vlhkosti definuje parametr `Perioda měření`.'
-                              Pattern: ''
-                              Value: 0
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-05T15:35:04'
-                              Min: 0
-                              Max: 100
-                              Values: null
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-11-04T16:11:12'
-                              Order: 7
-                            - DataType: int
-                              ID: maxHumidityLRBACC
-                              Name: Alarm maximální vlhkosti
-                              Unit: '%'
-                              Description: 'Parametr definuje hodnotu vlhkosti, při jejímž překročení této hodnoty dojde ke vzniku vlhkostního alarmu a odeslání dat ze senzoru. Četnost měření vlhkosti definuje parametr `Perioda měření`.'
-                              Pattern: ''
-                              Value: 100
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-05T15:35:04'
-                              Min: 0
-                              Max: 100
-                              Values: null
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-11-04T16:11:12'
-                              Order: 8
-                            - DataType: int
-                              ID: alarmRepeatDelayLRBACC
-                              Name: Zpoždění opakování alarmu
-                              Unit: ''
-                              Description: 'Parametr definuje minimální čas mezi po sobě následujícími alarmy z akcelerometru. Zjednodušeně řečeno při vzniku otřesového alarmu, bude další alarm odeslán nejdříve za dobu definovanou tímto parametrem. Nižší hodnota může způsobovat častější odesílání dat a tím rychlejší vybití baterie. Doporučujeme hodnotu ponechat na 2min a více.'
-                              Pattern: ''
-                              Value: 3
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-05T15:35:04'
-                              Min: null
-                              Max: null
-                              Values:
-                                - Value: '3'
-                                  Name: 30 vteřin
-                                - Value: '4'
-                                  Name: 60 vteřin
-                                - Value: '5'
-                                  Name: 2 minuty
-                                - Value: '6'
-                                  Name: 5 minut
-                                - Value: '7'
-                                  Name: 10 minut
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-11-04T16:11:12'
-                              Order: 9
-                          Group:
-                            ID: myIoT-622-Centrum-hRzUmavK
-                            Name: Centrum
-                            Description: ''
-                          Status:
-                            Status: OK
-                            Timestamp: '2021-06-16T15:42:54'
-                          Application: security
-                          Values:
-                            - SysName: alarmState
-                              Name: Stav alarmu
-                              Description: ''
-                              Unit: ''
-                              Order: 1
-                              IsMain: true
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: 1
-                              Color: '#ff0000'
-                              ChartType: none
-                              NotifEnabled: true
-                            - SysName: airTemperature
-                              Name: Teplota vzduchu
-                              Description: ''
-                              Unit: °C
-                              Order: 2
-                              IsMain: false
-                              ParameterMin: minTemperatureLRBACC
-                              ParameterMax: maxTemperatureLRBACC
-                              Min: null
-                              Max: null
-                              Color: '#ffb700'
-                              ChartType: line
-                              NotifEnabled: true
-                            - SysName: airHumidity
-                              Name: Vlhkost vzduchu
-                              Description: ''
-                              Unit: '%'
-                              Order: 3
-                              IsMain: false
-                              ParameterMin: minHumidityLRBACC
-                              ParameterMax: maxHumidityLRBACC
-                              Min: 0
-                              Max: 100
-                              Color: '#0076ff'
-                              ChartType: line
-                              NotifEnabled: true
-                            - SysName: mainPower
-                              Name: Napětí baterie
-                              Description: ''
-                              Unit: V
-                              Order: 4
-                              IsMain: false
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: 5
-                              Color: '#ff9900'
-                              ChartType: line
-                              NotifEnabled: true
-                          Notifications: []
-                          DebugInfo: null
-                        - RecID: 2d2ef4f0-310f-49ed-a954-606f62c7809c
-                          DevID: SCC.IOT.ROPOWN-6D6F524D52FFA999
-                          Name: tesk radar
-                          Class: SpeedDetector
-                          Vendor: MasterIT
-                          Model: LRB.MIO-RMR-2
-                          Description: null
-                          Icon: SpeedDetector
-                          IsPublic: false
-                          IsAllowedSMS: false
-                          Position:
-                            Latitude: 49.6137131289068
-                            Longitude: 18.6767578125
-                          Data:
-                            speedLimit: 50
-                            speedAvg: N/A
-                            speedMax: N/A
-                            vehiclesCount: N/A
-                            speedLimitViolations: N/A
-                            period: N/A
-                          Parameters: []
-                          Group:
-                            ID: myIoT-622-Centrum-hRzUmavK
-                            Name: Centrum
-                            Description: ''
-                          Status:
-                            Status: TIMEOUT
-                            Timestamp: '2021-05-25T11:46:00'
-                          Application: measurement
-                          Values:
-                            - SysName: speedAvg
-                              Name: Průměrná rychlost
-                              Description: ''
-                              Unit: km/h
-                              Order: 1
-                              IsMain: true
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: null
-                              Color: '#0cc5ed'
-                              ChartType: line
-                              NotifEnabled: true
-                            - SysName: speedMax
-                              Name: Maximální rychlost
-                              Description: ''
-                              Unit: km/h
-                              Order: 2
-                              IsMain: false
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: null
-                              Color: '#d911eb'
-                              ChartType: line
-                              NotifEnabled: true
-                            - SysName: vehiclesCount
-                              Name: Počet vozidel
-                              Description: ''
-                              Unit: ''
-                              Order: 3
-                              IsMain: false
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: null
-                              Color: '#33a389'
-                              ChartType: line
-                              NotifEnabled: true
-                            - SysName: speedLimitViolations
-                              Name: Překročení rychlosti
-                              Description: ''
-                              Unit: ''
-                              Order: 4
-                              IsMain: false
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: null
-                              Color: '#d41e29'
-                              ChartType: line
-                              NotifEnabled: true
-                            - SysName: period
-                              Name: Hodnoty za posledních
-                              Description: ''
-                              Unit: min
-                              Order: 5
-                              IsMain: false
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: null
-                              Max: null
-                              Color: '#e4e4e4'
-                              ChartType: line
-                              NotifEnabled: true
-                          Notifications: []
-                          DebugInfo: null
-                        - RecID: c1eeddc2-6e7d-46ba-9fe8-0b7255070f6d
-                          DevID: SCC.IOT.ROPOWN-6D6F555331FFFF02
-                          Name: Písek hladinoměr Olše
-                          Class: TankContents
-                          Vendor: MasterIT
-                          Model: LRB.MIO-USN-1-T
-                          Description: null
-                          Icon: TankContents
-                          IsPublic: true
-                          IsAllowedSMS: true
-                          Position:
-                            Latitude: 49.5581012516219
-                            Longitude: 18.8173645734787
-                          Data:
-                            sp1: 10
-                            sp2: 20
-                            sp3: 30
-                            loraSF: 8
-                            loraSNR: -2
-                            isIndoor: false
-                            mainPower: 3.638
-                            tankLevel: 36
-                            floodStage: 3
-                            loraGWName: LoRa_CZ_MSK_PISEK1
-                            loraGWRssi: -117
-                            waterHeight: 51
-                            fullTankLevel: 140
-                            waterHeight_P1: 55
-                            waterHeightMultiplier: 2
-                          Parameters:
-                            - DataType: uint
-                              ID: sendPeriodLRBUSN1T
-                              Name: Perioda odesílání
-                              Unit: ''
-                              Description: Parametr definuje periodu pravidelného odesílání dat ze senzoru. Častější odesílání dat způsobí rychlejší vybití baterie.
-                              Pattern: ''
-                              Value: 2
-                              Type: node
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-04T16:06:17'
-                              Min: null
-                              Max: null
-                              Values:
-                                - Value: '1'
-                                  Name: 5 minut
-                                - Value: '2'
-                                  Name: 15 minut
-                                - Value: '3'
-                                  Name: 30 minut
-                                - Value: '4'
-                                  Name: 1 hodina
-                                - Value: '5'
-                                  Name: 4 hodiny
-                                - Value: '6'
-                                  Name: 6 hodin
-                                - Value: '7'
-                                  Name: 12 hodin
-                                - Value: '8'
-                                  Name: 24 hodin
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-10-12T09:15:21'
-                              Order: 1
-                            - DataType: uint
-                              ID: fullTankLevelLRBUSN1T
-                              Name: Výška hladiny při 100% zaplněné nádrži
-                              Unit: cm
-                              Description: Parametr definuje výšku hladiny ode dna nádrže při 100% zaplnění.
-                              Pattern: ''
-                              Value: 140
-                              Type: server
-                              Mode: rw
-                              Required: false
-                              Changed: '2021-06-14T10:34:45'
-                              Min: null
-                              Max: null
-                              Values: null
-                              Status:
-                                Status: valid
-                                Timestamp: '2021-06-14T10:34:45'
-                              Order: 1
-                            - DataType: uint
-                              ID: distanceToBottomLRBUSN1T
-                              Name: Vzdálenost ode dna
-                              Unit: cm
-                              Description: Parametr definuje vzdálenost senzoru ode dna nádrže nebo vodního toku.
-                              Pattern: ''
-                              Value: 150
-                              Type: server
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-04T16:06:17'
-                              Min: null
-                              Max: null
-                              Values: null
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-10-12T09:15:21'
-                              Order: 1
-                            - DataType: decimal
-                              ID: bottomContentLRBUSN1T
-                              Name: Obsah dna nádrže
-                              Unit: m2
-                              Description: Parametr definuje plochu dna nádrže pro výpočet objemu.
-                              Pattern: ''
-                              Value: 20
-                              Type: server
-                              Mode: rw
-                              Required: false
-                              Changed: '2020-11-04T16:06:17'
-                              Min: null
-                              Max: null
-                              Values: null
-                              Status:
-                                Status: valid
-                                Timestamp: '2020-10-12T09:15:21'
-                              Order: 1
-                          Group:
-                            ID: myIoT-622-Vodojemy-tCh1DUOt
-                            Name: Vodojemy
-                            Description: ''
-                          Status:
-                            Status: OK
-                            Timestamp: '2021-06-16T15:39:50'
-                          Application: measurement
-                          Values:
-                            - SysName: tankLevel
-                              Name: Zaplnění nádrže
-                              Description: Zaplnění nádrže
-                              Unit: '%'
-                              Order: 0
-                              IsMain: true
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: 100
-                              Color: ''
-                              ChartType: line
-                              NotifEnabled: true
-                            - SysName: waterHeight
-                              Name: Hladina
-                              Description: ''
-                              Unit: cm
-                              Order: 1
-                              IsMain: false
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: null
-                              Color: '#00a1ff'
-                              ChartType: line
-                              NotifEnabled: true
-                            - SysName: mainPower
-                              Name: Napětí baterie
-                              Description: ''
-                              Unit: V
-                              Order: 2
-                              IsMain: false
-                              ParameterMin: ''
-                              ParameterMax: ''
-                              Min: 0
-                              Max: 5
-                              Color: '#ffb700'
-                              ChartType: line
-                              NotifEnabled: true
-                          Notifications: []
-                          DebugInfo: null
                         - RecID: ce7ca4e3-dd64-497c-ab03-b7f01dd78c5d
                           DevID: SCC.IOT.ROPOWN-6D6F555331FFFF01
                           Name: Návsí hladinoměr Olše
@@ -12479,6 +12261,285 @@ paths:
                         notifs: 42
                         devicesShare: 45
                         devices: 72
+                OK - GroupingDevice - GroupedDevice:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      shared: []
+                      share: []
+                      own:
+                        - RecID: cb798a69-dad3-40a3-a0b2-5508f164d31b
+                          DevID: SCC.IOT.REKAOWN-GRPD213T1628181180
+                          Name: Veřejný rozhlas
+                          Class: GroupingDevice
+                          Vendor: null
+                          Model: null
+                          Description: null
+                          Icon: GroupingDevice
+                          IsPublic: false
+                          IsAllowedSMS: false
+                          Position:
+                            Latitude: 49.6421238180385
+                            Longitude: 18.5788601973077
+                          Data:
+                            openBox: 0
+                            charging: 0
+                            lowPower: 26
+                            statusOK: 0
+                            statusTimeout: 0
+                            relationInProgress: 0
+                          Parameters: []
+                          Group:
+                            ID: myIoT-184-Verejnyrozhlas-r7rEAdM2
+                            Name: Veřejný rozhlas
+                            Description: ''
+                          Status:
+                            Status: OK
+                            Timestamp: '2021-09-03T11:10:55'
+                          Application: measurement
+                          Values:
+                            - SysName: statusOK
+                              Name: Status OK
+                              Description: ''
+                              Unit: ''
+                              Order: 1
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: '#45bb42'
+                              ChartType: line
+                              NotifEnabled: true
+                            - SysName: openBox
+                              Name: Otevřený kryt
+                              Description: ''
+                              Unit: ''
+                              Order: 2
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: '#ec2512'
+                              ChartType: line
+                              NotifEnabled: true
+                            - SysName: charging
+                              Name: Nabíjení hlásiče
+                              Description: ''
+                              Unit: ''
+                              Order: 3
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: '#ea9310'
+                              ChartType: line
+                              NotifEnabled: true
+                            - SysName: lowPower
+                              Name: Nízké napětí hlásiče
+                              Description: ''
+                              Unit: ''
+                              Order: 4
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: '#7b54a5'
+                              ChartType: line
+                              NotifEnabled: true
+                            - SysName: relationInProgress
+                              Name: Probíhající relace
+                              Description: ''
+                              Unit: ''
+                              Order: 5
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: '#ded700'
+                              ChartType: line
+                              NotifEnabled: true
+                            - SysName: statusTimeout
+                              Name: Status TIMEOUT
+                              Description: ''
+                              Unit: ''
+                              Order: 6
+                              IsMain: false
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: null
+                              Max: null
+                              Color: '#8f8f8f'
+                              ChartType: line
+                              NotifEnabled: true
+                          Notifications: []
+                          DebugInfo: null
+                          ExtraParameters:
+                            Grouping:
+                              DeviceClass: PublicRadio
+                              DeviceDevIDs:
+                                - SCC.IOT.REKAOWN-6D6F4D5056AABB17
+                              AllowWrite: true
+                        - RecID: 40f3c24b-1ffa-46e2-a7d7-9e7c9a1778f6
+                          DevID: SCC.IOT.REKAOWN-6D6F4D5056AABB01
+                          Name: ŘEKA_001
+                          Class: PublicRadio
+                          Vendor: MasterIT
+                          Model: LRB.MIO-MPV-1
+                          Description: null
+                          Icon: PublicRadio
+                          IsPublic: false
+                          IsAllowedSMS: false
+                          Position:
+                            Latitude: 49.64491194
+                            Longitude: 18.57302623
+                          Data:
+                            loraSF: 12
+                            loraSNR: 9.5
+                            mainPower: 3.342
+                            loraGWName: LoRa_CZ_MSK_TRANOVICE1
+                            loraGWRssi: -88
+                            broadcastFlag: 0
+                            broadcastDateTime: '2021-08-17T11:48:01'
+                            broadcast1DateTime: '2021-08-17T11:48:01'
+                            broadcast2DateTime: '2021-08-17T11:47:01'
+                            broadcast3DateTime: '2021-08-12T14:56:09'
+                          Parameters:
+                            - DataType: uint
+                              ID: sendPeriodLRBMPV1
+                              Name: Perioda odesílání
+                              Unit: ''
+                              Description: Parametr definuje periodu pravidelného odesílání dat ze senzoru. Častější odesílání dat způsobí rychlejší vybití baterie.
+                              Pattern: ''
+                              Value: null
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2021-08-05T16:32:32'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '3'
+                                  Name: 30 minut
+                                - Value: '4'
+                                  Name: 1 hodina
+                                - Value: '5'
+                                  Name: 4 hodiny
+                              Status:
+                                Status: pending
+                                Timestamp: '2021-09-03T09:34:00'
+                              Order: 1
+                          Group:
+                            ID: myIoT-184-Verejnyrozhlas-r7rEAdM2
+                            Name: Veřejný rozhlas
+                            Description: ''
+                          Status:
+                            Status: OK
+                            Timestamp: '2021-09-03T09:45:26'
+                          Application: measurement
+                          Values:
+                            - SysName: mainPower
+                              Name: Napětí baterie
+                              Description: ''
+                              Unit: V
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 15
+                              Color: ''
+                              ChartType: line
+                              NotifEnabled: true
+                          Notifications: []
+                          DebugInfo: null
+                          ExtraParameters:
+                            Grouping:
+                              GroupingDeviceDevID: SCC.IOT.REKAOWN-GRPD213T1628181180
+                              AllowWrite: true
+                        - RecID: 2093f034-e31d-4233-8fdf-13520511264f
+                          DevID: SCC.IOT.REKAOWN-6D6F4D5056AABB02
+                          Name: ŘEKA_002
+                          Class: PublicRadio
+                          Vendor: MasterIT
+                          Model: LRB.MIO-MPV-1
+                          Description: null
+                          Icon: PublicRadio
+                          IsPublic: false
+                          IsAllowedSMS: false
+                          Position:
+                            Latitude: 49.64178222
+                            Longitude: 18.57312086
+                          Data:
+                            loraSF: 12
+                            loraSNR: 9.8
+                            mainPower: 3.378
+                            loraGWName: LoRa_CZ_MSK_TRANOVICE1
+                            loraGWRssi: -88
+                            broadcastFlag: 0
+                          Parameters:
+                            - DataType: uint
+                              ID: sendPeriodLRBMPV1
+                              Name: Perioda odesílání
+                              Unit: ''
+                              Description: Parametr definuje periodu pravidelného odesílání dat ze senzoru. Častější odesílání dat způsobí rychlejší vybití baterie.
+                              Pattern: ''
+                              Value: null
+                              Type: node
+                              Mode: rw
+                              Required: false
+                              Changed: '2021-08-05T16:32:41'
+                              Min: null
+                              Max: null
+                              Values:
+                                - Value: '3'
+                                  Name: 30 minut
+                                - Value: '4'
+                                  Name: 1 hodina
+                                - Value: '5'
+                                  Name: 4 hodiny
+                              Status:
+                                Status: pending
+                                Timestamp: '2021-09-03T09:41:37'
+                              Order: 1
+                          Group:
+                            ID: myIoT-184-Verejnyrozhlas-r7rEAdM2
+                            Name: Veřejný rozhlas
+                            Description: ''
+                          Status:
+                            Status: OK
+                            Timestamp: '2021-09-03T09:43:47'
+                          Application: measurement
+                          Values:
+                            - SysName: mainPower
+                              Name: Napětí baterie
+                              Description: ''
+                              Unit: V
+                              Order: 0
+                              IsMain: true
+                              ParameterMin: ''
+                              ParameterMax: ''
+                              Min: 0
+                              Max: 15
+                              Color: ''
+                              ChartType: line
+                              NotifEnabled: true
+                          Notifications: []
+                          DebugInfo: null
+                          ExtraParameters:
+                            Grouping:
+                              GroupingDeviceDevID: SCC.IOT.REKAOWN-GRPD213T1628181180
+                              AllowWrite: true
+                      debugInfo:
+                        devicesShare: 0
+                        notifs: 19
+                        devices: 175
         '401':
           description: Unauthorized
           content:
@@ -12521,6 +12582,27 @@ paths:
         [API returns users list with devices which are shared or which you share and own devices]
 
         protocolVersion > 1 allows to use compressed api result, array share does not contain whole device object, only his devID which should be used for finding whole device object in own array
+
+        Nově u GroupingDevice toto
+
+        "ExtraParameters": {
+          "Grouping": {
+            "DeviceClass": "PublicRadio", -- třída zařízení které groupuje
+            "DeviceDevIDs": [
+              "SCC.IOT.REKAOWN-6D6F4D5056AABB17" -- id zařízení které groupuje
+            ],
+            "AllowWrite": true  -- povolení kzápisu a editaci tohoto device (pro techniky)
+          }
+        }
+
+        Nově u Groupovaných zařízení
+
+        "ExtraParameters": {
+              "Grouping": {
+                 "GroupingDeviceDevID": "SCC.IOT.REKAOWN-GRPD213T1628181180", -- id zařízení pod které je groupováno
+                 "AllowWrite": true -- povolení k úpravě tohoto device i když (nasdíleno přes GroupingDevice)
+              }
+           }
       tags:
         - application-myIoT
   /api/app/mob/myiot/device:
@@ -12861,7 +12943,7 @@ paths:
                 value:
                   DevID: SCC.IOT.ROP0600000000000010
                   Notifications: []
-              Grouping Device:
+              Upravuju zařízení které spadá pod Grouping Device:
                 value:
                   RecID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
                   DevID: SCC.IOT.ROP0600000000000010
@@ -12869,7 +12951,9 @@ paths:
                   Description: null
                   Status: UNKNOWN
                   Parameters: null
-                  ExtraParameters: {}
+                  ExtraParameters:
+                    Grouping:
+                      GroupingDeviceDevID: ID GroupingDevice pod které spadá
         description: ''
       parameters:
         - schema:
