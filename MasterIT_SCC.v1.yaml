@@ -4790,6 +4790,14 @@ paths:
         Tabulka
         Objekt Table obsahuje tabulku které bude zobrazena v detailu zařízení
 
+        Objekt Table je nullable to znamená, že se v aplikaci zobrazí pouze v případě že obsahuje data
+        Popis dat:
+        Name : Název tabulky, měl by být umístěn nad tabulkou a popisuje to co obsahuje tabulka
+        Position: Definuje pozici tabulky tedy jestli se má v detailu zařízená zobrati nahoře nebo dole pod grafy
+        Rows: -definice řádků tabulky, obsahuje objekty jejichž klíčem je vždy ID sloupce tedy např "status" je v Columns objekt s ID "status" atp. objekty obsahují Value, která má být zobrazena v případě, že v objektu column je ViewType "common", "Color" je barva, která se použije v dané buňce na podbarvení pokud je ViewType jiný než "common", tedy pokud je ViewType např. rectangle tak se v buňce místu Value zobrazí obdelník s danou Color, nebo pokud je Viewtype fill podbarví se takto celá buňka
+
+        Columns: Definice sloupců, obsahuje ID což je identifikátor hodnoty v řádku, Name je název sloupce zobrazený v hlavičce tabulky, Color udává podbarvení všech řádků daného sloupce (barva v řádků má vyšší prioritu pokud se obarvuje celá buňka), Unit je jednotka daného sloupce, pokud není prázdná měla by být zobrazena v hlavičce u názvu hodnoty, Icon je jiný druh zobrazení, v případě, že je definována tak se tato ikona zobrazí v každém řádku daného sloupce, tedy nahrazuje ViewType kde jsou pouze jednoduché tvary(tato ikona bývá ve formátu svg aby se dala podle Color řádku měnit její barva), ViewType definuje typ zobrazení popsaný výše, pokud je definována Icon, ViewType se ignoruje, Align může nabávat 3 hodnot (left, right, center) definuje zarovnání hodnot ve sloupci (vlevo, vpravo, uprostřed)
+
         "Table": {
               "Name": "Seznam zařízení",  -- Název tabulky (bude v nadpisu)
               "Rows": [      -- definice řádků
@@ -4800,8 +4808,7 @@ paths:
                   },
                   "name": {
                     "Value": "ŘEKA_017",
-                    "Color": "#fff",
-                    "ID": "SCC.IOT.REKAOWN-6D6F4D5056AABB17"
+                    "Color": "#fff"
                   },
                   "addStatus": {
                     "Value": "LOW_POWER",
@@ -5686,6 +5693,9 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
 
 
 
