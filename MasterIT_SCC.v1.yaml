@@ -5935,6 +5935,8 @@ paths:
 
 
 
+
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -23828,6 +23830,8 @@ paths:
                       sendInvoice: null
                       deviceList: []
                       infoChannels:
+                        interestGroups:
+                          - myIoT-myiot_reka-pejskari-24cc5
                         primary: obecRopice
                         secondary:
                           - dpo
@@ -23893,6 +23897,8 @@ paths:
                   transportID: ''
                   config:
                     infoChannels:
+                      interestGroups:
+                        - myIoT-myiot_reka-pejskari-24cc5
                       primary: obecRopice
                       secondary:
                         - dpo
