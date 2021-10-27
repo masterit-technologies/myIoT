@@ -5937,6 +5937,7 @@ paths:
 
 
 
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -23872,7 +23873,8 @@ paths:
                     err_code: -4000
                     data: null
       description: |-
-        Metoda uloží parametry customera do databaze, je povoleno pouze uložit vlastní parametry, uživatel je identifikován tokenem
+        Metoda uloží parametry customera do databaze, je povoleno pouze uložit vlastní parametry, uživatel je identifikován tokenem.
+        Metoda ukládá vechny změny v uživatelském profilu, jako infokanál, zájmové skupiny atd..
 
         [The method stores the customer's parameters in the database, it is only allowed to save the custom parameters, the user is identified by a token]
       security:
