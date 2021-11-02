@@ -474,8 +474,6 @@ paths:
         Metoda vrací seznam veřejných zařízení podle zadaného GPS extentu
 
         např. api/app/mob/myiot/device/public?extent=49.650431685843174,18.61667633056641;49.62302746118664,18.53427886962891
-      tags:
-        - authorization
       parameters:
         - schema:
             type: string
@@ -491,6 +489,8 @@ paths:
           description: jazyk
       security:
         - Bearer token: []
+      tags:
+        - application-myIoT
     parameters: []
   /api/customer/email/exist:
     get:
@@ -6175,6 +6175,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
