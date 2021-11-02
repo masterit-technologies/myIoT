@@ -10,6 +10,488 @@ servers:
   - url: 'https://devproxy.masterit.cz'
     description: develop
 paths:
+  /api/app/mob/myiot/device/public:
+    get:
+      summary: Public device list
+      operationId: get-api-app-mob-myiot-device-public
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      - devID: SCC.IOT.REKAOWN-70B3D50070002C49
+                        id: 70B3D50070002C49
+                        deviceName: Kontejner komunál
+                        classData:
+                          classIcon: ico-bin
+                          classColor: '#686e66'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: WasteLevelDetector
+                        status: OK
+                        statusTimestamp: '02.11.2021 12:38'
+                        value:
+                          sysName: wasteLevel
+                          name: Zaplnění kontejneru
+                          unit: '%'
+                          value: '57'
+                        position:
+                          lat: 49.6282528722685
+                          lng: 18.5746166131527
+                      - devID: SCC.IOT.REKAOWN-70B3D5007000296F
+                        id: 70B3D5007000296F
+                        deviceName: Kontejner sklo
+                        classData:
+                          classIcon: ico-bin
+                          classColor: '#686e66'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: WasteLevelDetector
+                        status: OK
+                        statusTimestamp: '02.11.2021 12:51'
+                        value:
+                          sysName: wasteLevel
+                          name: Zaplnění kontejneru
+                          unit: '%'
+                          value: '42'
+                        position:
+                          lat: 49.628264
+                          lng: 18.574579
+                      - devID: SCC.IOT.REKAOWN-70B3D50070002962
+                        id: 70B3D50070002962
+                        deviceName: Kontejner papír
+                        classData:
+                          classIcon: ico-bin
+                          classColor: '#686e66'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: WasteLevelDetector
+                        status: OK
+                        statusTimestamp: '02.11.2021 12:39'
+                        value:
+                          sysName: wasteLevel
+                          name: Zaplnění kontejneru
+                          unit: '%'
+                          value: '52'
+                        position:
+                          lat: 49.628277
+                          lng: 18.574512
+                      - devID: SCC.IOT.REKAOWN-70B3D50070002943
+                        id: 70B3D50070002943
+                        deviceName: Kontejner plasty
+                        classData:
+                          classIcon: ico-bin
+                          classColor: '#686e66'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: WasteLevelDetector
+                        status: OK
+                        statusTimestamp: '02.11.2021 12:36'
+                        value:
+                          sysName: wasteLevel
+                          name: Zaplnění kontejneru
+                          unit: '%'
+                          value: '53'
+                        position:
+                          lat: 49.628285
+                          lng: 18.574476
+                      - devID: SCC.IOT.REKAOWN-6D6F4D4531FFAA03
+                        id: 6D6F4D4531FFAA03
+                        deviceName: Meteostanice OÚ Řeka
+                        classData:
+                          classIcon: ico-sun
+                          classColor: '#fcba04'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: MeteoStation
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:15'
+                        value:
+                          sysName: airTemperature
+                          name: Teplota
+                          unit: °C
+                          value: '8,7'
+                        position:
+                          lat: 49.62843
+                          lng: 18.57457
+                      - devID: SCC.IOT.REKAOWN-6D6F544831FFAA09
+                        id: 6D6F544831FFAA09
+                        deviceName: Indoor teploměr OÚ
+                        classData:
+                          classIcon: ico-sun
+                          classColor: '#fcba04'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: MeteoStation
+                        status: TIMEOUT
+                        statusTimestamp: '27.07.2021 07:30'
+                        value:
+                          sysName: airTemperature
+                          name: Teplota
+                          unit: °C
+                          value: '22'
+                        position:
+                          lat: 49.62843
+                          lng: 18.57464
+                      - devID: SCC.IOT.REKAOWN-6D6F475031FFAA03
+                        id: 6D6F475031FFAA03
+                        deviceName: Elektrovozík
+                        classData:
+                          classIcon: ico-gps
+                          classColor: '#357266'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: GPSTracker
+                        status: GPSNOFIX
+                        statusTimestamp: '02.11.2021 11:13'
+                        value:
+                          sysName: mainCapacity
+                          name: Kapacita baterie
+                          unit: '%'
+                          value: '77'
+                        position:
+                          lat: 49.62864
+                          lng: 18.57461
+                      - devID: SCC.IOT.REKAOWN-6D6F534E31FFAA11
+                        id: 6D6F534E31FFAA11
+                        deviceName: Měření hluku 6 - OÚ
+                        classData:
+                          classIcon: ico-speaker-up
+                          classColor: '#32a287'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: SoundMeter
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:22'
+                        value:
+                          sysName: soundLevel
+                          name: Hlučnost
+                          unit: dB
+                          value: '37'
+                        position:
+                          lat: 49.62865
+                          lng: 18.57462
+                      - devID: SCC.IOT.REKAOWN-6D6F555331FFAA08
+                        id: 6D6F555331FFAA08
+                        deviceName: Hladinoměr 2 - Ropičanka střed obce
+                        classData:
+                          classIcon: ico-level
+                          classColor: '#6497a8'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: WaterLevel
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:11'
+                        value:
+                          sysName: waterHeight
+                          name: Hladina
+                          unit: cm
+                          value: '16'
+                        position:
+                          lat: 49.6315283
+                          lng: 18.5739425
+                      - devID: SCC.IOT.REKAOWN-6D6F435B31FFAA07
+                        id: 6D6F435B31FFAA07
+                        deviceName: Měření CO2 MŠ 2
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-co2
+                          classColor: '#e5305d'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: CO2
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:22'
+                        value:
+                          sysName: co2
+                          name: Úroveň CO2
+                          unit: ppm
+                          value: '740'
+                        position:
+                          lat: 49.6330547
+                          lng: 18.5727208
+                      - devID: SCC.IOT.REKAOWN-6D6F534E31FFAA10
+                        id: 6D6F534E31FFAA10
+                        deviceName: Měření hluku 5 - MŠ
+                        classData:
+                          classIcon: ico-speaker-up
+                          classColor: '#32a287'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: SoundMeter
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:19'
+                        value:
+                          sysName: soundLevel
+                          name: Hlučnost
+                          unit: dB
+                          value: '60'
+                        position:
+                          lat: 49.63309
+                          lng: 18.57265
+                      - devID: SCC.IOT.REKAOWN-I20201031AAWRF01201384
+                        id: I20201031AAWRF01201384
+                        deviceName: Pod mateřskou školkou
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-cctv
+                          classColor: '#ffd000'
+                          deviceType: ActiveDevice
+                        deviceClass: PublicCamera
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:22'
+                        value:
+                          sysName: null
+                          name: null
+                          unit: null
+                          value: null
+                        position:
+                          lat: 49.6331070592726
+                          lng: 18.5726623532537
+                      - devID: SCC.IOT.REKAOWN-6D6F435B31FFAA06
+                        id: 6D6F435B31FFAA06
+                        deviceName: Měření CO2 MŠ 1
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-co2
+                          classColor: '#e5305d'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: CO2
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:23'
+                        value:
+                          sysName: co2
+                          name: Úroveň CO2
+                          unit: ppm
+                          value: '877'
+                        position:
+                          lat: 49.6332008
+                          lng: 18.5725386
+                      - devID: SCC.IOT.REKAOWN-6D6F524D52FFAA0A
+                        id: 6D6F524D52FFAA0A
+                        deviceName: Rychlostní radar
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-overspeed
+                          classColor: '#3d0c11'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: SpeedDetector
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:20'
+                        value:
+                          sysName: speedAvg
+                          name: Průměrná rychlost
+                          unit: km/h
+                          value: '45'
+                        position:
+                          lat: 49.633278000935
+                          lng: 18.5727417469025
+                      - devID: SCC.IOT.REKAOWN-6D6F555331FFAA07
+                        id: 6D6F555331FFAA07
+                        deviceName: 'Hladinoměr 1 - Ropičanka u hotelu Řeka '
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-level
+                          classColor: '#6497a8'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: WaterLevel
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:22'
+                        value:
+                          sysName: waterHeight
+                          name: Hladina
+                          unit: cm
+                          value: '12'
+                        position:
+                          lat: 49.6414136
+                          lng: 18.5715983
+                      - devID: SCC.IOT.REKAOWN-6D6F534E31FFAA08
+                        id: 6D6F534E31FFAA08
+                        deviceName: Měření hluku 3 - Waclawiec
+                        classData:
+                          classIcon: ico-speaker-up
+                          classColor: '#32a287'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: SoundMeter
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:11'
+                        value:
+                          sysName: soundLevel
+                          name: Hlučnost
+                          unit: dB
+                          value: '28'
+                        position:
+                          lat: 49.6417
+                          lng: 18.57203
+                      - devID: SCC.IOT.REKAOWN-6D6F544831FFAA05
+                        id: 6D6F544831FFAA05
+                        deviceName: Outdoor teploměr 1 SDH
+                        classData:
+                          classIcon: ico-sun
+                          classColor: '#fcba04'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: MeteoStation
+                        status: TIMEOUT
+                        statusTimestamp: '20.08.2021 22:02'
+                        value:
+                          sysName: airTemperature
+                          name: Teplota
+                          unit: °C
+                          value: '15,5'
+                        position:
+                          lat: 49.64264
+                          lng: 18.57158
+                      - devID: SCC.IOT.REKAOWN-6D6F534E31FFAA06
+                        id: 6D6F534E31FFAA06
+                        deviceName: Měření hluku 1 - Hamrozi
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-speaker-up
+                          classColor: '#32a287'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: SoundMeter
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:18'
+                        value:
+                          sysName: soundLevel
+                          name: Hlučnost
+                          unit: dB
+                          value: '52'
+                        position:
+                          lat: 49.6428803310823
+                          lng: 18.5718405246735
+                      - devID: SCC.IOT.REKAOWN-6D6F534E31FFAA09
+                        id: 6D6F534E31FFAA09
+                        deviceName: Měření hluku 4 - Waschut
+                        classData:
+                          classIcon: ico-speaker-up
+                          classColor: '#32a287'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: SoundMeter
+                        status: TIMEOUT
+                        statusTimestamp: '05.10.2021 20:52'
+                        value:
+                          sysName: soundLevel
+                          name: Hlučnost
+                          unit: dB
+                          value: '38'
+                        position:
+                          lat: 49.64312
+                          lng: 18.56809
+                      - devID: SCC.IOT.REKAOWN-6D6F534E31FFAA07
+                        id: 6D6F534E31FFAA07
+                        deviceName: Měření hluku 2 - Muroň
+                        classData:
+                          classIcon: ico-speaker-up
+                          classColor: '#32a287'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: SoundMeter
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:15'
+                        value:
+                          sysName: soundLevel
+                          name: Hlučnost
+                          unit: dB
+                          value: '45'
+                        position:
+                          lat: 49.64515
+                          lng: 18.57317
+                      - devID: SCC.IOT.REKAOWN-0004A30B00F46FDD
+                        id: 0004A30B00F46FDD
+                        deviceName: Řeka > Guty
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-traffic
+                          classColor: '#3d0c11'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: TrafficDetector
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:18'
+                        value:
+                          sysName: catACount
+                          name: Počet vozidel
+                          unit: ''
+                          value: '0'
+                        position:
+                          lat: 49.6454974974721
+                          lng: 18.5732178390026
+                      - devID: SCC.IOT.REKAOWN-0004A30B00F4F0CD
+                        id: 0004A30B00F4F0CD
+                        deviceName: Guty > Řeka
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-traffic
+                          classColor: '#3d0c11'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: TrafficDetector
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:20'
+                        value:
+                          sysName: catACount
+                          name: Počet vozidel
+                          unit: ''
+                          value: '0'
+                        position:
+                          lat: 49.6455040103608
+                          lng: 18.573181629181
+                      - devID: SCC.IOT.REKAOWN-0004A30B00F48BD3
+                        id: 0004A30B00F48BD3
+                        deviceName: Řeka > Smilovice
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-traffic
+                          classColor: '#3d0c11'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: TrafficDetector
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:18'
+                        value:
+                          sysName: catACount
+                          name: Počet vozidel
+                          unit: ''
+                          value: '0'
+                        position:
+                          lat: 49.6456663853271
+                          lng: 18.5722643030442
+                      - devID: SCC.IOT.REKAOWN-0004A30B00F47425
+                        id: 0004A30B00F47425
+                        deviceName: Smilovice > Řeka
+                        classData:
+                          myIoT: 1
+                          classIcon: ico-traffic
+                          classColor: '#3d0c11'
+                          deviceType: 'ActiveDevice,LoRaWanDevice'
+                        deviceClass: TrafficDetector
+                        status: OK
+                        statusTimestamp: '02.11.2021 13:19'
+                        value:
+                          sysName: catACount
+                          name: Počet vozidel
+                          unit: ''
+                          value: '2'
+                        position:
+                          lat: 49.6456684073789
+                          lng: 18.5722121333814
+      description: |-
+        Metoda vrací seznam veřejných zařízení podle zadaného GPS extentu
+
+        např. api/app/mob/myiot/device/public?extent=49.650431685843174,18.61667633056641;49.62302746118664,18.53427886962891
+      tags:
+        - authorization
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: extent
+          description: 'mapový extent ve formátu lat1,lng1;lat2,lng2'
+          required: true
+        - schema:
+            type: string
+            example: myIoT
+          in: query
+          name: locale
+          description: jazyk
+      security:
+        - Bearer token: []
+    parameters: []
   /api/customer/email/exist:
     get:
       summary: Account Check Request
@@ -5693,6 +6175,20 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
