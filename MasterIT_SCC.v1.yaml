@@ -6213,7 +6213,9 @@ paths:
             examples:
               data:
                 value:
-                  devices: devID zarizeni tak jako v URI
+                  devices:
+                    - devID1
+                    - devID2
           application/xml:
             schema:
               type: object
@@ -6336,6 +6338,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
