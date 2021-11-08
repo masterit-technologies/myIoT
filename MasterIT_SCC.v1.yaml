@@ -540,6 +540,7 @@ paths:
                           groupID: myiot_reka
                           gallery: []
                           attachments: []
+                          html: ...
                         - recID: 18093d10-ca26-4adb-a772-d684b54ce009
                           title: Informace pro občany
                           description: Úřední deska
@@ -552,6 +553,7 @@ paths:
                           groupID: myiot_reka
                           gallery: []
                           attachments: []
+                          html: ...
                         - recID: 78e3b940-c712-4b49-8556-4f1449a01456
                           title: Informace pro občany
                           description: Úřední deska
@@ -572,6 +574,7 @@ paths:
                               category: document
                               fileName: Pozvánka zastupitelstvo 2 .2021.pdf
                               contentType: application/pdf
+                          html: ...
                         - recID: 3fe0c81b-4fc2-428c-a39c-8ae8213c8539
                           title: Informace pro občany
                           description: Úřední deska
@@ -592,6 +595,7 @@ paths:
                               category: document
                               fileName: FB_IMG_1622721641703.jpg
                               contentType: image/jpeg
+                          html: ...
       description: |-
         Metoda vrací seznam zpráv podle zadaných parametrů
 
@@ -6338,6 +6342,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
