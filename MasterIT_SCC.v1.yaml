@@ -5408,6 +5408,16 @@ paths:
 
         [API returns device detail data for myIoT application]
 
+        Values 
+
+        NotifEnabled - povolení/zakázání notifikací
+        ChartType - typ grafu (line, bar, none), pokud je none graf se nezobrazí
+
+        IsAllowedSMS- jsou povoleny SMS notifikace?
+
+        Parameters
+        Show - zobrazit/skrýt parametr
+
 
         Example for Parameter value and Notification value association
 
@@ -6342,6 +6352,11 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
 
 
 
