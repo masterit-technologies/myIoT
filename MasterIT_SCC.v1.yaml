@@ -6205,6 +6205,25 @@ paths:
         - Bearer token: []
       requestBody:
         description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              data:
+                value:
+                  devices: devID zarizeni tak jako v URI
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              data:
+                value: |-
+                  {
+                  "devices":""
+                  }
       parameters:
         - schema:
             type: string
@@ -6317,6 +6336,14 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
 
 
 
