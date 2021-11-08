@@ -492,6 +492,148 @@ paths:
       tags:
         - application-myIoT
     parameters: []
+  /api/app/mob/myiot/infoChannel/data:
+    get:
+      summary: Infochannel data
+      operationId: get-api-app-mob-myiot-infochannel-data
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      infoChannels:
+                        - itemID: obecReka
+                          name: Obec Řeka
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/ace55ee4-e41f-4ae7-b553-dd173aa5deff.png'
+                          description: ''
+                          groupID: myiot_reka
+                          channelImage: 'https://smartcity.masterit.cz/Content/Files/3210bb38-f948-43de-b9bb-fb7887e7047e.jpg'
+                        - itemID: sencito
+                          name: Sencito
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/4e118955-f4f7-4d5d-85f8-db9bd72475ce.svg'
+                          description: ''
+                          groupID: sencito
+                          channelImage: 'https://smartcity.masterit.cz/Content/Files/45e2f102-a4a8-4f88-9853-b7ddf1988abf.png'
+                      interestGroupsModerator:
+                        - id: myIoT-myiot_masterit-technicians-52faa
+                          groupID: myiot_masterit
+                          name: Technicians
+                      messages:
+                        - recID: 92f85608-5634-4abb-bf67-31fdf3ce052b
+                          title: Informace pro občany
+                          description: Úřední deska
+                          dateTimeEp: 1626884707
+                          category: officialDesk
+                          image: ''
+                          url: 'https://scc.chytrejsiobec.cz/Content/cms/pages/myiot_reka/92f85608-5634-4abb-bf67-31fdf3ce052b-cs.html'
+                          channel: obecReka
+                          isCustomerModerator: false
+                          groupID: myiot_reka
+                          gallery: []
+                          attachments: []
+                        - recID: 18093d10-ca26-4adb-a772-d684b54ce009
+                          title: Informace pro občany
+                          description: Úřední deska
+                          dateTimeEp: 1625812177
+                          category: officialDesk
+                          image: ''
+                          url: 'https://scc.chytrejsiobec.cz/Content/cms/pages/myiot_reka/18093d10-ca26-4adb-a772-d684b54ce009-cs.html'
+                          channel: obecReka
+                          isCustomerModerator: false
+                          groupID: myiot_reka
+                          gallery: []
+                          attachments: []
+                        - recID: 78e3b940-c712-4b49-8556-4f1449a01456
+                          title: Informace pro občany
+                          description: Úřední deska
+                          dateTimeEp: 1623688747
+                          category: officialDesk
+                          image: ''
+                          url: 'https://scc.chytrejsiobec.cz/Content/cms/pages/myiot_reka/78e3b940-c712-4b49-8556-4f1449a01456-cs.html'
+                          channel: obecReka
+                          isCustomerModerator: false
+                          groupID: myiot_reka
+                          gallery: []
+                          attachments:
+                            - url: 'https://smartcity.masterit.cz/Content/Files/8cf3c80b-88ed-4f82-9ee2-4fde48a29740.pdf'
+                              recID: 8cf3c80b-88ed-4f82-9ee2-4fde48a29740
+                              sccID: 1
+                              length: 123572
+                              groupID: myiot_reka
+                              category: document
+                              fileName: Pozvánka zastupitelstvo 2 .2021.pdf
+                              contentType: application/pdf
+                        - recID: 3fe0c81b-4fc2-428c-a39c-8ae8213c8539
+                          title: Informace pro občany
+                          description: Úřední deska
+                          dateTimeEp: 1622729925
+                          category: officialDesk
+                          image: ''
+                          url: 'https://scc.chytrejsiobec.cz/Content/cms/pages/myiot_reka/3fe0c81b-4fc2-428c-a39c-8ae8213c8539-cs.html'
+                          channel: obecReka
+                          isCustomerModerator: false
+                          groupID: myiot_reka
+                          gallery: []
+                          attachments:
+                            - url: 'https://smartcity.masterit.cz/Content/Files/94b658f7-220c-48c0-87e5-8ac8878974c8.jpg'
+                              recID: 94b658f7-220c-48c0-87e5-8ac8878974c8
+                              sccID: 1
+                              length: 42712
+                              groupID: myiot_reka
+                              category: document
+                              fileName: FB_IMG_1622721641703.jpg
+                              contentType: image/jpeg
+      description: |-
+        Metoda vrací seznam zpráv podle zadaných parametrů
+
+        např. api/app/mob/myiot/infochannel/data?locale=cs&type=mobile&category=officialDesk&channel=obecReka&limit=5&page=0
+      parameters:
+        - schema:
+            type: string
+            default: web
+          in: query
+          name: type
+          description: 'typ výstupu, mobile/web'
+        - schema:
+            type: string
+            example: myIoT
+          in: query
+          name: locale
+          description: jazyk
+        - schema:
+            type: string
+          in: query
+          name: category
+          description: 'kategorie zprávy (news, officialDesk, ...)'
+        - schema:
+            type: string
+          in: query
+          name: channel
+          description: 'kanál zprávy (obecReka, obecRopice, ....)'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: max počet vrácených zpráv (pro stránkování)
+        - schema:
+            type: string
+          in: query
+          name: page
+          description: 'stránka u stránkování '
+      security:
+        - Bearer token: []
+      tags:
+        - application-myIoT
+    parameters: []
   /api/customer/email/exist:
     get:
       summary: Account Check Request
@@ -6175,6 +6317,21 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
