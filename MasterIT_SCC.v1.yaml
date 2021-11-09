@@ -5417,6 +5417,8 @@ paths:
 
         IsAllowedSMS- jsou povoleny SMS notifikace?
 
+        IsHidden - hodnota není vidět v přehledu hodnot, ale může mít viditelný graf i notifikaci
+
         Parameters
         Show - zobrazit/skrýt parametr
 
@@ -6354,6 +6356,14 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
 
 
 
@@ -39365,7 +39375,16 @@ components:
     IoTDevice:
       title: IoTDevice
       type: object
-      description: 'Odlehčený model zařízení, určený především pro komunikaci s mobilními aplikacemi'
+      description: |-
+        Odlehčený model zařízení, určený především pro komunikaci s mobilními aplikacemi
+
+        Application
+
+        - measurement: běžná měřící aplikace 
+        - security: aplikace zabezpečení obsahuje možnost zamčení/odemčení a další informace jako kdo/kdy senzor zamknul
+        - consumption: aplikace spotřeby energie/vody/plynu atd... zobrazuje v grafech porovnání aktuální a předchozí periody
+        - gps: Hlavní je GPS pozice senzoru, tedy mapa je nahoře nad grafy
+        - camera: obsahuje náhled kamerového snímku
       properties:
         RecID:
           type: string
@@ -39488,6 +39507,12 @@ components:
             - bar
             - none
             - pie
+        NotifEnabled:
+          type: boolean
+          description: Povolená/Zakázaná notifikace
+        IsHidden:
+          type: boolean
+          description: Hodnota je Skytá/Zobrazená v přehledu hodnot
       required:
         - SysName
     DeviceParameter:
