@@ -5413,6 +5413,8 @@ paths:
         NotifEnabled - povolení/zakázání notifikací
         ChartType - typ grafu (line, bar, none), pokud je none graf se nezobrazí
 
+        Pokud ChartType je "none" a NotifEnabled je true potom nelze nastavit u notifikace Min a Max hodnotu ale pouze vybrat typ notifikace (email, push, sms)
+
         IsAllowedSMS- jsou povoleny SMS notifikace?
 
         Parameters
@@ -6352,6 +6354,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
