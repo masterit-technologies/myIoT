@@ -6658,6 +6658,8 @@ paths:
 
 
 
+
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -39385,6 +39387,7 @@ components:
         - consumption: aplikace spotřeby energie/vody/plynu atd... zobrazuje v grafech porovnání aktuální a předchozí periody
         - gps: Hlavní je GPS pozice senzoru, tedy mapa je nahoře nad grafy
         - camera: obsahuje náhled kamerového snímku
+        - speedDetector: aplikace pro rychlostní radary obsahuje maximální povolenou rychlost a procentuální překroční rychlost
       properties:
         RecID:
           type: string
