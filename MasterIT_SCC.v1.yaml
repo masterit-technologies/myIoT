@@ -487,6 +487,11 @@ paths:
           in: query
           name: locale
           description: jazyk
+        - schema:
+            type: string
+            default: web
+          in: query
+          description: 'typ formatovani (web, mobile)'
       security:
         - Bearer token: []
       tags:
@@ -6361,6 +6366,9 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
 
 
 
