@@ -633,6 +633,11 @@ paths:
           in: query
           name: page
           description: 'stránka u stránkování '
+        - schema:
+            type: string
+          in: query
+          name: recID
+          description: ID novinky
       security:
         - Bearer token: []
       tags:
@@ -6356,6 +6361,8 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
 
 
 
