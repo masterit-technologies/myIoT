@@ -845,6 +845,9 @@ paths:
                   type: string
                   description: aplikace ze které se přihlašuji
                   example: myIoT
+                deviceID:
+                  type: string
+                  description: ID zařízení stejné jako u push tokenů
               required:
                 - type
                 - password
@@ -6366,6 +6369,12 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
 
 
 
@@ -39322,6 +39331,9 @@ paths:
                   type: string
                   description: aplikace ze které se přihlašuji
                   example: myIoT
+                deviceID:
+                  type: string
+                  description: ID zařízení stejné jako u push tokenů
               required:
                 - type
                 - refreshToken
