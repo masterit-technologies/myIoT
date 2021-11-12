@@ -497,6 +497,37 @@ paths:
       tags:
         - application-myIoT
     parameters: []
+  /api/logout:
+    get:
+      summary: Logout customer
+      operationId: get-api-logout
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data: null
+      description: Metoda provede zneplatnění refreshTokenu a pushTokenu
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: deviceID
+          description: ID zařízení/instalace
+          required: true
+      security:
+        - Bearer token: []
+      tags:
+        - application-myIoT
+    parameters: []
   /api/app/mob/myiot/infoChannel/data:
     get:
       summary: Infochannel data
@@ -6369,6 +6400,13 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
 
 
 
