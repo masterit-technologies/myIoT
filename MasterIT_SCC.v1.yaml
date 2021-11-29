@@ -1644,6 +1644,13 @@ paths:
           in: query
           name: limit
           description: počet položek na stránku
+        - schema:
+            type: string
+            example: primary
+            default: primar
+          in: query
+          name: channelType
+          description: typ kanalu (primary/secondary)
       security:
         - Bearer token: []
       tags:
@@ -6400,6 +6407,10 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
 
 
 
