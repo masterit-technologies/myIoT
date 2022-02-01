@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: myIoT
+  title: SENCITO
   version: '1.0'
   description: ''
   contact: {}
@@ -6479,6 +6479,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
