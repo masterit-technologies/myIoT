@@ -1745,108 +1745,169 @@ paths:
                     err_code: 0
                     data:
                       status:
+                        - itemID: 1_FLOOD_STAGE
+                          name: 1. Povodňový stupeň
+                          color: '#009933'
+                          type: WaterLevel
+                        - itemID: 2_FLOOD_STAGE
+                          name: 2. Povodňový stupeň
+                          color: '#FFFF00'
+                          type: WaterLevel
+                        - itemID: 3_FLOOD_STAGE
+                          name: 3. Povodňový stupeň
+                          color: '#FF0000'
+                          type: WaterLevel
                         - itemID: ERROR
                           name: Chyba
                           color: '#ec2512'
+                          type: ''
                         - itemID: GPSNOFIX
                           name: Mimo GPS
                           color: '#ffa500'
+                          type: GPSTracker
+                        - itemID: RECHARGING
+                          name: Nabíjení
+                          color: '#ff9e00'
+                          type: PublicRadio
                         - itemID: TIMEOUT
                           name: Neodpovídá
                           color: '#8f8f8f'
+                          type: ''
                         - itemID: UNKNOWN
                           name: Neznámý
                           color: '#8f8f8f'
+                          type: ''
+                        - itemID: BATTERY_LOW
+                          name: Nízké napětí baterie
+                          color: '#ffa500'
+                          type: ''
+                        - itemID: LOW_POWER
+                          name: Nízké napětí
+                          color: '#9800fe'
+                          type: PublicRadio
+                        - itemID: WATER_LOW
+                          name: Normální stav
+                          color: '#4bb2c5'
+                          type: WaterLevel
+                        - itemID: DOOR_OPEN
+                          name: Otevřený kryt
+                          color: '#ff0000'
+                          type: PublicRadio
+                        - itemID: BROADCASTING
+                          name: Proběhlé vysílání
+                          color: '#ffdc00'
+                          type: PublicRadio
                         - itemID: WARNING
                           name: Upozornění
                           color: '#ffa500'
+                          type: ''
                         - itemID: OK
                           name: V pořádku
                           color: '#45bb42'
+                          type: ''
                       types:
-                        - itemID: AccessPoint
-                          name: Access point
-                        - itemID: PointOfInterest
-                          name: Bod zájmu
-                        - itemID: BikeDock
-                          name: Dok pro kola
+                        - itemID: TrafficDetector
+                          name: Detektor provozu
+                          allowCreate: false
+                        - itemID: SpeedDetector
+                          name: Detektor rychlosti
+                          allowCreate: false
                         - itemID: Gateway
                           name: Gateway
+                          allowCreate: false
                         - itemID: GPSTracker
                           name: GPS jednotka
+                          allowCreate: true
                         - itemID: PublicCamera
                           name: Kamera
+                          allowCreate: true
                         - itemID: ContactSensor
                           name: Kontaktní senzor
+                          allowCreate: true
                         - itemID: CO2
                           name: Měření CO2
+                          allowCreate: true
                         - itemID: SoundMeter
                           name: Měření hluku
+                          allowCreate: true
                         - itemID: MeteoStation
                           name: Meteostanice
-                        - itemID: GeneralDevice
-                          name: Obecné zařízení
+                          allowCreate: true
                         - itemID: TankContents
                           name: Obsah nádrže
-                        - itemID: ParkingAutomat
-                          name: Parkovací automat
-                        - itemID: ParkingDetector
-                          name: Parkovací detektor
-                        - itemID: ParkingCamera
-                          name: Parkovací kamera
-                        - itemID: ParkingLocation
-                          name: Parkovací lokalita
-                        - itemID: ParkingPlace
-                          name: Parkovací místo
-                        - itemID: ParkingArea
-                          name: Parkovací oblast
-                        - itemID: ParkingPanel
-                          name: Parkovací panel
+                          allowCreate: true
                         - itemID: ParkingSensor
                           name: Parkovací senzor
-                        - itemID: ParkingBarrier
-                          name: Parkovací závora
-                        - itemID: ParkingZone
-                          name: Parkovací zóna
-                        - itemID: PassCounter
-                          name: Počítadlo osob
-                        - itemID: Router
-                          name: Router
+                          allowCreate: true
                         - itemID: SecuritySensor
                           name: Senzor zabezpečení
+                          allowCreate: true
                         - itemID: WasteLevelDetector
                           name: Senzor zaplnění kontejneru
-                        - itemID: Server
-                          name: Server
+                          allowCreate: true
                         - itemID: GroupingDevice
                           name: Skupina zařízení
+                          allowCreate: true
                         - itemID: PowerMeter
                           name: Spotřeba elektřiny
+                          allowCreate: true
                         - itemID: GasMeter
                           name: Spotřeba plynu
+                          allowCreate: true
+                        - itemID: CaloriMeter
+                          name: Spotřeba tepla
+                          allowCreate: true
                         - itemID: WaterMeter
                           name: Spotřeba vody
+                          allowCreate: true
+                        - itemID: RainfallMeter
+                          name: Srážkoměr
+                          allowCreate: true
                         - itemID: UniSensor
                           name: Univerzální senzor
+                          allowCreate: true
                         - itemID: PublicRadio
                           name: Veřejný rozhlas
-                        - itemID: Vehicle
-                          name: Vozidlo
+                          allowCreate: true
                         - itemID: WaterLevel
                           name: Výška hladiny
-                        - itemID: TransportStop
-                          name: Zastávka
+                          allowCreate: true
+                        - itemID: FloodMeter
+                          name: Záplavový senzor
+                          allowCreate: true
                       vendors:
+                        - itemID: BOSCH
+                          name: BOSCH
+                          models:
+                            - itemID: BCH.TPS110EU
+                              name: Parking Lot Sensor TPS110EU
+                        - itemID: CITIQ
+                          name: CITIQ
+                          models:
+                            - itemID: CTQ.020000302-1
+                              name: CTQ.020000302-1
                         - itemID: Dragino
                           name: Dragino
                           models:
                             - itemID: DRA.LDS01
                               name: LDS01
+                        - itemID: ENBRA
+                          name: ENBRA
+                          models:
+                            - itemID: ENB.Innotas-H20
+                              name: Innotas-H20 LoRaWAN
                         - itemID: Hikvision
                           name: Hikvision
                           models:
                             - itemID: HIK.IPCAM
                               name: General IP Camera
+                        - itemID: Innotas
+                          name: Innotas
+                          models:
+                            - itemID: INO.HCA-LoRa
+                              name: Innotas HCA LoRaWan
+                            - itemID: INO.WaterMeter-LoRa
+                              name: Innotas WaterMeter LoRaWan
                         - itemID: IoTVega
                           name: IoT Vega
                           models:
@@ -1867,6 +1928,8 @@ paths:
                               name: LRB.MIO-CNT-1-E
                             - itemID: LRB.MIO-CNT-1-G
                               name: LRB.MIO-CNT-1-G
+                            - itemID: LRB.MIO-CNT-1-R
+                              name: LRB.MIO-CNT-1-R
                             - itemID: LRB.MIO-CNT-1-W
                               name: LRB.MIO-CNT-1-W
                             - itemID: LRB.MIO-CNT-2-E
@@ -1879,18 +1942,41 @@ paths:
                               name: LRB.MIO-CO2-B1
                             - itemID: LRB.MIO-CO2-P1
                               name: LRB.MIO-CO2-P1
+                            - itemID: LRB.MIO-CUSTOM
+                              name: LRB.MIO-CUSTOM
                             - itemID: LRB.MIO-ENV-1
                               name: LRB.MIO-ENV-1
                             - itemID: LRB.MIO-GPS-1
                               name: LRB.MIO-GPS-1
                             - itemID: LRB.MIO-MET-1
                               name: LRB.MIO-MET-1
+                            - itemID: LRB.MIO-MPV-1
+                              name: LRB.MIO-MPV-1
+                            - itemID: LRB.MIO-RMR-2
+                              name: LRB.MIO-RMR-2
                             - itemID: LRB.MIO-SND-1
                               name: LRB.MIO-SND-1
                             - itemID: LRB.MIO-THR-1
                               name: LRB.MIO-THR-1
                             - itemID: LRB.MIO-USN-1
                               name: LRB.MIO-USN-1
+                            - itemID: LRB.MIO-USN-1-T
+                              name: LRB.MIO-USN-1-T
+                        - itemID: Milesight
+                          name: Milesight
+                          models:
+                            - itemID: MS.AM103
+                              name: AM103 CO2 3v1
+                            - itemID: MS.EM300
+                              name: EM300 flood detector
+                            - itemID: MS.EM310
+                              name: EM310 ultra sonic
+                            - itemID: MS.WS101
+                              name: WS101 panic button
+                            - itemID: MS.WS202
+                              name: WS202 peer alarm
+                            - itemID: MS.WS301
+                              name: WS301 magnetic alarm
                         - itemID: MOKOSmart
                           name: MOKOSmart
                           models:
@@ -1901,9 +1987,16 @@ paths:
                           models:
                             - itemID: SEN.SingleSensor30
                               name: Single Sensor 3.0
+                        - itemID: Senzoor
+                          name: Senzoor
+                          models:
+                            - itemID: SZO.Aqua-LoRaWan
+                              name: Senzoor Aqua LoRaWan
                         - itemID: SolidusTech
                           name: SolidusTech
                           models:
+                            - itemID: SOL.LR-MU-CNT-IP65
+                              name: SOL.LR-MU-CNT-IP65
                             - itemID: SOL.LRMU-SEN420-IND
                               name: SOL.LRMU-SEN420-IND
                         - itemID: Winext
@@ -1911,6 +2004,11 @@ paths:
                           models:
                             - itemID: WIN.AN-122-A03
                               name: AN-122-A03
+                        - itemID: Zenner
+                          name: Zenner
+                          models:
+                            - itemID: ZEN.Minomess-LoRa
+                              name: Minomess LoRaWAN
                       sysValues:
                         - itemID: analog1
                           name: analog1
@@ -2000,24 +2098,6 @@ paths:
                             unit: MB
                             deviceType: ''
                             deviceClass: 'AccessPoint,Router'
-                        - itemID: vehicleSummaryC1
-                          name: Celkový počet vozidel kategorie C1
-                          data:
-                            unit: ''
-                            deviceType: ''
-                            deviceClass: 'ParkingDetector,TrafficDetector'
-                        - itemID: vehicleSummaryC2
-                          name: Celkový počet vozidel kategorie C2
-                          data:
-                            unit: ''
-                            deviceType: ''
-                            deviceClass: 'ParkingDetector,TrafficDetector'
-                        - itemID: vehicleSummaryC3
-                          name: Celkový počet vozidel kategorie C3
-                          data:
-                            unit: ''
-                            deviceType: ''
-                            deviceClass: 'ParkingDetector,TrafficDetector'
                         - itemID: routeID
                           name: Číslo linky
                           data:
@@ -2072,6 +2152,12 @@ paths:
                             unit: ''
                             deviceType: ''
                             deviceClass: ''
+                        - itemID: rainfall
+                          name: Dešťové srážky
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'MeteoStation,RainfallMeter'
                         - itemID: digital1
                           name: digital1
                           data:
@@ -2271,6 +2357,12 @@ paths:
                             unit: ''
                             deviceType: 'ActiveDevice,LoRaWanDevice'
                             deviceClass: 'AccessPoint,Gateway,Router'
+                        - itemID: speedMax
+                          name: Maximální rychlost
+                          data:
+                            unit: km/h
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
                         - itemID: maxSpeedOut
                           name: Maximální rychlost odeslaných dat
                           data:
@@ -2313,11 +2405,54 @@ paths:
                             unit: ''
                             deviceType: ''
                             deviceClass: Vehicle
+                        - itemID: catASpeedMax
+                          name: Nejvyšší rychlost
+                          data:
+                            unit: km/h
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,TrafficDetector'
+                        - itemID: catXSpeedMax
+                          name: Nejvyšší rychlost nekategorizovaného vozidla
+                          data:
+                            unit: km/h
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat1SpeedMax
+                          name: Nejvyšší rychlost vozidla v kategorii 1
+                          data:
+                            unit: km/h
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat2SpeedMax
+                          name: Nejvyšší rychlost vozidla v kategorii 2
+                          data:
+                            unit: km/h
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat3SpeedMax
+                          name: Nejvyšší rychlost vozidla v kategorii 3
+                          data:
+                            unit: km/h
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat4SpeedMax
+                          name: Nejvyšší rychlost vozidla v kategorii 4
+                          data:
+                            unit: km/h
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
                         - itemID: loraEUI
                           name: Node EUI
                           data:
                             unit: ''
                             deviceType: LoRaWanDevice
+                            deviceClass: ''
+                        - itemID: generalText
+                          name: Obecný text
+                          data:
+                            unit: ''
+                            chartType: none
+                            deviceType: ''
                             deviceClass: ''
                         - itemID: occupiedA
                           name: occupiedA
@@ -2355,6 +2490,12 @@ paths:
                             unit: MB
                             deviceType: ''
                             deviceClass: 'AccessPoint,Router'
+                        - itemID: speedLimit
+                          name: Omezení rychlosti
+                          data:
+                            unit: km/h
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
                         - itemID: OS
                           name: Operační systém
                           data:
@@ -2391,6 +2532,12 @@ paths:
                             unit: ''
                             deviceType: ''
                             deviceClass: 'ParkingArea,ParkingLocation,ParkingZone'
+                        - itemID: period
+                          name: Perioda
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: ''
                         - itemID: startPostID
                           name: Počáteční sloupek
                           data:
@@ -2409,7 +2556,31 @@ paths:
                             unit: ''
                             chartType: none
                             deviceType: ''
-                            deviceClass: SecuritySensor
+                            deviceClass: 'SecuritySensor,ParkingSensor,FloodMeter'
+                        - itemID: catXCount
+                          name: Počet nekategorizovaných vozidel
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: catXSpeed1Count
+                          name: Počet nekategorizovaných vozidel při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: catXSpeed2Count
+                          name: Počet nekategorizovaných vozidel při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: catXSpeed3Count
+                          name: Počet nekategorizovaných vozidel při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
                         - itemID: loraGWPacketsEmitted
                           name: Počet odeslaných paketů
                           data:
@@ -2446,24 +2617,168 @@ paths:
                             unit: ''
                             deviceType: ''
                             deviceClass: GPSTracker
-                        - itemID: vehicleCountC1
-                          name: Počet vozidel kategorie C1
+                        - itemID: catACount
+                          name: Počet vozidel
                           data:
                             unit: ''
                             deviceType: ''
-                            deviceClass: 'ParkingDetector,TrafficDetector'
-                        - itemID: vehicleCountC2
-                          name: Počet vozidel kategorie C2
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: vehiclesCount
+                          name: Počet vozidel
                           data:
                             unit: ''
                             deviceType: ''
-                            deviceClass: 'ParkingDetector,TrafficDetector'
-                        - itemID: vehicleCountC3
-                          name: Počet vozidel kategorie C3
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat1Count
+                          name: Počet vozidel kategorie 1
                           data:
                             unit: ''
                             deviceType: ''
-                            deviceClass: 'ParkingDetector,TrafficDetector'
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat1Speed1Count
+                          name: Počet vozidel kategorie 1 při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat1Speed2Count
+                          name: Počet vozidel kategorie 1 při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat1Speed3Count
+                          name: Počet vozidel kategorie 1 při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat2Count
+                          name: Počet vozidel kategorie 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat2Speed1Count
+                          name: Počet vozidel kategorie 2 při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat2Speed2Count
+                          name: Počet vozidel kategorie 2 při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat2Speed3Count
+                          name: Počet vozidel kategorie 2 při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat3Count
+                          name: Počet vozidel kategorie 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat3Speed1Count
+                          name: Počet vozidel kategorie 3 při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat3Speed2Count
+                          name: Počet vozidel kategorie 3 při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat3Speed3Count
+                          name: Počet vozidel kategorie 3 při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat4Count
+                          name: Počet vozidel kategorie 4
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat4Speed1Count
+                          name: Počet vozidel kategorie 4 při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat4Speed2Count
+                          name: Počet vozidel kategorie 4 při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat4Speed3Count
+                          name: Počet vozidel kategorie 4 při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed1Count
+                          name: Počet vozidel při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed2Count
+                          name: Počet vozidel při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed3Count
+                          name: Počet vozidel při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed4Count
+                          name: Počet vozidel při rychlosti 4
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed5Count
+                          name: Počet vozidel při rychlosti 5
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed6Count
+                          name: Počet vozidel při rychlosti 6
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed7Count
+                          name: Počet vozidel při rychlosti 7
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed8Count
+                          name: Počet vozidel při rychlosti 8
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speedLimitViolations
+                          name: Porušení omezení rychlosti
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
                         - itemID: lastPostID
                           name: Poslední sloupek
                           data:
@@ -2476,6 +2791,12 @@ paths:
                             unit: ''
                             deviceType: ''
                             deviceClass: Vehicle
+                        - itemID: floodStage
+                          name: Povodňový stupeň
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'WaterLevel,TankContents'
                         - itemID: licencePlate
                           name: Poznávací značka
                           data:
@@ -2517,6 +2838,12 @@ paths:
                             unit: MB
                             deviceType: ''
                             deviceClass: 'AccessPoint,Router'
+                        - itemID: speedAvg
+                          name: Průměrná rychlost
+                          data:
+                            unit: km/h
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
                         - itemID: avgSpeedOut
                           name: Průměrná rychlost odeslaných dat
                           data:
@@ -2535,6 +2862,12 @@ paths:
                             unit: m3/h
                             deviceType: ''
                             deviceClass: ''
+                        - itemID: sensoneoPercentage
+                          name: Referenční zaplnění
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: WasteLevelDetector
                         - itemID: reserved
                           name: reserved
                           data:
@@ -2547,6 +2880,54 @@ paths:
                             unit: °C
                             deviceType: ''
                             deviceClass: MeteoStation
+                        - itemID: speed1Name
+                          name: Rychlost 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed2Name
+                          name: Rychlost 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed3Name
+                          name: Rychlost 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed4Name
+                          name: Rychlost 4
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed5Name
+                          name: Rychlost 5
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed6Name
+                          name: Rychlost 6
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed7Name
+                          name: Rychlost 7
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: speed8Name
+                          name: Rychlost 8
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
                         - itemID: speed
                           name: Rychlost
                           data:
@@ -2583,6 +2964,138 @@ paths:
                             unit: ''
                             deviceType: ''
                             deviceClass: ''
+                        - itemID: catXSum
+                          name: Součet nekategorizovaných vozidel
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: catXSpeed1Sum
+                          name: Součet nekategorizovaných vozidel při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: catXSpeed2Sum
+                          name: Součet nekategorizovaných vozidel při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: catXSpeed3Sum
+                          name: Součet nekategorizovaných vozidel při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: vehiclesSum
+                          name: Součet vozidel
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: catASum
+                          name: Součet vozidel
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat1Sum
+                          name: Součet vozidel kategorie 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat1Speed1Sum
+                          name: Součet vozidel kategorie 1 při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat1Speed2Sum
+                          name: Součet vozidel kategorie 1 při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat1Speed3Sum
+                          name: Součet vozidel kategorie 1 při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat2Sum
+                          name: Součet vozidel kategorie 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat2Speed1Sum
+                          name: Součet vozidel kategorie 2 při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat2Speed2Sum
+                          name: Součet vozidel kategorie 2 při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat2Speed3Sum
+                          name: Součet vozidel kategorie 2 při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat3Sum
+                          name: Součet vozidel kategorie 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat3Speed1Sum
+                          name: Součet vozidel kategorie 3 při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat3Speed2Sum
+                          name: Součet vozidel kategorie 3 při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat3Speed3Sum
+                          name: Součet vozidel kategorie 3 při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat4Sum
+                          name: Součet vozidel kategorie 4
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat4Speed1Sum
+                          name: Součet vozidel kategorie 4 při rychlosti 1
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat4Speed2Sum
+                          name: Součet vozidel kategorie 4 při rychlosti 2
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
+                        - itemID: cat4Speed3Sum
+                          name: Součet vozidel kategorie 4 při rychlosti 3
+                          data:
+                            unit: ''
+                            deviceType: ''
+                            deviceClass: 'ParkingDetector,SpeedDetector,TrafficDetector'
                         - itemID: tripTo
                           name: Spoj do
                           data:
@@ -2601,11 +3114,11 @@ paths:
                             unit: ''
                             chartType: bar
                             deviceType: ''
-                            deviceClass: 'PowerMeter,GasMeter,WaterMeter,UniSensor'
+                            deviceClass: 'PowerMeter,GasMeter,WaterMeter,UniSensor,TankContents'
                         - itemID: heatConsumption
                           name: Spotřeba tepla
                           data:
-                            unit: GJ
+                            unit: kW
                             deviceType: ''
                             deviceClass: ''
                         - itemID: precipitation
@@ -2637,7 +3150,7 @@ paths:
                                 value: 1
                             chartType: none
                             deviceType: ''
-                            deviceClass: SecuritySensor
+                            deviceClass: 'SecuritySensor,ParkingSensor,PublicRadio,FloodMeter'
                         - itemID: state
                           name: Stav
                           data:
@@ -2725,7 +3238,7 @@ paths:
                           data:
                             unit: °C
                             deviceType: ''
-                            deviceClass: 'MeteoStation,UniSensor,CO2,SecuritySensor,WasteLevelDetector'
+                            deviceClass: 'MeteoStation,UniSensor,CO2,SecuritySensor,WasteLevelDetector,FloodMeter,WaterMeter'
                         - itemID: airPressure
                           name: Tlak vzduchu
                           data:
@@ -2768,7 +3281,7 @@ paths:
                             unit: min
                             chartType: none
                             deviceType: ''
-                            deviceClass: SecuritySensor
+                            deviceClass: 'SecuritySensor,ParkingSensor,FloodMeter'
                         - itemID: engineType
                           name: Typ motoru
                           data:
@@ -2933,13 +3446,13 @@ paths:
                           data:
                             unit: '%'
                             deviceType: ''
-                            deviceClass: 'MeteoStation,UniSensor,CO2,SecuritySensor'
+                            deviceClass: 'MeteoStation,UniSensor,CO2,SecuritySensor,FloodMeter'
                         - itemID: waterHeight
                           name: Výška hladiny
                           data:
                             unit: cm
                             deviceType: ''
-                            deviceClass: 'MeteoStation,WaterLevel'
+                            deviceClass: 'MeteoStation,WaterLevel,TankContents'
                         - itemID: cpuUsage
                           name: Využití CPU
                           data:
@@ -2954,6 +3467,12 @@ paths:
                             deviceClass: Server
                         - itemID: diskUsedSpaceMongoDB
                           name: Využití diskového prostoru MongoDB
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: Server
+                        - itemID: diskUsedSpaceData
+                          name: Využití diskového prostoru partition data
                           data:
                             unit: '%'
                             deviceType: ''
@@ -2982,6 +3501,12 @@ paths:
                             unit: '%'
                             deviceType: ''
                             deviceClass: WasteLevelDetector
+                        - itemID: tankLevel
+                          name: Zaplnění nádrže
+                          data:
+                            unit: '%'
+                            deviceType: ''
+                            deviceClass: TankContents
                         - itemID: delay
                           name: Zpoždění
                           data:
@@ -2990,177 +3515,1275 @@ paths:
                             deviceClass: Vehicle
                       groups:
                         - data:
-                            userID: 189
-                          name: Garáž
+                            userID: 186
+                          name: Master
                           type: usr
                           cisID: 300
-                          recID: 37013
-                          itemID: myIoT-189-Garaz-dhDMiDGH
+                          recID: 56715
+                          itemID: myIoT-186-Master-K7j4gOHY
                           public: false
                           groupID: _default
                           description: null
-                          created: '2020-12-11T09:37:29'
-                          createdBy: 189
+                          created: '2022-01-12T15:50:09'
+                          createdBy: 186
                           changed: ''
                           changedBy: null
-                        - data:
-                            userID: 189
-                          name: test
-                          type: usr
-                          cisID: 300
-                          recID: 37009
-                          itemID: myIoT-189-test-20j16qKs
-                          public: false
-                          groupID: _default
-                          description: null
-                          created: '2020-12-10T10:59:44'
-                          createdBy: 189
-                          changed: ''
-                          changedBy: null
-                        - data:
-                            userID: 189
-                          name: Doma
-                          type: usr
-                          cisID: 300
-                          recID: 37007
-                          itemID: myIoT-189-Doma-GntKLFTd
-                          public: false
-                          groupID: _default
-                          description: ''
-                          created: '2020-12-10T09:49:11'
-                          createdBy: 189
-                          changed: ''
-                          changedBy: null
+                      gui:
+                        loadingIconUrl: 'https://smartcity.masterit.cz/Content/Files/dd1ec3ab-3de0-45e6-a1af-63dcd967f01d.png'
+                        loadingText: Obec Ropice
+                      defaultPosition:
+                        lat: 49.7053597
+                        lng: 18.6134497
                       infoChannels:
+                        - itemID: myiot_wieruszw_info
+                          name: Gmina Wieruszów
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/a09b47d5-ee25-472b-8cdf-a25a623af21c.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/9267ebc2-6402-4cab-a3cf-f977f4c9cac0.png'
+                          description: ''
+                          groupID: myiot_wieruszw
+                        - itemID: heimstadenSencito
+                          name: Heimstaden Sencito
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/d148fd4a-51fa-4ca0-b1a4-4e2dbe746c30.png'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2f7b7440-2077-4836-903a-cb23d168be19.png'
+                          description: ''
+                          groupID: myiot_heimstaden
+                        - itemID: myiot_mskkraj_info
+                          name: Kraj Moravskoslezský
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/702a4708-8aea-4bd8-9a33-be68b4079225.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/9dea0e1d-6dcc-47a6-b556-c06943296eca.png'
+                          description: ''
+                          groupID: myiot_mskkraj
                         - itemID: masterit
                           name: MasterIT Technologies
-                          imageUrl: 'http://localhost:63178/Content/Files/ccfeeccd-2f61-4758-8ae1-0298c766a4a6.jpg'
-                          iconUrl: 'http://localhost:63178/Content/Files/c2dfbfce-4441-472e-8d4f-a130149d665a.png'
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/06c940a5-4737-4613-9d97-1609240a9b76.png'
                           description: ''
                           groupID: myiot_masterit
+                        - itemID: myiot_cz00296228_info
+                          name: Město Albrechtice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00296228
+                        - itemID: myiot_cz00299898_info
+                          name: Město Budišov Nad Budišovkou
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00299898
+                        - itemID: myiot_cz00278653_info
+                          name: Město Česká Třebová
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00278653
+                        - itemID: myiot_cz00260410_info
+                          name: Město Cvikov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/21ea6eb4-04dd-4931-9b70-a613245fe54b.png'
+                          description: ''
+                          groupID: myiot_cz00260410
+                        - itemID: myiot_cz00256552_info
+                          name: Město Dobřany
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00256552
+                        - itemID: myiot_cz00237680_info
+                          name: Město Dolní Bousov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00237680
+                        - itemID: myiot_cz00281701_info
+                          name: Město Dolní Kounice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00281701
                         - itemID: mestoFrydekMistek
                           name: Město Frýdek-Místek
-                          imageUrl: 'http://localhost:63178/Content/Files/da997596-715b-429b-8f9e-0e2b6c0b4e37.jpeg'
-                          iconUrl: 'http://localhost:63178/Content/Files/4ba20775-5898-4ea0-ba5b-bcd586eba917.png'
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/50888e5b-a203-4871-8a93-22292ffca67c.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/4ba20775-5898-4ea0-ba5b-bcd586eba917.png'
                           description: ''
                           groupID: myiot_frydekmistek
-                        - itemID: obecChotebuz
-                          name: Obec Chotěbuz
-                          imageUrl: 'http://localhost:63178/Content/Files/9c5627a4-598a-45c7-8dba-4866b8953471.png'
-                          iconUrl: 'http://localhost:63178/Content/Files/4e147c15-f674-40d3-82a4-fafd6540a87b.png'
+                        - itemID: myiot_cz00296651_info
+                          name: Město Frýdlant Nad Ostravicí
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
                           description: ''
-                          groupID: myiot_chotebuz
+                          groupID: myiot_cz00296651
+                        - itemID: myiot_cz00267406_info
+                          name: Město Golčův Jeníkov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00267406
+                        - itemID: myiot_cz00272680_info
+                          name: Město Hronov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/90bbf967-397f-42aa-860c-512309049816.png'
+                          description: ''
+                          groupID: myiot_cz00272680
+                        - itemID: myiot_cz00281859_info
+                          name: Město Ivančice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00281859
+                        - itemID: myiot_cz00289507_info
+                          name: Město Jaroměřice Nad Rokytnou
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00289507
+                        - itemID: myiot_cz00252425_info
+                          name: Město Jistebnice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00252425
+                        - itemID: myiot_cz00303925_info
+                          name: Město Kelč
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00303925
+                        - itemID: myiot_cz00298051_info
+                          name: Město Klimkovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00298051
+                        - itemID: myiot_cz00271705_info
+                          name: Město Kopidlno
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00271705
+                        - itemID: myiot_cz00283321_info
+                          name: Město Lanžhot
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00283321
+                        - itemID: myiot_cz00239402_info
+                          name: Město Lysá Nad Labem
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00239402
+                        - itemID: myiot_cz00293164_info
+                          name: Město Miroslav
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00293164
+                        - itemID: myiot_cz00272868_info
+                          name: Město Náchod
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00272868
+                        - itemID: myiot_cz00297577_info
+                          name: Město Orlová
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00297577
+                        - itemID: myiot_cz00239607_info
+                          name: Město Pečky
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00239607
+                        - itemID: myiot_cz00270822_info
+                          name: Město Ronov nad Doubravou
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00270822
+                        - itemID: mestoRosice
+                          name: Město Rosice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/e8d3d337-a646-42e4-a3f4-1cd4866afcb0.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2acdcb72-6deb-4c78-b979-22e5b3c5626a.png'
+                          description: ''
+                          groupID: myiot_00282481
+                        - itemID: myiot_cz00292281_info
+                          name: Město Rousínov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00292281
+                        - itemID: myiot_cz00278238_info
+                          name: Město Rtyně V Podkrkonoší
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00278238
+                        - itemID: myiot_cz00567884_info
+                          name: Město Staré Město
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00567884
+                        - itemID: myiot_cz00304387_info
+                          name: Město Valašské Meziříčí
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00304387
+                        - itemID: myiot_cz00283703_info
+                          name: Město Velké Pavlovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00283703
+                        - itemID: myiot_cz00284653_info
+                          name: Město Vizovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00284653
+                        - itemID: myiot_cz00251984_info
+                          name: Město Vodňany
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00251984
+                        - itemID: myiot_cz00232963_info
+                          name: Město Votice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00232963
+                        - itemID: myiot_cz00282928_info
+                          name: Město Zbýšov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00282928
+                        - itemID: myiot_cz00304492_info
+                          name: Město Zubří
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00304492
+                        - itemID: myiot_cz00280097_info
+                          name: Městys Černá Hora
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00280097
+                        - itemID: myiot_cz00301329_info
+                          name: Městys Hustopeče Nad Bečvou
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00301329
+                        - itemID: myiot_cz00280330_info
+                          name: Městys Knínice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00280330
+                        - itemID: myiot_cz00278149_info
+                          name: Městys Mladé Buky
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00278149
+                        - itemID: myiot_cz00304131_info
+                          name: Městys Nový Hrozenkov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00304131
+                        - itemID: myiot_cz00280950_info
+                          name: Městys Sloup
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00280950
+                        - itemID: myiot_cz00292354_info
+                          name: Městys Švábenice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00292354
+                        - itemID: myiot_cz00579106_info
+                          name: Obec Albrechtice n.o.
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00579106
+                        - itemID: myiot_cz00290785_info
+                          name: Obec Bánov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00290785
+                        - itemID: myiot_cz00235237_info
+                          name: Obec Barchovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00235237
+                        - itemID: myiot_cz00296511_info
+                          name: Obec Baška
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00296511
+                        - itemID: myiot_cz00235245_info
+                          name: Obec Bečváry
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00235245
+                        - itemID: myiot_cz00839582_info
+                          name: Obec Bítovčice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00839582
+                        - itemID: myiot_cz00599271_info
+                          name: Obec Blízkov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00599271
+                        - itemID: myiot_cz00283037_info
+                          name: Obec Bořetice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00283037
+                        - itemID: myiot_cz00279951_info
+                          name: Obec Borotín
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00279951
+                        - itemID: myiot_cz00303712_info
+                          name: Obec Branky
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00303712
+                        - itemID: myiot_cz00573191_info
+                          name: Obec Březová
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00573191
+                        - itemID: myiot_cz00299871_info
+                          name: Obec Brumovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00299871
+                        - itemID: myiot_cz00600644_info
+                          name: Obec Býkovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00600644
+                        - itemID: myiot_cz00296562_info
+                          name: Obec Bystřice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00296562
+                        - itemID: myiot_cz00303739_info
+                          name: Obec Bystřička
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00303739
+                        - itemID: myiot_cz00288144_info
+                          name: Obec Čelechovice Na Hané
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00288144
+                        - itemID: myiot_cz67339158_info
+                          name: Obec Chotěbuz
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz67339158
+                        - itemID: myiot_cz00233358_info
+                          name: Obec Chyňava
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00233358
+                        - itemID: myiot_cz00235342_info
+                          name: Obec Dobřichov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00235342
+                        - itemID: myiot_cz46772731_info
+                          name: Obec Dolánky Nad Ohří
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz46772731
+                        - itemID: myiot_cz00576875_info
+                          name: Obec Dolní Tošanovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/f877b3b0-52d1-4f97-a5ee-753e5a8f1bf9.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/c63c9d33-2faf-4be1-86d6-45a209f42725.png'
+                          description: ''
+                          groupID: myiot_cz00576875
+                        - itemID: myiot_cz00485063_info
+                          name: Obec Dřenice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00485063
+                        - itemID: myiot_cz75082144_info
+                          name: Obec Držovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz75082144
+                        - itemID: myiot_cz44015844_info
+                          name: Obec Enbrovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/8c7e2abf-273f-46f7-97ca-2e8817e1c298.png'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/7362e1e3-ed65-4c2c-a3a9-568af7b9e242.svg'
+                          description: ''
+                          groupID: myiot_cz44015844
+                        - itemID: myiot_cz00635511_info
+                          name: Obec Hať
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00635511
+                        - itemID: myiot_cz00233234_info
+                          name: Obec Hlásná Třebaň
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00233234
+                        - itemID: myiot_cz00300071_info
+                          name: Obec Hněvošice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00300071
+                        - itemID: myiot_cz00296678_info
+                          name: Obec Hnojník
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/d26cc7f2-5e1b-46ad-a1c0-0dd3f4a9b680.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/b990bdb7-65d9-4a07-a7ea-faafa70ec480.png'
+                          description: ''
+                          groupID: myiot_cz00296678
+                        - itemID: myiot_cz00295990_info
+                          name: Obec Holčovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00295990
+                        - itemID: myiot_cz00239119_info
+                          name: Obec Hořátev
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00239119
+                        - itemID: myiot_cz00244929_info
+                          name: Obec Horní Stropnice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00244929
+                        - itemID: myiot_cz00576883_info
+                          name: Obec Horní Tošanovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/dcb236da-6e45-4fbe-b589-265723c37713.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/8ec0ef96-896b-42e0-93fe-2dcb4a819ca7.png'
+                          description: ''
+                          groupID: myiot_cz00576883
+                        - itemID: myiot_cz00303798_info
+                          name: Obec Hošťálková
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00303798
+                        - itemID: myiot_cz00255530_info
+                          name: Obec Hrádek
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00255530
+                        - itemID: myiot_cz00240222_info
+                          name: Obec Hrusice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00240222
+                        - itemID: myiot_cz00303836_info
+                          name: Obec Hutisko - Solanec
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00303836
+                        - itemID: myiot_cz00296040_info
+                          name: Obec Huzová
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00296040
+                        - itemID: myiot_cz00289493_info
+                          name: Obec Jakubov U Moravských Budějovic
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00289493
+                        - itemID: myiot_cz00851841_info
+                          name: Obec Janová
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00851841
+                        - itemID: myiot_cz00284017_info
+                          name: Obec Jasenná
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00284017
+                        - itemID: myiot_cz00556327_info
+                          name: Obec Jimlín
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00556327
+                        - itemID: myiot_cz00249742_info
+                          name: Obec Kestřany
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00249742
+                        - itemID: myiot_cz00288331_info
+                          name: Obec Kladky
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00288331
+                        - itemID: myiot_cz00234524_info
+                          name: Obec Klobuky
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00234524
+                        - itemID: myiot_cz00283266_info
+                          name: Obec Kobylí
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00283266
+                        - itemID: myiot_cz00494232_info
+                          name: Obec Komorní Lhotka
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34672b3c-f7a8-4990-8054-8421f34fbabc.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/0692c61f-5276-42da-b058-d5a3b8ae5f4f.png'
+                          description: ''
+                          groupID: myiot_cz00494232
+                        - itemID: myiot_cz00665134_info
+                          name: Obec Konojedy
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00665134
+                        - itemID: myiot_cz00235466_info
+                          name: Obec Kořenice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00235466
+                        - itemID: myiot_cz00479292_info
+                          name: Obec Kostelec
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00479292
+                        - itemID: myiot_cz48527416_info
+                          name: Obec Kožichovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz48527416
+                        - itemID: myiot_cz00299065_info
+                          name: Obec Kožušany-tážaly
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/1f4241ef-53a1-4290-a058-a6a8624b60a1.jpg'
+                          description: ''
+                          groupID: myiot_cz00299065
+                        - itemID: myiot_cz01265750_info
+                          name: Obec Krhová
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz01265750
+                        - itemID: myiot_cz00238163_info
+                          name: Obec Kropáčova Vrutice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00238163
+                        - itemID: myiot_cz00296856_info
+                          name: Obec Kunčice pod Ondřejníkem
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00296856
+                        - itemID: myiot_cz00265110_info
+                          name: Obec Libčeves
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00265110
+                        - itemID: myiot_cz00304042_info
+                          name: Obec Lidečko
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00304042
+                        - itemID: myiot_cz00276936_info
+                          name: Obec Linhartice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00276936
+                        - itemID: myiot_cz00259497_info
+                          name: Obec Lomnice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00259497
+                        - itemID: myiot_cz00300390_info
+                          name: Obec Ludgeřovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00300390
+                        - itemID: myiot_cz00284173_info
+                          name: Obec Lukov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00284173
+                        - itemID: myiot_cz00285111_info
+                          name: Obec Milotice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00285111
+                        - itemID: myiot_cz00285137_info
+                          name: Obec Moravský Písek
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00285137
+                        - itemID: myiot_cz00299251_info
+                          name: Obec Náklo
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00299251
                         - itemID: obecNavsi
                           name: Obec Návsí
-                          imageUrl: 'http://localhost:63178/Content/Files/94752bce-a252-4c66-8320-d1f4724d280e.png'
-                          iconUrl: 'http://localhost:63178/Content/Files/13ccc4ae-3703-45e2-b881-87cfc0f27c73.png'
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/94752bce-a252-4c66-8320-d1f4724d280e.png'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/13ccc4ae-3703-45e2-b881-87cfc0f27c73.png'
                           description: ''
                           groupID: myiot_navsi
+                        - itemID: myiot_cz60781688_info
+                          name: Obec Návsí
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz60781688
+                        - itemID: myiot_cz00291145_info
+                          name: Obec Nedachlebice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00291145
+                        - itemID: myiot_cz00544604_info
+                          name: Obec Němčice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00544604
+                        - itemID: myiot_cz00292125_info
+                          name: Obec Nemojany
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00292125
+                        - itemID: myiot_cz00288519_info
+                          name: Obec Niva
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00288519
+                        - itemID: myiot_cz00291170_info
+                          name: Obec Nivnice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00291170
+                        - itemID: myiot_cz00637530_info
+                          name: Obec Nová Ves
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00637530
+                        - itemID: myiot_cz00303089_info
+                          name: Obec Nový Malín
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00303089
+                        - itemID: myiot_cz00280763_info
+                          name: Obec Olomučany
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00280763
+                        - itemID: myiot_cz00488232_info
+                          name: Obec Omice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00488232
+                        - itemID: myiot_cz00274011_info
+                          name: Obec Opatovice Nad Labem
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00274011
+                        - itemID: myiot_cz00271900_info
+                          name: Obec Ostroměř
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00271900
                         - itemID: obecPisek
                           name: Obec Písek
-                          imageUrl: 'http://localhost:63178/Content/Files/0e2cf327-cdcd-46de-ab5a-a9f38dc35d35.png'
-                          iconUrl: 'http://localhost:63178/Content/Files/1930e36e-a582-47b6-8da1-da844a4d8aef.png'
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/0e2cf327-cdcd-46de-ab5a-a9f38dc35d35.png'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/1930e36e-a582-47b6-8da1-da844a4d8aef.png'
                           description: ''
                           groupID: myiot_pisek
+                        - itemID: myiot_cz00239615_info
+                          name: Obec Písková Lhota
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00239615
+                        - itemID: myiot_cz00288624_info
+                          name: Obec Pivín
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00288624
+                        - itemID: myiot_cz00239631_info
+                          name: Obec Pňov-předhradí
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00239631
+                        - itemID: myiot_cz00568686_info
+                          name: Obec Pohořelice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00568686
+                        - itemID: myiot_cz00473740_info
+                          name: Obec Polní Voděrady
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00473740
+                        - itemID: myiot_cz00282413_info
+                          name: Obec Příbram Na Moravě
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00282413
+                        - itemID: myiot_cz00263125_info
+                          name: Obec Příšovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00263125
+                        - itemID: obecPrisovice
+                          name: Obec Příšovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/e0ec4c98-75b5-48c7-aa86-93b89b66969d.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/3368a8dc-6f76-44a8-9526-f3c7d4a25adc.png'
+                          description: ''
+                          groupID: myiot_prisovice
+                        - itemID: myiot_cz00295167_info
+                          name: Obec Prosetín
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00295167
+                        - itemID: myiot_cz00292222_info
+                          name: Obec Prusy-boškůvky
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00292222
+                        - itemID: myiot_cz00277231_info
+                          name: Obec Pustá Kamenice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00277231
+                        - itemID: myiot_cz00600822_info
+                          name: Obec Pustějov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00600822
+                        - itemID: myiot_cz00292231_info
+                          name: Obec Pustiměř
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00292231
+                        - itemID: myiot_cz00235661_info
+                          name: Obec Radim
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00235661
+                        - itemID: myiot_cz00639737_info
+                          name: Obec Radovesnice I
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00639737
+                        - itemID: myiot_cz00304263_info
+                          name: Obec Ratiboř
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00304263
                         - itemID: obecReka
                           name: Obec Řeka
-                          imageUrl: 'http://localhost:63178/Content/Files/e5385aed-ce3e-4ed2-956b-3e80e2b51c71.png'
-                          iconUrl: 'http://localhost:63178/Content/Files/6021d3a5-6b68-4bcf-9ed4-0a8daa3e6b8b.png'
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/3210bb38-f948-43de-b9bb-fb7887e7047e.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/ace55ee4-e41f-4ae7-b553-dd173aa5deff.png'
                           description: ''
                           groupID: myiot_reka
-                        - itemID: obecVelkaPolom
-                          name: Obec Velká Polom
-                          imageUrl: 'http://localhost:63178/Content/Files/8ed4f8cc-61d7-4724-aa2f-af36312300f8.png'
-                          iconUrl: 'http://localhost:63178/Content/Files/37dcdbd9-42be-4709-84df-f9332af7effb.png'
+                        - itemID: myiot_cz00234851_info
+                          name: Obec Řisuty
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
                           description: ''
-                          groupID: myiot_velkapolom
-                      gui:
-                        loadingIconUrl: 'http://localhost:63178/Content/Files/6021d3a5-6b68-4bcf-9ed4-0a8daa3e6b8b.png'
-                        loadingText: Obec Řeka
-                      defaultPosition:
-                        lat: 49.641202
-                        lng: 18.571511
+                          groupID: myiot_cz00234851
+                        - itemID: myiot_cz70305587_info
+                          name: Obec Ropice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/9ee53a3b-83a0-48de-88ec-e78eb432408d.png'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/dd1ec3ab-3de0-45e6-a1af-63dcd967f01d.png'
+                          description: ''
+                          groupID: myiot_cz70305587
+                        - itemID: myiot_cz00636991_info
+                          name: Obec Rybníky
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00636991
+                        - itemID: myiot_cz70890587_info
+                          name: Obec Šelešovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz70890587
+                        - itemID: myiot_cz00299421_info
+                          name: Obec Senice Na Hané
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00299421
+                        - itemID: myiot_cz00296406_info
+                          name: Obec Široká Niva
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00296406
+                        - itemID: myiot_cz00635332_info
+                          name: Obec Slavětín
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00635332
+                        - itemID: myiot_cz00576905_info
+                          name: Obec Smilovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/142c8985-7344-4036-85c0-b1b03ba73f66.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/fd9a6baa-3f79-4201-bdf9-06f0bb57f217.png'
+                          description: ''
+                          groupID: myiot_cz00576905
+                        - itemID: myiot_cz00576981_info
+                          name: Obec Soběšovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00576981
+                        - itemID: myiot_cz00190900_info
+                          name: Obec Spojil
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00190900
+                        - itemID: myiot_cz00288802_info
+                          name: Obec Stařechovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00288802
+                        - itemID: myiot_cz00291331_info
+                          name: Obec Starý Hrozenkov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00291331
+                        - itemID: myiot_cz00300756_info
+                          name: Obec Štěpánkovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00300756
+                        - itemID: myiot_cz00576913_info
+                          name: Obec Střítež
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/c700e991-f657-4326-b8a8-7435116ed6c1.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/d02e3932-f503-4d78-9b89-294d099b9b73.png'
+                          description: ''
+                          groupID: myiot_cz00576913
+                        - itemID: myiot_cz00285358_info
+                          name: Obec Svatobořice-mistřín
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00285358
+                        - itemID: myiot_cz00239844_info
+                          name: Obec Tatce
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00239844
+                        - itemID: myiot_cz00299545_info
+                          name: Obec Těšetice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00299545
+                        - itemID: myiot_cz00233897_info
+                          name: Obec Tlustice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00233897
+                        - itemID: myiot_cz00235784_info
+                          name: Obec Toušice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00235784
+                        - itemID: myiot_cz00576921_info
+                          name: Obec Třanovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/29125a38-957f-4f16-825d-a34ceb4502a2.png'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2d748952-1815-499b-8344-1cf2b4e6129f.png'
+                          description: ''
+                          groupID: myiot_cz00576921
+                        - itemID: myiot_cz00235792_info
+                          name: Obec Třebovle
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00235792
+                        - itemID: myiot_cz00299570_info
+                          name: Obec Troubelice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00299570
+                        - itemID: myiot_cz00302104_info
+                          name: Obec Troubky
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00302104
+                        - itemID: myiot_cz00282723_info
+                          name: Obec Troubsko
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00282723
+                        - itemID: myiot_cz00373583_info
+                          name: Obec Tučapy
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00373583
+                        - itemID: myiot_cz00487872_info
+                          name: Obec Tvorovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00487872
+                        - itemID: myiot_cz00600849_info
+                          name: Obec Ústí
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00600849
+                        - itemID: myiot_cz00264598_info
+                          name: Obec Vědomice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00264598
+                        - itemID: myiot_cz00300845_info
+                          name: Obec Velké Hoštice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00300845
+                        - itemID: myiot_cz00284637_info
+                          name: Obec Velký Ořechov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00284637
+                        - itemID: myiot_cz00576930_info
+                          name: Obec Vělopolí
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/fb36e715-6e71-48f7-b9b5-fd87d0ac0f82.png'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/673208c4-6e49-4223-a54b-b4f507a9a110.png'
+                          description: ''
+                          groupID: myiot_cz00576930
+                        - itemID: myiot_cz00235920_info
+                          name: Obec Vrbčany
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00235920
+                        - itemID: myiot_cz00239933_info
+                          name: Obec Vrbová Lhota
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00239933
+                        - itemID: myiot_cz00282871_info
+                          name: Obec Vysoké Popovice
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00282871
+                        - itemID: myiot_cz00639761_info
+                          name: Obec Výžerky
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00639761
+                        - itemID: myiot_cz00284718_info
+                          name: Obec Zádveřice-raková
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00284718
+                        - itemID: myiot_cz00488399_info
+                          name: Obec Zastávka
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00488399
+                        - itemID: myiot_cz00282910_info
+                          name: Obec Zbraslav
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00282910
+                        - itemID: myiot_cz00273279_info
+                          name: Obec Žďár Nad Metují
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/eba222b8-dd69-4001-b6a6-a33b54ec810e.jpg'
+                          description: ''
+                          groupID: myiot_cz00273279
+                        - itemID: myiot_cz00304484_info
+                          name: Obec Zděchov
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00304484
+                        - itemID: sencito
+                          name: Sencito
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/45e2f102-a4a8-4f88-9853-b7ddf1988abf.png'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/4e118955-f4f7-4d5d-85f8-db9bd72475ce.svg'
+                          description: ''
+                          groupID: sencito
+                        - itemID: myiot_cz00297313_info
+                          name: Statutární Město Třinec
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00297313
+                        - itemID: myiot_cz00377015_info
+                          name: 'Zoologická A Botanická Zahrada Města Plzně, Příspěvková Organizace'
+                          imageUrl: 'https://smartcity.masterit.cz/Content/Files/34aef955-21d2-4f98-ade8-04f1e9b89a5a.jpg'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/Files/2426b2ef-5d3e-4e31-aace-2179d9b35ae6.svg'
+                          description: ''
+                          groupID: myiot_cz00377015
                       icons:
                         - itemID: Content/images/public-camera.svg
                           name: public-camera
-                          url: 'http://localhost:63178/Content/images/public-camera.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/public-camera.svg'
                           deviceClass: PublicCamera
                         - itemID: Content/images/car.svg
                           name: svg-car
-                          url: 'http://localhost:63178/Content/images/car.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/car.svg'
                           deviceClass: Car
                         - itemID: Content/images/device.svg
                           name: svg-device
-                          url: 'http://localhost:63178/Content/images/device.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/device.svg'
                           deviceClass: '*'
                         - itemID: Content/images/fire.svg
                           name: svg-fire
-                          url: 'http://localhost:63178/Content/images/fire.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/fire.svg'
                           deviceClass: GasMeter
                         - itemID: Content/images/flood.svg
                           name: svg-flood
-                          url: 'http://localhost:63178/Content/images/flood.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/flood.svg'
                           deviceClass: WaterLevel
+                        - itemID: Content/images/svg-flood-house.svg
+                          name: svg-flood-house
+                          url: 'https://smartcity.masterit.cz/Content/images/svg-flood-house.svg'
+                          deviceClass: FloodMeter
+                        - itemID: Content/images/svg-gateway.svg
+                          name: svg-gateway
+                          url: 'https://smartcity.masterit.cz/Content/images/svg-gateway.svg'
+                          deviceClass: Gateway
+                        - itemID: Content/images/gauge.svg
+                          name: svg-gauge
+                          url: 'https://smartcity.masterit.cz/Content/images/gauge.svg'
+                          deviceClass: UniSensor
+                        - itemID: Content/images/svg-grouping-device.svg
+                          name: svg-grouping-device
+                          url: 'https://smartcity.masterit.cz/Content/images/svg-grouping-device.svg'
+                          deviceClass: GroupingDevice
+                        - itemID: Content/images/svg-heating.svg
+                          name: svg-heating
+                          url: 'https://smartcity.masterit.cz/Content/images/svg-heating.svg'
+                          deviceClass: CaloriMeter
                         - itemID: Content/images/lawn-mower.svg
                           name: svg-lawn-mower
-                          url: 'http://localhost:63178/Content/images/lawn-mower.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/lawn-mower.svg'
                           deviceClass: LawnMower
                         - itemID: Content/images/leaf.svg
                           name: svg-leaf
-                          url: 'http://localhost:63178/Content/images/leaf.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/leaf.svg'
                           deviceClass: CO2
                         - itemID: Content/images/location.svg
                           name: svg-location
-                          url: 'http://localhost:63178/Content/images/location.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/location.svg'
                           deviceClass: GPSTracker
                         - itemID: Content/images/meteo.svg
                           name: svg-meteo
-                          url: 'http://localhost:63178/Content/images/meteo.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/meteo.svg'
                           deviceClass: MeteoStation
                         - itemID: Content/images/noise.svg
                           name: svg-noise
-                          url: 'http://localhost:63178/Content/images/noise.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/noise.svg'
                           deviceClass: SoundMeter
+                        - itemID: Content/images/overspeed.svg
+                          name: svg-overspeed
+                          url: 'https://smartcity.masterit.cz/Content/images/overspeed.svg'
+                          deviceClass: SpeedDetector
                         - itemID: Content/images/power.svg
                           name: svg-power
-                          url: 'http://localhost:63178/Content/images/power.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/power.svg'
                           deviceClass: PowerMeter
+                        - itemID: Content/images/svg-public-radio.svg
+                          name: svg-public-radio
+                          url: 'https://smartcity.masterit.cz/Content/images/svg-public-radio.svg'
+                          deviceClass: PublicRadio
+                        - itemID: Content/images/svg-raining.svg
+                          name: svg-raining
+                          url: 'https://smartcity.masterit.cz/Content/images/svg-raining.svg'
+                          deviceClass: RainfallMeter
                         - itemID: Content/images/security.svg
                           name: svg-security
-                          url: 'http://localhost:63178/Content/images/security.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/security.svg'
                           deviceClass: SecuritySensor
                         - itemID: Content/images/security.svg
                           name: svg-security
-                          url: 'http://localhost:63178/Content/images/security.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/security.svg'
                           deviceClass: ContactSensor
+                        - itemID: Content/images/security-parking.svg
+                          name: svg-security-parking
+                          url: 'https://smartcity.masterit.cz/Content/images/security-parking.svg'
+                          deviceClass: ParkingSensor
+                        - itemID: Content/images/tank-level.svg
+                          name: svg-tank-level
+                          url: 'https://smartcity.masterit.cz/Content/images/tank-level.svg'
+                          deviceClass: TankContents
                         - itemID: Content/images/tractor.svg
                           name: svg-tractor
-                          url: 'http://localhost:63178/Content/images/tractor.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/tractor.svg'
                           deviceClass: Tractor
+                        - itemID: Content/images/traffic.svg
+                          name: svg-traffic
+                          url: 'https://smartcity.masterit.cz/Content/images/traffic.svg'
+                          deviceClass: TrafficDetector
                         - itemID: Content/images/truck.svg
                           name: svg-truck
-                          url: 'http://localhost:63178/Content/images/truck.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/truck.svg'
                           deviceClass: Truck
                         - itemID: Content/images/uni.svg
                           name: svg-uni
-                          url: 'http://localhost:63178/Content/images/uni.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/uni.svg'
                           deviceClass: UniSensor
                         - itemID: Content/images/water.svg
                           name: svg-water
-                          url: 'http://localhost:63178/Content/images/water.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/water.svg'
                           deviceClass: WaterMeter
                         - itemID: Content/images/trash-bin.svg
                           name: trash-bin
-                          url: 'http://localhost:63178/Content/images/trash-bin.svg'
+                          url: 'https://smartcity.masterit.cz/Content/images/trash-bin.svg'
                           deviceClass: WasteLevelDetector
-                      unconfirmedInvitations:
-                        - devices: '*'
-                          user: sopach@seznam.cz
-                          relationGroupID: xxxx-xxxx-xxxx-xxxx....
-                          requestID: xxxx-xxxx-xxxx-.....
-                      myInvitations:
-                        - devices: '*'
-                          user: sopach@seznam.cz
+                      categories:
+                        - itemID: news
+                          name: Aktuality
+                          color: '#29c2ad'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/images/ico-info-24.png'
+                        - itemID: emergencies
+                          name: Mimořádné události
+                          color: '#000000'
+                          iconUrl: ''
+                        - itemID: weather
+                          name: Počasí
+                          color: '#000000'
+                          iconUrl: ''
+                        - itemID: advert
+                          name: Reklama
+                          color: '#000000'
+                          iconUrl: ''
+                        - itemID: officialDesk
+                          name: Úřední deska
+                          color: '#a826fa'
+                          iconUrl: 'https://smartcity.masterit.cz/Content/images/ico-digital-24.png'
+                        - itemID: restriction
+                          name: Výluky
+                          color: '#000000'
+                          iconUrl: ''
+                        - itemID: environment
+                          name: 'Životní prostředí, ovzduší'
+                          color: '#000000'
+                          iconUrl: ''
+                      unconfirmedInvitations: []
+                      myInvitations: []
+                      privacyPolicy:
+                        url: 'https://www.sencito.cz/files/sencito-zasady-zpracovani-osobnich-udaju-mobilni-aplikace.pdf'
+                        version: 1
         '401':
           description: Unauthorized
           content:
@@ -6493,6 +8116,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
