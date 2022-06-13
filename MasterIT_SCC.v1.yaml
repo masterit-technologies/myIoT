@@ -3354,6 +3354,9 @@ paths:
                           Notification: null
                           ChartType: line
                           NotifEnabled: true
+                          Aggregation:
+                            Value: 13.1
+                            ValueStr: 13.1 °C
                           ChartData:
                             - x: 1630596159
                               'y': 13.1
@@ -3373,6 +3376,9 @@ paths:
                           Notification: null
                           ChartType: line
                           NotifEnabled: true
+                          Aggregation:
+                            Value: 63
+                            ValueStr: 63 %
                           ChartData:
                             - x: 1630596159
                               'y': 63
@@ -3392,6 +3398,9 @@ paths:
                           Notification: null
                           ChartType: line
                           NotifEnabled: true
+                          Aggregation:
+                            Value: 3.642
+                            ValueStr: 3.642 V
                           ChartData:
                             - x: 1630596159
                               'y': 3.642
@@ -3743,6 +3752,9 @@ paths:
                           ValueStr: 23.2 °C
                           Notification: null
                           ChartType: line
+                          Aggregation:
+                            Value: 22.2
+                            ValueStr: 22.2 °C
                           ChartData:
                             - x: 1603874895
                               'y': 23.1
@@ -5463,6 +5475,8 @@ paths:
 
         IsHidden - hodnota není vidět v přehledu hodnot, ale může mít viditelný graf i notifikaci
 
+        Aggregation - objekt obsahuje Value a ValueStr, popisující agregovaná data za zvolený časový rozsah, vrací se pouze pokud se nejedná o Application "consumption" a pouze u hodnot kde ChartType není "none" a IsHidden není true
+
         Parameters
         Show - zobrazit/skrýt parametr
 
@@ -6400,6 +6414,13 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
 
 
 
