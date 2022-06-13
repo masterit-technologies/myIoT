@@ -6227,6 +6227,8 @@ paths:
       description: |-
         API vrátí uživatele info kanál podle zadaného name, API slouží jako našeptávač
         [Api returns infochannel by name, it is used like whisperer]
+        V položce description se nachází info o okrese a kraji dané obce. Může sloužit pro zobrazení 
+        v našeptávači info kanálů.
       parameters:
         - schema:
             type: string
@@ -6493,6 +6495,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
