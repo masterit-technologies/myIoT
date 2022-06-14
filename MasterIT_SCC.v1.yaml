@@ -8449,6 +8449,19 @@ paths:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -35544,6 +35557,18 @@ components:
           type: object
           description: |
             JSON objekt pro dalsi parametry jednotlivych aplikaci...u konkretnich API bude vysvětleno
+        OpenData:
+          type: boolean
+          description: Generuje otevřená data
+        OpenDataUrl:
+          type: string
+          description: URL otevřených dat
+        FundedSensor:
+          type: boolean
+          description: Je senzor dotovaný
+        IsDefaultFavorite:
+          type: boolean
+          description: 'Příznak, zda ma být nově registrovanému uživateli tento senzor automaticky nasdílen'
       required:
         - DevID
     Position:
