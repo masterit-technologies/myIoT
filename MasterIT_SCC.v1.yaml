@@ -7,7 +7,7 @@ info:
   license:
     name: MasterIT technologies a.s.
 servers:
-  - url: 'https://devproxy.masterit.cz'
+  - url: 'https://devproxy.masterit.cz/'
     description: develop
 paths:
   /api/app/mob/myiot/device/public:
@@ -8192,6 +8192,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
