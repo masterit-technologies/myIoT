@@ -7701,7 +7701,7 @@ paths:
           in: query
           name: locale
     parameters: []
-  /api/app/mob/myiot/infoChannel/interestGroups/anonymous:
+  /api/interestGroups/anonymous:
     get:
       summary: GetMyIoTInfoChannelInterestGroupsAnon
       tags:
@@ -8453,6 +8453,7 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
 
 
 
