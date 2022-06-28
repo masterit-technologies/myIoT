@@ -7729,65 +7729,139 @@ paths:
                         rights:
                           role: customer
                           groupID: _default
-                          deviceList:
-                            - SCC.IOT.MASTERCUST-6D6F534E31FFAA01
-                            - SCC.IOT.MASTERCUST-3939353459385D02
-                            - SCC.IOT.MASTERCUST-03000000100000F6
-                            - SCC.IOT.MASTERCUST-IO20191016AAWR240695220
-                        authGuid: superguid
+                          deviceList: []
+                        authGuid: null
                         infoChannels:
-                          primary: masterit
+                          primary: myiot_cz70305587_info
                           secondary:
-                            - obecChotebuz
-                            - obecNavsi
-                            - obecPisek
+                            - masterit
                             - obecReka
-                            - obecVelkaPolom
-                          interestGroups:
-                            - myIoT-myiot_masterit-developers-cf4d9
+                          interestGroups: []
+                          secondaryInterestGroups:
+                            masterit:
+                              - myIoT-myiot_masterit-developers-cf4d9
+                              - myIoT-myiot_masterit-technicians-52faa
+                            obecReka:
+                              - myIoT-myiot_reka-test2-68211
                       gender: null
                       mobile: '775964575'
                       userID: 186
                       lastName: Michal Smolka
                       appUserID: -1
                       firstName: null
+                      lastLogin: '2022-06-28 11:41:03.920898+02'
+                      isicNumber: null
+                      lastLogout: '2022-05-31 15:46:58.082164+02'
                       profession: null
                       pushTokens:
                         - type: android
-                          token: pushtoken
-                          deviceID: a9e5e3f95b60b31f
-                          timestamp: '2021-02-25T10:40'
+                          token: 'eNpHB2LYRmqogBhxy3o_2w:APA91bF1gB29bky3l0rK9HISXYNJDlhsGe5BIBZwEAvWdpgp2UXoWvXDTlztyIjCcIFd-8fdfmUqav7V6z54mGbWKHH5prvxheGoyeMLCMXXHU9xQvgWTOWgEEFNxB6Ekm0cX9oJEgoP'
+                          deviceID: eNpHB2LYRmqogBhxy3o_2w
+                          timestamp: '2022-06-27T15:11'
                       defaultLang: cs
                       sendInvoice: null
                       transportID: null
                       mobilePrefix: '420'
+                      refreshToken: 301b5205-a933-45df-a306-d5d0bb636bcf7c9cb29a-90f4-4aa0-8b64-9e0fd2b4f3cdeedd8d7d-5dcd-4d2d-9c51-12b30af7a1c46e523bff-8fca-4dc5-8b3e-7e6fbc6cee62
+                      refreshTokens:
+                        - token: f26df512-405b-4447-b778-79bc33cd4a181586e2eb-f667-4bf0-923e-07939aed4505d4aaa1d0-7c49-41b6-ba10-a6d09f6005da74037f5f-4476-4986-a092-d2808023b911
+                          timestamp: '2022-01-28T10:30:18'
+                          installationID: default
+                        - token: e0c36150-af9a-4404-864c-61dd74fe69d8189b3cdb-a99a-4f6b-bf38-909efc2dc1da8dde5c98-6769-45ff-be5e-4fe7e7e7cdec0fbad698-e381-4af8-b4d0-115b1bfac1f9
+                          timestamp: '2022-06-27T15:11:30'
+                          installationID: eNpHB2LYRmqogBhxy3o_2w
+                      confirmedDocuments:
+                        termsOfUsing:
+                          version: '7'
+                          filePath: 'https://scc.chytrejsiobec.cz/Content/Files/Sencito/myiot_cz70305587/7_termsOfUsing_Sencito-podmínky pro obce_registrace_1.htm'
+                        privacyPolicy:
+                          version: '1'
+                          filePath: 'https://www.sencito.cz/files/sencito-zasady-zpracovani-osobnich-udaju-mobilni-aplikace.pdf'
                       allowSystemNotifications: true
                       userType: 1
-                      tokenID: tokeid
+                      tokenID: a494a0f7-29f7-49b0-8e78-a1c7cf00fbea
                       userLogin: michal.smolka@masterit.cz
                       userApp: myIoT
                       extraPermissions:
                         myiot_masterit:
                           sms:
-                            permitted: false
+                            permitted: true
                             deviceList: []
                           config:
-                            fullName: Michal Smolka Služební
+                            fullName: Michal Smolka
+                          devices:
+                            grouping: []
                           groupID: myiot_masterit
                           infoChannel:
                             interestGroups:
+                              - id: myIoT-myiot_masterit-michal-c50ee
+                                moderator: false
+                                name: Michal
+                                public: false
                               - id: myIoT-myiot_masterit-developers-cf4d9
-                                moderator: true
+                                moderator: false
                                 name: Developers
                                 public: true
                               - id: myIoT-myiot_masterit-technicians-52faa
-                                moderator: true
+                                moderator: false
                                 name: Technicians
                                 public: true
+                          applications: []
+                        myiot_reka:
+                          sms:
+                            permitted: false
+                            deviceList: []
+                          config:
+                            fullName: Michal Smolka MasterIT technik
+                          devices:
+                            grouping:
+                              - devID: SCC.IOT.REKAOWN-GRPD213T1628181180
+                                creating: true
+                          groupID: myiot_reka
+                          infoChannel:
+                            interestGroups:
+                              - id: myIoT-myiot_reka-test2-68211
+                                moderator: false
+                                name: Kulturní akce v obci
+                                public: true
+                          applications:
+                            - mpvis
+                            - consumption
+                        myiot_00282481:
+                          sms:
+                            deviceList: []
+                          config:
+                            fullName: Michal Smolka MasterIT technik
+                          devices:
+                            grouping:
+                              - devID: SCC.IOT.00282481OWN-GRPD713T1629809015551
+                                creating: true
+                          groupID: myiot_00282481
+                          infoChannel:
+                            interestGroups: []
+                          applications: []
+                        myiot_frydekmistek:
+                          config:
+                            fullName: Michal Smolka
+                          groupID: myiot_frydekmistek
+                          infoChannel:
+                            interestGroups: []
+                        myiot_cz70305587:
+                          sms:
+                            permitted: false
+                            deviceList: []
+                          config:
+                            fullName: Michal Smolka
+                          groupID: myiot_cz70305587
+                          infoChannel:
+                            interestGroups: []
       operationId: get-api-user
       description: |-
         API vrátí uživatele podle tokenu ve stejném formátu jako po loginu
         [Api returns user object by auth token in exactly same format like after succesfull login]
+
+        secondaryInterestGroups - asociativní pole zájmových skupin odebíraných ze sekundárních info kanálů
+        klíčem je id info kanálu a hodnotou je pole zájmových skupin
       parameters:
         - schema:
             type: string
@@ -8118,6 +8192,8 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
 
 
 
