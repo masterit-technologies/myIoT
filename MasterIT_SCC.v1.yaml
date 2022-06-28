@@ -7,7 +7,7 @@ info:
   license:
     name: MasterIT technologies a.s.
 servers:
-  - url: 'https://devproxy.masterit.cz/'
+  - url: 'https://devproxy.masterit.cz'
     description: develop
 paths:
   /api/app/mob/myiot/device/public:
@@ -991,7 +991,7 @@ paths:
           in: header
           name: Content-Type
           required: true
-  api/customer/register:
+  /api/customer/register:
     post:
       summary: Create Account Request
       operationId: post-customer-register
@@ -1507,7 +1507,7 @@ paths:
         [API refuse users sharing]
       tags:
         - application-myIoT
-  api/customer/confirm/send:
+  /api/customer/confirm/send:
     get:
       summary: Resend email verification Request
       operationId: get-customer-confirm-send
@@ -7650,7 +7650,7 @@ paths:
       description: Metoda vrátí seznam skupin přihlášeného uživatele pro aplikaci myIoT
       security:
         - Bearer token: []
-  api/infoChannel/interestGroups/public:
+  /api/infoChannel/interestGroups/public:
     get:
       summary: GetInterestGroupsPublic
       tags:
@@ -7700,7 +7700,8 @@ paths:
             default: cs
           in: query
           name: locale
-  api/user:
+    parameters: []
+  /api/user:
     get:
       summary: GetUser
       tags:
@@ -7868,7 +7869,8 @@ paths:
             default: cs
           in: query
           name: locale
-  api/app/mob/myiot/infoChannel:
+    parameters: []
+  /api/app/mob/myiot/infoChannel:
     get:
       summary: GetMyIoTInfoChannel
       tags:
@@ -7936,7 +7938,8 @@ paths:
             type: string
           in: query
           name: name
-  api/app/mob/myiot/documents:
+    parameters: []
+  /api/app/mob/myiot/documents:
     get:
       summary: GetMyIoTDocuments
       tags:
@@ -8192,6 +8195,15 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35225,7 +35237,7 @@ paths:
         - Bearer token: []
       tags:
         - application-myIoT
-  api/customer/update:
+  /api/customer/update:
     post:
       summary: UpdateCustomer Request (Set info-channel)
       operationId: post-customer-update
@@ -35262,6 +35274,10 @@ paths:
                         secondary:
                           - dpo
                           - mitt
+                        secondaryInterestGroups:
+                          mitt:
+                            - id_zajmove_skupiny1
+                            - id_zajmove_skupiny2
                       confirmedDocuments:
                         termsOfUsing:
                           version: '52'
@@ -35283,6 +35299,14 @@ paths:
                               - id: myIoT-myiot_masterit-technicians-52faa
                                 moderator: true
                                 name: Technicians
+                                public: true
+                              - id: id_zajmove_skupiny1
+                                moderator: false
+                                name: nazev1
+                                public: true
+                              - id: id_zajmove_skupiny2
+                                moderator: false
+                                name: nazev2
                                 public: true
         '401':
           description: Unauthorized
@@ -35330,6 +35354,10 @@ paths:
                       secondary:
                         - dpo
                         - mitt
+                      secondaryInterestGroups:
+                        mitt:
+                          - id_zajmove_skupiny1
+                          - id_zajmove_skupiny2
                   confirmedDocuments:
                     termsOfUsing:
                       version: '52'
