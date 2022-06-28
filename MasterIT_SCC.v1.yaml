@@ -7701,6 +7701,264 @@ paths:
           in: query
           name: locale
     parameters: []
+  /api/app/mob/myiot/infoChannel/interestGroups/anonymous:
+    get:
+      summary: GetMyIoTInfoChannelInterestGroupsAnon
+      tags:
+        - application-myIoT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResult'
+              examples:
+                OK:
+                  value:
+                    status: ok
+                    err_msg: ''
+                    err_code: 0
+                    data:
+                      masterit:
+                        - data:
+                            userID: 188
+                            category: news
+                          name: asdsad
+                          type: usr
+                          cisID: 103
+                          recID: 56905
+                          sccID: 1
+                          itemID: myIoT-myiot_masterit-asdsad-db41a
+                          public: true
+                          groupID: myiot_masterit
+                          description: ''
+                          created: '2022-03-02T12:33:50'
+                          createdBy: 188
+                          changed: ''
+                          changedBy: null
+                          channelID: masterit
+                        - data:
+                            userID: 188
+                            category: news
+                          name: Asymbo
+                          type: usr
+                          cisID: 103
+                          recID: 56653
+                          sccID: 1
+                          itemID: myIoT-myiot_masterit-asymbo-51335
+                          public: true
+                          groupID: myiot_masterit
+                          description: Pro vývojáře Asymbo.
+                          created: '2021-11-08T15:31:35'
+                          createdBy: 188
+                          changed: '2022-03-02T12:33:50'
+                          changedBy: 188
+                          channelID: masterit
+                        - data:
+                            userID: 188
+                            category: news
+                          name: Borci
+                          type: usr
+                          cisID: 103
+                          recID: 42021
+                          sccID: 1
+                          itemID: myIoT-myiot_masterit-borci-3b57d
+                          public: true
+                          groupID: myiot_masterit
+                          description: ''
+                          created: '2021-02-19T17:59:34'
+                          createdBy: 188
+                          changed: '2022-03-02T12:33:50'
+                          changedBy: 188
+                          channelID: masterit
+                        - data:
+                            userID: 188
+                            category: news
+                          name: Developers
+                          type: usr
+                          cisID: 103
+                          recID: 41916
+                          sccID: 1
+                          itemID: myIoT-myiot_masterit-developers-cf4d9
+                          public: true
+                          groupID: myiot_masterit
+                          description: Programátoři
+                          created: '2021-02-10T12:44:12'
+                          createdBy: 188
+                          changed: '2022-03-02T12:33:50'
+                          changedBy: 188
+                          channelID: masterit
+                        - data:
+                            userID: 188
+                            category: news
+                          name: Technicians
+                          type: usr
+                          cisID: 103
+                          recID: 42008
+                          sccID: 1
+                          itemID: myIoT-myiot_masterit-technicians-52faa
+                          public: true
+                          groupID: myiot_masterit
+                          description: Technici
+                          created: '2021-02-17T15:45:51'
+                          createdBy: 188
+                          changed: '2022-03-02T12:33:50'
+                          changedBy: 188
+                          channelID: masterit
+                        - data:
+                            userID: 188
+                            category: news
+                          name: Ženy
+                          type: usr
+                          cisID: 103
+                          recID: 42269
+                          sccID: 1
+                          itemID: myIoT-myiot_masterit-zeny-2aa97
+                          public: true
+                          groupID: myiot_masterit
+                          description: ''
+                          created: '2021-03-02T13:49:16'
+                          createdBy: 188
+                          changed: '2022-03-02T12:33:50'
+                          changedBy: 188
+                          channelID: masterit
+                      obecReka:
+                        - data:
+                            userID: 184
+                            category: news
+                          name: Dobrovolní hasiči
+                          type: usr
+                          cisID: 103
+                          recID: 42004
+                          sccID: 1
+                          itemID: myIoT-myiot_reka-dobrovolni hasici-b221f
+                          public: true
+                          groupID: myiot_reka
+                          description: ''
+                          created: '2021-02-16T12:03:21'
+                          createdBy: 184
+                          changed: '2021-11-03T13:05:46'
+                          changedBy: 184
+                          channelID: obecReka
+                        - data:
+                            userID: 184
+                            category: news
+                          name: 'Dolní vodovodní řád '
+                          type: usr
+                          cisID: 103
+                          recID: 51664
+                          sccID: 1
+                          itemID: myIoT-myiot_reka-dolni vodovodni rad -14983
+                          public: true
+                          groupID: myiot_reka
+                          description: Vodovodní řád od dolního vodojemu po kamenolomy .
+                          created: '2021-05-25T11:30:08'
+                          createdBy: 184
+                          changed: '2021-11-03T13:05:46'
+                          changedBy: 184
+                          channelID: obecReka
+                        - data:
+                            userID: 184
+                            category: news
+                          name: 'Horní vodovodní řád '
+                          type: usr
+                          cisID: 103
+                          recID: 50020
+                          sccID: 1
+                          itemID: myIoT-myiot_reka-test-bcb72
+                          public: true
+                          groupID: myiot_reka
+                          description: Vodovodní řád z konečné po obecní úřad (Hybše).
+                          created: '2021-04-13T19:07:54'
+                          createdBy: 184
+                          changed: '2021-11-03T13:05:46'
+                          changedBy: 184
+                          channelID: obecReka
+                        - data:
+                            userID: 184
+                            category: news
+                          name: Kulturní akce v obci
+                          type: usr
+                          cisID: 103
+                          recID: 50021
+                          sccID: 1
+                          itemID: myIoT-myiot_reka-test2-68211
+                          public: true
+                          groupID: myiot_reka
+                          description: ''
+                          created: '2021-04-13T19:09:29'
+                          createdBy: 184
+                          changed: '2021-11-03T13:05:46'
+                          changedBy: 184
+                          channelID: obecReka
+                        - data:
+                            userID: 184
+                            category: news
+                          name: 'MS Smilovice - Řeka '
+                          type: usr
+                          cisID: 103
+                          recID: 56488
+                          sccID: 1
+                          itemID: myIoT-myiot_reka-ms smilovice - reka -33b7a
+                          public: true
+                          groupID: myiot_reka
+                          description: ''
+                          created: '2021-08-31T14:08:15'
+                          createdBy: 184
+                          changed: '2021-11-03T13:05:46'
+                          changedBy: 184
+                          channelID: obecReka
+                        - data:
+                            userID: 184
+                            category: news
+                          name: Pejskaři
+                          type: usr
+                          cisID: 103
+                          recID: 42003
+                          sccID: 1
+                          itemID: myIoT-myiot_reka-pejskari-24cc5
+                          public: true
+                          groupID: myiot_reka
+                          description: ''
+                          created: '2021-02-15T20:20:20'
+                          createdBy: 184
+                          changed: '2021-11-03T13:05:46'
+                          changedBy: 184
+                          channelID: obecReka
+                        - data:
+                            userID: 184
+                            category: news
+                          name: Všichni občané
+                          type: usr
+                          cisID: 103
+                          recID: 54138
+                          sccID: 1
+                          itemID: myIoT-myiot_reka-vsichni obcane-a1a60
+                          public: true
+                          groupID: myiot_reka
+                          description: ''
+                          created: '2021-07-14T09:06:43'
+                          createdBy: 184
+                          changed: '2021-11-03T13:05:46'
+                          changedBy: 184
+                          channelID: obecReka
+      operationId: get-api-app-mob-myiot-infoChannel-interestGroups-anonymous
+      description: |-
+        API vrátí veřejné zájmové skupiny pro vybrané infokanály
+        [Api returns public interest group list for entered info channels]
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: channels
+          description: ids of channels comma separated
+        - schema:
+            type: string
+            default: cs
+          in: query
+          name: locale
+    parameters: []
   /api/user:
     get:
       summary: GetUser
@@ -8195,6 +8453,15 @@ paths:
           name: deleteRelations
           description: 'Typ relace (master, slave, both)'
       description: |2-
+
+
+
+
+
+
+
+
+
 
 
 
