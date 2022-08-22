@@ -8819,6 +8819,17 @@ paths:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
          Metoda smaže sdílení zařízení s uživatelem.
          
          [API deletes sharing with user]
@@ -35830,6 +35841,59 @@ paths:
           in: header
           name: Content-Type
           required: true
+  /api/customer/delete:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-customer-delete
+    post:
+      summary: ''
+      operationId: post-api-customer-delete
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  err_msg:
+                    type: string
+                  err_code:
+                    type: integer
+                  data:
+                    type: 'null'
+                x-examples:
+                  example-1:
+                    status: string
+                    err_msg: string
+                    err_code: 0
+                    data: null
+      description: 'Vymaže autorizovaného customera z databáze, customer vymaže sám sebe, používá se pro zrušení účtu customerem. Uživatelská oprávnění: customer'
+      security:
+        - Bearer token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                example-1:
+                  password: string
+              properties:
+                password:
+                  type: string
+                  description: heslo uživatele pro potvrzení smazání účtu
+              required:
+                - password
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: locale
 components:
   schemas:
     APIResult:
